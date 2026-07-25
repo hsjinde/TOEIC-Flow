@@ -13,6 +13,11 @@ interface VocabFlashcardProps {
 export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({ item, onGrade }) => {
   const [isFlipped, setIsFlipped] = useState(false)
 
+  // Always reset card to English front side when switching to a new item
+  React.useEffect(() => {
+    setIsFlipped(false)
+  }, [item.id])
+
   const playSpeech = useCallback((e: React.MouseEvent) => {
     e.stopPropagation()
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
