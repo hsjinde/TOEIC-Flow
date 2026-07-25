@@ -6,10 +6,11 @@ import { parseFormulas } from './parse-formulas'
 import { parseAnswers, type AnswerEntry } from './parse-answers'
 import { parseReading } from './parse-reading'
 import { parseMockExam } from './parse-mock'
+import { parseChapter } from './parse-chapter'
 import { mergeQuestions, mergeGroupedQuestions, type Issue } from './merge'
 import { chapterIdFromPath } from './id'
 import { formatReport, hasBlockingIssues, type BuildStats } from './report'
-import type { Question, VocabItem, Formula, ReadingPassage, MockExam } from './types'
+import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } from './types'
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
 const OUT_DIR = join(process.cwd(), 'content')
@@ -44,22 +45,23 @@ function readAnswers(path: string, label: string, issues: Issue[]): AnswerEntry[
 
 function main(): void {
   const issues: Issue[] = []
+  const chapterList: Chapter[] = []
   const grammar: Question[] = []
   const vocab: VocabItem[] = []
   const formulas: Formula[] = []
   const reading: ReadingPassage[] = []
   const mockExams: MockExam[] = []
-  let chapters = 0
 
   // --- grammar chapters ---
   const grammarDir = join(NOTES_DIR, '文法')
   for (const category of subDirs(grammarDir)) {
     for (const file of mdFiles(join(grammarDir, category))) {
-      chapters += 1
       const notePath = join(grammarDir, category, file)
       const chapterId = chapterIdFromPath(relative(NOTES_DIR, notePath))
       const md = readFileSync(notePath, 'utf8')
 
+      const order = Number(/^(\d+)/.exec(file)?.[1] ?? 0)
+      chapterList.push(parseChapter(md, chapterId, category, order))
       vocab.push(...parseVocab(md, chapterId))
       formulas.push(...parseFormulas(md, chapterId))
 
@@ -112,7 +114,7 @@ function main(): void {
   }
 
   const stats: BuildStats = {
-    chapters,
+    chapters: chapterList.length,
     grammar: grammar.length,
     vocab: vocab.length,
     formulas: formulas.length,
@@ -136,6 +138,7 @@ function main(): void {
   const write = (name: string, data: unknown) =>
     writeFileSync(join(OUT_DIR, name), `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 
+  write('chapters.json', chapterList)
   write('grammar.json', grammar)
   write('vocab.json', vocab)
   write('formulas.json', formulas)
