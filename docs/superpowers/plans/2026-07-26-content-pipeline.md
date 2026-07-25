@@ -79,7 +79,7 @@ D:\toeic-web\
 **Interfaces:**
 - Produces: `pnpm test` 可執行；`scripts/build-content/` 下的 TS 檔可被 Vitest import
 
-- [ ] **Step 1: 建立 package.json**
+- [x] **Step 1: 建立 package.json**
 
 ```json
 {
@@ -102,7 +102,7 @@ D:\toeic-web\
 }
 ```
 
-- [ ] **Step 2: 建立 tsconfig.json**
+- [x] **Step 2: 建立 tsconfig.json**
 
 ```json
 {
@@ -121,7 +121,7 @@ D:\toeic-web\
 }
 ```
 
-- [ ] **Step 3: 建立 vitest.config.ts**
+- [x] **Step 3: 建立 vitest.config.ts**
 
 ```ts
 import { defineConfig } from 'vitest/config'
@@ -134,7 +134,7 @@ export default defineConfig({
 })
 ```
 
-- [ ] **Step 4: 建立 .gitignore**
+- [x] **Step 4: 建立 .gitignore**
 
 ```
 node_modules/
@@ -147,7 +147,7 @@ node_modules/
 
 注意：`content/` **不要**加入 .gitignore，產出的 JSON 要進版控。
 
-- [ ] **Step 5: 寫一個確認環境可用的測試**
+- [x] **Step 5: 寫一個確認環境可用的測試**
 
 `tests/setup.test.ts`：
 
@@ -162,7 +162,7 @@ describe('test environment', () => {
 })
 ```
 
-- [ ] **Step 6: 安裝並執行測試**
+- [x] **Step 6: 安裝並執行測試**
 
 ```bash
 pnpm install && pnpm test
@@ -170,7 +170,7 @@ pnpm install && pnpm test
 
 預期：1 passed。
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add package.json tsconfig.json vitest.config.ts .gitignore tests/setup.test.ts
@@ -188,7 +188,7 @@ git commit -m "chore: init typescript project with vitest"
 **Interfaces:**
 - Produces: 型別 `Question`, `Blank`, `VocabItem`, `Formula`, `Explanation`, `ReadingPassage`, `MockExam`, `ContentBundle`；zod schema `QuestionSchema`, `ContentBundleSchema`
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/types.test.ts`：
 
@@ -271,7 +271,7 @@ describe('QuestionSchema', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/types.test.ts
@@ -279,7 +279,7 @@ pnpm vitest run tests/types.test.ts
 
 預期：FAIL，`Cannot find module '../scripts/build-content/types'`。
 
-- [ ] **Step 3: 實作 types.ts**
+- [x] **Step 3: 實作 types.ts**
 
 ```ts
 import { z } from 'zod'
@@ -381,7 +381,7 @@ export type ContentBundle = z.infer<typeof ContentBundleSchema>
 
 註：`ExplanationSchemaLazy()` 只是為了讓 `explanation` 在 parse 階段可為 `null`（詳解尚未合併），合併後由 `merge.ts` 保證非 null。
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/types.test.ts
@@ -389,7 +389,7 @@ pnpm vitest run tests/types.test.ts
 
 預期：3 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/types.ts tests/types.test.ts
@@ -408,7 +408,7 @@ git commit -m "feat: add content schema types"
 - Consumes: 無
 - Produces: `chapterIdFromPath(relPath: string): string`、`questionId(chapterId: string, number: number): string`、`vocabId(chapterId: string, word: string): string`、`formulaId(chapterId: string, number: number): string`
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/id.test.ts`：
 
@@ -462,7 +462,7 @@ describe('formulaId', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/id.test.ts
@@ -470,7 +470,7 @@ pnpm vitest run tests/id.test.ts
 
 預期：FAIL，找不到模組。
 
-- [ ] **Step 3: 實作 id.ts**
+- [x] **Step 3: 實作 id.ts**
 
 ```ts
 const ROOT_PREFIX: Record<string, string> = {
@@ -507,7 +507,7 @@ export function vocabId(chapterId: string, word: string): string {
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/id.test.ts
@@ -515,7 +515,7 @@ pnpm vitest run tests/id.test.ts
 
 預期：7 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/id.ts tests/id.test.ts
@@ -533,7 +533,7 @@ git commit -m "feat: add stable content id generation"
 **Interfaces:**
 - Produces: `splitSections(md: string): Section[]`，`Section = { heading: string; level: number; body: string }`；`findSection(sections: Section[], headingIncludes: string): Section | null`
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/markdown.test.ts`：
 
@@ -587,7 +587,7 @@ describe('findSection', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/markdown.test.ts
@@ -595,7 +595,7 @@ pnpm vitest run tests/markdown.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 markdown.ts**
+- [x] **Step 3: 實作 markdown.ts**
 
 ```ts
 export interface Section {
@@ -631,7 +631,7 @@ export function findSection(sections: Section[], headingIncludes: string): Secti
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/markdown.test.ts
@@ -639,7 +639,7 @@ pnpm vitest run tests/markdown.test.ts
 
 預期：5 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/markdown.ts tests/markdown.test.ts
@@ -661,7 +661,7 @@ git commit -m "feat: add markdown section splitter"
 實際格式：`*   **information** 名詞 資訊（不可數） | Please review the *information* carefully.`
 子標題（`### 名詞字尾相關`）要略過，不能當成單字。
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-vocab.test.ts`：
 
@@ -719,7 +719,7 @@ describe('parseVocab', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-vocab.test.ts
@@ -727,7 +727,7 @@ pnpm vitest run tests/parse-vocab.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-vocab.ts**
+- [x] **Step 3: 實作 parse-vocab.ts**
 
 ```ts
 import type { VocabItem } from './types'
@@ -765,7 +765,7 @@ export function parseVocab(md: string, chapterId: string): VocabItem[] {
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-vocab.test.ts
@@ -773,7 +773,7 @@ pnpm vitest run tests/parse-vocab.test.ts
 
 預期：6 passed。
 
-- [ ] **Step 5: 對真實筆記做一次抽樣驗證**
+- [x] **Step 5: 對真實筆記做一次抽樣驗證**
 
 建立 `tests/parse-vocab.real.test.ts`：
 
@@ -797,7 +797,7 @@ describe('parseVocab against a real note', () => {
 
 執行 `pnpm vitest run tests/parse-vocab.real.test.ts`。若實際數量不是 13，改成實際值並確認每一筆都合理——**不要為了讓測試通過而放寬 parser**。
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/build-content/parse-vocab.ts tests/parse-vocab.test.ts tests/parse-vocab.real.test.ts
@@ -818,7 +818,7 @@ git commit -m "feat: parse vocabulary entries from grammar notes"
 
 實際格式：`1.  **可數 vs. 不可數名詞陷阱**：\`information\` 不可數…`（編號清單，標題粗體後接全形冒號）
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-formulas.test.ts`：
 
@@ -864,7 +864,7 @@ describe('parseFormulas', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-formulas.test.ts
@@ -872,7 +872,7 @@ pnpm vitest run tests/parse-formulas.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-formulas.ts**
+- [x] **Step 3: 實作 parse-formulas.ts**
 
 ```ts
 import type { Formula } from './types'
@@ -917,7 +917,7 @@ export function parseFormulas(md: string, chapterId: string): Formula[] {
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-formulas.test.ts
@@ -925,7 +925,7 @@ pnpm vitest run tests/parse-formulas.test.ts
 
 預期：5 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/parse-formulas.ts tests/parse-formulas.test.ts
@@ -957,7 +957,7 @@ git commit -m "feat: parse shortcut formula entries"
 第二空：(A) communicate (B) communication (C) communicative (D) communicator
 ```
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-questions.test.ts`：
 
@@ -1044,7 +1044,7 @@ describe('parseQuestions', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-questions.test.ts
@@ -1052,7 +1052,7 @@ pnpm vitest run tests/parse-questions.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-questions.ts**
+- [x] **Step 3: 實作 parse-questions.ts**
 
 ```ts
 import type { Option, OptionKey, Question, Blank } from './types'
@@ -1137,7 +1137,7 @@ export function parseQuestions(md: string, chapterId: string, categoryId: string
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-questions.test.ts
@@ -1145,7 +1145,7 @@ pnpm vitest run tests/parse-questions.test.ts
 
 預期：11 passed。
 
-- [ ] **Step 5: 對全部 29 章做真實驗證**
+- [x] **Step 5: 對全部 29 章做真實驗證**
 
 `tests/parse-questions.real.test.ts`：
 
@@ -1193,7 +1193,7 @@ describe('parseQuestions against every real chapter', () => {
 
 執行後如有章節不是 5 題，**先看該章原始 markdown 找出格式差異，修正 parser 或修正筆記**，不要調降期望值。這一步的目的就是把格式異常全部逼出來。
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/build-content/parse-questions.ts tests/parse-questions.test.ts tests/parse-questions.real.test.ts
@@ -1222,7 +1222,7 @@ git commit -m "feat: parse grammar practice questions with multi-blank support"
 | 中文標籤 | `**答案**: 第一空 C 第二空 B` | 7 |
 | **答案在下一行** | `**答案**:`⏎`(1) B`⏎`(2) A` | 4 |
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-answers.test.ts`：
 
@@ -1320,7 +1320,7 @@ describe('parseAnswers', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-answers.test.ts
@@ -1328,7 +1328,7 @@ pnpm vitest run tests/parse-answers.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-answers.ts**
+- [x] **Step 3: 實作 parse-answers.ts**
 
 ```ts
 import type { Explanation, OptionKey } from './types'
@@ -1400,7 +1400,7 @@ export function parseAnswers(md: string): AnswerEntry[] {
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-answers.test.ts
@@ -1408,7 +1408,7 @@ pnpm vitest run tests/parse-answers.test.ts
 
 預期：14 passed。
 
-- [ ] **Step 5: 對全部詳解檔做真實驗證**
+- [x] **Step 5: 對全部詳解檔做真實驗證**
 
 `tests/parse-answers.real.test.ts`：
 
@@ -1443,7 +1443,7 @@ describe('parseAnswers against every real explanation file', () => {
 
 執行 `pnpm vitest run tests/parse-answers.real.test.ts`。任何解不出答案的項目都要逐一檢查原始 markdown 並修正 parser。
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/build-content/parse-answers.ts tests/parse-answers.test.ts tests/parse-answers.real.test.ts
@@ -1469,7 +1469,7 @@ git commit -m "feat: parse explanation files with five answer formats"
 4. 詳解存在但沒有對應題目 → warn
 5. `analysis` 為空 → warn
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/merge.test.ts`：
 
@@ -1564,7 +1564,7 @@ describe('mergeQuestions', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/merge.test.ts
@@ -1572,7 +1572,7 @@ pnpm vitest run tests/merge.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 merge.ts**
+- [x] **Step 3: 實作 merge.ts**
 
 ```ts
 import type { Question } from './types'
@@ -1665,7 +1665,7 @@ export function mergeQuestions(
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/merge.test.ts
@@ -1673,7 +1673,7 @@ pnpm vitest run tests/merge.test.ts
 
 預期：7 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/merge.ts tests/merge.test.ts
@@ -1696,7 +1696,7 @@ git commit -m "feat: merge questions with explanations and validate"
 
 閱讀檔結構與文法章節不同：`## 短文一：公司內部公告` 底下接本文，再接 `### 題目 N`（選項各自獨立成行）。`## 📝 答題策略` 區塊要略過。
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-reading.test.ts`：
 
@@ -1765,7 +1765,7 @@ describe('parseReading', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-reading.test.ts
@@ -1773,7 +1773,7 @@ pnpm vitest run tests/parse-reading.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-reading.ts**
+- [x] **Step 3: 實作 parse-reading.ts**
 
 ```ts
 import type { Option, OptionKey, ReadingPassage } from './types'
@@ -1843,7 +1843,7 @@ export function parseReading(
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-reading.test.ts
@@ -1851,7 +1851,7 @@ pnpm vitest run tests/parse-reading.test.ts
 
 預期：6 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/parse-reading.ts tests/parse-reading.test.ts
@@ -1873,7 +1873,7 @@ git commit -m "feat: parse reading comprehension passages"
 
 模擬考題目標題同為 `### 題目 N`，但題號連續到 31 以上，且題幹在標題下方、選項可能同行或分行——兩種都要支援。
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/parse-mock.test.ts`：
 
@@ -1925,7 +1925,7 @@ describe('parseMockExam', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-mock.test.ts
@@ -1933,7 +1933,7 @@ pnpm vitest run tests/parse-mock.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 parse-mock.ts**
+- [x] **Step 3: 實作 parse-mock.ts**
 
 ```ts
 import type { MockExam, Option, OptionKey } from './types'
@@ -1998,7 +1998,7 @@ export function parseMockExam(md: string, chapterId: string, title: string): Par
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-mock.test.ts
@@ -2006,7 +2006,7 @@ pnpm vitest run tests/parse-mock.test.ts
 
 預期：5 passed。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/build-content/parse-mock.ts tests/parse-mock.test.ts
@@ -2025,7 +2025,7 @@ git commit -m "feat: parse mock exam papers"
 - Consumes: 全部前述 parser 與 `mergeQuestions`
 - Produces: `pnpm build:content` 指令；`content/*.json`；`formatReport(stats: BuildStats, issues: Issue[]): string`
 
-- [ ] **Step 1: 寫失敗的測試**
+- [x] **Step 1: 寫失敗的測試**
 
 `tests/report.test.ts`：
 
@@ -2063,7 +2063,7 @@ describe('hasBlockingIssues', () => {
 })
 ```
 
-- [ ] **Step 2: 執行測試確認失敗**
+- [x] **Step 2: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/report.test.ts
@@ -2071,7 +2071,7 @@ pnpm vitest run tests/report.test.ts
 
 預期：FAIL。
 
-- [ ] **Step 3: 實作 report.ts**
+- [x] **Step 3: 實作 report.ts**
 
 ```ts
 import type { Issue } from './merge'
@@ -2121,7 +2121,7 @@ export function formatReport(stats: BuildStats, issues: Issue[]): string {
 }
 ```
 
-- [ ] **Step 4: 執行測試確認通過**
+- [x] **Step 4: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/report.test.ts
@@ -2129,7 +2129,7 @@ pnpm vitest run tests/report.test.ts
 
 預期：4 passed。
 
-- [ ] **Step 5: 實作 index.ts**
+- [x] **Step 5: 實作 index.ts**
 
 ```ts
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
@@ -2270,7 +2270,7 @@ function main(): void {
 main()
 ```
 
-- [ ] **Step 6: 執行真實 build**
+- [x] **Step 6: 執行真實 build**
 
 ```bash
 pnpm build:content
@@ -2280,7 +2280,7 @@ pnpm build:content
 
 **若 build 失敗（很可能第一次會失敗），這是預期行為** — 逐條看錯誤訊息，判斷是 parser 太嚴還是筆記格式真的有問題，修正後重跑，直到 0 error。警告可以留著，但要看過一遍確認可接受。
 
-- [ ] **Step 7: 執行完整測試**
+- [x] **Step 7: 執行完整測試**
 
 ```bash
 pnpm test
@@ -2288,7 +2288,7 @@ pnpm test
 
 預期：全部 passed。
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add scripts/build-content/report.ts scripts/build-content/index.ts tests/report.test.ts content/
@@ -2312,7 +2312,7 @@ git commit -m "feat: add content build cli with validation report"
 ＝整份筆記**扣掉**補充秒殺公式、相關單字和片語、練習題三個區塊後剩下的內容。另有一個獨立欄位
 `quickTips` 存原有的「📝 多益秒殺解題技巧」（29 章中 27 章標題一致，2 章為變異寫法，需用子字串比對）。
 
-- [ ] **Step 1: 在 types.ts 新增 ChapterSchema**
+- [x] **Step 1: 在 types.ts 新增 ChapterSchema**
 
 接在 `FormulaSchema` 之後加入：
 
@@ -2333,7 +2333,7 @@ export type Chapter = z.infer<typeof ChapterSchema>
 
 並在 `ContentBundleSchema` 中加入 `chapters: z.array(ChapterSchema),`。
 
-- [ ] **Step 2: 寫失敗的測試**
+- [x] **Step 2: 寫失敗的測試**
 
 `tests/parse-chapter.test.ts`：
 
@@ -2400,7 +2400,7 @@ describe('parseChapter', () => {
 })
 ```
 
-- [ ] **Step 3: 執行測試確認失敗**
+- [x] **Step 3: 執行測試確認失敗**
 
 ```bash
 pnpm vitest run tests/parse-chapter.test.ts
@@ -2408,7 +2408,7 @@ pnpm vitest run tests/parse-chapter.test.ts
 
 預期：FAIL，找不到模組。
 
-- [ ] **Step 4: 實作 parse-chapter.ts**
+- [x] **Step 4: 實作 parse-chapter.ts**
 
 ```ts
 import type { Chapter } from './types'
@@ -2446,7 +2446,7 @@ export function parseChapter(md: string, chapterId: string, categoryId: string, 
 }
 ```
 
-- [ ] **Step 5: 執行測試確認通過**
+- [x] **Step 5: 執行測試確認通過**
 
 ```bash
 pnpm vitest run tests/parse-chapter.test.ts
@@ -2454,7 +2454,7 @@ pnpm vitest run tests/parse-chapter.test.ts
 
 預期：6 passed。
 
-- [ ] **Step 6: 接進 index.ts**
+- [x] **Step 6: 接進 index.ts**
 
 在 import 區加入：
 
@@ -2484,7 +2484,7 @@ const chapterList: Chapter[] = []
 
 並在 `BuildStats`（`report.ts`）沿用既有的 `chapters` 欄位——它已經是章節數，改為 `chapters: chapterList.length` 即可。
 
-- [ ] **Step 7: 重跑 build 與完整測試**
+- [x] **Step 7: 重跑 build 與完整測試**
 
 ```bash
 pnpm build:content && pnpm test
@@ -2492,7 +2492,7 @@ pnpm build:content && pnpm test
 
 預期：`章節：29`，產出 6 個 JSON（含 `chapters.json`），測試全過。
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add scripts/build-content/parse-chapter.ts scripts/build-content/types.ts scripts/build-content/index.ts tests/parse-chapter.test.ts content/
@@ -2503,13 +2503,13 @@ git commit -m "feat: parse chapter teaching content and metadata"
 
 ## 完成後的驗收標準
 
-- [ ] `pnpm test` 全數通過
-- [ ] `pnpm build:content` 以 0 error 結束，產出 6 個 JSON
-- [ ] `content/grammar.json` 有 145 題，每題 `blanks[].answer` 都在該 blank 的 `options` 內
-- [ ] `content/vocab.json` 有 314 筆
-- [ ] `content/chapters.json` 有 29 筆，每筆 `teaching` 非空且不含練習題／單字區塊
-- [ ] 隨機抽 3 題人工比對原始筆記，題幹、選項、答案、詳解四者都正確
-- [ ] 把 `content/` 全數刪除後重跑 build，產出的 JSON 與刪除前逐字節相同（證明 ID 與排序穩定）
+- [x] `pnpm test` 全數通過
+- [x] `pnpm build:content` 以 0 error 結束，產出 6 個 JSON
+- [x] `content/grammar.json` 有 145 題，每題 `blanks[].answer` 都在該 blank 的 `options` 內
+- [x] `content/vocab.json` 有 314 筆
+- [x] `content/chapters.json` 有 29 筆，每筆 `teaching` 非空且不含練習題／單字區塊
+- [x] 隨機抽 3 題人工比對原始筆記，題幹、選項、答案、詳解四者都正確
+- [x] 把 `content/` 全數刪除後重跑 build，產出的 JSON 與刪除前逐字節相同（證明 ID 與排序穩定）
 
 ---
 
