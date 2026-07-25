@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/modernist-b3e81867-7631-4b22-8057-f85b87a8445e/styles.css">
+<script src="_ds/modernist-b3e81867-7631-4b22-8057-f85b87a8445e/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#0F1115; --sf:#171A21; --sf2:#1E222B; --tx:#E8EAF0; --mu:#9AA1AE; --fa:#6B7280;
+  --ln:rgba(232,234,240,.13); --ln2:rgba(232,234,240,.26);
+  --pr:#60A5FA; --pr-tx:#0F1115; --pr-sf:rgba(96,165,250,.14); --pr-ln:rgba(96,165,250,.42);
+  --ok:#34D399; --ok-sf:rgba(52,211,153,.13); --bad:#F87171; --bad-sf:rgba(248,113,113,.13);
+  --r:10px; --rs:8px; --rl:14px;
+  --f-ui:"Noto Sans TC","Archivo",system-ui,sans-serif;
+  --f-en:"Archivo",system-ui,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#F3F2F2; --sf:#FFFFFF; --sf2:#EAE9E9; --tx:#201E1D; --mu:#5F6570; --fa:#8A8F98;
+  --ln:rgba(32,30,29,.13); --ln2:rgba(32,30,29,.3);
+  --pr:#1E3A8A; --pr-tx:#FFFFFF; --pr-sf:#E7EBF6; --pr-ln:rgba(30,58,138,.32);
+  --ok:#047857; --ok-sf:#E4F4EE; --bad:#B91C1C; --bad-sf:#FBEAEA;
+}
+body{margin:0;background:#0a0b0e;font-family:var(--f-ui);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0}
+a{color:var(--pr);text-decoration:none}a:hover{color:var(--pr);opacity:.75}
+@keyframes pop{0%{transform:scale(.97)}60%{transform:scale(1.012)}100%{transform:scale(1)}}
+@keyframes exp{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes shim{0%{opacity:.5}50%{opacity:.9}100%{opacity:.5}}
+.sk{background:var(--sf2);border-radius:6px;animation:shim 1.4s ease-in-out infinite}
+.fr{width:375px;flex:none;height:788px;border-radius:26px;overflow:hidden;border:1px solid var(--ln2);background:var(--bg);color:var(--tx);display:flex;flex-direction:column;position:relative}
+.fr *{box-sizing:border-box}
+.cap{font:500 11.5px/1.4 var(--f-ui);color:#8C93A0;max-width:375px}
+.dcap{font:500 11.5px/1.4 var(--f-ui);color:#8C93A0}
+.grp{font:700 12px/1 var(--f-ui);letter-spacing:.16em;color:#5C636E;text-transform:uppercase}
+.row{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+.item{display:flex;flex-direction:column;gap:9px}
+.tab{display:flex;border-top:1px solid var(--ln);background:var(--sf);padding:9px 0 13px;margin-top:auto}
+.tab>div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font:500 10.5px var(--f-ui);color:var(--fa)}
+.en{font-family:var(--f-en);letter-spacing:-.005em}
+.kb{font:500 10px var(--f-en);color:var(--fa);border:1px solid var(--ln);border-radius:4px;padding:1px 5px}
+</style></helmet>
+
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--bg);padding:26px 30px 60px;display:flex;flex-direction:column;gap:34px">
+
+<div style="display:flex;align-items:flex-end;gap:22px;border-bottom:2px solid var(--ln2);padding-bottom:14px;flex-wrap:wrap">
+  <div>
+    <h1 style="font:700 26px/1.15 var(--f-ui);color:var(--tx)">多益每日練習 · 高擬真設計稿</h1>
+    <div style="font:400 13px/1.5 var(--f-ui);color:var(--mu);margin-top:6px">首頁採 <span style="color:var(--pr)">1a</span> 進度環版型 · 答題採 <span style="color:var(--pr)">1d</span> 就地展開詳解　|　手機 375px 為主稿，桌機 1280px 出首頁／統計／閱讀</div>
+  </div>
+  <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+    <span style="font:500 11px var(--f-ui);color:var(--fa)">主題</span>
+    <div onClick="{{ toggleTheme }}" style="display:flex;border:1px solid var(--ln2);border-radius:var(--r);overflow:hidden;cursor:pointer">
+      <div style="padding:7px 13px;font:600 12px var(--f-ui);background:{{ lightBg }};color:{{ lightFg }}">淺色</div>
+      <div style="padding:7px 13px;font:600 12px var(--f-ui);background:{{ darkBg }};color:{{ darkFg }}">深色</div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">01 · 今日任務（首頁）</div>
+<div class="row">
+
+  <div class="item"><div class="cap">進行中 1/3 — 打開 App 的第一眼。進度環是唯一的視覺焦點，未完成的任務有主色邊框，已完成降對比。</div>
+  <div class="fr">
+    <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:20px;overflow:hidden">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div><div style="font:700 19px/1.2 var(--f-ui)">今天</div><div style="font:400 12.5px var(--f-ui);color:var(--mu);margin-top:3px">7 月 26 日 · 星期日</div></div>
+        <div style="display:flex;align-items:center;gap:7px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:6px 11px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg>
+          <span style="font:700 13px var(--f-en);color:var(--pr)">12</span><span style="font:500 11px var(--f-ui);color:var(--pr)">天</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:8px 0 4px">
+        <div style="position:relative;width:168px;height:168px">
+          <svg width="168" height="168" viewBox="0 0 168 168" style="transform:rotate(-90deg)">
+            <circle cx="84" cy="84" r="74" fill="none" stroke="var(--sf2)" stroke-width="11"/>
+            <circle cx="84" cy="84" r="74" fill="none" stroke="var(--pr)" stroke-width="11" stroke-linecap="round" stroke-dasharray="155 465" style="transition:stroke-dasharray .3s ease"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+            <div style="font:400 40px/1 var(--f-en);letter-spacing:-.02em">1<span style="color:var(--fa)">/3</span></div>
+            <div style="font:500 11.5px var(--f-ui);color:var(--mu)">今日任務完成</div>
+          </div>
+        </div>
+        <div style="font:400 12.5px var(--f-ui);color:var(--mu)">再 11 分鐘就完成今天</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;align-items:center;gap:13px;opacity:.55">
+          <div style="width:38px;height:38px;border-radius:var(--rs);background:var(--sf2);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="1.8" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <div style="flex:1"><div style="font:500 15px var(--f-ui)">單字複習</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:2px">10 個 · 約 4 分鐘</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <span style="font:500 10.5px var(--f-ui);color:var(--fa)">重做</span>
+          </div>
+        </div>
+        <div style="border:1.5px solid var(--pr-ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;align-items:center;gap:13px">
+          <div style="width:38px;height:38px;border-radius:var(--rs);background:var(--pr-sf);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <div style="flex:1"><div style="font:500 15px var(--f-ui)">文法練習</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:2px">5 題 · 約 6 分鐘 · 動狀詞</div></div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;align-items:center;gap:13px">
+          <div style="width:38px;height:38px;border-radius:var(--rs);background:var(--sf2);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div style="flex:1"><div style="font:500 15px var(--f-ui)">閱讀理解</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:2px">1 篇 · 約 5 分鐘</div></div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:14px;display:flex;align-items:center;gap:10px">
+        <div style="flex:1"><div style="font:500 13.5px var(--f-ui)">錯題本</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:2px">8 題待複習 · 連續答對 2 次即畢業</div></div>
+        <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:7px 12px;font:600 12px var(--f-ui);color:var(--tx)">開始複習</div>
+      </div>
+    </div>
+    <div class="tab">
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">全部完成 3/3 — 安靜的完成感：環閉合、勾號、一行結語。不放彩帶、不放大型動畫，只留一個低調的加練入口。</div>
+  <div class="fr">
+    <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div><div style="font:700 19px/1.2 var(--f-ui)">今天</div><div style="font:400 12.5px var(--f-ui);color:var(--mu);margin-top:3px">7 月 26 日 · 星期日</div></div>
+        <div style="display:flex;align-items:center;gap:7px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:6px 11px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg>
+          <span style="font:700 13px var(--f-en);color:var(--pr)">13</span><span style="font:500 11px var(--f-ui);color:var(--pr)">天</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:8px 0 2px">
+        <div style="position:relative;width:168px;height:168px">
+          <svg width="168" height="168" viewBox="0 0 168 168" style="transform:rotate(-90deg)"><circle cx="84" cy="84" r="74" fill="none" stroke="var(--sf2)" stroke-width="11"/><circle cx="84" cy="84" r="74" fill="none" stroke="var(--pr)" stroke-width="11" stroke-linecap="round" stroke-dasharray="465 465"/></svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div style="font:500 12px var(--f-ui);color:var(--mu)">3/3 已完成</div>
+          </div>
+        </div>
+        <div style="text-align:center"><div style="font:700 17px var(--f-ui)">今天的 15 分鐘做完了</div><div style="font:400 12.5px var(--f-ui);color:var(--mu);margin-top:5px">連續第 13 天 · 明天 7:30 提醒你</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:11px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:12px 14px;opacity:.6"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="flex:1;font:500 14px var(--f-ui)">單字複習</span><span style="font:400 11.5px var(--f-ui);color:var(--mu)">10/10 · 4 分</span></div>
+        <div style="display:flex;align-items:center;gap:11px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:12px 14px;opacity:.6"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="flex:1;font:500 14px var(--f-ui)">文法練習</span><span style="font:400 11.5px var(--f-ui);color:var(--mu)">4/5 對 · 6 分</span></div>
+        <div style="display:flex;align-items:center;gap:11px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:12px 14px;opacity:.6"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="flex:1;font:500 14px var(--f-ui)">閱讀理解</span><span style="font:400 11.5px var(--f-ui);color:var(--mu)">3/3 對 · 5 分</span></div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:14px;display:flex;flex-direction:column;gap:10px">
+        <div style="font:500 12px var(--f-ui);color:var(--mu)">還想練？</div>
+        <div style="display:flex;gap:9px">
+          <div style="flex:1;border:1px solid var(--ln2);border-radius:var(--rs);padding:11px 13px;font:600 12.5px var(--f-ui)">錯題本 · 8 題</div>
+          <div style="flex:1;border:1px solid var(--ln2);border-radius:var(--rs);padding:11px 13px;font:600 12.5px var(--f-ui)">弱項加練 · 動狀詞</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab">
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">離線提示條 + 骨架屏載入 — 提示條不佔用主要空間、不使用語意色；載入用骨架而非轉圈。</div>
+  <div class="fr">
+    <div style="background:var(--sf2);border-bottom:1px solid var(--ln);padding:8px 20px;display:flex;align-items:center;gap:8px">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M12 20h.01"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 12.9a9 9 0 0 1 14 0"/><path d="m2 2 20 20"/></svg>
+      <span style="font:400 11.5px var(--f-ui);color:var(--mu)">離線中 · 今日題目已下載，進度稍後同步</span>
+    </div>
+    <div style="padding:20px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;flex-direction:column;gap:7px"><div class="sk" style="width:64px;height:19px"></div><div class="sk" style="width:104px;height:12px"></div></div><div class="sk" style="width:72px;height:32px;border-radius:var(--r)"></div></div>
+      <div style="display:flex;justify-content:center;padding:8px 0"><div class="sk" style="width:168px;height:168px;border-radius:50%"></div></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="sk" style="height:66px;border-radius:var(--r)"></div>
+        <div class="sk" style="height:66px;border-radius:var(--r)"></div>
+        <div class="sk" style="height:66px;border-radius:var(--r)"></div>
+      </div>
+      <div class="sk" style="height:44px;border-radius:var(--r)"></div>
+    </div>
+    <div class="tab">
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">02 · 文法答題頁　<span style="color:var(--pr);letter-spacing:.04em;text-transform:none">可實際操作：點選項判定 → 答對自動跳題 / 答錯釘住並展開詳解</span></div>
+<div class="row">
+
+  <div class="item"><div class="cap">互動原型 — 桌機可用 <span class="en">1/2/3/4</span> 選答、<span class="en">空白鍵</span> 下一題。答對 600ms 自動切換，也可手動點。</div>
+  <div class="fr" style="border-color:var(--pr-ln)">
+    <div style="padding:16px 18px 12px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:11px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">動狀詞 · 不定詞</div>
+        <div style="font:500 12.5px var(--f-en);color:var(--mu)">{{ qNum }} / 5</div>
+      </div>
+      <div style="display:flex;gap:4px">
+        <sc-for list="{{ cells }}" as="c" hint-placeholder-count="5"><div style="flex:1;height:3px;border-radius:2px;background:{{ c.bg }}"></div></sc-for>
+      </div>
+    </div>
+    <div style="padding:26px 20px 18px;flex:1;display:flex;flex-direction:column;overflow-y:auto">
+      <div class="en" style="font:400 21px/1.85 var(--f-en);color:var(--tx)">{{ qPre }}<span style="border-bottom:2px solid var(--pr);padding:0 24px">　</span>{{ qPost }}</div>
+      <sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);overflow:hidden;animation:exp .24s ease both">
+          <div onClick="{{ toggleExpl }}" style="padding:13px 15px;display:flex;align-items:center;gap:9px;cursor:pointer">
+            <span style="font:700 13px var(--f-ui);color:{{ verdictColor }}">{{ verdictText }}</span>
+            <span style="flex:1;font:400 12px var(--f-ui);color:var(--mu)">詳解</span>
+            <span style="font:500 11px var(--f-ui);color:var(--fa)">{{ explToggleLabel }}</span>
+          </div>
+          <sc-if value="{{ showExpl }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 15px 15px;display:flex;flex-direction:column;gap:13px">
+              <div style="border-top:1px solid var(--ln);padding-top:13px;display:flex;flex-direction:column;gap:9px">
+                <div style="display:flex;gap:9px"><span style="font:600 12px var(--f-en);color:var(--ok);flex:none;width:52px">正解 {{ ansLetter }}</span><span style="font:400 13px/1.7 var(--f-ui);color:var(--tx)">{{ explMain }}</span></div>
+                <sc-for list="{{ explWrong }}" as="w" hint-placeholder-count="3">
+                  <div style="display:flex;gap:9px"><span style="font:600 12px var(--f-en);color:var(--fa);flex:none;width:52px">{{ w.letter }}</span><span style="font:400 12.5px/1.7 var(--f-ui);color:var(--mu)">{{ w.text }}</span></div>
+                </sc-for>
+              </div>
+              <div style="border-top:1px solid var(--ln);padding-top:13px;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:9px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--rs);padding:10px 12px">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  <span style="flex:1;font:500 12.5px var(--f-ui);color:var(--pr)">相關文法點：{{ explPoint }}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+                <div style="font:400 12px/1.65 var(--f-ui);color:var(--mu)">相似題型提醒：{{ explSimilar }}</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+    <div style="padding:0 18px 18px;display:flex;flex-direction:column;gap:9px">
+      <div style="font:400 10.5px var(--f-ui);color:var(--fa);display:flex;justify-content:space-between"><span>{{ hintText }}</span><span>已作答 {{ doneCount }} · 正確 {{ okCount }}</span></div>
+      <sc-for list="{{ options }}" as="o" hint-placeholder-count="4">
+        <div onClick="{{ o.pick }}" style="border:{{ o.bw }} solid {{ o.bd }};background:{{ o.bg }};border-radius:var(--r);padding:15px 15px;display:flex;align-items:center;gap:11px;cursor:pointer;animation:{{ o.anim }}">
+          <span style="font:500 13px var(--f-en);color:{{ o.lc }};flex:none">({{ o.letter }})</span>
+          <span class="en" style="flex:1;font:400 17px var(--f-en);color:{{ o.tc }}">{{ o.text }}</span>
+          <span style="font:600 11px var(--f-ui);color:{{ o.markColor }}">{{ o.mark }}</span>
+          <span class="kb">{{ o.key }}</span>
+        </div>
+      </sc-for>
+      <div onClick="{{ onNext }}" style="margin-top:2px;border-radius:var(--r);background:{{ nextBg }};color:{{ nextFg }};border:1px solid {{ nextBd }};padding:16px 18px;display:flex;align-items:center;cursor:pointer">
+        <span style="font:700 16px var(--f-ui)">{{ nextLabel }}</span>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span style="margin-left:auto;font:500 10px var(--f-en);opacity:.6">SPACE</span>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">答對 — 選項轉綠、極簡勾號，200ms 內結束。不放大型慶祝動畫；600ms 後自動進下一題。</div>
+  <div class="fr">
+    <div style="padding:16px 18px 12px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:11px">
+      <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">動狀詞 · 不定詞</div><div style="font:500 12.5px var(--f-en);color:var(--mu)">3 / 5</div></div>
+      <div style="display:flex;gap:4px"><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div></div>
+    </div>
+    <div style="padding:26px 20px 18px;flex:1">
+      <div class="en" style="font:400 21px/1.85 var(--f-en)">The manager asked the team <span style="border-bottom:2px solid var(--ok);padding:0 6px;color:var(--ok)">to submit</span> the report before Friday.</div>
+      <div style="margin-top:20px;display:flex;align-items:center;gap:9px;border:1px solid var(--ok);background:var(--ok-sf);border-radius:var(--r);padding:12px 14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span style="flex:1;font:700 13.5px var(--f-ui);color:var(--ok)">答對</span>
+        <span style="font:400 11.5px var(--f-ui);color:var(--ok)">0.6 秒後下一題</span>
+      </div>
+    </div>
+    <div style="padding:0 18px 18px;display:flex;flex-direction:column;gap:9px">
+      <div style="font:400 10.5px var(--f-ui);color:var(--fa);display:flex;justify-content:space-between"><span>已判定</span><span>已作答 3 · 正確 3</span></div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">submitting</span></div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(B)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">submitted</span></div>
+      <div style="border:2px solid var(--ok);background:var(--ok-sf);border-radius:var(--r);padding:14px 15px;display:flex;align-items:center;gap:11px;animation:pop .22s ease"><span style="font:500 13px var(--f-en);color:var(--ok)">(C)</span><span class="en" style="flex:1;font:400 17px var(--f-en);color:var(--ok)">to submit</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">submits</span></div>
+      <div style="margin-top:2px;border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:16px 18px;display:flex;align-items:center"><span style="font:700 16px var(--f-ui)">下一題</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span style="margin-left:auto;font:500 10px var(--f-en);opacity:.65">SPACE</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">詳解收合狀態 — 答錯後使用者可收起分析只留結論，題幹與選項回到主視覺。</div>
+  <div class="fr">
+    <div style="padding:16px 18px 12px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:11px">
+      <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">動狀詞 · 不定詞</div><div style="font:500 12.5px var(--f-en);color:var(--mu)">3 / 5</div></div>
+      <div style="display:flex;gap:4px"><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div></div>
+    </div>
+    <div style="padding:26px 20px 18px;flex:1">
+      <div class="en" style="font:400 21px/1.85 var(--f-en)">The manager asked the team <span style="border-bottom:2px solid var(--ok);padding:0 6px;color:var(--ok)">to submit</span> the report before Friday.</div>
+      <div style="margin-top:20px;border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:13px 15px;display:flex;align-items:center;gap:9px">
+        <span style="font:700 13px var(--f-ui);color:var(--bad)">答錯</span>
+        <span style="flex:1;font:400 12px var(--f-ui);color:var(--mu)">詳解 · ask sb. to V</span>
+        <span style="font:500 11px var(--f-ui);color:var(--fa)">展開 ⌄</span>
+      </div>
+      <div style="margin-top:12px;display:flex;align-items:center;gap:8px;font:400 11.5px var(--f-ui);color:var(--mu)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>已加入錯題本 · 連續答對 2 次畢業 ○○</span>
+      </div>
+    </div>
+    <div style="padding:0 18px 18px;display:flex;flex-direction:column;gap:9px">
+      <div style="font:400 10.5px var(--f-ui);color:var(--fa);display:flex;justify-content:space-between"><span>已判定</span><span>已作答 3 · 正確 2</span></div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">submitting</span></div>
+      <div style="border:2px solid var(--bad);background:var(--bad-sf);border-radius:var(--r);padding:14px 15px;display:flex;align-items:center;gap:11px"><span style="font:500 13px var(--f-en);color:var(--bad)">(B)</span><span class="en" style="flex:1;font:400 17px var(--f-en);color:var(--bad)">submitted</span><span style="font:600 11px var(--f-ui);color:var(--bad)">你的答案</span></div>
+      <div style="border:2px solid var(--ok);background:var(--ok-sf);border-radius:var(--r);padding:14px 15px;display:flex;align-items:center;gap:11px"><span style="font:500 13px var(--f-en);color:var(--ok)">(C)</span><span class="en" style="flex:1;font:400 17px var(--f-en);color:var(--ok)">to submit</span><span style="font:600 11px var(--f-ui);color:var(--ok)">正解</span></div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">submits</span></div>
+      <div style="margin-top:2px;border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:16px 18px;display:flex;align-items:center"><span style="font:700 16px var(--f-ui)">下一題</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span style="margin-left:auto;font:500 10px var(--f-en);opacity:.65">SPACE</span></div>
+    </div>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">03 · 單字卡　<span style="color:var(--pr);letter-spacing:.04em;text-transform:none">可切換兩種模式 · 可翻卡</span></div>
+<div class="row">
+
+  <div class="item"><div class="cap">翻卡自測（互動）— 點卡片翻面，翻面後自評三檔供 SRS 排程。朗讀鍵 44px 觸控範圍。</div>
+  <div class="fr" style="border-color:var(--pr-ln)">
+    <div style="padding:16px 18px 12px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">單字複習</div><div style="font:500 12.5px var(--f-en);color:var(--mu)">4 / 10</div></div>
+      <div style="display:flex;border:1px solid var(--ln2);border-radius:var(--rs);overflow:hidden">
+        <div onClick="{{ setFlipMode }}" style="flex:1;text-align:center;padding:8px;font:600 12px var(--f-ui);background:{{ flipTabBg }};color:{{ flipTabFg }};cursor:pointer">翻卡自測</div>
+        <div onClick="{{ setQuizMode }}" style="flex:1;text-align:center;padding:8px;font:600 12px var(--f-ui);background:{{ quizTabBg }};color:{{ quizTabFg }};cursor:pointer">四選一測驗</div>
+      </div>
+    </div>
+    <sc-if value="{{ isFlipMode }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:20px 18px 18px">
+        <div onClick="{{ flip }}" style="flex:1;border:1px solid var(--ln);background:var(--sf);border-radius:var(--rl);padding:24px;display:flex;flex-direction:column;cursor:pointer">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="font:500 11px var(--f-ui);color:var(--fa)">{{ cardSideLabel }}</span>
+            <div style="width:44px;height:44px;margin:-11px -11px 0 0;display:flex;align-items:center;justify-content:center;border:1px solid var(--ln);border-radius:var(--rs)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px">
+            <div class="en" style="font:400 38px/1.15 var(--f-en);letter-spacing:-.02em">itinerary</div>
+            <div style="display:flex;gap:9px;align-items:baseline"><span class="en" style="font:400 13px var(--f-en);color:var(--mu)">/aɪˈtɪnəreri/</span><span style="border:1px solid var(--ln2);border-radius:5px;padding:2px 7px;font:500 10.5px var(--f-ui);color:var(--mu)">名詞</span></div>
+            <sc-if value="{{ flipped }}" hint-placeholder-val="{{ false }}">
+              <div style="border-top:1px solid var(--ln);margin-top:12px;padding-top:16px;display:flex;flex-direction:column;gap:14px;animation:exp .22s ease both">
+                <div style="font:500 21px/1.5 var(--f-ui)">旅程表、行程</div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div class="en" style="font:400 15px/1.7 var(--f-en);color:var(--tx)">Please review the <span style="color:var(--pr)">itinerary</span> before the trip.</div>
+                  <div style="font:400 13px/1.7 var(--f-ui);color:var(--mu)">出發前請先看過行程表。</div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+          <div style="font:400 11.5px var(--f-ui);color:var(--fa)">{{ cardHint }}</div>
+        </div>
+        <sc-if value="{{ flipped }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;animation:exp .2s ease both">
+            <div style="font:400 11px var(--f-ui);color:var(--fa)">記得程度會決定下次出現時間</div>
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;border:1px solid var(--ln2);border-radius:var(--r);padding:13px 10px;text-align:center"><div style="font:600 13.5px var(--f-ui)">不會</div><div style="font:400 10.5px var(--f-ui);color:var(--fa);margin-top:3px">10 分鐘後</div></div>
+              <div style="flex:1;border:1px solid var(--ln2);border-radius:var(--r);padding:13px 10px;text-align:center"><div style="font:600 13.5px var(--f-ui)">有點難</div><div style="font:400 10.5px var(--f-ui);color:var(--fa);margin-top:3px">明天</div></div>
+              <div style="flex:1;border:1.5px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:13px 10px;text-align:center"><div style="font:600 13.5px var(--f-ui);color:var(--pr)">記得</div><div style="font:400 10.5px var(--f-ui);color:var(--pr);margin-top:3px">4 天後</div></div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isQuizMode }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:22px 18px 18px">
+        <div style="font:500 11.5px var(--f-ui);color:var(--fa)">英 → 中</div>
+        <div style="margin-top:16px;display:flex;align-items:center;gap:12px">
+          <div class="en" style="font:400 34px/1.2 var(--f-en);letter-spacing:-.02em">itinerary</div>
+          <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ln);border-radius:var(--rs)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></div>
+        </div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+          <div style="font:400 10.5px var(--f-ui);color:var(--fa)">選出正確的中文釋義</div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;font:500 16px var(--f-ui)">行程表</div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;font:500 16px var(--f-ui)">庫存清單</div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;font:500 16px var(--f-ui)">保固期限</div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;font:500 16px var(--f-ui)">會議記錄</div>
+          <div style="display:flex;justify-content:space-between;font:400 10.5px var(--f-ui);color:var(--fa);padding-top:2px"><span>三種題型輪替：英→中 · 中→英 · 例句填空</span><span>熟悉度 ●●○○</span></div>
+        </div>
+      </div>
+    </sc-if>
+  </div></div>
+
+  <div class="item"><div class="cap">四選一測驗 · 例句填空題型 — 答對即自動更新熟悉度，不打斷節奏。</div>
+  <div class="fr">
+    <div style="padding:16px 18px 12px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">單字複習</div><div style="font:500 12.5px var(--f-en);color:var(--mu)">7 / 10</div></div>
+      <div style="display:flex;border:1px solid var(--ln2);border-radius:var(--rs);overflow:hidden">
+        <div style="flex:1;text-align:center;padding:8px;font:600 12px var(--f-ui);color:var(--mu)">翻卡自測</div>
+        <div style="flex:1;text-align:center;padding:8px;font:600 12px var(--f-ui);background:var(--pr);color:var(--pr-tx)">四選一測驗</div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;padding:22px 18px 18px">
+      <div style="font:500 11.5px var(--f-ui);color:var(--fa)">例句填空</div>
+      <div class="en" style="margin-top:16px;font:400 19px/1.9 var(--f-en)">The travel agent emailed the revised <span style="border-bottom:2px solid var(--pr);padding:0 22px">　</span> to all attendees.</div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="font:400 17px var(--f-en)">inventory</span></div>
+        <div style="border:2px solid var(--ok);background:var(--ok-sf);border-radius:var(--r);padding:14px 15px;display:flex;align-items:center;gap:11px;animation:pop .22s ease"><span style="font:500 13px var(--f-en);color:var(--ok)">(B)</span><span class="en" style="flex:1;font:400 17px var(--f-en);color:var(--ok)">itinerary</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(C)</span><span class="en" style="font:400 17px var(--f-en)">warranty</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px;opacity:.4"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="font:400 17px var(--f-en)">agenda</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:4px">
+          <span style="font:400 11.5px var(--f-ui);color:var(--ok)">熟悉度 ●●●○ → 下次 4 天後</span>
+          <span style="font:400 11px var(--f-ui);color:var(--fa)">0.6 秒後下一張</span>
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">04 · 閱讀理解（手機雙頁籤）　<span style="color:var(--pr);letter-spacing:.04em;text-transform:none">可切換文章／題組</span></div>
+<div class="row">
+
+  <div class="item"><div class="cap">互動 — 頁籤切換讓長文與題目各自擁有整個螢幕；文章內難字點擊出簡明釋義浮層。</div>
+  <div class="fr" style="border-color:var(--pr-ln)">
+    <div style="padding:16px 18px 0;border-bottom:1px solid var(--ln)">
+      <div style="display:flex;align-items:center;gap:12px;padding-bottom:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu);text-align:center">閱讀理解 · 電子郵件</div><div style="font:500 12.5px var(--f-en);color:var(--mu)">1 / 3</div></div>
+      <div style="display:flex;gap:24px">
+        <div onClick="{{ setPassageTab }}" style="padding-bottom:10px;border-bottom:2px solid {{ pTabLn }};font:600 13.5px var(--f-ui);color:{{ pTabFg }};cursor:pointer">文章</div>
+        <div onClick="{{ setQTab }}" style="padding-bottom:10px;border-bottom:2px solid {{ qTabLn }};font:600 13.5px var(--f-ui);color:{{ qTabFg }};cursor:pointer">題組 <span style="font:500 11px var(--f-en)">1/3</span></div>
+      </div>
+    </div>
+    <sc-if value="{{ isPassageTab }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;overflow-y:auto;padding:20px 18px 18px;position:relative">
+        <div class="en" style="font:600 15px var(--f-en);color:var(--mu)">To: All Staff　Subject: Office Relocation</div>
+        <div class="en" style="margin-top:14px;font:400 18px/1.95 var(--f-en);color:var(--tx)">
+          We are pleased to announce that our Taipei office will relocate to the Nanshan Plaza on 15 August. The new site offers larger meeting rooms and a <span style="border-bottom:1.5px dotted var(--pr);color:var(--pr)">consolidated</span> reception area for visitors.<br><br>
+          Staff should pack personal items by 12 August. The facilities team will <span style="border-bottom:2px solid var(--pr);padding:0 18px;position:relative"><span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);font:600 9.5px var(--f-en);color:var(--pr)">1</span>　</span> all boxes and label them by department.<br><br>
+          Parking permits remain valid; however, shuttle service will operate on a <span style="border-bottom:2px solid var(--ln2);padding:0 18px;position:relative"><span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);font:600 9.5px var(--f-en);color:var(--fa)">2</span>　</span> schedule during the first week.
+        </div>
+        <div style="margin-top:18px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:13px 14px;display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;align-items:baseline;gap:8px"><span class="en" style="font:600 15px var(--f-en);color:var(--pr)">consolidated</span><span style="font:500 10.5px var(--f-ui);color:var(--pr)">形容詞</span></div>
+          <div style="font:400 13px/1.6 var(--f-ui);color:var(--tx)">整合過的、合併為一的</div>
+          <div style="font:400 11px var(--f-ui);color:var(--mu)">點擊加入單字本 · 本篇難字 3 個</div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isQTab }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:1;display:flex;flex-direction:column;padding:18px 18px 18px">
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:12px 14px;display:flex;align-items:center;gap:10px">
+          <span style="font:700 12px var(--f-en);color:var(--pr);border:1px solid var(--pr-ln);border-radius:5px;padding:1px 6px">1</span>
+          <span class="en" style="flex:1;font:400 13.5px/1.6 var(--f-en);color:var(--mu)">…facilities team will ___ all boxes…</span>
+          <span style="font:500 11px var(--f-ui);color:var(--pr)">看原文</span>
+        </div>
+        <div style="margin-top:18px;font:400 11.5px var(--f-ui);color:var(--fa)">選出最適合的一項</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transport</span><span class="kb">1</span></div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(B)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transportation</span><span class="kb">2</span></div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(C)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transported</span><span class="kb">3</span></div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transporting</span><span class="kb">4</span></div>
+          <div style="display:flex;gap:6px;justify-content:center;padding-top:6px">
+            <div style="width:22px;height:3px;border-radius:2px;background:var(--pr)"></div><div style="width:22px;height:3px;border-radius:2px;background:var(--sf2)"></div><div style="width:22px;height:3px;border-radius:2px;background:var(--sf2)"></div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">05 · 統計頁 · 06 · 錯題本（含空狀態）</div>
+<div class="row">
+
+  <div class="item"><div class="cap">統計 — 雷達圖看整體形狀，下方弱項卡片解決觸控點過小的問題，點卡片直接開始練。</div>
+  <div class="fr">
+    <div style="padding:18px 18px 14px;border-bottom:1px solid var(--ln);display:flex;align-items:baseline;justify-content:space-between">
+      <div style="font:700 18px var(--f-ui)">統計</div>
+      <div style="font:400 12px var(--f-ui);color:var(--mu)">近 30 天</div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:18px 18px 20px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font:500 12px var(--f-ui);color:var(--mu)">六大文法類別正確率</div>
+        <svg viewBox="-44 -16 328 262" style="width:100%;height:auto">
+          <polygon points="120,14 203,62 203,158 120,206 37,158 37,62" fill="none" stroke="var(--ln)" stroke-width="1"/>
+          <polygon points="120,46.6 174.9,78.3 174.9,141.7 120,173.4 65.1,141.7 65.1,78.3" fill="none" stroke="var(--ln)" stroke-width="1"/>
+          <polygon points="120,78.3 147.4,94.2 147.4,125.8 120,141.7 92.6,125.8 92.6,94.2" fill="none" stroke="var(--ln)" stroke-width="1"/>
+          <line x1="120" y1="110" x2="120" y2="14" stroke="var(--ln)"/><line x1="120" y1="110" x2="203" y2="62" stroke="var(--ln)"/><line x1="120" y1="110" x2="203" y2="158" stroke="var(--ln)"/><line x1="120" y1="110" x2="120" y2="206" stroke="var(--ln)"/><line x1="120" y1="110" x2="37" y2="158" stroke="var(--ln)"/><line x1="120" y1="110" x2="37" y2="62" stroke="var(--ln)"/>
+          <polygon points="120,31 181.5,74.5 163,135 120,173 72,138 83,88" fill="var(--pr)" fill-opacity=".16" stroke="var(--pr)" stroke-width="2"/>
+          <circle cx="120" cy="31" r="3" fill="var(--pr)"/><circle cx="181.5" cy="74.5" r="3" fill="var(--pr)"/><circle cx="163" cy="135" r="3" fill="var(--pr)"/><circle cx="120" cy="173" r="3" fill="var(--pr)"/><circle cx="72" cy="138" r="3.6" fill="var(--bad)"/><circle cx="83" cy="88" r="3.6" fill="var(--bad)"/>
+          <text x="120" y="-1" text-anchor="middle" fill="var(--mu)" style="font:500 11px var(--f-ui)">八大詞性 82%</text>
+          <text x="212" y="58" fill="var(--mu)" style="font:500 11px var(--f-ui)">動詞時態</text><text x="212" y="72" fill="var(--fa)" style="font:400 10px var(--f-en)">74%</text>
+          <text x="212" y="158" fill="var(--mu)" style="font:500 11px var(--f-ui)">動狀詞</text><text x="212" y="172" fill="var(--bad)" style="font:400 10px var(--f-en)">52%</text>
+          <text x="120" y="224" text-anchor="middle" fill="var(--mu)" style="font:500 11px var(--f-ui)">特殊動詞 66%</text>
+          <text x="28" y="158" text-anchor="end" fill="var(--mu)" style="font:500 11px var(--f-ui)">子句假設</text><text x="28" y="172" text-anchor="end" fill="var(--bad)" style="font:400 10px var(--f-en)">58%</text>
+          <text x="28" y="58" text-anchor="end" fill="var(--mu)" style="font:500 11px var(--f-ui)">進階題型</text><text x="28" y="72" text-anchor="end" fill="var(--bad)" style="font:400 10px var(--f-en)">45%</text>
+        </svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="font:500 12px var(--f-ui);color:var(--mu)">最該補的三類</div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:13px 14px;display:flex;align-items:center;gap:12px">
+          <div style="flex:1"><div style="font:500 14px var(--f-ui)">進階題型</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:3px">45% · 錯 11 題 · 3 章</div></div>
+          <div style="width:58px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:45%;height:5px;border-radius:3px;background:var(--bad)"></div></div>
+          <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:7px 11px;font:600 12px var(--f-ui)">練</div>
+        </div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:13px 14px;display:flex;align-items:center;gap:12px">
+          <div style="flex:1"><div style="font:500 14px var(--f-ui)">動狀詞</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:3px">52% · 錯 8 題 · 4 章</div></div>
+          <div style="width:58px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:52%;height:5px;border-radius:3px;background:var(--bad)"></div></div>
+          <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:7px 11px;font:600 12px var(--f-ui)">練</div>
+        </div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:13px 14px;display:flex;align-items:center;gap:12px">
+          <div style="flex:1"><div style="font:500 14px var(--f-ui)">子句與假設語氣</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:3px">58% · 錯 6 題 · 5 章</div></div>
+          <div style="width:58px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:58%;height:5px;border-radius:3px;background:var(--mu)"></div></div>
+          <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:7px 11px;font:600 12px var(--f-ui)">練</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:500 12px var(--f-ui);color:var(--mu)">練習日曆</span><span style="font:400 11px var(--f-ui);color:var(--fa)">7 月 · 練了 19 天</span></div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+          <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35"><div style="aspect-ratio:1;border-radius:5px;background:{{ d.bg }};border:1px solid {{ d.bd }}"></div></sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px">
+          <div style="flex:1;border:1px solid var(--ln);border-radius:var(--r);padding:13px"><div style="font:400 26px/1 var(--f-en)">1,284</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:6px">總答題數</div></div>
+          <div style="flex:1;border:1px solid var(--ln);border-radius:var(--r);padding:13px"><div style="font:400 26px/1 var(--f-en)">71<span style="font-size:15px">%</span></div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:6px">正確率</div></div>
+          <div style="flex:1;border:1px solid var(--ln);border-radius:var(--r);padding:13px"><div style="font:400 26px/1 var(--f-en)">412</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:6px">已掌握單字</div></div>
+        </div>
+        <div style="border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:15px;display:flex;align-items:flex-end;gap:14px">
+          <div><div style="font:400 11.5px var(--f-ui);color:var(--pr)">預估 TOEIC 分數</div><div style="font:400 42px/1 var(--f-en);color:var(--pr);margin-top:6px">705</div><div style="font:400 11px var(--f-ui);color:var(--pr);margin-top:6px">近 30 天 +45</div></div>
+          <svg viewBox="0 0 120 52" style="flex:1;height:52px"><polyline points="4,44 24,40 44,33 64,30 84,20 116,10" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="116" cy="10" r="3" fill="var(--pr)"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="tab">
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">錯題本 — 畢業進度用 ○● 小圓點，錯次與章節一眼可見。</div>
+  <div class="fr">
+    <div style="padding:18px 18px 14px;border-bottom:1px solid var(--ln);display:flex;flex-direction:column;gap:13px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><div style="font:700 18px var(--f-ui)">錯題本</div><div style="font:400 12px var(--f-ui);color:var(--mu)">8 題待複習</div></div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--rs);padding:6px 11px;font:500 11.5px var(--f-ui);color:var(--pr)">全部</div>
+        <div style="border:1px solid var(--ln);border-radius:var(--rs);padding:6px 11px;font:500 11.5px var(--f-ui);color:var(--mu)">動狀詞 4</div>
+        <div style="border:1px solid var(--ln);border-radius:var(--rs);padding:6px 11px;font:500 11.5px var(--f-ui);color:var(--mu)">時態 2</div>
+      </div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:14px 18px;display:flex;flex-direction:column;gap:10px">
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;flex-direction:column;gap:9px">
+        <div class="en" style="font:400 15px/1.6 var(--f-en)">The manager asked the team ___ the report…</div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:400 11.5px var(--f-ui);color:var(--mu);flex:1">動狀詞 · 第 9 章 · 錯 2 次</span><span style="font:400 12px var(--f-en);color:var(--fa);letter-spacing:.2em">●○</span></div>
+      </div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;flex-direction:column;gap:9px">
+        <div class="en" style="font:400 15px/1.6 var(--f-en)">Had he known about the delay, he ___ earlier.</div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:400 11.5px var(--f-ui);color:var(--mu);flex:1">假設語氣 · 第 17 章 · 錯 3 次</span><span style="font:400 12px var(--f-en);color:var(--fa);letter-spacing:.2em">○○</span></div>
+      </div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;flex-direction:column;gap:9px">
+        <div class="en" style="font:400 15px/1.6 var(--f-en)">Neither the CEO nor the directors ___ available.</div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:400 11.5px var(--f-ui);color:var(--mu);flex:1">主動詞一致 · 第 4 章 · 錯 1 次</span><span style="font:400 12px var(--f-en);color:var(--fa);letter-spacing:.2em">●○</span></div>
+      </div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;flex-direction:column;gap:9px">
+        <div class="en" style="font:400 15px/1.6 var(--f-en)">The proposal ___ by the board last Monday.</div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:400 11.5px var(--f-ui);color:var(--mu);flex:1">被動語態 · 第 12 章 · 錯 1 次</span><span style="font:400 12px var(--f-en);color:var(--fa);letter-spacing:.2em">●○</span></div>
+      </div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:14px;display:flex;flex-direction:column;gap:9px;opacity:.5">
+        <div class="en" style="font:400 15px/1.6 var(--f-en)">Only after the audit ___ the errors found.</div>
+        <div style="display:flex;align-items:center;gap:10px"><span style="font:400 11.5px var(--f-ui);color:var(--mu);flex:1">倒裝 · 第 21 章 · 已畢業</span><span style="font:400 12px var(--f-en);color:var(--ok);letter-spacing:.2em">●●</span></div>
+      </div>
+    </div>
+    <div style="padding:14px 18px;border-top:1px solid var(--ln)">
+      <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:15px 17px;display:flex;align-items:center"><span style="font:700 15px var(--f-ui)">全部開始複習</span><span style="margin-left:auto;font:400 12px var(--f-ui);opacity:.75">8 題 · 約 9 分</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">空狀態 — 錯題本清空是好事，所以文案是肯定的；統計無資料時給一條明確的下一步。</div>
+  <div class="fr">
+    <div style="padding:18px 18px 14px;border-bottom:1px solid var(--ln);display:flex;align-items:baseline;justify-content:space-between"><div style="font:700 18px var(--f-ui)">錯題本</div><div style="font:400 12px var(--f-ui);color:var(--mu)">0 題</div></div>
+    <div style="padding:56px 26px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;border-bottom:1px solid var(--ln)">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="m9 10 2 2 4-4"/></svg>
+      <div style="font:700 16px var(--f-ui)">錯題都清完了</div>
+      <div style="font:400 12.5px/1.7 var(--f-ui);color:var(--mu)">答錯的題目會自動收進這裡，連續答對 2 次就畢業。今天先做每日任務吧。</div>
+      <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:10px 15px;font:600 12.5px var(--f-ui)">回到今日任務</div>
+    </div>
+    <div style="padding:18px;display:flex;flex-direction:column;gap:14px">
+      <div style="font:500 12px var(--f-ui);color:var(--mu)">統計 · 無資料</div>
+      <div style="border:1px dashed var(--ln2);border-radius:var(--r);padding:26px 20px;display:flex;flex-direction:column;align-items:center;gap:11px;text-align:center">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+        <div style="font:600 14px var(--f-ui)">再練 10 題就能看到弱項分析</div>
+        <div style="font:400 12px/1.6 var(--f-ui);color:var(--mu)">目前已答 4 題 · 雷達圖需要每類至少 3 題</div>
+        <div style="width:100%;height:5px;border-radius:3px;background:var(--sf2);margin-top:2px"><div style="width:40%;height:5px;border-radius:3px;background:var(--pr)"></div></div>
+      </div>
+    </div>
+    <div class="tab">
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">07 · 章節列表與教學頁 · 08 · 模擬考</div>
+<div class="row">
+
+  <div class="item"><div class="cap">章節列表 — 6 大類 → 23 章兩層結構，每章一條掌握度進度條。</div>
+  <div class="fr">
+    <div style="padding:18px 18px 14px;border-bottom:1px solid var(--ln)">
+      <div style="font:700 18px var(--f-ui)">文法章節</div>
+      <div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:4px">6 大類 · 23 章 · 整體掌握度 68%</div>
+    </div>
+    <div style="flex:1;overflow-y:auto">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px">
+        <span style="font:400 13px var(--f-en);color:var(--fa);width:18px">01</span>
+        <div style="flex:1"><div style="font:500 14.5px var(--f-ui)">八大詞性</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">4 章 · 82%</div></div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+      <div style="padding:14px 18px 6px;border-bottom:1px solid var(--ln);background:var(--sf)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font:400 13px var(--f-en);color:var(--pr);width:18px">02</span>
+          <div style="flex:1"><div style="font:500 14.5px var(--f-ui);color:var(--pr)">動狀詞</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">4 章 · 52% · 本週弱項</div></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </div>
+        <div style="padding:12px 0 6px;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:11px;padding:10px 0 10px 30px;border-top:1px solid var(--ln)">
+            <div style="flex:1"><div style="font:400 13.5px var(--f-ui)">第 9 章 · 不定詞</div></div>
+            <div style="width:52px;height:4px;border-radius:3px;background:var(--sf2)"><div style="width:64%;height:4px;border-radius:3px;background:var(--pr)"></div></div>
+            <span style="font:400 11px var(--f-en);color:var(--mu);width:26px;text-align:right">64%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;padding:10px 0 10px 30px;border-top:1px solid var(--ln)">
+            <div style="flex:1"><div style="font:400 13.5px var(--f-ui)">第 10 章 · 動名詞</div></div>
+            <div style="width:52px;height:4px;border-radius:3px;background:var(--sf2)"><div style="width:48%;height:4px;border-radius:3px;background:var(--pr)"></div></div>
+            <span style="font:400 11px var(--f-en);color:var(--mu);width:26px;text-align:right">48%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;padding:10px 0 10px 30px;border-top:1px solid var(--ln)">
+            <div style="flex:1"><div style="font:400 13.5px var(--f-ui)">第 11 章 · 分詞</div></div>
+            <div style="width:52px;height:4px;border-radius:3px;background:var(--sf2)"><div style="width:41%;height:4px;border-radius:3px;background:var(--pr)"></div></div>
+            <span style="font:400 11px var(--f-en);color:var(--mu);width:26px;text-align:right">41%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;padding:10px 0 10px 30px;border-top:1px solid var(--ln)">
+            <div style="flex:1"><div style="font:400 13.5px var(--f-ui)">第 12 章 · 分詞構句</div></div>
+            <div style="width:52px;height:4px;border-radius:3px;background:var(--sf2)"><div style="width:55%;height:4px;border-radius:3px;background:var(--pr)"></div></div>
+            <span style="font:400 11px var(--f-en);color:var(--mu);width:26px;text-align:right">55%</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px"><span style="font:400 13px var(--f-en);color:var(--fa);width:18px">03</span><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">動詞時態</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">4 章 · 74%</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px"><span style="font:400 13px var(--f-en);color:var(--fa);width:18px">04</span><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">特殊動詞</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">3 章 · 66%</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px"><span style="font:400 13px var(--f-en);color:var(--fa);width:18px">05</span><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">子句與假設語氣</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">5 章 · 58%</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+      <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px"><span style="font:400 13px var(--f-en);color:var(--fa);width:18px">06</span><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">進階題型</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:3px">3 章 · 45%</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fa)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+    </div>
+    <div class="tab">
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="6" width="18" height="16" rx="2"/><path d="M3 12h18"/></svg><span>今日</span></div>
+      <div style="color:var(--pr)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/><path d="M4 4v16"/></svg><span>練習</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg><span>統計</span></div>
+      <div><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>我的</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">教學頁 — markdown 排版階層；「秒殺公式」卡片化＋左側色條，日後可獨立成閃卡。</div>
+  <div class="fr">
+    <div style="padding:14px 18px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:12px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <div style="flex:1;font:500 12.5px var(--f-ui);color:var(--mu)">動狀詞 · 第 9 章</div>
+      <div style="font:400 11.5px var(--f-en);color:var(--pr)">64%</div>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:20px 18px 18px;display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div style="font:400 11px var(--f-ui);color:var(--fa);letter-spacing:.1em">CHAPTER 09</div>
+        <h2 style="font:700 24px/1.25 var(--f-ui);margin-top:8px">不定詞 to V</h2>
+      </div>
+      <div style="font:400 14.5px/1.85 var(--f-ui);color:var(--tx)">不定詞由 <span class="en" style="font-family:var(--f-en);background:var(--sf2);padding:1px 5px;border-radius:4px">to + 原形動詞</span> 組成，可當名詞、形容詞或副詞使用。多益最常考的是「動詞後面該接 to V 還是 V-ing」。</div>
+      <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);border-left:4px solid var(--pr);padding:15px 15px 15px 14px;display:flex;flex-direction:column;gap:11px">
+        <div style="display:flex;align-items:center;gap:8px"><span style="font:700 12.5px var(--f-ui);color:var(--pr)">秒殺公式</span><span style="font:400 10.5px var(--f-ui);color:var(--fa)">可加入閃卡</span></div>
+        <div class="en" style="font:600 16px/1.7 var(--f-en)">ask / tell / advise / remind + O + to V</div>
+        <div style="font:400 12.5px/1.7 var(--f-ui);color:var(--mu)">看到這五個動詞後面有受詞，空格一律填 to V。考題出現率約 4 成。</div>
+      </div>
+      <div>
+        <h3 style="font:700 15px var(--f-ui);margin-bottom:10px">常見動詞分類</h3>
+        <div style="border:1px solid var(--ln);border-radius:var(--rs);overflow:hidden">
+          <div style="display:flex;background:var(--sf2);font:600 11.5px var(--f-ui)"><div style="flex:1;padding:9px 11px">接 to V</div><div style="flex:1;padding:9px 11px;border-left:1px solid var(--ln)">接 V-ing</div></div>
+          <div style="display:flex;border-top:1px solid var(--ln);font:400 13px var(--f-en)"><div style="flex:1;padding:9px 11px">decide, plan</div><div style="flex:1;padding:9px 11px;border-left:1px solid var(--ln)">enjoy, avoid</div></div>
+          <div style="display:flex;border-top:1px solid var(--ln);font:400 13px var(--f-en)"><div style="flex:1;padding:9px 11px">hope, agree</div><div style="flex:1;padding:9px 11px;border-left:1px solid var(--ln)">consider, mind</div></div>
+          <div style="display:flex;border-top:1px solid var(--ln);font:400 13px var(--f-en)"><div style="flex:1;padding:9px 11px">manage, afford</div><div style="flex:1;padding:9px 11px;border-left:1px solid var(--ln)">suggest, finish</div></div>
+        </div>
+      </div>
+      <div style="font:400 14.5px/1.85 var(--f-ui);color:var(--tx)"><span style="border-bottom:2px solid var(--pr-ln)">stop / remember / forget</span> 兩種都能接，但語意不同──這是陷阱題最愛的考點。</div>
+      <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:15px 17px;display:flex;align-items:center;margin-top:2px"><span style="font:700 15px var(--f-ui)">練這章 5 題</span><span style="margin-left:auto;font:400 12px var(--f-ui);opacity:.75">約 6 分</span></div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">模擬考 — 去掉一切裝飾與導航；計時器明顯但不焦慮（最後 5 分鐘才轉為主色細線提示）。</div>
+  <div class="fr">
+    <div style="padding:18px 20px 14px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--ln)">
+      <div style="font:400 22px/1 var(--f-en);letter-spacing:.02em">18:42</div>
+      <div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"><div style="width:38%;height:3px;border-radius:2px;background:var(--mu)"></div></div>
+      <div style="font:500 12.5px var(--f-en);color:var(--mu)">14 / 40</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;padding:34px 22px 20px">
+      <div class="en" style="font:400 22px/1.9 var(--f-en)">All employees must <span style="border-bottom:2px solid var(--ln2);padding:0 24px">　</span> their travel receipts within thirty days.</div>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:16px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="font:400 17px var(--f-en)">submit</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:16px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(B)</span><span class="en" style="font:400 17px var(--f-en)">submits</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:16px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(C)</span><span class="en" style="font:400 17px var(--f-en)">submitting</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:16px;display:flex;gap:11px"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="font:400 17px var(--f-en)">to submit</span></div>
+        <div style="display:flex;justify-content:space-between;font:400 11.5px var(--f-ui);color:var(--fa);padding-top:4px"><span>標記本題</span><span>略過</span><span>題號一覽</span></div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="item"><div class="cap">模擬考結算 — 分數與預估分在最上，類別表現排序後直接連到逐題檢討。</div>
+  <div class="fr">
+    <div style="flex:1;overflow-y:auto;padding:24px 20px 20px;display:flex;flex-direction:column;gap:22px">
+      <div>
+        <div style="font:400 11.5px var(--f-ui);color:var(--fa);letter-spacing:.08em">模擬考 · 7 月 26 日 · 用時 22 分</div>
+        <div style="display:flex;align-items:flex-end;gap:14px;margin-top:12px">
+          <div style="font:400 60px/1 var(--f-en);letter-spacing:-.03em">32<span style="font-size:26px;color:var(--mu)">/40</span></div>
+          <div style="padding-bottom:6px"><div style="font:500 13px var(--f-ui);color:var(--pr)">正確率 80%</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:3px">比上次 +3 題</div></div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:15px;display:flex;align-items:center">
+        <div><div style="font:400 11.5px var(--f-ui);color:var(--pr)">預估 TOEIC 分數</div><div style="font:400 34px/1 var(--f-en);color:var(--pr);margin-top:6px">725</div></div>
+        <div style="margin-left:auto;text-align:right;font:400 11.5px/1.7 var(--f-ui);color:var(--pr)">目標 800<br>差 75 分</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <div style="font:500 12px var(--f-ui);color:var(--mu)">各類別表現</div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">八大詞性</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:90%;height:5px;border-radius:3px;background:var(--pr)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu);width:34px;text-align:right">9/10</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">動詞時態</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:86%;height:5px;border-radius:3px;background:var(--pr)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu);width:34px;text-align:right">6/7</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">特殊動詞</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:80%;height:5px;border-radius:3px;background:var(--pr)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu);width:34px;text-align:right">4/5</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">子句與假設語氣</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:71%;height:5px;border-radius:3px;background:var(--pr)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu);width:34px;text-align:right">5/7</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">動狀詞</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:57%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--bad);width:34px;text-align:right">4/7</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">進階題型</span><div style="width:96px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:50%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--bad);width:34px;text-align:right">2/4</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;margin-top:auto">
+        <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:15px 17px;display:flex;align-items:center"><span style="font:700 15px var(--f-ui)">逐題檢討</span><span style="margin-left:auto;font:400 12px var(--f-ui);opacity:.75">8 題錯誤</span></div>
+        <div style="border:1px solid var(--ln2);border-radius:var(--r);padding:14px 17px;font:600 14px var(--f-ui)">把 8 題加入錯題本</div>
+      </div>
+    </div>
+  </div></div>
+
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">09 · 桌機 1280px · 首頁</div>
+<div class="dcap">左欄任務流程、右欄長期進度。鍵盤提示常駐；主色仍只用於進度、當前狀態與主要動作。</div>
+<div style="width:1280px;height:800px;flex:none;border:1px solid var(--ln2);border-radius:var(--rl);overflow:hidden;background:var(--bg);color:var(--tx);display:flex;flex-direction:column">
+  <div style="padding:0 32px;height:62px;display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--ln)">
+    <div style="font:700 16px var(--f-ui)">每日多益</div>
+    <div style="display:flex;gap:26px;font:500 13.5px var(--f-ui);color:var(--mu)"><span style="color:var(--pr)">今日</span><span>練習</span><span>統計</span><span>錯題本</span><span>模擬考</span></div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+      <span style="font:400 12px var(--f-ui);color:var(--fa)">連續 12 天</span>
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--sf2)"></div>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 380px;overflow:hidden">
+    <div style="padding:34px 36px;display:flex;flex-direction:column;gap:28px;border-right:1px solid var(--ln);overflow-y:auto">
+      <div style="display:flex;align-items:flex-start;gap:32px">
+        <div style="position:relative;width:132px;height:132px;flex:none">
+          <svg width="132" height="132" viewBox="0 0 132 132" style="transform:rotate(-90deg)"><circle cx="66" cy="66" r="58" fill="none" stroke="var(--sf2)" stroke-width="9"/><circle cx="66" cy="66" r="58" fill="none" stroke="var(--pr)" stroke-width="9" stroke-linecap="round" stroke-dasharray="121 364"/></svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="font:400 30px/1 var(--f-en)">1<span style="color:var(--fa)">/3</span></div><div style="font:500 10.5px var(--f-ui);color:var(--mu);margin-top:4px">今日任務</div></div>
+        </div>
+        <div style="flex:1">
+          <div style="font:400 12.5px var(--f-ui);color:var(--fa)">7 月 26 日 · 星期日</div>
+          <h2 style="font:700 30px/1.2 var(--f-ui);margin-top:10px">再 11 分鐘完成今天</h2>
+          <div style="font:400 14px/1.7 var(--f-ui);color:var(--mu);margin-top:10px;max-width:420px">今天的重點是動狀詞。上週這一類的正確率是 52%，練完 5 題會重新估分。</div>
+          <div style="display:flex;gap:10px;margin-top:18px">
+            <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:13px 18px;display:flex;align-items:center;gap:10px"><span style="font:700 14px var(--f-ui)">繼續文法練習</span><span style="font:500 10px var(--f-en);opacity:.7;border:1px solid currentColor;border-radius:4px;padding:1px 5px">SPACE</span></div>
+            <div style="border:1px solid var(--ln2);border-radius:var(--r);padding:13px 18px;font:600 14px var(--f-ui)">改做閱讀</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between"><div style="font:500 12px var(--f-ui);color:var(--mu)">今日任務</div><div style="font:400 11px var(--f-ui);color:var(--fa)">數字鍵 1–3 可直接開啟</div></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:18px;display:flex;flex-direction:column;gap:11px;opacity:.55">
+            <div style="display:flex;align-items:center;justify-content:space-between"><div style="width:34px;height:34px;border-radius:var(--rs);background:var(--sf2)"></div><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><div style="font:500 15px var(--f-ui)">單字複習</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:4px">10 個 · 已完成</div></div>
+            <div style="font:500 11.5px var(--f-ui);color:var(--fa)">重做 →</div>
+          </div>
+          <div style="border:1.5px solid var(--pr-ln);border-radius:var(--r);background:var(--sf);padding:18px;display:flex;flex-direction:column;gap:11px">
+            <div style="display:flex;align-items:center;justify-content:space-between"><div style="width:34px;height:34px;border-radius:var(--rs);background:var(--pr-sf);display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--pr)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><span class="kb">2</span></div>
+            <div><div style="font:500 15px var(--f-ui)">文法練習</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:4px">5 題 · 約 6 分鐘</div></div>
+            <div style="font:600 11.5px var(--f-ui);color:var(--pr)">開始 →</div>
+          </div>
+          <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:18px;display:flex;flex-direction:column;gap:11px">
+            <div style="display:flex;align-items:center;justify-content:space-between"><div style="width:34px;height:34px;border-radius:var(--rs);background:var(--sf2)"></div><span class="kb">3</span></div>
+            <div><div style="font:500 15px var(--f-ui)">閱讀理解</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:4px">1 篇 · 約 5 分鐘</div></div>
+            <div style="font:500 11.5px var(--f-ui);color:var(--mu)">開始 →</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:24px;display:flex;align-items:center;gap:16px">
+        <div style="flex:1"><div style="font:500 14px var(--f-ui)">錯題本 · 8 題待複習</div><div style="font:400 12px var(--f-ui);color:var(--mu);margin-top:4px">動狀詞 4 · 假設語氣 2 · 其他 2 · 連續答對 2 次畢業</div></div>
+        <div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:10px 15px;font:600 13px var(--f-ui)">開始複習</div>
+      </div>
+    </div>
+    <div style="padding:28px 26px;display:flex;flex-direction:column;gap:26px;overflow-y:auto">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font:500 12px var(--f-ui);color:var(--mu)">練習日曆</span><span style="font:400 11px var(--f-ui);color:var(--fa)">7 月 · 19 天</span></div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
+          <sc-for list="{{ calDays }}" as="d" hint-placeholder-count="35"><div style="aspect-ratio:1;border-radius:5px;background:{{ d.bg }};border:1px solid {{ d.bd }}"></div></sc-for>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:22px;display:flex;flex-direction:column;gap:14px">
+        <span style="font:500 12px var(--f-ui);color:var(--mu)">預估分數</span>
+        <div style="display:flex;align-items:flex-end;gap:12px"><div style="font:400 44px/1 var(--f-en);color:var(--pr)">705</div><div style="font:400 12px var(--f-ui);color:var(--mu);padding-bottom:5px">近 30 天 +45</div></div>
+        <svg viewBox="0 0 300 70" style="width:100%;height:70px"><polyline points="6,60 62,54 118,44 174,38 230,24 294,12" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="294" cy="12" r="3.5" fill="var(--pr)"/></svg>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:22px;display:flex;flex-direction:column;gap:11px">
+        <span style="font:500 12px var(--f-ui);color:var(--mu)">弱項</span>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">進階題型</span><div style="width:76px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:45%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu)">45%</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">動狀詞</span><div style="width:76px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:52%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu)">52%</span></div>
+        <div style="display:flex;align-items:center;gap:11px"><span style="flex:1;font:400 13px var(--f-ui)">子句與假設語氣</span><div style="width:76px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:58%;height:5px;border-radius:3px;background:var(--mu)"></div></div><span style="font:400 11.5px var(--f-en);color:var(--mu)">58%</span></div>
+      </div>
+      <div style="border-top:1px solid var(--ln);padding-top:22px;display:flex;gap:22px">
+        <div><div style="font:400 22px/1 var(--f-en)">1,284</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:5px">總答題</div></div>
+        <div><div style="font:400 22px/1 var(--f-en)">71%</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:5px">正確率</div></div>
+        <div><div style="font:400 22px/1 var(--f-en)">412</div><div style="font:400 11px var(--f-ui);color:var(--mu);margin-top:5px">單字</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">10 · 桌機 1280px · 統計</div>
+<div class="dcap">雷達圖放大到能看清數值，弱項列表右移成可點清單；日曆與趨勢並列在下半。</div>
+<div style="width:1280px;height:800px;flex:none;border:1px solid var(--ln2);border-radius:var(--rl);overflow:hidden;background:var(--bg);color:var(--tx);display:flex;flex-direction:column">
+  <div style="padding:0 32px;height:62px;display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--ln)">
+    <div style="font:700 16px var(--f-ui)">每日多益</div>
+    <div style="display:flex;gap:26px;font:500 13.5px var(--f-ui);color:var(--mu)"><span>今日</span><span>練習</span><span style="color:var(--pr)">統計</span><span>錯題本</span><span>模擬考</span></div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:14px"><div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:6px 11px;font:500 11.5px var(--f-ui);color:var(--mu)">近 30 天</div><div style="width:30px;height:30px;border-radius:50%;background:var(--sf2)"></div></div>
+  </div>
+  <div style="flex:1;padding:30px 34px;display:flex;flex-direction:column;gap:26px;overflow-y:auto">
+    <div style="display:flex;align-items:flex-end;gap:40px;border-bottom:1px solid var(--ln);padding-bottom:22px">
+      <div><div style="font:400 12px var(--f-ui);color:var(--fa)">預估 TOEIC 分數</div><div style="display:flex;align-items:flex-end;gap:12px;margin-top:8px"><div style="font:400 52px/1 var(--f-en);color:var(--pr);letter-spacing:-.02em">705</div><div style="font:400 12.5px var(--f-ui);color:var(--mu);padding-bottom:6px">近 30 天 +45 · 目標 800</div></div></div>
+      <svg viewBox="0 0 260 74" style="width:260px;height:74px"><polyline points="6,64 56,58 106,46 156,40 206,25 254,12" fill="none" stroke="var(--pr)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="254" cy="12" r="3.5" fill="var(--pr)"/></svg>
+      <div style="margin-left:auto;display:flex;gap:34px">
+        <div><div style="font:400 28px/1 var(--f-en)">1,284</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:6px">總答題數</div></div>
+        <div><div style="font:400 28px/1 var(--f-en)">71%</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:6px">正確率</div></div>
+        <div><div style="font:400 28px/1 var(--f-en)">412</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:6px">已掌握單字</div></div>
+        <div><div style="font:400 28px/1 var(--f-en)">12</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:6px">連續天數</div></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:34px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 12px var(--f-ui);color:var(--mu)">六大文法類別正確率</div>
+        <svg viewBox="-52 -18 344 268" style="width:100%;max-width:520px;height:auto">
+          <polygon points="120,14 203,62 203,158 120,206 37,158 37,62" fill="none" stroke="var(--ln)"/>
+          <polygon points="120,46.6 174.9,78.3 174.9,141.7 120,173.4 65.1,141.7 65.1,78.3" fill="none" stroke="var(--ln)"/>
+          <polygon points="120,78.3 147.4,94.2 147.4,125.8 120,141.7 92.6,125.8 92.6,94.2" fill="none" stroke="var(--ln)"/>
+          <line x1="120" y1="110" x2="120" y2="14" stroke="var(--ln)"/><line x1="120" y1="110" x2="203" y2="62" stroke="var(--ln)"/><line x1="120" y1="110" x2="203" y2="158" stroke="var(--ln)"/><line x1="120" y1="110" x2="120" y2="206" stroke="var(--ln)"/><line x1="120" y1="110" x2="37" y2="158" stroke="var(--ln)"/><line x1="120" y1="110" x2="37" y2="62" stroke="var(--ln)"/>
+          <polygon points="120,31 181.5,74.5 163,135 120,173 72,138 83,88" fill="var(--pr)" fill-opacity=".16" stroke="var(--pr)" stroke-width="2"/>
+          <circle cx="120" cy="31" r="3" fill="var(--pr)"/><circle cx="181.5" cy="74.5" r="3" fill="var(--pr)"/><circle cx="163" cy="135" r="3" fill="var(--pr)"/><circle cx="120" cy="173" r="3" fill="var(--pr)"/><circle cx="72" cy="138" r="4" fill="var(--bad)"/><circle cx="83" cy="88" r="4" fill="var(--bad)"/>
+          <text x="120" y="0" text-anchor="middle" fill="var(--mu)" style="font:500 12px var(--f-ui)">八大詞性 82%</text>
+          <text x="214" y="58" fill="var(--mu)" style="font:500 12px var(--f-ui)">動詞時態 74%</text>
+          <text x="214" y="160" fill="var(--mu)" style="font:500 12px var(--f-ui)">動狀詞 <tspan fill="var(--bad)">52%</tspan></text>
+          <text x="120" y="226" text-anchor="middle" fill="var(--mu)" style="font:500 12px var(--f-ui)">特殊動詞 66%</text>
+          <text x="26" y="160" text-anchor="end" fill="var(--mu)" style="font:500 12px var(--f-ui)">子句與假設 <tspan fill="var(--bad)">58%</tspan></text>
+          <text x="26" y="58" text-anchor="end" fill="var(--mu)" style="font:500 12px var(--f-ui)">進階題型 <tspan fill="var(--bad)">45%</tspan></text>
+        </svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font:500 12px var(--f-ui);color:var(--mu)">弱項類別 · 點擊直接練</span><span style="font:400 11px var(--f-ui);color:var(--fa)">依錯題數排序</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:15px 16px;display:flex;align-items:center;gap:14px"><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">進階題型</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:4px">錯 11 題 · 3 章 · 倒裝、強調句</div></div><div style="width:88px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:45%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 12px var(--f-en);color:var(--mu);width:32px;text-align:right">45%</span><div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:8px 13px;font:600 12.5px var(--f-ui)">練 5 題</div></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:15px 16px;display:flex;align-items:center;gap:14px"><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">動狀詞</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:4px">錯 8 題 · 4 章 · 分詞構句最弱</div></div><div style="width:88px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:52%;height:5px;border-radius:3px;background:var(--bad)"></div></div><span style="font:400 12px var(--f-en);color:var(--mu);width:32px;text-align:right">52%</span><div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:8px 13px;font:600 12.5px var(--f-ui)">練 5 題</div></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:15px 16px;display:flex;align-items:center;gap:14px"><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">子句與假設語氣</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:4px">錯 6 題 · 5 章</div></div><div style="width:88px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:58%;height:5px;border-radius:3px;background:var(--mu)"></div></div><span style="font:400 12px var(--f-en);color:var(--mu);width:32px;text-align:right">58%</span><div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:8px 13px;font:600 12.5px var(--f-ui)">練 5 題</div></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:15px 16px;display:flex;align-items:center;gap:14px;opacity:.6"><div style="flex:1"><div style="font:500 14.5px var(--f-ui)">特殊動詞</div><div style="font:400 11.5px var(--f-ui);color:var(--mu);margin-top:4px">錯 4 題 · 3 章</div></div><div style="width:88px;height:5px;border-radius:3px;background:var(--sf2)"><div style="width:66%;height:5px;border-radius:3px;background:var(--mu)"></div></div><span style="font:400 12px var(--f-en);color:var(--mu);width:32px;text-align:right">66%</span><div style="border:1px solid var(--ln2);border-radius:var(--rs);padding:8px 13px;font:600 12.5px var(--f-ui)">練 5 題</div></div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--ln);padding-top:22px;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font:500 12px var(--f-ui);color:var(--mu)">練習日曆 · 近 12 週</span><span style="font:400 11px var(--f-ui);color:var(--fa)">顏色深淺＝當日答題量</span></div>
+      <div style="display:grid;grid-template-columns:repeat(28,1fr);gap:5px">
+        <sc-for list="{{ calWide }}" as="d" hint-placeholder-count="84"><div style="aspect-ratio:1;border-radius:4px;background:{{ d.bg }};border:1px solid {{ d.bd }}"></div></sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="grp">11 · 桌機 1280px · 閱讀理解</div>
+<div class="dcap">左右分欄，文章區獨立滾動；題號與文章空格編號對齊，鍵盤 1–4 選答。</div>
+<div style="width:1280px;height:800px;flex:none;border:1px solid var(--ln2);border-radius:var(--rl);overflow:hidden;background:var(--bg);color:var(--tx);display:flex;flex-direction:column">
+  <div style="padding:0 32px;height:62px;display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--ln)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mu)" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <div style="font:500 14px var(--f-ui)">閱讀理解 · 電子郵件</div>
+    <div style="font:400 12.5px var(--f-ui);color:var(--fa)">Part 6 · 填空 3 題</div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:14px"><div style="width:180px;height:4px;border-radius:2px;background:var(--sf2)"><div style="width:33%;height:4px;border-radius:2px;background:var(--pr)"></div></div><span style="font:500 12.5px var(--f-en);color:var(--mu)">1 / 3</span></div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1.25fr 1fr;overflow:hidden">
+    <div style="padding:34px 44px;overflow-y:auto;border-right:1px solid var(--ln)">
+      <div style="max-width:620px">
+        <div class="en" style="font:600 13.5px var(--f-en);color:var(--fa);letter-spacing:.04em">TO: ALL STAFF　·　SUBJECT: OFFICE RELOCATION</div>
+        <div class="en" style="margin-top:20px;font:400 19px/2.05 var(--f-en);color:var(--tx)">
+          We are pleased to announce that our Taipei office will relocate to the Nanshan Plaza on 15 August. The new site offers larger meeting rooms and a <span style="border-bottom:1.5px dotted var(--pr);color:var(--pr)">consolidated</span> reception area for visitors.<br><br>
+          Staff should pack personal items by 12 August. The facilities team will <span style="border-bottom:2px solid var(--pr);padding:0 22px;position:relative"><span style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);font:600 10.5px var(--f-en);color:var(--pr)">1</span>　</span> all boxes and label them by department. Anything left unlabelled after that date will be moved to storage.<br><br>
+          Parking permits remain valid; however, shuttle service will operate on a <span style="border-bottom:2px solid var(--ln2);padding:0 22px;position:relative"><span style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);font:600 10.5px var(--f-en);color:var(--fa)">2</span>　</span> schedule during the first week. Please check the intranet each morning.<br><br>
+          We appreciate your patience <span style="border-bottom:2px solid var(--ln2);padding:0 22px;position:relative"><span style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);font:600 10.5px var(--f-en);color:var(--fa)">3</span>　</span> the transition. Questions may be directed to the facilities desk.
+        </div>
+        <div style="margin-top:26px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:15px 16px;max-width:330px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:baseline;gap:9px"><span class="en" style="font:600 16px var(--f-en);color:var(--pr)">consolidated</span><span style="font:500 11px var(--f-ui);color:var(--pr)">形容詞</span></div>
+          <div style="font:400 13.5px/1.6 var(--f-ui)">整合過的、合併為一的</div>
+          <div style="font:400 11.5px var(--f-ui);color:var(--mu)">點擊加入單字本 · 本篇難字 3 個</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:30px 32px;display:flex;flex-direction:column;gap:16px;overflow-y:auto">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font:700 12px var(--f-en);color:var(--pr);border:1px solid var(--pr-ln);border-radius:5px;padding:2px 7px">1</span>
+        <span style="font:500 12.5px var(--f-ui);color:var(--mu)">第 2 段 · 空格 1</span>
+        <span style="margin-left:auto;font:400 11.5px var(--f-ui);color:var(--fa)">數字鍵 1–4 選答</span>
+      </div>
+      <div class="en" style="font:400 17px/1.85 var(--f-en);color:var(--mu);border-left:2px solid var(--ln2);padding-left:14px">The facilities team will ___ all boxes and label them by department.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px 16px;display:flex;align-items:center;gap:12px"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transport</span><span class="kb">1</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px 16px;display:flex;align-items:center;gap:12px"><span style="font:500 13px var(--f-en);color:var(--fa)">(B)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transportation</span><span class="kb">2</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px 16px;display:flex;align-items:center;gap:12px"><span style="font:500 13px var(--f-en);color:var(--fa)">(C)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transported</span><span class="kb">3</span></div>
+        <div style="border:1px solid var(--ln);border-radius:var(--r);padding:15px 16px;display:flex;align-items:center;gap:12px"><span style="font:500 13px var(--f-en);color:var(--fa)">(D)</span><span class="en" style="flex:1;font:400 17px var(--f-en)">transporting</span><span class="kb">4</span></div>
+      </div>
+      <div style="margin-top:auto;border-top:1px solid var(--ln);padding-top:16px;display:flex;align-items:center;gap:12px">
+        <div style="display:flex;gap:7px"><div style="width:26px;height:3px;border-radius:2px;background:var(--pr)"></div><div style="width:26px;height:3px;border-radius:2px;background:var(--sf2)"></div><div style="width:26px;height:3px;border-radius:2px;background:var(--sf2)"></div></div>
+        <div style="margin-left:auto;border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:13px 18px;display:flex;align-items:center;gap:10px"><span style="font:700 14px var(--f-ui)">下一題</span><span style="font:500 10px var(--f-en);opacity:.7;border:1px solid currentColor;border-radius:4px;padding:1px 5px">SPACE</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:900}}">
+const QS = [
+  {pre:'The manager asked the team ', post:' the report before Friday.', opts:['submitting','submitted','to submit','submits'], ans:2,
+   main:'ask sb. to V —— ask 後面接受詞再接不定詞，當受詞補語。',
+   wrong:[{letter:'(A)',text:'動名詞不接在 ask + O 之後，只能當主詞或介詞受詞。'},{letter:'(B)',text:'過去分詞是被動語意，報告不是被團隊「被繳交」。'},{letter:'(D)',text:'限定動詞不能出現在受詞補語的位置。'}],
+   point:'不定詞當受詞補語', similar:'allow / advise / remind / encourage 同型'},
+  {pre:'The renovation ', post:' completed by the end of next quarter.', opts:['will be','will have','is being','has been'], ans:0,
+   main:'未來被動 will be + p.p. —— 動作在未來完成，主詞是被動接受者。',
+   wrong:[{letter:'(B)',text:'will have 後面需接過去分詞構成完成式，此處缺 been。'},{letter:'(C)',text:'現在進行被動指此刻正在進行，與 next quarter 衝突。'},{letter:'(D)',text:'現在完成式無法搭配未來時間副詞。'}],
+   point:'未來式被動語態', similar:'by + 未來時間點 的題目多考被動'},
+  {pre:'Had the supplier informed us earlier, we ', post:' the delay.', opts:['would avoid','could have avoided','will avoid','avoided'], ans:1,
+   main:'與過去事實相反的假設 —— Had + S + p.p. 開頭，主句用 would/could have + p.p.。',
+   wrong:[{letter:'(A)',text:'would + 原形對應的是與現在事實相反。'},{letter:'(C)',text:'未來式不能出現在假設語氣主句。'},{letter:'(D)',text:'單純過去式失去假設語氣的語意。'}],
+   point:'假設語氣的倒裝', similar:'Should / Were 開頭的倒裝句同一考點'}
+];
+const LETTERS = ['A','B','C','D'];
+const CAL = [0,2,1,3,0,2,3, 3,1,0,2,3,3,1, 2,3,3,0,1,3,2, 3,3,2,1,0,3,3, 2,3,1,-1,-1,-1,-1];
+
+class Component extends DCLogic {
+  state = {theme:'dark', qi:0, picked:null, showExpl:true, done:2, ok:2, vmode:'flip', flipped:false, rtab:'p'};
+
+  componentDidMount(){
+    this._k = (e) => {
+      if (['1','2','3','4'].includes(e.key)) { this.pick(Number(e.key)-1); }
+      else if (e.code === 'Space' || e.key === ' ') { e.preventDefault(); this.next(); }
+    };
+    document.addEventListener('keydown', this._k);
+  }
+  componentWillUnmount(){ document.removeEventListener('keydown', this._k); clearTimeout(this._t); }
+
+  pick(i){
+    if (this.state.picked !== null) return;
+    const q = QS[this.state.qi], right = i === q.ans;
+    this.setState(s => ({picked:i, showExpl:!right, done:s.done+1, ok:s.ok+(right?1:0)}));
+    if (right) { clearTimeout(this._t); this._t = setTimeout(() => this.next(), 600); }
+  }
+  next(){
+    clearTimeout(this._t);
+    this.setState(s => ({qi:(s.qi+1)%QS.length, picked:null, showExpl:true}));
+  }
+
+  renderVals(){
+    const s = this.state, q = QS[s.qi], answered = s.picked !== null, right = s.picked === q.ans;
+    const cells = [0,1,2,3,4].map(i => ({bg: i <= s.qi+1 ? 'var(--pr)' : 'var(--sf2)'}));
+    const options = q.opts.map((text,i) => {
+      let bd='var(--ln)', bw='1px', bg='transparent', tc='var(--tx)', lc='var(--fa)', mark='', markColor='var(--fa)', anim='none';
+      if (answered) {
+        if (i === q.ans) { bd='var(--ok)'; bw='2px'; bg='var(--ok-sf)'; tc='var(--ok)'; lc='var(--ok)'; mark = right ? '答對' : '正解'; markColor='var(--ok)'; anim = right ? 'pop .22s ease' : 'none'; }
+        else if (i === s.picked) { bd='var(--bad)'; bw='2px'; bg='var(--bad-sf)'; tc='var(--bad)'; lc='var(--bad)'; mark='你的答案'; markColor='var(--bad)'; }
+        else { tc='var(--fa)'; lc='var(--fa)'; }
+      }
+      return {letter:LETTERS[i], key:String(i+1), text, bd, bw, bg, tc, lc, mark, markColor, anim, pick:() => this.pick(i)};
+    });
+    const cal = CAL.map(v => ({
+      bg: v < 0 ? 'transparent' : v === 0 ? 'var(--sf2)' : `color-mix(in srgb, var(--pr) ${v*30}%, var(--sf2))`,
+      bd: v < 0 ? 'var(--ln)' : 'transparent'
+    }));
+    const wide = Array.from({length:84}, (_,i) => { const v = CAL[(i*5+i%7)%CAL.length]; return {
+      bg: v < 0 ? 'var(--sf2)' : v === 0 ? 'var(--sf2)' : `color-mix(in srgb, var(--pr) ${v*30}%, var(--sf2))`, bd:'transparent'}; });
+    const dark = s.theme === 'dark';
+    return {
+      theme:s.theme,
+      toggleTheme:() => this.setState({theme: dark ? 'light' : 'dark'}),
+      lightBg: dark ? 'transparent' : 'var(--pr)', lightFg: dark ? 'var(--mu)' : 'var(--pr-tx)',
+      darkBg: dark ? 'var(--pr)' : 'transparent', darkFg: dark ? 'var(--pr-tx)' : 'var(--mu)',
+      qNum:s.qi+1, qPre:q.pre, qPost:q.post, cells, options, answered,
+      showExpl:s.showExpl, toggleExpl:() => this.setState(p => ({showExpl:!p.showExpl})),
+      explToggleLabel: s.showExpl ? '收合 ⌃' : '展開 ⌄',
+      verdictText: right ? '答對' : '答錯', verdictColor: right ? 'var(--ok)' : 'var(--bad)',
+      ansLetter:'('+LETTERS[q.ans]+')', explMain:q.main, explWrong:q.wrong, explPoint:q.point, explSimilar:q.similar,
+      hintText: answered ? (right ? '0.6 秒後自動下一題' : '看完詳解再按下一題') : '選一個答案，直接判定',
+      doneCount:s.done, okCount:s.ok,
+      nextLabel: answered ? '下一題' : '下一題',
+      nextBg: answered ? 'var(--pr)' : 'transparent', nextFg: answered ? 'var(--pr-tx)' : 'var(--fa)', nextBd: answered ? 'var(--pr)' : 'var(--ln)',
+      onNext:() => this.next(),
+      isFlipMode: s.vmode === 'flip', isQuizMode: s.vmode === 'quiz',
+      setFlipMode:() => this.setState({vmode:'flip'}), setQuizMode:() => this.setState({vmode:'quiz'}),
+      flipTabBg: s.vmode === 'flip' ? 'var(--pr)' : 'transparent', flipTabFg: s.vmode === 'flip' ? 'var(--pr-tx)' : 'var(--mu)',
+      quizTabBg: s.vmode === 'quiz' ? 'var(--pr)' : 'transparent', quizTabFg: s.vmode === 'quiz' ? 'var(--pr-tx)' : 'var(--mu)',
+      flipped:s.flipped, flip:() => this.setState(p => ({flipped:!p.flipped})),
+      cardSideLabel: s.flipped ? '背面 · 釋義' : '正面 · 單字',
+      cardHint: s.flipped ? '點卡片翻回正面' : '點卡片看釋義與例句',
+      isPassageTab: s.rtab === 'p', isQTab: s.rtab === 'q',
+      setPassageTab:() => this.setState({rtab:'p'}), setQTab:() => this.setState({rtab:'q'}),
+      pTabLn: s.rtab === 'p' ? 'var(--pr)' : 'transparent', pTabFg: s.rtab === 'p' ? 'var(--tx)' : 'var(--mu)',
+      qTabLn: s.rtab === 'q' ? 'var(--pr)' : 'transparent', qTabFg: s.rtab === 'q' ? 'var(--tx)' : 'var(--mu)',
+      calDays:cal, calWide:wide
+    };
+  }
+}
+</script>
+</body>
+</html>

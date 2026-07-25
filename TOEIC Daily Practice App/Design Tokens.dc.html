@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/modernist-b3e81867-7631-4b22-8057-f85b87a8445e/styles.css">
+<script src="_ds/modernist-b3e81867-7631-4b22-8057-f85b87a8445e/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0F1115; --sf:#171A21; --sf2:#1E222B; --tx:#E8EAF0; --mu:#9AA1AE; --fa:#6B7280;
+  --ln:rgba(232,234,240,.13); --ln2:rgba(232,234,240,.26);
+  --pr:#60A5FA; --pr-tx:#0F1115; --pr-sf:rgba(96,165,250,.14); --pr-ln:rgba(96,165,250,.42);
+  --ok:#34D399; --ok-sf:rgba(52,211,153,.13); --bad:#F87171; --bad-sf:rgba(248,113,113,.13);
+  --r:10px; --rs:8px; --rl:14px;
+  --f-ui:"Noto Sans TC","Archivo",system-ui,sans-serif;
+  --f-en:"Archivo",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+[data-theme="light"]{
+  --bg:#F3F2F2; --sf:#FFFFFF; --sf2:#EAE9E9; --tx:#201E1D; --mu:#5F6570; --fa:#8A8F98;
+  --ln:rgba(32,30,29,.13); --ln2:rgba(32,30,29,.3);
+  --pr:#1E3A8A; --pr-tx:#FFFFFF; --pr-sf:#E7EBF6; --pr-ln:rgba(30,58,138,.32);
+  --ok:#047857; --ok-sf:#E4F4EE; --bad:#B91C1C; --bad-sf:#FBEAEA;
+}
+body{margin:0;background:#0a0b0e;font-family:var(--f-ui);-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0}
+a{color:var(--pr);text-decoration:none}a:hover{opacity:.75}
+.grp{font:700 12px/1 var(--f-ui);letter-spacing:.16em;color:var(--fa);text-transform:uppercase}
+.sec{display:flex;flex-direction:column;gap:18px;border-top:2px solid var(--ln2);padding-top:22px}
+.note{font:400 12.5px/1.7 var(--f-ui);color:var(--mu);max-width:560px}
+.sw{border:1px solid var(--ln);border-radius:var(--rs);overflow:hidden;width:168px}
+.swb{height:56px}
+.swm{padding:9px 10px;display:flex;flex-direction:column;gap:3px;background:var(--sf)}
+.swn{font:500 11.5px var(--f-ui);color:var(--tx)}
+.swv{font:400 10.5px var(--f-mono);color:var(--fa)}
+.cd{border:1px solid var(--ln);border-radius:var(--rs);background:var(--sf);padding:16px 18px;font:400 12px/1.85 var(--f-mono);color:var(--mu);white-space:pre;overflow-x:auto}
+.cd b{color:var(--tx);font-weight:500}
+.cd i{color:var(--pr);font-style:normal}
+.th{font:600 11px var(--f-ui);color:var(--fa);letter-spacing:.06em;text-transform:uppercase}
+.chip{border:1px solid var(--ln2);border-radius:var(--rs);padding:8px 13px;font:600 12.5px var(--f-ui);color:var(--tx)}
+</style></helmet>
+
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--bg);color:var(--tx);padding:30px 34px 70px;display:flex;flex-direction:column;gap:34px;width:1180px">
+
+<div style="display:flex;align-items:flex-end;gap:22px;border-bottom:2px solid var(--ln2);padding-bottom:16px">
+  <div>
+    <h1 style="font:700 26px/1.15 var(--f-ui)">設計 Token</h1>
+    <div class="note" style="margin-top:7px">shadcn/ui 相容：HSL + CSS Variables，變數命名沿用 <span style="font-family:var(--f-mono);color:var(--tx)">--background / --foreground / --primary …</span>，可直接貼進 <span style="font-family:var(--f-mono);color:var(--tx)">globals.css</span> 與 <span style="font-family:var(--f-mono);color:var(--tx)">tailwind.config.ts</span>。</div>
+  </div>
+  <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+    <span style="font:500 11px var(--f-ui);color:var(--fa)">預覽主題</span>
+    <div onClick="{{ toggleTheme }}" style="display:flex;border:1px solid var(--ln2);border-radius:var(--r);overflow:hidden;cursor:pointer">
+      <div style="padding:7px 13px;font:600 12px var(--f-ui);background:{{ lightBg }};color:{{ lightFg }}">淺色</div>
+      <div style="padding:7px 13px;font:600 12px var(--f-ui);background:{{ darkBg }};color:{{ darkFg }}">深色</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div style="display:flex;align-items:baseline;gap:14px"><div class="grp">01 · 色票</div><div class="note" style="max-width:none">主色單一貫穿；語意色只在答題回饋出現。</div></div>
+  <div>
+    <div class="th" style="margin-bottom:10px">深色模式（主要使用情境）</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <div class="sw"><div class="swb" style="background:#0F1115"></div><div class="swm"><span class="swn">background</span><span class="swv">222 17% 7% · #0F1115</span></div></div>
+      <div class="sw"><div class="swb" style="background:#171A21"></div><div class="swm"><span class="swn">card / popover</span><span class="swv">222 18% 11% · #171A21</span></div></div>
+      <div class="sw"><div class="swb" style="background:#1E222B"></div><div class="swm"><span class="swn">muted / secondary</span><span class="swv">221 18% 15% · #1E222B</span></div></div>
+      <div class="sw"><div class="swb" style="background:#E8EAF0"></div><div class="swm"><span class="swn">foreground</span><span class="swv">225 24% 92% · #E8EAF0</span></div></div>
+      <div class="sw"><div class="swb" style="background:#9AA1AE"></div><div class="swm"><span class="swn">muted-foreground</span><span class="swv">219 10% 64% · #9AA1AE</span></div></div>
+      <div class="sw"><div class="swb" style="background:#60A5FA"></div><div class="swm"><span class="swn">primary</span><span class="swv">213 94% 68% · #60A5FA</span></div></div>
+      <div class="sw"><div class="swb" style="background:#34D399"></div><div class="swm"><span class="swn">success（僅回饋）</span><span class="swv">160 64% 52% · #34D399</span></div></div>
+      <div class="sw"><div class="swb" style="background:#F87171"></div><div class="swm"><span class="swn">destructive（僅回饋）</span><span class="swv">0 91% 71% · #F87171</span></div></div>
+      <div class="sw"><div class="swb" style="background:#2A2E38"></div><div class="swm"><span class="swn">border / input</span><span class="swv">225 13% 19% · #2A2E38</span></div></div>
+    </div>
+  </div>
+  <div>
+    <div class="th" style="margin-bottom:10px">淺色模式</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <div class="sw"><div class="swb" style="background:#F3F2F2"></div><div class="swm"><span class="swn">background</span><span class="swv">0 2% 95% · #F3F2F2</span></div></div>
+      <div class="sw"><div class="swb" style="background:#FFFFFF"></div><div class="swm"><span class="swn">card / popover</span><span class="swv">0 0% 100% · #FFFFFF</span></div></div>
+      <div class="sw"><div class="swb" style="background:#EAE9E9"></div><div class="swm"><span class="swn">muted / secondary</span><span class="swv">0 2% 91% · #EAE9E9</span></div></div>
+      <div class="sw"><div class="swb" style="background:#201E1D"></div><div class="swm"><span class="swn">foreground</span><span class="swv">20 6% 12% · #201E1D</span></div></div>
+      <div class="sw"><div class="swb" style="background:#5F6570"></div><div class="swm"><span class="swn">muted-foreground</span><span class="swv">218 8% 41% · #5F6570</span></div></div>
+      <div class="sw"><div class="swb" style="background:#1E3A8A"></div><div class="swm"><span class="swn">primary</span><span class="swv">224 64% 33% · #1E3A8A</span></div></div>
+      <div class="sw"><div class="swb" style="background:#047857"></div><div class="swm"><span class="swn">success（僅回饋）</span><span class="swv">164 93% 24% · #047857</span></div></div>
+      <div class="sw"><div class="swb" style="background:#B91C1C"></div><div class="swm"><span class="swn">destructive（僅回饋）</span><span class="swv">0 74% 42% · #B91C1C</span></div></div>
+      <div class="sw"><div class="swb" style="background:#D9D8D8"></div><div class="swm"><span class="swn">border / input</span><span class="swv">0 2% 85% · #D9D8D8</span></div></div>
+    </div>
+  </div>
+  <div class="cd"><b>:root</b> {
+  --background: <i>0 2% 95%</i>;        --foreground: <i>20 6% 12%</i>;
+  --card: <i>0 0% 100%</i>;             --card-foreground: <i>20 6% 12%</i>;
+  --popover: <i>0 0% 100%</i>;          --popover-foreground: <i>20 6% 12%</i>;
+  --primary: <i>224 64% 33%</i>;        --primary-foreground: <i>0 0% 100%</i>;
+  --secondary: <i>0 2% 91%</i>;         --secondary-foreground: <i>20 6% 12%</i>;
+  --muted: <i>0 2% 91%</i>;             --muted-foreground: <i>218 8% 41%</i>;
+  --accent: <i>224 64% 96%</i>;         --accent-foreground: <i>224 64% 28%</i>;
+  --destructive: <i>0 74% 42%</i>;      --destructive-foreground: <i>0 0% 100%</i>;
+  --success: <i>164 93% 24%</i>;        --success-foreground: <i>0 0% 100%</i>;
+  --border: <i>0 2% 85%</i>;            --input: <i>0 2% 85%</i>;   --ring: <i>224 64% 33%</i>;
+  --radius: <i>0.625rem</i>;
+}
+<b>.dark</b> {
+  --background: <i>222 17% 7%</i>;      --foreground: <i>225 24% 92%</i>;
+  --card: <i>222 18% 11%</i>;           --card-foreground: <i>225 24% 92%</i>;
+  --popover: <i>222 18% 11%</i>;        --popover-foreground: <i>225 24% 92%</i>;
+  --primary: <i>213 94% 68%</i>;        --primary-foreground: <i>222 17% 7%</i>;
+  --secondary: <i>221 18% 15%</i>;      --secondary-foreground: <i>225 24% 92%</i>;
+  --muted: <i>221 18% 15%</i>;          --muted-foreground: <i>219 10% 64%</i>;
+  --accent: <i>213 94% 68% / 14%</i>;   --accent-foreground: <i>213 94% 78%</i>;
+  --destructive: <i>0 91% 71%</i>;      --destructive-foreground: <i>222 17% 7%</i>;
+  --success: <i>160 64% 52%</i>;        --success-foreground: <i>222 17% 7%</i>;
+  --border: <i>225 13% 19%</i>;         --input: <i>225 13% 19%</i>;  --ring: <i>213 94% 68%</i>;
+}</div>
+</div>
+
+<div class="sec">
+  <div style="display:flex;align-items:baseline;gap:14px"><div class="grp">02 · 字級階層</div><div class="note" style="max-width:none">英文題幹永遠比中文 UI 大一級以上；中文用 Noto Sans TC，英文用 Archivo。</div></div>
+  <div style="display:flex;flex-direction:column">
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">display</div><div class="swv" style="margin-top:3px">44 / 1.0 · 400</div></div><div class="en" style="font:400 44px/1 var(--f-en)">705</div><div class="note" style="margin-left:auto">預估分數、結算大數字</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">stem · 英文題幹</div><div class="swv" style="margin-top:3px">21 / 1.85 · 400</div></div><div class="en" style="font:400 21px/1.85 var(--f-en)">asked the team to submit</div><div class="note" style="margin-left:auto">最小 18px，行距 1.8 以上</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">option · 選項</div><div class="swv" style="margin-top:3px">17 / 1.4 · 400</div></div><div class="en" style="font:400 17px var(--f-en)">to submit</div><div class="note" style="margin-left:auto">觸控高度 ≥ 52px</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">h1 · 頁標題</div><div class="swv" style="margin-top:3px">19 / 1.2 · 700</div></div><div style="font:700 19px var(--f-ui)">今天</div><div class="note" style="margin-left:auto">中文標題不超過 20px，避免壓過題幹</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">body</div><div class="swv" style="margin-top:3px">14.5 / 1.85 · 400</div></div><div style="font:400 14.5px/1.85 var(--f-ui)">不定詞由 to + 原形動詞組成</div><div class="note" style="margin-left:auto">教學頁正文</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;border-bottom:1px solid var(--ln);padding:14px 0"><div style="width:150px"><div class="th">label</div><div class="swv" style="margin-top:3px">12.5 / 1.5 · 500</div></div><div style="font:500 12.5px var(--f-ui);color:var(--mu)">5 題 · 約 6 分鐘</div><div class="note" style="margin-left:auto">卡片後設資訊</div></div>
+    <div style="display:flex;align-items:flex-end;gap:20px;padding:14px 0"><div style="width:150px"><div class="th">caption</div><div class="swv" style="margin-top:3px">11 / 1.5 · 400</div></div><div style="font:400 11px var(--f-ui);color:var(--fa)">選一個答案，直接判定</div><div class="note" style="margin-left:auto">鍵盤提示、輔助說明</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div style="display:flex;align-items:baseline;gap:14px"><div class="grp">03 · 間距與圓角</div><div class="note" style="max-width:none">4px 基準；手機頁面左右留白固定 18–20px。</div></div>
+  <div style="display:flex;gap:34px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="th">間距尺標</div>
+      <div style="display:flex;align-items:flex-end;gap:10px">
+        <sc-for list="{{ spaces }}" as="s" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:{{ s.w }};height:{{ s.w }};background:var(--pr-sf);border:1px solid var(--pr-ln)"></div><span class="swv">{{ s.label }}</span></div>
+        </sc-for>
+      </div>
+      <div class="note">卡片內距 14–18px · 卡片間距 10px · 區塊間距 20–26px</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="th">圓角</div>
+      <div style="display:flex;gap:12px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:62px;height:62px;border:1px solid var(--ln2);border-radius:8px"></div><span class="swv">sm · 8</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:62px;height:62px;border:1px solid var(--ln2);border-radius:10px"></div><span class="swv">md · 10</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:62px;height:62px;border:1px solid var(--ln2);border-radius:14px"></div><span class="swv">lg · 14</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:62px;height:62px;border:1px solid var(--ln2);border-radius:50%"></div><span class="swv">full</span></div>
+      </div>
+      <div class="note">陰影不使用；分層靠 border + card 底色。</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div style="display:flex;align-items:baseline;gap:14px"><div class="grp">04 · 元件狀態</div><div class="note" style="max-width:none">可實際 hover／focus 觀察；語意色僅出現在下排答題回饋。</div></div>
+  <div style="display:flex;gap:30px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div class="th">按鈕</div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:13px 17px;font:700 14px var(--f-ui);cursor:pointer" style-hover="opacity:.88" style-active="transform:translateY(1px)">下一題</div>
+        <div style="border:1px solid var(--ln2);border-radius:var(--r);padding:12px 17px;font:600 14px var(--f-ui);cursor:pointer" style-hover="background:var(--sf2)">加入錯題本</div>
+        <div style="border-radius:var(--r);padding:12px 15px;font:600 14px var(--f-ui);color:var(--mu);cursor:pointer" style-hover="background:var(--sf2);color:var(--tx)">略過</div>
+        <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:13px 17px;font:700 14px var(--f-ui);opacity:.45">停用</div>
+        <div style="border-radius:var(--r);background:var(--pr);color:var(--pr-tx);padding:13px 17px;font:700 14px var(--f-ui);outline:2px solid var(--pr);outline-offset:2px">focus-visible</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px">
+      <div class="th">頁籤／分段控制</div>
+      <div style="display:flex;border:1px solid var(--ln2);border-radius:var(--rs);overflow:hidden;width:240px">
+        <div style="flex:1;text-align:center;padding:9px;font:600 12px var(--f-ui);background:var(--pr);color:var(--pr-tx)">翻卡自測</div>
+        <div style="flex:1;text-align:center;padding:9px;font:600 12px var(--f-ui);color:var(--mu);cursor:pointer" style-hover="background:var(--sf2)">四選一</div>
+      </div>
+      <div class="th" style="margin-top:6px">進度</div>
+      <div style="display:flex;gap:4px;width:240px"><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--pr)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div><div style="flex:1;height:3px;border-radius:2px;background:var(--sf2)"></div></div>
+    </div>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <div style="width:260px;border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:8px"><span class="th">選項 · 未作答</span><div style="display:flex;gap:10px"><span style="font:500 13px var(--f-en);color:var(--fa)">(C)</span><span class="en" style="font:400 17px var(--f-en)">to submit</span></div></div>
+    <div style="width:260px;border:1px solid var(--pr-ln);background:var(--pr-sf);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:8px"><span class="th" style="color:var(--pr)">選項 · hover / 鍵盤聚焦</span><div style="display:flex;gap:10px"><span style="font:500 13px var(--f-en);color:var(--pr)">(C)</span><span class="en" style="font:400 17px var(--f-en);color:var(--pr)">to submit</span></div></div>
+    <div style="width:260px;border:2px solid var(--ok);background:var(--ok-sf);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px"><span class="th" style="color:var(--ok)">選項 · 答對</span><div style="display:flex;gap:10px"><span style="font:500 13px var(--f-en);color:var(--ok)">(C)</span><span class="en" style="font:400 17px var(--f-en);color:var(--ok)">to submit</span></div></div>
+    <div style="width:260px;border:2px solid var(--bad);background:var(--bad-sf);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px"><span class="th" style="color:var(--bad)">選項 · 答錯</span><div style="display:flex;gap:10px"><span style="font:500 13px var(--f-en);color:var(--bad)">(B)</span><span class="en" style="font:400 17px var(--f-en);color:var(--bad)">submitted</span></div></div>
+    <div style="width:260px;border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:8px;opacity:.55"><span class="th">選項 · 已判定其他項</span><div style="display:flex;gap:10px"><span style="font:500 13px var(--f-en);color:var(--fa)">(A)</span><span class="en" style="font:400 17px var(--f-en)">submitting</span></div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div style="display:flex;align-items:baseline;gap:14px"><div class="grp">05 · 動效</div><div class="note" style="max-width:none">只有三處有動畫，其餘一律無轉場。</div></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <div style="flex:1;min-width:250px;border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:6px"><div style="font:600 13.5px var(--f-ui)">答對／答錯回饋</div><div class="swv">220ms · ease · scale .97 → 1</div><div class="note">只有邊框與底色變化＋極輕微縮放，無彩帶。</div></div>
+    <div style="flex:1;min-width:250px;border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:6px"><div style="font:600 13.5px var(--f-ui)">進度環增長</div><div class="swv">300ms · ease · stroke-dasharray</div><div class="note">只在任務完成後回到首頁時播一次。</div></div>
+    <div style="flex:1;min-width:250px;border:1px solid var(--ln);border-radius:var(--r);padding:15px;display:flex;flex-direction:column;gap:6px"><div style="font:600 13.5px var(--f-ui)">詳解展開</div><div class="swv">240ms · ease · opacity + 6px 位移</div><div class="note">收合同時長；不使用彈跳曲線。</div></div>
+  </div>
+  <div class="cd"><b>tailwind.config.ts</b>
+extend: {
+  fontFamily: { sans: [<i>'var(--font-noto-tc)'</i>, <i>'var(--font-archivo)'</i>], stem: [<i>'var(--font-archivo)'</i>] },
+  borderRadius: { lg: <i>'var(--radius)'</i>, md: <i>'calc(var(--radius) - 2px)'</i>, sm: <i>'calc(var(--radius) - 4px)'</i> },
+  transitionDuration: { feedback: <i>'220ms'</i>, ring: <i>'300ms'</i>, disclose: <i>'240ms'</i> },
+}</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {theme:'dark'};
+  renderVals(){
+    const dark = this.state.theme === 'dark';
+    return {
+      theme:this.state.theme,
+      toggleTheme:() => this.setState({theme: dark ? 'light' : 'dark'}),
+      lightBg: dark ? 'transparent' : 'var(--pr)', lightFg: dark ? 'var(--mu)' : 'var(--pr-tx)',
+      darkBg: dark ? 'var(--pr)' : 'transparent', darkFg: dark ? 'var(--pr-tx)' : 'var(--mu)',
+      spaces: [4,8,12,16,20,26,34].map(n => ({w:n+'px', label:n}))
+    };
+  }
+}
+</script>
+</body>
+</html>
