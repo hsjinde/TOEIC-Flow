@@ -10,9 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next/
 *.local
 
 .env
+.env.local
 untitled/
 .claude/launch.json
 .agents/
