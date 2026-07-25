@@ -39,7 +39,7 @@ export async function hashPassword(
   const derivedBits = await crypto.subtle.deriveBits(
     {
       name: 'PBKDF2',
-      salt: saltBytes,
+      salt: saltBytes as unknown as BufferSource,
       iterations: ITERATIONS,
       hash: 'SHA-256'
     },
@@ -142,6 +142,7 @@ export async function verifyJwt<T = Record<string, any>>(
     if (parts.length !== 3) return null
 
     const [encodedHeader, encodedPayload, encodedSignature] = parts
+    if (!encodedHeader || !encodedPayload || !encodedSignature) return null
     const dataToVerify = `${encodedHeader}.${encodedPayload}`
 
     const key = await getHmacKey(secret)
@@ -159,7 +160,7 @@ export async function verifyJwt<T = Record<string, any>>(
     const isValid = await crypto.subtle.verify(
       'HMAC',
       key,
-      sigBytes,
+      sigBytes as unknown as BufferSource,
       new TextEncoder().encode(dataToVerify)
     )
 
