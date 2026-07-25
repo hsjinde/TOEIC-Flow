@@ -1,0 +1,5 @@
+# Build output from `pnpm build:content` is written with LF. Without this,
+# core.autocrlf=true rewrites it to CRLF on checkout and every rebuild shows
+# six modified files that differ only in line endings — which would hide
+# whether a note change actually altered the content.
+content/*.json text eol=lf
