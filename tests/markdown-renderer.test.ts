@@ -10,4 +10,17 @@ describe('parseMarkdownToBlocks', () => {
     expect(blocks[0]?.type).toBe('h2')
     expect(blocks[0]?.content).toBe('核心概念')
   })
+
+  it('parses markdown tables correctly', () => {
+    const md = `| 主格 | 所有格 | 受格 |\n|:---|:---|:---|\n| I | my | me |\n| he | his | him |`
+    const blocks = parseMarkdownToBlocks(md)
+
+    const tableBlock = blocks.find((b) => b.type === 'table')
+    expect(tableBlock).toBeDefined()
+    expect(tableBlock?.tableHeaders).toEqual(['主格', '所有格', '受格'])
+    expect(tableBlock?.tableRows).toEqual([
+      ['I', 'my', 'me'],
+      ['he', 'his', 'him'],
+    ])
+  })
 })
