@@ -70,6 +70,19 @@ export function recordTaskCompletion(task: 'grammar' | 'vocab' | 'reading'): voi
   if (task === 'vocab') progress.vocabCompleted = true
   if (task === 'reading') progress.readingCompleted = true
   localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
+
+  // Sync to Cloudflare D1
+  fetch('/api/user/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'update_stats',
+      payload: {
+        streakDays: progress.streak,
+        lastPracticeDate: progress.date,
+      },
+    }),
+  }).catch(() => {})
 }
 
 // --- Wrong Questions Controller ---
@@ -119,6 +132,21 @@ export function recordQuestionAnswer(questionId: string, categoryId: string, isC
   const history: AnswerHistoryEntry[] = rawHist ? JSON.parse(rawHist) : []
   history.push({ questionId, categoryId, isCorrect, timestamp: Date.now() })
   localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history))
+
+  // 3. Sync to Cloudflare D1
+  fetch('/api/user/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'record_answer',
+      payload: {
+        questionId,
+        categoryId,
+        isCorrect,
+        consecutiveCorrect: existing.consecutiveCorrect,
+      },
+    }),
+  }).catch(() => {})
 }
 
 // --- Vocab Mastery Controller ---
@@ -139,6 +167,19 @@ export function updateVocabMastery(vocabId: string, level: number): void {
   const map = getVocabMasteryMap()
   map[vocabId] = { level, lastReviewed: Date.now() }
   localStorage.setItem(STORAGE_KEY_VOCAB, JSON.stringify(map))
+
+  // Sync to Cloudflare D1
+  fetch('/api/user/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'vocab_update',
+      payload: {
+        vocabId,
+        masteryLevel: level,
+      },
+    }),
+  }).catch(() => {})
 }
 
 // --- Category Stats Controller ---
@@ -170,4 +211,66 @@ export function getCategoryStats(): CategoryStat[] {
     correctCount: stat.correct,
     accuracyRate: stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0,
   }))
+}
+
+// --- D1 Synchronizer ---
+
+export async function syncUserDataFromD1(): Promise<void> {
+  if (typeof window === 'undefined') return
+  try {
+    const res = await fetch('/api/user/data')
+    if (!res.ok) return
+    const data = await res.json()
+    if (!data) return
+
+    // 1. Sync Vocab Mastery
+    if (Array.isArray(data.vocabMastery) && data.vocabMastery.length > 0) {
+      const vocabMap: Record<string, { level: number; lastReviewed: number }> = {}
+      for (const item of data.vocabMastery) {
+        vocabMap[item.vocab_id] = { level: item.mastery_level, lastReviewed: Date.now() }
+      }
+      localStorage.setItem(STORAGE_KEY_VOCAB, JSON.stringify(vocabMap))
+    }
+
+    // 2. Sync Wrong Questions
+    if (Array.isArray(data.wrongQuestions)) {
+      const wrongMap: Record<string, WrongQuestionRecord> = {}
+      for (const item of data.wrongQuestions) {
+        wrongMap[item.question_id] = {
+          questionId: item.question_id,
+          categoryId: item.category_id,
+          failCount: 1,
+          consecutiveCorrect: item.consecutive_correct,
+          lastFailedAt: Date.now(),
+        }
+      }
+      localStorage.setItem(STORAGE_KEY_WRONG, JSON.stringify(wrongMap))
+    }
+
+    // 3. Sync Answer History
+    if (Array.isArray(data.answerHistory) && data.answerHistory.length > 0) {
+      const history: AnswerHistoryEntry[] = data.answerHistory.map((item: any) => ({
+        questionId: item.question_id,
+        categoryId: item.category_id,
+        isCorrect: item.is_correct === 1 || item.is_correct === true,
+        timestamp: new Date(item.created_at || Date.now()).getTime(),
+      }))
+      localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history))
+    }
+
+    // 4. Sync Daily Progress / Stats
+    if (data.stats && data.stats.streak_days) {
+      const today = getTodayString()
+      const progress: DailyProgress = {
+        date: data.stats.last_practice_date || today,
+        streak: data.stats.streak_days || 1,
+        grammarCompleted: false,
+        vocabCompleted: false,
+        readingCompleted: false,
+      }
+      localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
+    }
+  } catch (e) {
+    console.error('Error syncing user data from D1:', e)
+  }
 }

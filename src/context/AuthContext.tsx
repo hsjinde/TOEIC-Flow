@@ -1,6 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import { syncUserDataFromD1 } from '../lib/storage'
 
 export interface User {
   id: string
@@ -28,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       .then((data) => {
         if (data && data.user) {
           setUser(data.user)
+          syncUserDataFromD1()
         } else {
           setUser(null)
         }
@@ -52,6 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return { success: false, error: data.error || '登入失敗' }
       }
       setUser(data.user)
+      syncUserDataFromD1()
       return { success: true }
     } catch (e: any) {
       return { success: false, error: e?.message || '網路異常' }
