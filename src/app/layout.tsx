@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { BottomNav } from '../components/BottomNav'
+import { Header } from '../components/Header'
 import { AuthProvider } from '../context/AuthContext'
 import { AuthGuard } from '../components/AuthGuard'
 
@@ -20,7 +21,8 @@ export default function RootLayout({
         <AuthProvider>
           <AuthGuard>
             <div className="min-h-screen flex flex-col items-center">
-              <main className="w-full max-w-md md:max-w-2xl lg:max-w-4xl min-h-screen px-4 pt-6 pb-24 md:pb-12 flex flex-col justify-between">
+              <Header />
+              <main className="w-full max-w-md md:max-w-2xl lg:max-w-4xl min-h-screen px-4 pt-4 pb-24 md:pb-12 flex flex-col justify-between">
                 {children}
               </main>
             </div>
