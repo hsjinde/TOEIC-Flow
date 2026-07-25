@@ -22,17 +22,17 @@ export const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-muted/80 bg-card hover:bg-muted/50 text-xs font-semibold transition-all"
+      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--ln2)] bg-[var(--sf)] hover:bg-[var(--sf2)] text-xs font-semibold text-[var(--tx)] transition-all"
       title="切換深色/淺色模式"
     >
       {theme === 'dark' ? (
         <>
-          <Sun className="w-3.5 h-3.5 text-amber-400" />
+          <Sun className="w-3.5 h-3.5 text-[var(--pr)]" />
           <span>淺色</span>
         </>
       ) : (
         <>
-          <Moon className="w-3.5 h-3.5 text-indigo-400" />
+          <Moon className="w-3.5 h-3.5 text-[var(--pr)]" />
           <span>深色</span>
         </>
       )}

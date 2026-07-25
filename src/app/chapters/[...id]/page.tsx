@@ -26,26 +26,26 @@ export default function ChapterDetailPage() {
     <div className="flex flex-col gap-6">
       {/* Top Header */}
       <div className="flex items-center justify-between">
-        <Link href="/chapters" className="p-2 -ml-2 rounded-xl text-muted-foreground hover:bg-muted">
+        <Link href="/chapters" className="p-2 -ml-2 rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]">
           <ArrowLeft className="w-5 h-5" />
         </Link>
-        <span className="text-xs font-semibold text-primary">{chapter.categoryId}</span>
+        <span className="text-xs font-semibold text-[var(--pr)]">{chapter.categoryId}</span>
       </div>
 
-      <h1 className="text-xl md:text-2xl font-bold">{chapter.title}</h1>
+      <h1 className="text-xl md:text-2xl font-bold text-[var(--tx)]">{chapter.title}</h1>
 
       {/* Quick Tips Highlight Card */}
       {chapter.quickTips && (
-        <div className="p-5 rounded-3xl bg-amber-500/10 border border-amber-500/30 text-amber-500 space-y-3 shadow-sm">
+        <div className="p-5 rounded-3xl bg-[var(--pr-sf)] border border-[var(--pr-ln)] text-[var(--pr)] space-y-3 shadow-sm">
           <div className="flex items-center gap-2 font-bold text-sm">
-            <Zap className="w-4 h-4 fill-amber-500" /> 多益秒殺解題技巧
+            <Zap className="w-4 h-4 fill-[var(--pr)]" /> 多益秒殺解題技巧
           </div>
-          <MarkdownRenderer content={chapter.quickTips} className="text-foreground/90 text-xs" />
+          <MarkdownRenderer content={chapter.quickTips} className="text-[var(--tx)] text-xs" />
         </div>
       )}
 
       {/* Teaching Body */}
-      <div className="p-6 rounded-3xl bg-card border border-muted/80 shadow-sm">
+      <div className="p-6 rounded-3xl bg-[var(--sf)] border border-[var(--ln)] shadow-sm">
         <MarkdownRenderer content={chapter.teaching} />
       </div>
 
