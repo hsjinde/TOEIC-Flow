@@ -1,0 +1,2818 @@
+[
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-information",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "information",
+    "pos": "名詞",
+    "meaning": "資訊（不可數）",
+    "example": "Please review the *information* carefully before signing."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-decision",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "decision",
+    "pos": "名詞",
+    "meaning": "決定",
+    "example": "The manager made a final *decision* yesterday."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-development",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "development",
+    "pos": "名詞",
+    "meaning": "發展",
+    "example": "The *development* of the new product took two years."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-awareness",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "awareness",
+    "pos": "名詞",
+    "meaning": "意識、認知",
+    "example": "The campaign raised public *awareness* of recycling."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-responsibility",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "responsibility",
+    "pos": "名詞",
+    "meaning": "責任",
+    "example": "It is her *responsibility* to check the figures."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-performance",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "performance",
+    "pos": "名詞",
+    "meaning": "表現、績效",
+    "example": "His *performance* has improved significantly."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-employee",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "employee",
+    "pos": "名詞",
+    "meaning": "員工",
+    "example": "Every *employee* must attend the training session."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-applicant",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "applicant",
+    "pos": "名詞",
+    "meaning": "申請人",
+    "example": "The *applicant* submitted her resume online."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-each-other",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "each other",
+    "pos": "片語",
+    "meaning": "彼此（兩者間）",
+    "example": "The two teams cooperated with *each other*."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-one-another",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "one another",
+    "pos": "片語",
+    "meaning": "彼此（三者以上）",
+    "example": "The staff members helped *one another* during the busy season."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-on-one's-own",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "on one's own",
+    "pos": "片語",
+    "meaning": "靠自己、獨自",
+    "example": "She finished the project *on her own*."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-another",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "another",
+    "pos": "代名詞/形容詞",
+    "meaning": "另一個（單數）",
+    "example": "Could you show me *another* option?"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-the-others",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "word": "the others",
+    "pos": "代名詞",
+    "meaning": "剩下的全部（有範圍）",
+    "example": "Two boxes are here; *the others* are still in transit."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-discuss",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "discuss",
+    "pos": "動詞",
+    "meaning": "討論（後不加 about）",
+    "example": "The team will *discuss* the proposal tomorrow."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-address",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "address",
+    "pos": "動詞",
+    "meaning": "處理、解決",
+    "example": "The manager will *address* the customer's concerns."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-submit",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "submit",
+    "pos": "動詞",
+    "meaning": "提交",
+    "example": "Employees must *submit* the form by Friday."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-announce",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "announce",
+    "pos": "動詞",
+    "meaning": "宣布",
+    "example": "The company will *announce* the merger next week."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-arrive",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "arrive",
+    "pos": "動詞",
+    "meaning": "到達（後接 at/in，不可直接加受詞）",
+    "example": "The shipment will *arrive* at the warehouse tomorrow."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-occur",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "occur",
+    "pos": "動詞",
+    "meaning": "發生",
+    "example": "The error *occurred* during the system update."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-consist-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "consist of",
+    "pos": "片語",
+    "meaning": "由...組成",
+    "example": "The committee *consists of* five members."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-result-in-/-result-from",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "result in / result from",
+    "pos": "片語",
+    "meaning": "導致 / 起因於",
+    "example": "The delay *resulted from* a technical issue."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-appear",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "appear",
+    "pos": "動詞",
+    "meaning": "看起來（連綴）",
+    "example": "The results *appear* promising."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-remain",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "remain",
+    "pos": "動詞",
+    "meaning": "保持、仍然是",
+    "example": "The office *remains* closed on holidays."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-turn",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "turn",
+    "pos": "動詞",
+    "meaning": "變得",
+    "example": "The weather *turned* cold suddenly."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-rise-/-raise",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "rise / raise",
+    "pos": "動詞",
+    "meaning": "上升(不及物) / 提高(及物)",
+    "example": "Prices *rise* every year. / The firm *raised* its prices."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-lie-/-lay",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "word": "lie / lay",
+    "pos": "動詞",
+    "meaning": "躺、位於(不及物) / 放置(及物)",
+    "example": "The documents *lie* on the desk. / She *laid* the documents on the desk."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-considerable",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "considerable",
+    "pos": "形容詞",
+    "meaning": "相當大的",
+    "example": "The project required a *considerable* amount of time."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-reliable",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "reliable",
+    "pos": "形容詞",
+    "meaning": "可靠的",
+    "example": "We need a *reliable* supplier for this material."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-comprehensive",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "comprehensive",
+    "pos": "形容詞",
+    "meaning": "全面的",
+    "example": "The manual provides a *comprehensive* guide to the software."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-noticeable",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "noticeable",
+    "pos": "形容詞",
+    "meaning": "顯著的",
+    "example": "There has been a *noticeable* increase in sales."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-considerate",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "considerate",
+    "pos": "形容詞",
+    "meaning": "體貼的（易與 considerable 混淆）",
+    "example": "He is always *considerate* toward his colleagues."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-approximately",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "approximately",
+    "pos": "副詞",
+    "meaning": "大約地",
+    "example": "The meeting will last *approximately* two hours."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-significantly",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "significantly",
+    "pos": "副詞",
+    "meaning": "顯著地",
+    "example": "Revenue increased *significantly* this quarter."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-accordingly",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "accordingly",
+    "pos": "副詞",
+    "meaning": "相應地",
+    "example": "Please review the schedule and plan *accordingly*."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-currently",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "currently",
+    "pos": "副詞",
+    "meaning": "目前",
+    "example": "The position is *currently* unavailable."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-relatively",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "relatively",
+    "pos": "副詞",
+    "meaning": "相對地",
+    "example": "The cost is *relatively* low compared to competitors."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-economic-/-economical",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "economic / economical",
+    "pos": "形容詞",
+    "meaning": "經濟(學)的 / 節省的",
+    "example": "*economic* growth / an *economical* car"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-respective-/-respectively",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "word": "respective / respectively",
+    "pos": "形容詞/副詞",
+    "meaning": "個別的 / 分別地",
+    "example": "They returned to their *respective* offices. / They arrived at 9 and 10, *respectively*."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-although-/-even-though",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "although / even though",
+    "pos": "連接詞",
+    "meaning": "雖然、儘管",
+    "example": "*Although* the budget was limited, the team completed the project."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-because-/-since-/-as",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "because / since / as",
+    "pos": "連接詞",
+    "meaning": "因為",
+    "example": "*Since* the client was unavailable, the meeting was postponed."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-while",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "while",
+    "pos": "連接詞",
+    "meaning": "然而／當...時",
+    "example": "*While* sales grew in Asia, they declined in Europe."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-unless",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "unless",
+    "pos": "連接詞",
+    "meaning": "除非",
+    "example": "*Unless* you register early, you may not get a seat."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-once",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "once",
+    "pos": "連接詞",
+    "meaning": "一旦",
+    "example": "*Once* the contract is signed, the project can begin."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-despite-/-in-spite-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "despite / in spite of",
+    "pos": "介系詞",
+    "meaning": "儘管",
+    "example": "*Despite* the rain, the event proceeded as planned."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-because-of-/-due-to-/-owing-to",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "because of / due to / owing to",
+    "pos": "介系詞",
+    "meaning": "因為",
+    "example": "The flight was delayed *due to* bad weather."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-not-only...but-also",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "not only...but also",
+    "pos": "片語",
+    "meaning": "不僅...而且",
+    "example": "The plan is *not only* cost-effective *but also* efficient."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-either...or",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "either...or",
+    "pos": "片語",
+    "meaning": "兩者之一",
+    "example": "You can *either* call us *or* send an email."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-as-a-result",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "word": "as a result",
+    "pos": "副詞片語",
+    "meaning": "因此、結果",
+    "example": "Sales dropped; *as a result*, the company cut costs."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-during",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "during",
+    "pos": "介系詞",
+    "meaning": "在...期間",
+    "example": "Sales increased *during* the holiday season."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-since",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "since",
+    "pos": "介系詞",
+    "meaning": "自從",
+    "example": "The company has grown rapidly *since* 2015."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-by",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "by",
+    "pos": "介系詞",
+    "meaning": "在...之前（截止）",
+    "example": "Please submit the report *by* Friday."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-within",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "within",
+    "pos": "介系詞",
+    "meaning": "在...範圍內",
+    "example": "The refund will be processed *within* 7 business days."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-due-to",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "due to",
+    "pos": "介系詞",
+    "meaning": "由於",
+    "example": "The delay was *due to* a technical error."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-in-accordance-with",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "in accordance with",
+    "pos": "片語",
+    "meaning": "依照",
+    "example": "The refund is issued *in accordance with* company policy."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-regarding-/-concerning",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "regarding / concerning",
+    "pos": "介系詞",
+    "meaning": "關於",
+    "example": "Please contact us *regarding* your account."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-be-responsible-for",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "be responsible for",
+    "pos": "片語",
+    "meaning": "負責",
+    "example": "She *is responsible for* managing the budget."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-be-familiar-with",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "be familiar with",
+    "pos": "片語",
+    "meaning": "熟悉",
+    "example": "New staff should *be familiar with* the safety guidelines."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-in-charge-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "in charge of",
+    "pos": "片語",
+    "meaning": "負責、掌管",
+    "example": "He *is in charge of* the marketing department."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-on-behalf-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "on behalf of",
+    "pos": "片語",
+    "meaning": "代表",
+    "example": "She signed the contract *on behalf of* the company."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-as-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "word": "as of",
+    "pos": "片語",
+    "meaning": "自...起",
+    "example": "*As of* next month, the office will relocate."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-offer",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "offer",
+    "pos": "動詞",
+    "meaning": "提供",
+    "example": "The company *offered* her a promotion."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-send",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "send",
+    "pos": "動詞",
+    "meaning": "寄送",
+    "example": "Please *send* the client a confirmation email."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-show",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "show",
+    "pos": "動詞",
+    "meaning": "展示",
+    "example": "He *showed* the manager his portfolio."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-grant",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "grant",
+    "pos": "動詞",
+    "meaning": "授予",
+    "example": "The university *granted* him a scholarship."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-consider",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "consider",
+    "pos": "動詞",
+    "meaning": "認為",
+    "example": "We *consider* the plan feasible."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-appoint",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "appoint",
+    "pos": "動詞",
+    "meaning": "任命",
+    "example": "The board *appointed* her CEO."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-keep",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "keep",
+    "pos": "動詞",
+    "meaning": "保持（使處於某狀態）",
+    "example": "Please *keep* the door open."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-name",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "name",
+    "pos": "動詞",
+    "meaning": "任命、命名",
+    "example": "They *named* him team leader."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-remain",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "remain",
+    "pos": "動詞",
+    "meaning": "保持",
+    "example": "The market *remains* stable."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-become",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "become",
+    "pos": "動詞",
+    "meaning": "變成",
+    "example": "The company *became* profitable within a year."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-there-be",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "there be",
+    "pos": "句型",
+    "meaning": "有...",
+    "example": "*There are* several options available."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-it-is...that",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "word": "it is...that",
+    "pos": "片語",
+    "meaning": "強調句型",
+    "example": "*It was* the manager *that* approved the budget."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-variety-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "a variety of",
+    "pos": "片語",
+    "meaning": "各式各樣的",
+    "example": "The store offers *a variety of* products."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-the-majority-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "the majority of",
+    "pos": "片語",
+    "meaning": "大多數的",
+    "example": "*The majority of* employees support the new policy."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-on-a-regular-basis",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "on a regular basis",
+    "pos": "片語",
+    "meaning": "定期地",
+    "example": "The team meets *on a regular basis*."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-numerous",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "numerous",
+    "pos": "形容詞",
+    "meaning": "許多的（後接複數可數名詞）",
+    "example": "The firm has received *numerous* awards."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-couple-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "a couple of",
+    "pos": "片語",
+    "meaning": "一兩個、幾個",
+    "example": "It will take *a couple of* days to process."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-plenty-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "plenty of",
+    "pos": "片語",
+    "meaning": "大量的（可數/不可數皆可）",
+    "example": "There is *plenty of* time to finish the task."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-handful-of",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "a handful of",
+    "pos": "片語",
+    "meaning": "少數幾個",
+    "example": "Only *a handful of* candidates passed the exam."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-the-entire-/-the-whole",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "the entire / the whole",
+    "pos": "形容詞",
+    "meaning": "整個的",
+    "example": "*The entire* team worked overtime."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-each",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "each",
+    "pos": "限定詞",
+    "meaning": "每一個（單數）",
+    "example": "*Each* department has its own budget."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-every-other",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "every other",
+    "pos": "片語",
+    "meaning": "每隔一個",
+    "example": "The newsletter is sent out *every other* week."
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-either-/-neither",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "word": "either / neither",
+    "pos": "限定詞",
+    "meaning": "兩者之一／兩者皆非",
+    "example": "*Neither* option seems suitable."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-currently",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "currently",
+    "pos": "adv.",
+    "meaning": "目前",
+    "example": "The department is **currently** hiring new staff."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-previously",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "previously",
+    "pos": "adv.",
+    "meaning": "先前",
+    "example": "He **previously** worked at a law firm."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-eventually",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "eventually",
+    "pos": "adv.",
+    "meaning": "最終",
+    "example": "The merger will **eventually** take place."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-routinely",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "routinely",
+    "pos": "adv.",
+    "meaning": "例行地",
+    "example": "Reports are **routinely** submitted every Monday."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-possess",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "possess",
+    "pos": "v.",
+    "meaning": "擁有",
+    "example": "The firm **possesses** the necessary licenses."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-resemble",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "resemble",
+    "pos": "v.",
+    "meaning": "相似",
+    "example": "The new design **resembles** the old logo."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-prefer",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "prefer",
+    "pos": "v.",
+    "meaning": "偏好",
+    "example": "Most clients **prefer** email communication."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-consist-(of)",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "consist (of)",
+    "pos": "v.",
+    "meaning": "由...組成",
+    "example": "The committee **consists of** five members."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-at-present",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "at present",
+    "pos": "phr.",
+    "meaning": "目前",
+    "example": "**At present**, the office is closed for renovation."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-on-a-regular-basis",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "on a regular basis",
+    "pos": "phr.",
+    "meaning": "定期地",
+    "example": "Inspections are conducted **on a regular basis**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-be-about-to-v",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "be about to V",
+    "pos": "phr.",
+    "meaning": "即將",
+    "example": "The train **is about to** depart."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-in-the-process-of-v-ing",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "word": "in the process of V-ing",
+    "pos": "phr.",
+    "meaning": "正在...過程中",
+    "example": "We **are in the process of** upgrading the system."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-so-far",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "so far",
+    "pos": "phr.",
+    "meaning": "到目前為止",
+    "example": "**So far**, the team has completed 80% of the project."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-lately",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "lately",
+    "pos": "adv.",
+    "meaning": "最近",
+    "example": "Sales have improved **lately**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-yet",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "yet",
+    "pos": "adv.",
+    "meaning": "（否定/疑問）還（沒）",
+    "example": "The shipment has not arrived **yet**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-already",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "already",
+    "pos": "adv.",
+    "meaning": "已經",
+    "example": "We have **already** signed the contract."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-prior-to",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "prior to",
+    "pos": "phr.",
+    "meaning": "在...之前",
+    "example": "**Prior to** the merger, the two firms had operated separately."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-beforehand",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "beforehand",
+    "pos": "adv.",
+    "meaning": "事先",
+    "example": "He had prepared the slides **beforehand**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-by-then",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "by then",
+    "pos": "phr.",
+    "meaning": "到那時",
+    "example": "**By then**, we will have shipped all the orders."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-no-later-than",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "no later than",
+    "pos": "phr.",
+    "meaning": "不晚於",
+    "example": "The report must be finished **no later than** Friday."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-complete-→-completed",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "complete → completed",
+    "pos": "v.",
+    "meaning": "完成",
+    "example": "The audit has been **completed**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-submit-→-submitted",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "submit → submitted",
+    "pos": "v.",
+    "meaning": "提交",
+    "example": "She has **submitted** her resignation."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-arise-→-arisen",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "arise → arisen",
+    "pos": "v.",
+    "meaning": "出現、發生",
+    "example": "Several issues have **arisen** since the launch."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#v-undergo-→-undergone",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "word": "undergo → undergone",
+    "pos": "v.",
+    "meaning": "經歷",
+    "example": "The company has **undergone** major restructuring."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-interested-in",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be interested in",
+    "pos": "phr.",
+    "meaning": "對...感興趣",
+    "example": "Investors **are interested in** the new startup."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-equipped-with",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be equipped with",
+    "pos": "phr.",
+    "meaning": "配備有",
+    "example": "The lab **is equipped with** advanced instruments."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-committed-to",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be committed to",
+    "pos": "phr.",
+    "meaning": "致力於",
+    "example": "The firm **is committed to** reducing waste."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-based-in",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be based in",
+    "pos": "phr.",
+    "meaning": "總部位於",
+    "example": "The company **is based in** Taipei."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-satisfied-with",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be satisfied with",
+    "pos": "phr.",
+    "meaning": "對...感到滿意",
+    "example": "Customers **are satisfied with** the service."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-required-to-v",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be required to V",
+    "pos": "phr.",
+    "meaning": "被要求（做）",
+    "example": "Employees **are required to** wear badges."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-scheduled-to-v",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be scheduled to V",
+    "pos": "phr.",
+    "meaning": "預定（做）",
+    "example": "The meeting **is scheduled to** begin at 10 A.M."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-authorized-to-v",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be authorized to V",
+    "pos": "phr.",
+    "meaning": "被授權（做）",
+    "example": "Only managers **are authorized to** approve refunds."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-entitled-to-n",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "be entitled to N",
+    "pos": "phr.",
+    "meaning": "有權享有",
+    "example": "Staff **are entitled to** paid leave."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-occur",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "occur",
+    "pos": "v.",
+    "meaning": "發生",
+    "example": "The error **occurred** during installation."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-remain",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "remain",
+    "pos": "v.",
+    "meaning": "保持",
+    "example": "Prices **remained** stable last quarter."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#v-arrive",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "word": "arrive",
+    "pos": "v.",
+    "meaning": "到達",
+    "example": "The shipment **arrived** on time."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-for-the-past-+-時間",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "for the past + 時間",
+    "pos": "phr.",
+    "meaning": "過去這段時間",
+    "example": "She **has been studying** English *for the past two years*."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-all-along",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "all along",
+    "pos": "phr.",
+    "meaning": "一直（以來）",
+    "example": "He **has been planning** this **all along**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-continuously",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "continuously",
+    "pos": "adv.",
+    "meaning": "持續不斷地",
+    "example": "The machine **has been running continuously** since morning."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-subsequently",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "subsequently",
+    "pos": "adv.",
+    "meaning": "隨後",
+    "example": "The firm was founded in 1990 and **subsequently** expanded overseas."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-prior-to-that",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "prior to that",
+    "pos": "phr.",
+    "meaning": "在那之前",
+    "example": "Prior to that, he had worked as a consultant."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-at-the-time",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "at the time",
+    "pos": "phr.",
+    "meaning": "當時",
+    "example": "At the time, the company was still a small startup."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-ever-since",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "ever since",
+    "pos": "phr.",
+    "meaning": "從那時起一直",
+    "example": "Sales have improved **ever since** the new manager took over."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-negotiate",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "negotiate",
+    "pos": "v.",
+    "meaning": "協商",
+    "example": "The two sides **have been negotiating** for weeks."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-expand",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "expand",
+    "pos": "v.",
+    "meaning": "擴張",
+    "example": "The firm **had been expanding** rapidly before the recession hit."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-decline",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "word": "decline",
+    "pos": "v.",
+    "meaning": "下滑",
+    "example": "Profits **have been declining** since last quarter."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-intend",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "intend",
+    "pos": "及物動詞",
+    "meaning": "打算",
+    "example": "We **intend to** expand our operations next year."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-refuse",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "refuse",
+    "pos": "及物動詞",
+    "meaning": "拒絕",
+    "example": "He **refused to** sign the agreement."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-afford",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "afford",
+    "pos": "及物動詞（常與",
+    "meaning": "can/cannot 連用） 負擔得起",
+    "example": "We cannot **afford to** delay the shipment."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-hesitate",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "hesitate",
+    "pos": "不及物動詞",
+    "meaning": "猶豫",
+    "example": "Please do not **hesitate to** contact us."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-strive",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "strive",
+    "pos": "不及物動詞",
+    "meaning": "努力",
+    "example": "The company **strives to** improve customer service."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-eager",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "eager",
+    "pos": "形容詞",
+    "meaning": "渴望的",
+    "example": "She is **eager to** learn new skills."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-reluctant",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "reluctant",
+    "pos": "形容詞",
+    "meaning": "不情願的",
+    "example": "He was **reluctant to** accept the offer."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-eligible",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "eligible",
+    "pos": "形容詞",
+    "meaning": "有資格的",
+    "example": "Employees are **eligible to** apply for the program."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-likely",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "likely",
+    "pos": "形容詞",
+    "meaning": "可能的",
+    "example": "The price is **likely to** increase next month."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-in-order-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "in order to",
+    "pos": "片語",
+    "meaning": "為了",
+    "example": "We hired more staff **in order to** meet the deadline."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-so-as-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "so as to",
+    "pos": "片語",
+    "meaning": "為了（較正式）",
+    "example": "The manager arrived early **so as to** prepare the meeting room."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-be-supposed-to-v",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "be supposed to V",
+    "pos": "片語",
+    "meaning": "應該",
+    "example": "The report **is supposed to** be finished by Friday."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-be-scheduled-to-v",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "be scheduled to V",
+    "pos": "片語",
+    "meaning": "預計",
+    "example": "The flight **is scheduled to** depart at noon."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-too...to-v",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "word": "too...to V",
+    "pos": "句型",
+    "meaning": "太...以致於不能",
+    "example": "The box is **too heavy to** carry alone."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-avoid",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "avoid",
+    "pos": "及物動詞",
+    "meaning": "避免",
+    "example": "We should **avoid** *making* the same mistake twice."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-suggest",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "suggest",
+    "pos": "及物動詞",
+    "meaning": "建議",
+    "example": "The consultant **suggested** *restructuring* the department."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-consider",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "consider",
+    "pos": "及物動詞",
+    "meaning": "考慮",
+    "example": "Please **consider** *joining* our new project team."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-postpone",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "postpone",
+    "pos": "及物動詞",
+    "meaning": "延後",
+    "example": "They **postponed** *releasing* the quarterly report."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-recommend",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "recommend",
+    "pos": "及物動詞",
+    "meaning": "推薦；建議",
+    "example": "I **recommend** *booking* the flight early."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-finish",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "finish",
+    "pos": "及物動詞",
+    "meaning": "完成",
+    "example": "She **finished** *drafting* the proposal this morning."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-mind",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "mind",
+    "pos": "及物動詞",
+    "meaning": "介意",
+    "example": "Would you **mind** *closing* the window?"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-look-forward-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "look forward to",
+    "pos": "片語",
+    "meaning": "期待",
+    "example": "We **look forward to** *working* with you."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-used-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "be used to",
+    "pos": "片語",
+    "meaning": "習慣於",
+    "example": "He **is used to** *waking* up early."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-committed-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "be committed to",
+    "pos": "片語",
+    "meaning": "致力於",
+    "example": "The firm **is committed to** *reducing* waste."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-object-to",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "object to",
+    "pos": "片語",
+    "meaning": "反對",
+    "example": "Several employees **object to** *changing* the schedule."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-worth",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "be worth",
+    "pos": "片語",
+    "meaning": "值得",
+    "example": "The seminar **is worth** *attending*."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-networking",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "networking",
+    "pos": "動名詞（作名詞）",
+    "meaning": "建立人脈",
+    "example": "**Networking** *is* essential for career growth."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-budgeting",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "word": "budgeting",
+    "pos": "動名詞（作名詞）",
+    "meaning": "編列預算",
+    "example": "**Budgeting** *requires* careful planning."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-leading",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "leading",
+    "pos": "形容詞（分詞）",
+    "meaning": "領先的",
+    "example": "**Leading** companies invest heavily in R&D."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-remaining",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "remaining",
+    "pos": "形容詞（分詞）",
+    "meaning": "剩餘的",
+    "example": "Please review the **remaining** issues before the deadline."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-rising",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "rising",
+    "pos": "形容詞（分詞）",
+    "meaning": "上升中的",
+    "example": "The **rising** cost of materials affects our margin."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-attached",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "attached",
+    "pos": "形容詞（分詞）",
+    "meaning": "附加的",
+    "example": "Please see the **attached** file for details."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-enclosed",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "enclosed",
+    "pos": "形容詞（分詞）",
+    "meaning": "隨函附上的",
+    "example": "The **enclosed** brochure explains our services."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-qualified",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "qualified",
+    "pos": "形容詞（分詞）",
+    "meaning": "合格的",
+    "example": "We are looking for **qualified** candidates."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-detailed",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "detailed",
+    "pos": "形容詞（分詞）",
+    "meaning": "詳細的",
+    "example": "A **detailed** report will be sent next week."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-regarding",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "regarding",
+    "pos": "介系詞",
+    "meaning": "關於",
+    "example": "**Regarding** your request, we need more information."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-given-(that)",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "given (that)",
+    "pos": "介系詞/連接詞",
+    "meaning": "鑒於",
+    "example": "**Given** the current budget, we must cut costs."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-provided-(that)",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "provided (that)",
+    "pos": "連接詞",
+    "meaning": "只要；假如",
+    "example": "You may proceed **provided that** you have approval."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-considering",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "word": "considering",
+    "pos": "介系詞",
+    "meaning": "考慮到",
+    "example": "**Considering** the weather, the event may be delayed."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-bore",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "bore",
+    "pos": "及物動詞",
+    "meaning": "使無聊",
+    "example": "boring/bored | The lecture was so **boring** that many students fell asleep."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-tire",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "tire",
+    "pos": "及物動詞",
+    "meaning": "使疲累",
+    "example": "tiring/tired | After a **tiring** day, she went straight to bed."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-amaze",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "amaze",
+    "pos": "及物動詞",
+    "meaning": "使驚奇",
+    "example": "amazing/amazed | We were **amazed** *at* the results of the survey."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-frustrate",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "frustrate",
+    "pos": "及物動詞",
+    "meaning": "使沮喪",
+    "example": "frustrating/frustrated | The delay was extremely **frustrating** for the customers."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-motivate",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "motivate",
+    "pos": "及物動詞",
+    "meaning": "激勵",
+    "example": "motivating/motivated | The bonus scheme is highly **motivating** for the sales team."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-overwhelm",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "overwhelm",
+    "pos": "及物動詞",
+    "meaning": "使不知所措",
+    "example": "overwhelming/overwhelmed | She felt **overwhelmed** *by* the amount of work."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-fascinate",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "fascinate",
+    "pos": "及物動詞",
+    "meaning": "使著迷",
+    "example": "fascinating/fascinated | The museum exhibit was truly **fascinating**."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-interested-in",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "be interested in",
+    "pos": "片語",
+    "meaning": "對...感興趣",
+    "example": "He **is interested in** *pursuing* a career in finance."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-satisfied-with",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "be satisfied with",
+    "pos": "片語",
+    "meaning": "對...感到滿意",
+    "example": "The client **is satisfied with** the final design."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-worried-about",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "be worried about",
+    "pos": "片語",
+    "meaning": "對...感到擔心",
+    "example": "Employees **are worried about** the upcoming layoffs."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-excited-about",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "word": "be excited about",
+    "pos": "片語",
+    "meaning": "對...感到興奮",
+    "example": "The team **is excited about** the new product launch."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-claim",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "claim",
+    "pos": "及物動詞",
+    "meaning": "宣稱",
+    "example": "He **claims to have completed** the certification last year."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-seem",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "seem",
+    "pos": "不及物動詞",
+    "meaning": "似乎",
+    "example": "The data **seems to have been** miscalculated."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-regret",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "regret",
+    "pos": "及物動詞",
+    "meaning": "後悔；遺憾",
+    "example": "We **regret to inform** you of the delay."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-acknowledge",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "acknowledge",
+    "pos": "及物動詞",
+    "meaning": "承認",
+    "example": "She **acknowledged having made** an error in the report."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-carry",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "carry",
+    "pos": "及物動詞",
+    "meaning": "攜帶",
+    "example": "He entered **with** a folder **carrying** important documents."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-verify",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "verify",
+    "pos": "及物動詞",
+    "meaning": "核實",
+    "example": "The invoice was approved **with** all figures **verified**."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-attach",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "attach",
+    "pos": "及物動詞",
+    "meaning": "附加",
+    "example": "She sent the email **with** a file **attached**."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-without-+-v-ing",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "without + V-ing",
+    "pos": "片語",
+    "meaning": "沒有做...的情況下",
+    "example": "You cannot enter the lab **without** *wearing* proper gear."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-be-worthy-of-+-v-ing/n",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "be worthy of + V-ing/N",
+    "pos": "片語",
+    "meaning": "值得...",
+    "example": "This achievement **is worthy of** *recognition*."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-being-p.p.",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "word": "being p.p.",
+    "pos": "動名詞被動",
+    "meaning": "被...",
+    "example": "She disliked **being interrupted** during presentations."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-compel",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "compel",
+    "pos": "v.",
+    "meaning": "強迫、迫使",
+    "example": "The new regulation **compelled** the company to change its policy."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-force",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "force",
+    "pos": "v.",
+    "meaning": "強迫",
+    "example": "They were **forced** to relocate the factory."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-oblige",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "oblige",
+    "pos": "v.",
+    "meaning": "使有義務、迫使",
+    "example": "The contract **obliges** both parties to comply with the terms."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-permit",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "permit",
+    "pos": "v.",
+    "meaning": "允許",
+    "example": "The manager **permitted** staff to leave early on Friday."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-allow",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "allow",
+    "pos": "v.",
+    "meaning": "允許",
+    "example": "The policy **allows** employees to work remotely."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-enable",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "enable",
+    "pos": "v.",
+    "meaning": "使能夠",
+    "example": "This software **enables** users to track expenses easily."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-assist",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "assist",
+    "pos": "v.",
+    "meaning": "協助",
+    "example": "The consultant **assisted** the team in preparing the report."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#v-instruct",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "word": "instruct",
+    "pos": "v.",
+    "meaning": "指示、命令",
+    "example": "She **instructed** her assistant to file the documents."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-observe",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "observe",
+    "pos": "v.",
+    "meaning": "觀察、注意到",
+    "example": "Auditors **observed** the staff following the new procedure."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-spot",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "spot",
+    "pos": "v.",
+    "meaning": "發現、認出",
+    "example": "She **spotted** an error in the invoice."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-glimpse",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "glimpse",
+    "pos": "v.",
+    "meaning": "瞥見",
+    "example": "He **glimpsed** the manager leaving the building."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-overhear",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "overhear",
+    "pos": "v.",
+    "meaning": "無意中聽到",
+    "example": "I **overheard** them discussing the merger."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-perceive",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "perceive",
+    "pos": "v.",
+    "meaning": "察覺、感知",
+    "example": "Customers **perceived** the new packaging as more eco-friendly."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-sense",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "sense",
+    "pos": "v.",
+    "meaning": "感覺到",
+    "example": "The manager **sensed** tension among the team members."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#v-notice",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "word": "notice",
+    "pos": "v.",
+    "meaning": "注意到",
+    "example": "Nobody **noticed** the printer running out of paper."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-insist",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "insist",
+    "pos": "v.",
+    "meaning": "堅持",
+    "example": "The client **insisted** that the order be delivered by Friday."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-demand",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "demand",
+    "pos": "v.",
+    "meaning": "要求",
+    "example": "The union **demanded** that management raise wages."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-require",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "require",
+    "pos": "v.",
+    "meaning": "要求、規定",
+    "example": "The law **requires** that all drivers carry insurance."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-command",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "command",
+    "pos": "v.",
+    "meaning": "命令",
+    "example": "The general **commanded** that the troops withdraw immediately."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-suggest",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "suggest",
+    "pos": "v.",
+    "meaning": "建議",
+    "example": "The doctor **suggested** that she rest for a week."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-recommend",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "recommend",
+    "pos": "v.",
+    "meaning": "推薦、建議",
+    "example": "We **recommend** that applicants submit their forms early."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-propose",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "propose",
+    "pos": "v.",
+    "meaning": "提議",
+    "example": "He **proposed** that the meeting be rescheduled."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-urge",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "urge",
+    "pos": "v.",
+    "meaning": "敦促",
+    "example": "The manager **urged** that the team finish the project on time."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-advise",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "advise",
+    "pos": "v.",
+    "meaning": "建議、勸告",
+    "example": "The consultant **advised** that the company invest in training."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-imperative",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "imperative",
+    "pos": "adj.",
+    "meaning": "必要的、緊急的",
+    "example": "It is **imperative** that the issue be resolved today."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-advisable",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "advisable",
+    "pos": "adj.",
+    "meaning": "明智的、可取的",
+    "example": "It is **advisable** that new staff attend orientation."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-requirement",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "requirement",
+    "pos": "n.",
+    "meaning": "要求、規定",
+    "example": "The **requirement** that all staff wear badges is strictly enforced."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-recommendation",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "word": "recommendation",
+    "pos": "n.",
+    "meaning": "建議",
+    "example": "Her **recommendation** that the budget be increased was approved."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-require",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "require",
+    "pos": "v.",
+    "meaning": "要求、需要",
+    "example": "The job **requires** applicants to have three years of experience."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-expect",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "expect",
+    "pos": "v.",
+    "meaning": "期待、預期",
+    "example": "We **expect** the shipment to arrive by Monday."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-need",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "need",
+    "pos": "v.",
+    "meaning": "需要",
+    "example": "The team **needs** everyone to cooperate on this project."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-allow",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "allow",
+    "pos": "v.",
+    "meaning": "允許",
+    "example": "The new software **allows** users to customize their dashboard."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-enable",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "enable",
+    "pos": "v.",
+    "meaning": "使能夠",
+    "example": "This grant **enables** small businesses to expand overseas."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-permit",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "permit",
+    "pos": "v.",
+    "meaning": "准許",
+    "example": "The manager **permitted** the intern to leave early."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-remind",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "remind",
+    "pos": "v.",
+    "meaning": "提醒",
+    "example": "The system will **remind** users to update their passwords."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-warn",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "warn",
+    "pos": "v.",
+    "meaning": "警告",
+    "example": "The sign **warns** pedestrians to watch for traffic."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-advise",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "advise",
+    "pos": "v.",
+    "meaning": "建議",
+    "example": "The lawyer **advised** the client to sign the agreement."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-instruct",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "instruct",
+    "pos": "v.",
+    "meaning": "指示",
+    "example": "The manual **instructs** technicians to check the voltage first."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-persuade",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "persuade",
+    "pos": "v.",
+    "meaning": "說服",
+    "example": "The salesperson **persuaded** the customer to upgrade the plan."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-encourage",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "encourage",
+    "pos": "v.",
+    "meaning": "鼓勵",
+    "example": "Managers are **encouraged** to give constructive feedback."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-invite",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "word": "invite",
+    "pos": "v.",
+    "meaning": "邀請",
+    "example": "The organizer **invited** attendees to ask questions."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-assume",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "assume",
+    "pos": "v.",
+    "meaning": "假設、認為",
+    "example": "I **assume** that the shipment will arrive on time."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-confirm",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "confirm",
+    "pos": "v.",
+    "meaning": "確認",
+    "example": "Please **confirm** whether you will attend the seminar."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-determine",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "determine",
+    "pos": "v.",
+    "meaning": "決定、判斷",
+    "example": "We need to **determine** what caused the delay."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-doubt",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "doubt",
+    "pos": "v./n.",
+    "meaning": "懷疑",
+    "example": "I **doubt** that the plan will work."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-essential",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "essential",
+    "pos": "adj.",
+    "meaning": "必要的、必需的",
+    "example": "It is **essential** that all employees attend the training."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-evident",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "evident",
+    "pos": "adj.",
+    "meaning": "明顯的",
+    "example": "It is **evident** that sales have increased."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-inquire",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "inquire",
+    "pos": "v.",
+    "meaning": "詢問",
+    "example": "She **inquired** whether the position was still open."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-mandatory",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "mandatory",
+    "pos": "adj.",
+    "meaning": "強制的、必須的",
+    "example": "It is **mandatory** that staff wear badges."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-recommend",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "recommend",
+    "pos": "v.",
+    "meaning": "建議",
+    "example": "The manager **recommends** that we revise the budget."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-require",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "require",
+    "pos": "v.",
+    "meaning": "要求",
+    "example": "Policy **requires** that visitors sign in."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-suggestion",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "suggestion",
+    "pos": "n.",
+    "meaning": "建議",
+    "example": "My **suggestion** is that we postpone the launch."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-uncertain",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "uncertain",
+    "pos": "adj.",
+    "meaning": "不確定的",
+    "example": "I am **uncertain** whether the data is accurate."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-whatever",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "whatever",
+    "pos": "pron.",
+    "meaning": "無論什麼",
+    "example": "Choose **whatever** option suits you best."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-in-charge-of",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "in charge of",
+    "pos": "片語",
+    "meaning": "負責",
+    "example": "We don't know who is **in charge of** the project."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#v-as-to",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "word": "as to",
+    "pos": "片語",
+    "meaning": "關於",
+    "example": "There is disagreement **as to** whether the plan is feasible."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whoever",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "whoever",
+    "pos": "pron.",
+    "meaning": "無論是誰",
+    "example": "**Whoever** submits the form first will be considered."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whatever",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "whatever",
+    "pos": "pron.",
+    "meaning": "無論什麼",
+    "example": "You can use **whatever** tools you need."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whichever",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "whichever",
+    "pos": "pron.",
+    "meaning": "無論哪一個",
+    "example": "Choose **whichever** plan fits your budget."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-candidate",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "candidate",
+    "pos": "n.",
+    "meaning": "候選人",
+    "example": "The candidate **whom** we interviewed impressed us."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-qualify",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "qualify",
+    "pos": "v.",
+    "meaning": "符合資格",
+    "example": "Employees **who qualify** may apply for the grant."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-eligible",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "eligible",
+    "pos": "adj.",
+    "meaning": "有資格的",
+    "example": "Staff **who are eligible** will receive benefits."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-supervisor",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "supervisor",
+    "pos": "n.",
+    "meaning": "主管",
+    "example": "The supervisor **whose** team performed best was promoted."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-branch",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "branch",
+    "pos": "n.",
+    "meaning": "分公司、分行",
+    "example": "This is the branch **where** the incident occurred."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-occasion",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "occasion",
+    "pos": "n.",
+    "meaning": "場合、時機",
+    "example": "There was an occasion **when** the system failed."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-invest-in",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "invest in",
+    "pos": "片語",
+    "meaning": "投資於",
+    "example": "The fund **in which** we invested grew steadily."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-be-responsible-for",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "be responsible for",
+    "pos": "片語",
+    "meaning": "負責",
+    "example": "The manager **who is responsible for** logistics resigned."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-credential",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "credential",
+    "pos": "n.",
+    "meaning": "資格證明",
+    "example": "Applicants **whose credentials** meet the standard will be shortlisted."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-comply-with",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "comply with",
+    "pos": "片語",
+    "meaning": "遵守",
+    "example": "Employees **who comply with** the policy avoid penalties."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-omit",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "omit",
+    "pos": "v.",
+    "meaning": "省略、遺漏",
+    "example": "The clause **(which was) omitted** changed the contract's meaning."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-majority",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "word": "majority",
+    "pos": "n.",
+    "meaning": "多數",
+    "example": "The firm has 50 clients, **most of whom** renewed their contracts."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-provided",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "provided",
+    "pos": "conj.",
+    "meaning": "只要、假使",
+    "example": "You may leave early, **provided** you finish the report."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-once",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "once",
+    "pos": "conj.",
+    "meaning": "一旦",
+    "example": "**Once** approved, the budget cannot be changed."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-whereas",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "whereas",
+    "pos": "conj.",
+    "meaning": "然而、反之",
+    "example": "Some prefer email, **whereas** others prefer calls."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-owing-to",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "owing to",
+    "pos": "片語，介系詞",
+    "meaning": "由於",
+    "example": "The flight was delayed **owing to** bad weather."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-due-to",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "due to",
+    "pos": "片語，介系詞",
+    "meaning": "由於",
+    "example": "The meeting was postponed **due to** a scheduling conflict."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-in-spite-of",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "in spite of",
+    "pos": "片語，介系詞",
+    "meaning": "儘管",
+    "example": "**In spite of** the rain, sales remained strong."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-renovation",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "renovation",
+    "pos": "n.",
+    "meaning": "翻新、整修",
+    "example": "The store closed until **renovations** were complete."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-overtime",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "overtime",
+    "pos": "n./adv.",
+    "meaning": "加班",
+    "example": "Staff worked **overtime** so that deadlines could be met."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-finalize",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "finalize",
+    "pos": "v.",
+    "meaning": "完成、定案",
+    "example": "**Once** the design is **finalized**, production begins."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-postpone",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "postpone",
+    "pos": "v.",
+    "meaning": "延後",
+    "example": "The launch was **postponed** because the samples were delayed."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-in-the-event-that",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "in the event that",
+    "pos": "片語",
+    "meaning": "萬一、如果",
+    "example": "**In the event that** the server fails, contact IT immediately."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-as-long-as",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "as long as",
+    "pos": "片語",
+    "meaning": "只要",
+    "example": "You may work remotely **as long as** you attend meetings."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-come-into-effect",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "come into effect",
+    "pos": "片語",
+    "meaning": "生效",
+    "example": "The new policy will **come into effect** once it is approved."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-budget",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "budget",
+    "pos": "n.",
+    "meaning": "預算",
+    "example": "**Although** the **budget** was tight, the project succeeded."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#v-compliant",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "word": "compliant",
+    "pos": "adj.",
+    "meaning": "符合規定的",
+    "example": "**Provided that** the report is **compliant**, it will be accepted."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-unreal",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "unreal",
+    "pos": "adj.",
+    "meaning": "不真實的、假設的",
+    "example": "This is an **unreal** condition contrary to fact."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-hypothetical",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "hypothetical",
+    "pos": "adj.",
+    "meaning": "假設性的",
+    "example": "The scenario is purely **hypothetical**."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-insist",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "insist",
+    "pos": "v.",
+    "meaning": "堅持",
+    "example": "The client **insisted** that the deadline be extended."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-assumption",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "assumption",
+    "pos": "n.",
+    "meaning": "假設",
+    "example": "Our budget is based on an **assumption** that costs stay stable."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-contrary-to",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "contrary to",
+    "pos": "片語",
+    "meaning": "與...相反",
+    "example": "**Contrary to** expectations, sales dropped."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-regret",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "regret",
+    "pos": "v./n.",
+    "meaning": "後悔",
+    "example": "I **regret** that I did not accept the offer."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-otherwise",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "otherwise",
+    "pos": "adv.",
+    "meaning": "否則、不然",
+    "example": "Submit the form by Friday; **otherwise**, it will not be processed."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-assistance",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "assistance",
+    "pos": "n.",
+    "meaning": "協助",
+    "example": "**Should** you need further **assistance**, contact support."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-inquiry",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "inquiry",
+    "pos": "n.",
+    "meaning": "詢問",
+    "example": "**Should** you have an **inquiry**, please call the hotline."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-compensate",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "compensate",
+    "pos": "v.",
+    "meaning": "補償",
+    "example": "If the flight had been cancelled, the airline **would have compensated** passengers."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-presume",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "presume",
+    "pos": "v.",
+    "meaning": "推測、假定",
+    "example": "I **presume** that he would have agreed if asked."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-wish",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "wish",
+    "pos": "v.",
+    "meaning": "希望（與事實相反）",
+    "example": "I **wish** the meeting **were** shorter."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-exhausted",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "exhausted",
+    "pos": "adj.",
+    "meaning": "精疲力盡的",
+    "example": "He looked **as if** he **were exhausted**."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-had-it-not-been-for",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "had it not been for",
+    "pos": "片語",
+    "meaning": "要不是因為",
+    "example": "**Had it not been for** her help, we would have failed."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#v-on-short-notice",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "word": "on short notice",
+    "pos": "片語",
+    "meaning": "臨時通知",
+    "example": "**Were** we notified **on short notice**, we could still adapt."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-efficient",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "efficient",
+    "pos": "adj. 有效率的",
+    "meaning": "高效的",
+    "example": "This method is **more efficient than** the old one."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-reliable",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "reliable",
+    "pos": "adj. 可靠的",
+    "meaning": "值得信賴的",
+    "example": "This brand is **as reliable as** the leading one."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-competitive",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "competitive",
+    "pos": "adj. 競爭激烈的",
+    "meaning": "有競爭力的",
+    "example": "The market is becoming **more competitive**."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-substantial",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "substantial",
+    "pos": "adj. 大量的",
+    "meaning": "顯著的",
+    "example": "The company reported **a substantial increase** in profit."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-considerable",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "considerable",
+    "pos": "adj. 相當大的",
+    "meaning": "可觀的",
+    "example": "There was **a considerable difference** between the two proposals."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-significantly",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "significantly",
+    "pos": "adv. 顯著地",
+    "meaning": "大幅地",
+    "example": "Sales rose **significantly higher than** projected."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-relatively",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "relatively",
+    "pos": "adv.",
+    "meaning": "相對地",
+    "example": "The new system is **relatively faster** than the old one."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-increasingly",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "increasingly",
+    "pos": "adv.",
+    "meaning": "日益地",
+    "example": "Customers are **increasingly demanding** better service."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-margin",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "margin",
+    "pos": "n.",
+    "meaning": "差距、利潤",
+    "example": "The company won by a narrow **margin**."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-counterpart",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "counterpart",
+    "pos": "n.",
+    "meaning": "對應的人/物",
+    "example": "Our sales figures exceeded those of our **counterpart** in Europe."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-benchmark",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "benchmark",
+    "pos": "n.",
+    "meaning": "基準、標竿",
+    "example": "The new product set **a benchmark** for quality."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-outperform",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "outperform",
+    "pos": "v.",
+    "meaning": "表現優於",
+    "example": "This model **outperforms** all competitors."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-surpass-/-exceed",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "surpass / exceed",
+    "pos": "v.",
+    "meaning": "超越、超過",
+    "example": "Revenue **surpassed** expectations this quarter."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-on-par-with",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "on par with",
+    "pos": "phr.",
+    "meaning": "與...同等水準",
+    "example": "Our service is **on par with** industry standards."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-far-and-away",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "word": "far and away",
+    "pos": "phr.",
+    "meaning": "遠遠地、最...",
+    "example": "She is **far and away** the best candidate."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-rarely",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "rarely",
+    "pos": "adv.",
+    "meaning": "很少地",
+    "example": "**Rarely does** she miss a deadline."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-seldom",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "seldom",
+    "pos": "adv.",
+    "meaning": "不常地",
+    "example": "**Seldom is** the office this quiet."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-hardly",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "hardly",
+    "pos": "adv.",
+    "meaning": "幾乎不",
+    "example": "**Hardly had** the meeting begun when the fire alarm rang."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-under-no-circumstances",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "under no circumstances",
+    "pos": "phr.",
+    "meaning": "在任何情況下都不",
+    "example": "**Under no circumstances should** you disclose client data."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-not-until",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "not until",
+    "pos": "phr.",
+    "meaning": "直到...才",
+    "example": "**Not until** the contract is signed **will** the deal proceed."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-in-no-way",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "in no way",
+    "pos": "phr.",
+    "meaning": "絕不",
+    "example": "**In no way does** this affect our schedule."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-exceed",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "exceed",
+    "pos": "v.",
+    "meaning": "超過",
+    "example": "The results **exceeded** all expectations."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-submit",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "submit",
+    "pos": "v.",
+    "meaning": "提交",
+    "example": "**Not until** the form is **submitted** will the application be processed."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-disclose",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "disclose",
+    "pos": "v.",
+    "meaning": "揭露",
+    "example": "**Under no circumstances should** employees **disclose** confidential data."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-acknowledge",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "acknowledge",
+    "pos": "v.",
+    "meaning": "承認、確認收到",
+    "example": "**Only after** reviewing the file did she **acknowledge** the mistake."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-so-far",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "so far",
+    "pos": "phr.",
+    "meaning": "到目前為止",
+    "example": "**So far**, the project has gone smoothly."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-no-sooner...than",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "word": "no sooner...than",
+    "pos": "phr.",
+    "meaning": "一...就...",
+    "example": "**No sooner had** he arrived **than** the meeting started."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-committee",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "committee",
+    "pos": "n. 委員會",
+    "meaning": "集合名詞，多益視為單數",
+    "example": "The **committee has** approved the budget."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-equipment",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "equipment",
+    "pos": "n. 設備",
+    "meaning": "不可數",
+    "example": "The **equipment is** stored in the warehouse."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-furniture",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "furniture",
+    "pos": "n. 家具",
+    "meaning": "不可數",
+    "example": "New **furniture has** arrived at the office."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-research",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "research",
+    "pos": "n. 研究",
+    "meaning": "不可數",
+    "example": "**Research shows** that remote work boosts productivity."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-personnel",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "personnel",
+    "pos": "n. 全體人員",
+    "meaning": "恆為複數",
+    "example": "**Personnel are** required to wear ID badges."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-each",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "each",
+    "pos": "pron./adj. 每一個",
+    "meaning": "恆單數",
+    "example": "**Each** applicant **is** interviewed individually."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-everyone-/-everybody",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "everyone / everybody",
+    "pos": "pron. 每個人",
+    "meaning": "恆單數",
+    "example": "**Everyone is** invited to the event."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-several",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "several",
+    "pos": "adj. 幾個的",
+    "meaning": "恆複數",
+    "example": "**Several** proposals **have** been submitted."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-the-majority-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "the majority of",
+    "pos": "phr. 大部分的",
+    "meaning": "依後面名詞決定單複數",
+    "example": "**The majority of** staff **are** satisfied."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-consist-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "consist of",
+    "pos": "v.",
+    "meaning": "由...組成",
+    "example": "The team **consists of** ten engineers."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-vary",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "word": "vary",
+    "pos": "v.",
+    "meaning": "因人/物而異",
+    "example": "Prices **vary** depending on the region."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-submit",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "submit",
+    "pos": "v.",
+    "meaning": "提交",
+    "example": "You **submitted** the invoice, **didn't** you?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-attend",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "attend",
+    "pos": "v.",
+    "meaning": "出席",
+    "example": "He **will attend** the seminar, **won't** he?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-confirm",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "confirm",
+    "pos": "v.",
+    "meaning": "確認",
+    "example": "She **has confirmed** the reservation, **hasn't** she?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-postpone",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "postpone",
+    "pos": "v.",
+    "meaning": "延後",
+    "example": "The meeting **wasn't postponed**, **was** it?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-if-i'm-not-mistaken",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "if I'm not mistaken",
+    "pos": "phr.",
+    "meaning": "如果我沒記錯",
+    "example": "If I'm not mistaken, the deadline is Friday, **isn't** it?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-as-far-as-i-know",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "as far as I know",
+    "pos": "phr.",
+    "meaning": "據我所知",
+    "example": "As far as I know, he's still on leave, **isn't** he?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-let-me-verify",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "let me verify",
+    "pos": "phr.",
+    "meaning": "讓我確認一下",
+    "example": "**Let me verify** that before I answer."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-i'll-double-check",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "I'll double-check",
+    "pos": "phr.",
+    "meaning": "我會再確認",
+    "example": "**I'll double-check** and get back to you."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-presumably",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "presumably",
+    "pos": "adv.",
+    "meaning": "據推測",
+    "example": "Presumably, she'll be here on time, **won't** she?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-allegedly",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "word": "allegedly",
+    "pos": "adv.",
+    "meaning": "據稱",
+    "example": "He allegedly missed the flight, **didn't** he?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-dependent-on",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "be dependent on",
+    "pos": "adj.",
+    "meaning": "依賴於",
+    "example": "Success **is dependent on** teamwork."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-aware-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "be aware of",
+    "pos": "adj.",
+    "meaning": "知悉、意識到",
+    "example": "Please **be aware of** the new safety rules."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-capable-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "be capable of",
+    "pos": "adj.",
+    "meaning": "有能力做到",
+    "example": "She **is capable of** managing the entire department."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-exempt-from",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "be exempt from",
+    "pos": "adj.",
+    "meaning": "被豁免",
+    "example": "Non-profit organizations **are exempt from** this tax."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-entitled-to",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "be entitled to",
+    "pos": "adj.",
+    "meaning": "有權獲得",
+    "example": "Full-time staff **are entitled to** paid leave."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-comply-with",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "comply with",
+    "pos": "v.",
+    "meaning": "遵守",
+    "example": "All vendors must **comply with** the contract terms."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-consist-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "consist of",
+    "pos": "v.",
+    "meaning": "由...組成",
+    "example": "The package **consists of** three components."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-refrain-from",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "refrain from",
+    "pos": "v.",
+    "meaning": "克制不做",
+    "example": "Visitors should **refrain from** taking photos."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-result-from-/-result-in",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "result from / result in",
+    "pos": "v.",
+    "meaning": "起因於 / 導致",
+    "example": "The error **resulted from** a system glitch."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-in-accordance-with",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "in accordance with",
+    "pos": "phr.",
+    "meaning": "依照",
+    "example": "Payment will be made **in accordance with** the agreement."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-in-compliance-with",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "in compliance with",
+    "pos": "phr.",
+    "meaning": "遵守",
+    "example": "The building was constructed **in compliance with** fire codes."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-at-the-discretion-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "at the discretion of",
+    "pos": "phr.",
+    "meaning": "由...自行決定",
+    "example": "Bonuses are given **at the discretion of** management."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-regardless-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "regardless of",
+    "pos": "phr.",
+    "meaning": "不論",
+    "example": "All applicants are considered **regardless of** experience level."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-on-behalf-of",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "word": "on behalf of",
+    "pos": "phr.",
+    "meaning": "代表",
+    "example": "She signed the document **on behalf of** the director."
+  }
+]

@@ -1,0 +1,1017 @@
+[
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "number": 1,
+    "title": "可數 vs. 不可數名詞陷阱",
+    "body": "`information`, `advice`, `equipment`, `furniture`, `news` 都是**不可數名詞**，前面不可加 `a/an`，也不可加 `-s`。看到選項有 `informations` 直接刪掉。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "number": 2,
+    "title": "複合名詞判斷",
+    "body": "兩個名詞相連時，前面的名詞常轉為**形容詞用法**，如 `customer satisfaction`（顧客滿意度）、`employee benefits`（員工福利）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "number": 3,
+    "title": "it / this / that 代名詞代名詞題",
+    "body": "空格代替「前面提過的單數名詞/整件事」時，注意 `it` 代替單數名詞、`they/them` 代替複數名詞，不可混用單複數。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "number": 4,
+    "title": "每人/每個 (each, every) + 單數名詞",
+    "body": "`each` 和 `every` 後面一定接**單數名詞**、動詞也用單數，常與代名詞題混合出現。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "number": 5,
+    "title": "所有格 + own",
+    "body": "`on one's own` 與 `of one's own`（屬於自己的）常搭配出現，看到 `own` 前面通常要選**所有格**而非受格。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "number": 1,
+    "title": "形似陷阱動詞組",
+    "body": "`rise`(不及物,上升) / `raise`(及物,提高) / `arise`(不及物,發生、產生)，三字外型相似，考題常用來混淆，要看後面有沒有受詞。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "number": 2,
+    "title": "lie / lay 陷阱",
+    "body": "`lie`(躺、位於，不及物，過去式 lay) / `lay`(放置，及物，過去式 laid)，考時態時特別容易混淆。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "number": 3,
+    "title": "remain 的雙重用法",
+    "body": "`remain` 可作連綴動詞(+adj.)，也可作不及物動詞單獨使用(=stay, continue to exist)，如 `Many questions remain.`（許多問題仍然存在）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "number": 4,
+    "title": "被動語態陷阱",
+    "body": "不及物動詞（如 occur, happen, arrive, exist）**沒有被動式**，看到選項出現 `is occurred` 這類形式直接刪除。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "number": 5,
+    "title": "感官動詞 + 受詞 + 原形V/V-ing",
+    "body": "`see/hear/watch + O + V/V-ing` 屬於句型五的變化，並非連綴動詞，注意與句型二區分。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "number": 1,
+    "title": "數量形容詞陷阱",
+    "body": "`much/little` 修飾不可數名詞、`many/few` 修飾可數名詞，`a lot of/lots of` 兩者皆可，注意可數與不可數的搭配。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "number": 2,
+    "title": "分詞形容詞方向判斷",
+    "body": "`-ing`（主動、令人感到）用於「事物」，`-ed`（被動、感受到）用於「人」。如 `an interesting book`（書令人感興趣）vs. `an interested reader`（讀者感到興趣）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "number": 3,
+    "title": "易混淆副詞位置",
+    "body": "`enough` 當副詞須放在形容詞**之後**（如 `good enough`），但當形容詞則放在名詞**之前**（如 `enough time`）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "number": 4,
+    "title": "頻率副詞位置",
+    "body": "`always, usually, often, rarely` 等頻率副詞一般放在**一般動詞前、be動詞/助動詞後**，如 `He usually arrives early.` / `She is always punctual.`"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "number": 5,
+    "title": "only / even 等限定副詞",
+    "body": "修飾的對象通常是**緊接在後面**的字詞，位置移動會改變句意，考題常用來測試考生對修飾對象的判斷。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "number": 1,
+    "title": "while 的雙重身分",
+    "body": "`while` 可表「當...時候」(時間) 或「然而、對比」(讓步/對比)，後面固定接**完整子句**，判斷語意即可。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "number": 2,
+    "title": "so that / in order that vs. so...that",
+    "body": "`so that`(以便，目的) 與 `so + adj/adv + that`(如此...以致於，結果) 外型相似但用法不同，注意空格前後結構。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "number": 3,
+    "title": "whether vs. if",
+    "body": "兩者都可表示「是否」，但 `whether...or not` 才是正確搭配，`if...or not` 為常見錯誤用法。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "number": 4,
+    "title": "",
+    "body": "**連接詞 + 完整句 vs. 介系詞 + 名詞** 是所有連接詞題的核心判斷依據：先看空格後面「有沒有主詞+動詞」，再決定選連接詞還是介系詞。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "number": 5,
+    "title": "not only...but also 的插入語序",
+    "body": "當 `not only` 放句首時，主詞和動詞需**倒裝**，如 `Not only did sales increase, but also profits rose.`"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "number": 1,
+    "title": "for vs. since 時間介系詞",
+    "body": "`for + 一段時間`(如 for three years)，`since + 特定時間點`(如 since 2020)，常與完成式連用，是時態題的重要輔助線索。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "number": 2,
+    "title": "by vs. until 的差別",
+    "body": "`by`(在...之前，動作在該時間點前**完成**一次) vs. `until`(直到...為止，動作**持續**到該時間點)，常考「一次性動詞 vs. 持續性動詞」搭配。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "number": 3,
+    "title": "介系詞 + 關係代名詞",
+    "body": "`in which, on which, for which` 等固定搭配，常見於較長閱讀句子，判斷先看介系詞習慣搭配的名詞。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "number": 4,
+    "title": "複合介系詞片語",
+    "body": "`in accordance with`(依照)、`with regard to / regarding`(關於)、`in charge of`(負責)，多益閱讀與詞彙題常考這類三字或多字片語。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "number": 5,
+    "title": "among vs. between",
+    "body": "`between`(兩者之間)，`among`(三者以上之間)，是介系詞題中常見的數量陷阱。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "number": 1,
+    "title": "句型四的兩種語序",
+    "body": "授與動詞 `S+V+IO+DO` 可改寫成 `S+V+DO+to/for+IO`，注意 `give/send/tell` 用 `to`，`buy/make/cook` 用 `for`。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "number": 2,
+    "title": "句型五的省略 to be",
+    "body": "`consider, find, make, keep` 等動詞後接受詞補語時，補語前不需要 `to be`，如 `We consider him (to be) qualified.`（口語可省略 to be）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "number": 3,
+    "title": "修飾語不影響句型判斷",
+    "body": "長句中若有介系詞片語、分詞片語等修飾語，先刪除這些「插入語」，再判斷主要句型結構。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "number": 4,
+    "title": "被動語態改寫句型",
+    "body": "句型三、四、五的主動句改為被動時，原受詞變主詞，句型五的受詞補語會直接留在動詞後，如 `He was elected president.`"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "number": 5,
+    "title": "there be 句型",
+    "body": "`There + be + S` 為特殊倒裝句型，此時真正的主詞在 be 動詞之後，動詞單複數需與其一致。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#f1",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "number": 1,
+    "title": "little vs. a little / few vs. a few 的正負意涵",
+    "body": "`a little/a few`(有一些，正面) vs. `little/few`(幾乎沒有，負面)，看句意判斷是否有 `a`。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#f2",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "number": 2,
+    "title": "most vs. most of",
+    "body": "`most + 名詞`(大部分的...) vs. `most of + the/所有格 + 名詞`(...之中大部分)，注意 `of` 前後是否有限定詞。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#f3",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "number": 3,
+    "title": "another vs. other 與數量詞搭配",
+    "body": "`another + 數字 + 複數名詞`(如 another three days) 為固定用法，表示「再...」。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#f4",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "number": 4,
+    "title": "零冠詞的專有名詞與機構名",
+    "body": "大部分公司名、人名、街道名前不加冠詞，但國家名中含 \"United/Republic\" 需加 `the`（如 the United States）。"
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#f5",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "number": 5,
+    "title": "all vs. whole",
+    "body": "`all + the + 複數/不可數名詞` vs. `the whole + 單數名詞`，意思相近但結構不同，如 `all the students` = `the whole class`。"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#f1",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "number": 1,
+    "title": "時間/條件子句代替未來",
+    "body": "if, when, before, after, as soon as, until 引導的子句中，即使語意是未來，也要用**現在簡單式**代替未來式。\n*   ❌ If it *will rain* tomorrow... → ✅ If it **rains** tomorrow, the event will be postponed."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#f2",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "number": 2,
+    "title": "不定詞/動名詞開頭的空格陷阱",
+    "body": "句首若已有主要動詞，第二個空格常考「分詞」而非時態動詞，注意先判斷句子是否已有主詞動詞。"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#f3",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "number": 3,
+    "title": "頻率副詞的位置",
+    "body": "always, usually, often 等頻率副詞通常放在 be 動詞**之後**、一般動詞**之前**。\n*   She **is** *often* late. / He *often* **submits** reports late."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#f4",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "number": 4,
+    "title": "主詞是「事」或「規定」時，多用現在簡單式",
+    "body": "公告、規章、時刻表類題目常考現在簡單式表「既定事實」。\n*   The shuttle **departs** every 30 minutes."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#f5",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "number": 5,
+    "title": "look/sound/feel + 現在簡單式",
+    "body": "這類感官連綴動詞本身不用進行式，即使描述當下狀態。\n*   ❌ The plan *is sounding* good. → ✅ The plan **sounds** good."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#f1",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "number": 1,
+    "title": "since 子句本身用過去式",
+    "body": "`since + S + 過去式動詞`，主句才用現在完成式。\n*   She has worked here *since* she **graduated** (不是 has graduated) from college."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#f2",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "number": 2,
+    "title": "have/has been to vs. have/has gone to",
+    "body": "`been to` 表示「去過（已回來）」，`gone to` 表示「去了（還沒回來）」。\n*   He **has been to** Tokyo three times. (去過，人在這)\n*   He **has gone to** Tokyo. (現在人在東京，還沒回來)"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#f3",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "number": 3,
+    "title": "",
+    "body": "**just, already 位置在 have/has 之後**，yet 則放句尾（用於疑問句或否定句）。\n*   We **have** *already* **submitted** the form. / Have you finished the report *yet*?"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#f4",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "number": 4,
+    "title": "現在完成式不可與明確過去時間點並用",
+    "body": "ago, yesterday, last year, in 2020 只能搭配過去簡單式，不可搭配現在完成式。\n*   ❌ I *have finished* it *yesterday*. → ✅ I **finished** it yesterday."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#f5",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "number": 5,
+    "title": "not until + 過去式，主句用過去完成式",
+    "body": "強調「直到...才」的句型常考過去完成式。\n*   He **had not left** the office until his manager **arrived**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#f1",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "number": 1,
+    "title": "不及物動詞沒有被動式",
+    "body": "occur, happen, arrive, rise, remain 等不及物動詞**不能**用被動語態。\n*   ❌ The accident *was occurred*. → ✅ The accident **occurred**."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#f2",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "number": 2,
+    "title": "be + p.p. + 介系詞的固定搭配",
+    "body": "許多被動片語有固定介系詞，需整組記憶。\n*   be interested **in**, be satisfied **with**, be equipped **with**, be based **in/on**, be committed **to**, be involved **in**"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#f3",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "number": 3,
+    "title": "make/let/have + O + 原形V 的被動",
+    "body": "使役動詞被動化時，後面動詞要**加 to**。\n*   主動：They made him *work* overtime. → 被動：He **was made** *to work* overtime."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#f4",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "number": 4,
+    "title": "助動詞 + be + p.p.",
+    "body": "should, must, may, can 等助動詞之後接被動時，一律是 `助動詞 + be + p.p.`，不可用 being 或 been。\n*   The proposal **must be approved** before Friday."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#f5",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "number": 5,
+    "title": "be located / be situated 恆用被動",
+    "body": "表示地點位置的動詞習慣上恆用被動形式，即使沒有明確「被誰放置」的意味。\n*   The factory **is located** near the harbor."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#f1",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "number": 1,
+    "title": "完成進行式 vs. 完成式的關鍵",
+    "body": "若強調「動作本身、過程」用完成進行式；若強調「動作的結果、數量、次數」用完成式。\n*   She **has been reading** the report. (過程) vs. She **has read** the report *three times*. (次數/結果)"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#f2",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "number": 2,
+    "title": "不可用於完成進行式的狀態動詞",
+    "body": "know, believe, own, belong 等狀態動詞不用於進行式，也因此不用於完成進行式，只能用現在完成式。\n*   ❌ I *have been knowing* him for years. → ✅ I **have known** him for years."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#f3",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "number": 3,
+    "title": "篇章題常見陷阱",
+    "body": "選項故意混入時態正確但**與上下文邏輯不符**的答案，例如段落明明在敘述已完成的事，卻放入未來式選項誘答。"
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#f4",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "number": 4,
+    "title": "lately + 完成進行式",
+    "body": "lately 除了搭配完成式，也常搭配完成進行式，表示「最近一直在做」。\n*   Sales **have been increasing** lately."
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#f5",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "number": 5,
+    "title": "all day / all week + 完成進行式",
+    "body": "強調整段時間都在做某事的常見標配時間片語。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#f1",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "number": 1,
+    "title": "too...to / enough to",
+    "body": "`too + adj/adv + to V` (太...而不能) 與 `adj/adv + enough to V` (足夠...而能) ➔ 空格後方一律接**原形動詞**。\n*   The contract is **too complicated to** *sign* today.\n*   She is **experienced enough to** *lead* the team."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#f2",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "number": 2,
+    "title": "",
+    "body": "**be + adj + to V** 固定搭配：`be likely/able/willing/eager/reluctant to V` ➔ 看到這些形容詞，後面秒選 **to + 原形動詞**。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#f3",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "number": 3,
+    "title": "",
+    "body": "**it is + adj + (for/of sb) + to V** 假主詞句型：真正主詞是後面的不定詞片語。\n*   **It** is important **to** *submit* the form on time."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#f4",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "number": 4,
+    "title": "疑問詞 + to V",
+    "body": "`how/what/when/where + to V` 可作受詞，常考選擇題陷阱（誤選疑問詞 + 子句）。\n*   Please let me know **how to** *access* the shared folder."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#f5",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "number": 5,
+    "title": "陷阱",
+    "body": "`be supposed to V`（應該）、`be scheduled to V`（預計）是多益書信/公告中高頻搭配，後方也一定接原形動詞，不要被中間的名詞片語混淆。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#f1",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "number": 1,
+    "title": "動名詞的邏輯主詞",
+    "body": "動名詞前若出現名詞/代名詞的**所有格**（或受格），是在強調「誰做這個動作」，不影響動名詞本身的詞性判斷。\n*   We appreciate **your** *attending* the ceremony. (感謝「你」的出席)"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#f2",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "number": 2,
+    "title": "",
+    "body": "**be worth + V-ing**（值得...）：固定句型，後面一律接 V-ing，不可接 to V。\n*   This proposal **is worth** *considering*."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#f3",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "number": 3,
+    "title": "",
+    "body": "**there is no + V-ing**（不可能...）：表達「不可能/沒辦法」的慣用句型。\n*   **There is no** *denying* that sales have improved."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#f4",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "number": 4,
+    "title": "spend/waste + 時間/金錢 + (in) + V-ing",
+    "body": "後面的介系詞 in 常省略，考題常考究竟該填 V-ing 還是 to V。\n*   She **spent** two hours *revising* the report."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#f5",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "number": 5,
+    "title": "陷阱",
+    "body": "動名詞當主詞時，選項若出現原形動詞 (V) 或不定詞 (to V) 作為句子主詞，通常是錯誤答案，因為主詞位置多益偏好動名詞而非不定詞。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#f1",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "number": 1,
+    "title": "完成式分詞 (Having p.p.)",
+    "body": "表示分詞構句的動作發生在主句動作**之前**，強調時間先後順序。\n*   **Having completed** the training, she was promoted to team leader."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#f2",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "number": 2,
+    "title": "獨立分詞構句 (with + O + 分詞)",
+    "body": "`with` 後接受詞，再接分詞說明該受詞的狀態，受詞「主動」用 V-ing，「被動」用 p.p.，常見於描述背景或伴隨狀況。\n*   He gave the speech **with** his hands *shaking*. (主動：手在抖)\n*   She sat at her desk **with** the documents *scattered* around. (被動：文件散落)"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#f3",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "number": 3,
+    "title": "分詞當連接詞使用",
+    "body": "`considering`, `given`, `providing/provided (that)` 已固定化為介系詞/連接詞，後方可直接接名詞或子句，不需再判斷主動被動。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#f4",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "number": 4,
+    "title": "選項辨識技巧",
+    "body": "若空格在句首且逗點後有完整主詞+動詞的主句，優先考慮**分詞構句**而非另一個限定動詞（因為一句話不能有兩個主要動詞卻沒有連接詞）。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#f5",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "number": 5,
+    "title": "陷阱",
+    "body": "分詞構句與對等連接詞 (and, but) 連用的句子中，常混淆「V-ing 表附帶結果」與「p.p. 表被動描述」，需依主詞邏輯關係判斷。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#f1",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "number": 1,
+    "title": "主詞是事物但描述「感受」時仍用 V-ing",
+    "body": "若主詞是 it、this、that 等代替一件事情，且該事情本身具有特性（非「感到」），仍選 V-ing，不受句意「感覺起來像人」影響。\n*   The news **is** *shocking*. (消息本身令人震驚，非消息「感到」震驚)"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#f2",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "number": 2,
+    "title": "情緒 p.p. + 固定介系詞",
+    "body": "多益常考「情緒 p.p. + 介系詞」的固定搭配，介系詞選錯也會導致整句錯誤。\n*   be **interested in** / be **satisfied with** / be **worried about** / be **confused about** / be **excited about**"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#f3",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "number": 3,
+    "title": "當主詞補語同時出現兩個選項",
+    "body": "句子若同時考「主動 V-ing」與「被動 p.p.」，先找主詞是「人」還是「物」，這是最快的判斷捷徑，勝過死記個別動詞。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#f4",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "number": 4,
+    "title": "常見多益高頻情緒動詞",
+    "body": "boring/bored, tiring/tired, amazing/amazed, frustrating/frustrated, motivating/motivated — 考試常以此類詞彙混淆選項。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#f5",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "number": 5,
+    "title": "陷阱",
+    "body": "`be pleased to V`（很高興做...）中的 pleased 是情緒 p.p. 當形容詞，後面接不定詞而非再考慮 V-ing/p.p.，屬於固定句型，不要與情緒分詞主動被動規則混淆。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#f1",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "number": 1,
+    "title": "claim / seem / appear + to have p.p.",
+    "body": "這類動詞表達「宣稱／似乎」已經完成的事，是多益閱讀常見句型，勿與一般不定詞混淆。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#f2",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "number": 2,
+    "title": "regret + V-ing vs. regret + to V",
+    "body": "`regret doing`（後悔做了...，事情已發生）與 `regret to say/inform`（很遺憾要告知...，正式用語）意義不同，考題常以此設陷阱。\n*   We **regret to inform** you that your application was not successful."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#f3",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "number": 3,
+    "title": "without + V-ing",
+    "body": "`without` 是介系詞，後方一定接 **V-ing**，表示「沒有做某事的情況下」。\n*   He left the office **without** *notifying* his supervisor."
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#f4",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "number": 4,
+    "title": "worth 系列進階",
+    "body": "`be worthy of + V-ing/N` 與 `be worth + V-ing` 意思相近但文法結構不同，worthy 後面需要介系詞 of。"
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#f5",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "number": 5,
+    "title": "分詞構句的否定形式",
+    "body": "否定詞 `not` 放在分詞**前面**。\n*   **Not knowing** the answer, she remained silent."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#f1",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "number": 1,
+    "title": "被動句陷阱",
+    "body": "使役動詞變成被動語態時 (be made to V)，要**補回 to**。例如：He **was made to work** overtime. (不是 was made work)"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#f2",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "number": 2,
+    "title": "Have + 受詞 + V-ing",
+    "body": "have 後面接**現在分詞**時，表示「讓某狀態持續發生 / 使某人一直做某事」，語感偏向「造成、招致」。例如：The manager **had** everyone **complaining** about the new policy."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#f3",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "number": 3,
+    "title": "Let 的固定用法",
+    "body": "`let alone`（更不用說）、`let go`（放手/解僱）為固定片語，不受使役動詞公式影響，需整體記憶。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#f4",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "number": 4,
+    "title": "選項陷阱",
+    "body": "題目常同時放出 V、V-ing、to V、p.p. 四個選項混淆，務必先判斷受詞是「人」還是「物」，再判斷主動/被動，兩層判斷缺一不可。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#f5",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "number": 5,
+    "title": "Get 的省略陷阱",
+    "body": "`get + 受詞 + p.p.` 中的 p.p. 不可誤加 to，只有主動句 `get + 受詞 + to V` 才需要 to。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#f1",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "number": 1,
+    "title": "四個選項全出現時的判斷順序",
+    "body": "先看受詞是「人/物」是否為被動關係 ➔ 是則選 p.p.；否則再判斷語意完成/進行 ➔ 選 V 或 V-ing。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#f2",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "number": 2,
+    "title": "notice 的特殊性",
+    "body": "notice 除了接受詞補語外，也常單獨接 that 子句 (I noticed that the door was open)，多益偶爾以此混淆選項設計。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#f3",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "number": 3,
+    "title": "watch 與 look at 的差異",
+    "body": "watch 強調「持續注視、觀察一段時間」，常搭配 V-ing；look at 則是單純「看一眼」的動作，較少接受詞補語句型。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#f4",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "number": 4,
+    "title": "feel 的雙重身分",
+    "body": "feel 除了作感官動詞 (feel + O + V/V-ing) 外，也常作連綴動詞接形容詞 (feel + adj.)，兩者不要混淆，看後面接的是動詞還是形容詞。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#f5",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "number": 5,
+    "title": "陷阱",
+    "body": "句子若沒有受詞、感官動詞直接接 that 子句時，後面要用**完整子句 (S + V)**，而非不定詞或分詞，例如 I noticed **that he left** early。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#f1",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "number": 1,
+    "title": "insist 的雙重用法",
+    "body": "insist 除了表示「堅持要求」(接原形動詞) 外，也可表示「堅稱、堅持主張某事實」，此時 that 子句要用**正常時態**，不用原形動詞。例如：He insisted that he **was** innocent. (堅稱事實，非要求)"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#f2",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "number": 2,
+    "title": "否定句陷阱",
+    "body": "原形動詞的否定形式是 `not + 原形動詞`，不要誤加 don't/doesn't。例如：The policy requires that employees **not use** personal devices at work."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#f3",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "number": 3,
+    "title": "be 動詞的原形是 be",
+    "body": "無論主詞單複數，一律用 **be**，這是最容易被考的細節，例如 It is essential that the report **be** accurate."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#f4",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "number": 4,
+    "title": "advise、propose 也適用",
+    "body": "除了常見清單外，`advise, propose, move (提議)` 後接 that 子句時同樣使用原形動詞，容易被忽略。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#f5",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "number": 5,
+    "title": "陷阱",
+    "body": "`recommend/suggest + that + S + V (原形)` 中，若選項出現第三人稱單數 -s 或過去式，都是錯誤選項，只要看到觸發詞就直接刪除這些選項。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#f1",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "number": 1,
+    "title": "allow/permit 的被動句型",
+    "body": "`be allowed/permitted to V`，常考被動語態中 to 不可省略。例如：Visitors **are not permitted to enter** the restricted area."
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#f2",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "number": 2,
+    "title": "require 的雙重句型",
+    "body": "require 可接 `require + O + to V`，也可接 `require + that + S + (should) + 原形V`（見第 03 章意志動詞），兩種句型都要熟悉，題目常互相替換測驗。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#f3",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "number": 3,
+    "title": "",
+    "body": "**remind/warn + O + of N** 也是常見替代句型，並非只有 to V 一種，需視空格後方是名詞還是動詞判斷。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#f4",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "number": 4,
+    "title": "陷阱",
+    "body": "`encourage/invite + O + to V` 中，若選項出現 V-ing 或原形動詞，都是錯誤選項，因為這兩個動詞的受詞補語只接 to V。"
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#f5",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "number": 5,
+    "title": "enable 的常見誤用",
+    "body": "enable 幾乎只接 `enable + O + to V`，不會接 that 子句，是多益商業文章中高頻動詞。"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#f1",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "number": 1,
+    "title": "the fact that + 完整子句",
+    "body": "`fact` 後面接 `that` 引導的同位語子句 (說明 fact 的內容)，`that` 不可省略也不可換成 `which`。\n*   The fact **that** he **resigned** surprised everyone."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#f2",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "number": 2,
+    "title": "",
+    "body": "**whatever / whichever / whoever** 也可引導名詞子句：意思是「無論什麼/任一個/無論是誰」，句意通常是「不論...都」。\n*   You may choose **whatever** color **you like**."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#f3",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "number": 3,
+    "title": "",
+    "body": "**it is + 形容詞/名詞 + that 子句** (虛主詞句型)：句首的 it 是虛主詞，代替後面真正的 that 子句主詞，多益常考此句型的動詞是否為原形（意志動詞：suggest, recommend, require, demand 等）。\n*   It is essential **that** the report **be** submitted on time. (原形動詞)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#f4",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "number": 4,
+    "title": "名詞子句當介系詞受詞",
+    "body": "介系詞後面只能接 `whether`、`what`、`who` 等疑問詞子句，**不能接 that**。\n*   ❌ I am not sure of **that** he is right.\n*   ✅ I am not sure **of what** he said."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#f5",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "number": 5,
+    "title": "whether to V / what to V",
+    "body": "疑問詞 + to 不定詞，也是名詞子句的簡化形式，常作受詞。\n*   Please decide **whether to accept** the offer."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#f1",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "number": 1,
+    "title": "複合關係代名詞 (what, whoever, whatever, whichever)",
+    "body": "本身已包含先行詞，前面**不可再加名詞**，且整個詞組通常作名詞子句（主詞/受詞），而非單純形容詞子句。\n*   **Whoever** finishes first will receive a bonus. (= Anyone who...)\n*   Please choose **whatever** item you prefer."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#f2",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "number": 2,
+    "title": "介系詞 + 關係代名詞",
+    "body": "正式書面英文中，介系詞可移到關代前面，此時關代**只能用 which/whom，不能用 that**。\n*   The project **in which** we invested has succeeded。(= The project **that** we invested **in**...)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#f3",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "number": 3,
+    "title": "",
+    "body": "**省略關代 + 現在分詞/過去分詞** (減化子句)：關代 + be 動詞常被省略，只留下分詞修飾先行詞。\n*   The employees **(who are) working** overtime will be compensated.\n*   The report **(that was) submitted** yesterday contains errors."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#f4",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "number": 4,
+    "title": "all/some/most/none + of which/whom",
+    "body": "非限定用法中，先行詞為前面提到的全體，常考「數量詞 + of which/whom」。\n*   The company hired ten interns, **most of whom** graduated this year."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#f5",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "number": 5,
+    "title": "陷阱：先行詞是「整句話」時用 which",
+    "body": "若逗號後的 which 指的是前面「整個子句」而非單一名詞，也是非限定用法的一種。\n*   He arrived late, **which** annoyed his manager. (which 指「他遲到」這件事)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#f1",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "number": 1,
+    "title": "even if vs. even though",
+    "body": "`even if` 表示「即使 (假設語氣，尚未發生)」；`even though` 表示「即使、雖然 (已經是事實)」，兩者常混淆考。\n*   **Even if** it rains, the event will proceed. (假設)\n*   **Even though** it rained, the event proceeded. (事實)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#f2",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "number": 2,
+    "title": "once 作連接詞",
+    "body": "意思是「一旦...」，引導時間/條件副詞子句，後面同樣不用 will。\n*   **Once** the contract **is signed**, the deal will be finalized."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#f3",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "number": 3,
+    "title": "in case (that) / in the event that",
+    "body": "意思是「以防萬一」，語意接近 if，但強調預防措施。\n*   Bring an umbrella **in case** it **rains**."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#f4",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "number": 4,
+    "title": "副詞子句的省略 (Elliptical Clause)",
+    "body": "當副詞子句主詞與主句主詞相同，且子句動詞為 be 動詞時，可省略「主詞 + be 動詞」。\n*   **While** *(he was)* waiting for the bus, he read a book.\n*   **Although** *(it is)* small, the office is efficient."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#f5",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "number": 5,
+    "title": "as if / as though",
+    "body": "意思是「彷彿、好像」，常接假設語氣 (過去式表與現在事實相反)。\n*   He talks **as if** he **were** the manager. (但他不是經理)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#f1",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "number": 1,
+    "title": "混合時態假設語氣 (Mixed Conditional)",
+    "body": "if 子句與主要子句的時間點不同時，動詞時態可混用。\n*   If he **had studied** medicine, he **would be** a doctor now. (過去沒讀醫學系 → 導致現在不是醫生)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#f2",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "number": 2,
+    "title": "I wish + 假設語氣",
+    "body": "表達「希望、可惜」，時態同樣往後退一格。\n*   I **wish** I **had more time**. (但現在沒有 → 與現在事實相反)\n*   I **wish** I **had studied** harder. (但當時沒有 → 與過去事實相反)"
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#f3",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "number": 3,
+    "title": "as if / as though + 假設語氣",
+    "body": "詳見 [[03_副詞子句]]，常與 seem/look/talk 等動詞搭配。\n*   She looks **as if** she **were** exhausted."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#f4",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "number": 4,
+    "title": "意志動詞 + that 子句用原形動詞",
+    "body": "suggest, insist, demand, require, recommend 等動詞後的 that 子句要用原形動詞 (不受主詞人稱/時態影響)，這與假設語氣同屬「虛擬語氣」家族，多益常混合考。\n*   The board insisted that the CEO **resign** immediately."
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#f5",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "number": 5,
+    "title": "陷阱：if only",
+    "body": "語氣比 I wish 更強烈的「要是...就好了」，句型與 If 子句相同，但通常單獨成句。\n*   **If only** I **had known** about the sale earlier!"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#f1",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "number": 1,
+    "title": "than any other + 單數名詞",
+    "body": "表示「比其他任何一個都...」，用來**間接表達最高級**，注意 other 後面的名詞必須是**單數**。\n*   This model sells better **than any other product** in the lineup. (雖然文法上是比較級，語意等於最高級)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#f2",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "number": 2,
+    "title": "one of the + 最高級 + 複數名詞",
+    "body": "固定句型，最高級後面接的名詞必須是**複數**。\n*   She is **one of the most experienced managers** in the firm. (不可寫成 manager 單數)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#f3",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "number": 3,
+    "title": "less / least 表示「越來越少 / 最少」",
+    "body": "容易和 more/most 搞混，看清楚語意是「遞減」還是「遞增」。\n*   This plan is **less effective than** the previous one. (較沒效果，不是「較有效」)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#f4",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "number": 4,
+    "title": "the second/third + 最高級",
+    "body": "多益偶爾考「第二、第三...」的最高級變化，一樣要加 the。\n*   This is **the second largest** market in the region."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#f5",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "number": 5,
+    "title": "陷阱：more 與 -er 不可重複使用",
+    "body": "長形容詞用 more，短形容詞字尾加 -er，兩者**不可同時出現**。\n*   ❌ **more easier** ➔ ✅ **easier**（或 more easy 為誤用，一律用 easier）"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#f1",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "number": 1,
+    "title": "地方副詞倒裝（非否定副詞）",
+    "body": "地方副詞片語放句首時，也可能倒裝，但主詞若是**代名詞則不倒裝**。\n*   **Here comes** the manager. (地方副詞 + 動詞 + 名詞主詞，倒裝)\n*   **Here he comes.** (主詞是代名詞 he，不倒裝)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#f2",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "number": 2,
+    "title": "完全倒裝 vs 部分倒裝",
+    "body": "be 動詞或一般動詞開頭的倒裝為「完全倒裝」(動詞整個移到主詞前)；含助動詞的句型多為「部分倒裝」(只移助動詞)。選項考的通常是**部分倒裝**，注意不要把原形動詞也一起移到句首。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#f3",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "number": 3,
+    "title": "陷阱：否定副詞後方誤用一般直述語序",
+    "body": "若選項只有動詞而無助動詞倒裝形式，多半是錯誤選項，因為否定副詞開頭**必須**倒裝。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#f4",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "number": 4,
+    "title": "So + 助動詞 + 主詞 vs So + 主詞 + 助動詞",
+    "body": "前者表示「附和」(也是如此)，後者 (不倒裝) 表示「的確如此、確實」，兩者意義不同，選擇時看語意需求。\n*   A: He is very diligent. B: **So he is.** (的確如此，不是附和句)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#f5",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "number": 5,
+    "title": "倒裝句中主詞與動詞的數一致性別忘記",
+    "body": "倒裝時仍要注意主詞單複數是否與助動詞一致，例如 `Rarely do they complain`（they 複數用 do，非 does）。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#f1",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "number": 1,
+    "title": "",
+    "body": "**動名詞/不定詞當主詞** ➔ 視為單數。\n*   **Completing** the certification **takes** three months.\n*   **To finish** the project on time **requires** extra staff."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#f2",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "number": 2,
+    "title": "",
+    "body": "**子句 (that/what 子句) 當主詞** ➔ 視為單數。\n*   **What the client wants is** a faster turnaround."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#f3",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "number": 3,
+    "title": "",
+    "body": "**由 and 連接但指同一人/物時** ➔ 視為單數 (常見於職稱或固定搭配)。\n*   **The CEO and founder** of the company **is** attending the ceremony. (同一人身兼兩職)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#f4",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "number": 4,
+    "title": "",
+    "body": "**時間、金額、距離當主詞時通常視為單數整體**，而非逐一計算的複數。\n*   **Ten years is** a long time to wait.\n*   **Five hundred dollars is** too much for this item."
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#f5",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "number": 5,
+    "title": "",
+    "body": "**陷阱：Here/There 開頭的倒裝句仍要找真正主詞**，動詞需配合倒裝後方的主詞單複數。\n*   **Here is** the report you requested. (主詞 report，單數)\n*   **Here are** the documents you requested. (主詞 documents，複數)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#f1",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "number": 1,
+    "title": "",
+    "body": "**含 never / hardly / rarely 等否定副詞的陳述句** ➔ 視為否定句，附加問句要用**肯定形式**。\n*   You **never** submit reports late, **do** you?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#f2",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "number": 2,
+    "title": "",
+    "body": "**This/That 當主詞** ➔ 附加問句用 **it**。\n*   **This is** the final version, **isn't it**?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#f3",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "number": 3,
+    "title": "",
+    "body": "**複合主詞 (A and B)** ➔ 附加問句用 **they**。\n*   **The manager and the assistant are** attending, **aren't they**?"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#f4",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "number": 4,
+    "title": "",
+    "body": "**I think/believe + that 子句的陳述句** ➔ 附加問句對應**子句**的動詞，而非 think/believe。\n*   **I think** she **is** the new hire, **isn't** she? (不是 don't I)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#f5",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "number": 5,
+    "title": "陷阱：have 作為一般動詞（表「擁有」）vs 助動詞",
+    "body": "作一般動詞時附加問句用 do/does/did，作助動詞（完成式）時才用 have/has。\n*   You **have** a car, **don't** you? (have = 擁有，一般動詞)\n*   You **have** finished the report, **haven't** you? (have = 助動詞，完成式)"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#f1",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "number": 1,
+    "title": "be dependent on / rely on / depend on",
+    "body": "都表示「依賴」，皆固定接 on，不要誤用 depend of/for。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#f2",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "number": 2,
+    "title": "be aware of / be capable of",
+    "body": "形容詞後接 of，常與 be subject to (接 to) 混淆，注意介系詞不同。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#f3",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "number": 3,
+    "title": "at the request of / at the discretion of",
+    "body": "固定用 at 開頭，表示「應...要求 / 由...自行決定」。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#f4",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "number": 4,
+    "title": "陷阱：exempt from vs exempt to",
+    "body": "exempt (豁免) 固定與 from 搭配，選項常故意放錯誤的 to 或 of 混淆考生。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#f5",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "number": 5,
+    "title": "prior to vs before",
+    "body": "prior to 是較正式的書面用語，意思等同 before，但 prior to 後面**不可直接接子句**，只能接名詞/動名詞。"
+  }
+]

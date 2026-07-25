@@ -1,0 +1,6128 @@
+[
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "Please make sure your ___ is accurate before submitting the form.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "inform"
+          },
+          {
+            "key": "B",
+            "text": "informative"
+          },
+          {
+            "key": "C",
+            "text": "information"
+          },
+          {
+            "key": "D",
+            "text": "informational"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "詞性題 - 名詞字尾判斷",
+      "analysis": "空格在所有格 `your` 之後，需要填入**名詞**。`information`(C) 是不可數名詞，符合文法且語意通順（你的資訊）。(A) inform 是動詞；(B) informative 是形容詞（提供資訊的）；(D) informational 也是形容詞（資訊性的），皆不能直接接在所有格後面當受詞中心語。",
+      "grammarPoint": "對應「1. 必背名詞字尾」與「📝 多益秒殺解題技巧 1」：所有格後面接名詞。",
+      "similarNote": "`information` 為不可數名詞，切記不可加 `-s` 變成 `informations`，這是常見陷阱選項。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "The board members will introduce ___ before the meeting begins.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "they"
+          },
+          {
+            "key": "B",
+            "text": "them"
+          },
+          {
+            "key": "C",
+            "text": "themselves"
+          },
+          {
+            "key": "D",
+            "text": "their"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "反身代名詞題",
+      "analysis": "句意為「董事會成員會在會議前自我介紹」，主詞 `board members` 與受詞為同一群人 ➔ 用**反身代名詞** `themselves`。(A) they 是主格；(B) them 是受格但不能反身指涉同一主詞；(D) their 是所有格，文法不合。",
+      "grammarPoint": "對應「2. 代名詞的格位」考點 3：主詞與受詞為同一人時選反身代名詞。",
+      "similarNote": "注意 `introduce oneself`（自我介紹）、`enjoy oneself`（玩得開心）等固定用法都需搭配反身代名詞。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "Some customers prefer online shopping, while ___ still like visiting physical stores.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "another"
+          },
+          {
+            "key": "B",
+            "text": "other"
+          },
+          {
+            "key": "C",
+            "text": "others"
+          },
+          {
+            "key": "D",
+            "text": "the other"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "不定代名詞 others 題",
+      "analysis": "空格後沒有名詞，且語意為「有些顧客喜歡網購，其他人（不特定範圍）仍喜歡逛實體店」➔ 選 **others**（代名詞，無範圍）。(A) another 後面需接單數名詞；(B) other 需接複數名詞；(D) the other 表「兩者中剩下那一個」，此處無此範圍限制。",
+      "grammarPoint": "對應「3. 不定代名詞：Another, Other, Others 的用法」表格。",
+      "similarNote": "若句子改為「兩種顧客類型中，另一種是...」，範圍縮小為二者時才會改用 `the other`。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "Ms. Chen completed the annual report entirely ___, without any help from her assistant.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "she"
+          },
+          {
+            "key": "B",
+            "text": "her"
+          },
+          {
+            "key": "C",
+            "text": "hers"
+          },
+          {
+            "key": "D",
+            "text": "herself"
+          }
+        ],
+        "answer": "D"
+      }
+    ],
+    "explanation": {
+      "title": "反身代名詞片語 on one's own",
+      "analysis": "句意「陳小姐完全靠自己完成了年度報告」，`entirely` 提示為强調「獨自」的用法，固定片語為 `by/on oneself`，此處對應反身代名詞 **herself**。(A)(B)(C) 皆非固定搭配用法。",
+      "grammarPoint": "對應「2. 代名詞的格位」考點 4：`by + 反身代名詞 = on one's own`。",
+      "similarNote": "注意 `by herself` 和 `on her own` 意思相同皆可替換，但選項若為 `hers`（所有格代名詞）則不可用於此結構。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/01_名詞與代名詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "The company published a survey to measure employee ___ regarding the new remote-work policy.（第一空）In addition, the report suggested that managers should improve their ___ with staff members on a regular basis.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "satisfy"
+          },
+          {
+            "key": "B",
+            "text": "satisfied"
+          },
+          {
+            "key": "C",
+            "text": "satisfaction"
+          },
+          {
+            "key": "D",
+            "text": "satisfactorily"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "communicate"
+          },
+          {
+            "key": "B",
+            "text": "communication"
+          },
+          {
+            "key": "C",
+            "text": "communicative"
+          },
+          {
+            "key": "D",
+            "text": "communicator"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- 名詞字尾 + 複合名詞",
+      "analysis": "第一空：`employee ___` 為複合名詞結構，`employee` 修飾後方名詞，空格需為**名詞** ➔ **satisfaction**(C)。(A) satisfy 是動詞；(B) satisfied 是分詞/形容詞；(D) satisfactorily 是副詞，皆不合。\n第二空：`their ___ with staff members` 中，所有格 `their` 後方需要**名詞** ➔ **communication**(B)。(A) communicate 是動詞；(C) communicative 是形容詞；(D) communicator 雖是名詞但語意不合（指「溝通者」這個人，而非溝通這件事）。",
+      "grammarPoint": "對應「1. 必背名詞字尾」與「2. 複合名詞判斷」（見補充秒殺公式）。",
+      "similarNote": "複合名詞如 `customer satisfaction`, `employee benefits` 是多益高頻考點，注意第一個名詞常轉為形容詞用法，不需要變化字尾。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "The number of applicants ___ significantly over the past three years.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "raised"
+          },
+          {
+            "key": "B",
+            "text": "has risen"
+          },
+          {
+            "key": "C",
+            "text": "rose it"
+          },
+          {
+            "key": "D",
+            "text": "has been raised"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "rise vs. raise 陷阱題",
+      "analysis": "`rise`（上升）為**不及物動詞**，主詞 `the number of applicants` 是自己上升，並非被誰提高，故不能用被動式，也不能用及物動詞 `raise`。正確為主動式現在完成式 **has risen**(B)。(A) raised 缺少助動詞且 raise 為及物動詞需接受詞；(C) rose it 不及物動詞不可接受詞；(D) has been raised 為被動式，但 raise 意指「提高某物」，此處主詞不是被他人提高的對象，語意及文法皆不合（若要表達「被提高」需有合理的施加者語境，此句並無）。",
+      "grammarPoint": "對應「1. 及物動詞 vs. 不及物動詞」及多益陷阱：`rise`(不及物) / `raise`(及物)。",
+      "similarNote": "牢記三組易混淆動詞：`rise-rose-risen`(上升,不及物) / `raise-raised-raised`(提高,及物) / `arise-arose-arisen`(發生,不及物)。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "All visitors must ___ their ID cards at the front desk before entering the building.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "show"
+          },
+          {
+            "key": "B",
+            "text": "arrive"
+          },
+          {
+            "key": "C",
+            "text": "occur"
+          },
+          {
+            "key": "D",
+            "text": "consist"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "不及物動詞 vs. 及物動詞選擇",
+      "analysis": "句意「所有訪客進入大樓前必須在櫃檯出示證件」，`show`（出示，及物動詞）後方接受詞 `their ID cards`，文法通順。(B) arrive 不及物動詞不可接受詞；(C) occur 不及物動詞（發生），語意不合；(D) consist 通常搭配 `of`，不能直接接受詞。",
+      "grammarPoint": "對應「1. 及物動詞 vs. 不及物動詞」表格：及物動詞後方需接受詞。",
+      "similarNote": "`consist of`、`result from`、`agree with` 等不及物動詞固定要接特定介系詞才能引出受詞，不可直接加受詞。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "The new policy ___ reasonable to most employees after the explanation.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "sounded"
+          },
+          {
+            "key": "B",
+            "text": "sounds it"
+          },
+          {
+            "key": "C",
+            "text": "was sounded"
+          },
+          {
+            "key": "D",
+            "text": "has been sounded"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "連綴動詞後接形容詞",
+      "analysis": "`sound`（聽起來，連綴動詞）後面須接**形容詞**做主詞補語，語意通順選 **sounded**(A)，主動式，過去式配合前面時間語境。(B) sounds it 連綴動詞後不可接受詞代名詞；(C)(D) 被動式不適用於連綴動詞，連綴動詞本身沒有被動形式。",
+      "grammarPoint": "對應「3. 連綴動詞 (Linking Verbs)」：連綴動詞後接形容詞。",
+      "similarNote": "連綴動詞（look, sound, feel, seem, remain, become）沒有被動語態，考題常用被動式選項當陷阱。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "The annual conference ___ of three main sessions and a networking dinner.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "contains"
+          },
+          {
+            "key": "B",
+            "text": "consists"
+          },
+          {
+            "key": "C",
+            "text": "includes"
+          },
+          {
+            "key": "D",
+            "text": "composes"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "consist of 固定用法",
+      "analysis": "`consist of`（由...組成）為固定不及物動詞片語，句意「年度大會由三個主要場次和一場聯誼晚宴組成」。(A) contains 為及物動詞，若選需去掉 of，即 `contains three main sessions`；(C) includes 同樣是及物動詞不需 of；(D) composes 用法錯誤，`compose` 通常用被動式 `be composed of`，主動不會用 `composes of`。",
+      "grammarPoint": "對應「📝 多益秒殺解題技巧 3」：不及物動詞清單 `consist of`。",
+      "similarNote": "`be composed of` / `be made up of` / `consist of` 三者意思相同（由...組成），但 `consist` 主動用、`compose/make up` 常用被動式。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/02_動詞分類#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/02_動詞分類",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "According to the report, customer complaints ___ mainly because of shipping delays.（第一空）Managers were asked to ___ the issue immediately by contacting the logistics team.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "occurred"
+          },
+          {
+            "key": "B",
+            "text": "were occurred"
+          },
+          {
+            "key": "C",
+            "text": "raised"
+          },
+          {
+            "key": "D",
+            "text": "were raised"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "address"
+          },
+          {
+            "key": "B",
+            "text": "address to"
+          },
+          {
+            "key": "C",
+            "text": "respond"
+          },
+          {
+            "key": "D",
+            "text": "respond to"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- 不及物動詞 + 及物動詞片語",
+      "analysis": "第一空：`customer complaints ___ mainly because of shipping delays`，`occur`（發生）為不及物動詞，主詞是「客訴」本身在發生，用主動式 **occurred**(A)。(B) were occurred 不及物動詞無被動式；(C)(D) raised/were raised 語意不合（客訴不是被「提高」）。\n第二空：`___ the issue immediately`，`address`（處理）是及物動詞可直接接受詞 `the issue`，選 **address**(A)。(B) address to 多餘介系詞，address 本身及物不需 to；(C)(D) respond 通常搭配 `to`，若選 respond 需為 `respond to the issue`，此處若無 to 則不合，若選 respond to 則文法可通但语意上 address 更精準對應「處理問題」。此處依選項設計，正解鎖定及物動詞直接用法 (A)。",
+      "grammarPoint": "對應「1. 及物動詞 vs. 不及物動詞」與「2. 不及物動詞辨認」。",
+      "similarNote": "`address the issue`（處理問題，及物）vs. `respond to the issue`（回應問題，不及物+介系詞）両者意思相近，但接續方式不同，需注意介系詞是否存在。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "The training session was ___ helpful for new employees.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "extreme"
+          },
+          {
+            "key": "B",
+            "text": "extremely"
+          },
+          {
+            "key": "C",
+            "text": "extremity"
+          },
+          {
+            "key": "D",
+            "text": "extremist"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "副詞修飾形容詞",
+      "analysis": "空格修飾後方的形容詞 `helpful`，需要用**副詞** ➔ **extremely**(B)。(A) extreme 是形容詞；(C) extremity 是名詞（極端、危急）；(D) extremist 是名詞（極端主義者），皆無法修飾形容詞。",
+      "grammarPoint": "對應「3. 形容詞 vs. 副詞的位置」：副詞修飾形容詞/副詞前。",
+      "similarNote": "凡是「副詞 + 形容詞」的結構，如 `highly effective`, `extremely helpful`，空格必為副詞。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "Customers found the new interface ___ confusing at first.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "somewhat"
+          },
+          {
+            "key": "B",
+            "text": "some"
+          },
+          {
+            "key": "C",
+            "text": "something"
+          },
+          {
+            "key": "D",
+            "text": "somewhere"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "程度副詞修飾形容詞",
+      "analysis": "空格修飾後方形容詞 `confusing`，需要副詞，**somewhat**(A)（有點、稍微）為副詞，語意通順。(B) some 是限定詞/代名詞，不能修飾形容詞；(C) something 是代名詞（某事物）；(D) somewhere 是副詞但表地點（某處），語意不合。",
+      "grammarPoint": "對應「3. 形容詞 vs. 副詞的位置」：副詞修飾形容詞。",
+      "similarNote": "`somewhat`, `rather`, `quite`, `fairly` 都是常見修飾形容詞的程度副詞，注意與 `some`(限定詞) 的差異。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "The report showed a ___ decline in customer complaints after the policy change.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "notice"
+          },
+          {
+            "key": "B",
+            "text": "noticing"
+          },
+          {
+            "key": "C",
+            "text": "noticeable"
+          },
+          {
+            "key": "D",
+            "text": "noticeably"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "形容詞修飾名詞",
+      "analysis": "空格在冠詞 `a` 之後、名詞 `decline` 之前，需要**形容詞** ➔ **noticeable**(C)（顯著的）。(A) notice 是名詞/動詞；(B) noticing 是動名詞/現在分詞；(D) noticeably 是副詞，皆不能直接修飾名詞 decline。",
+      "grammarPoint": "對應「📝 多益秒殺解題技巧 1」：空格前有冠詞、後有名詞 ➔ 選形容詞。",
+      "similarNote": "`noticeable`(形容詞,顯著的) vs. `noticeably`(副詞,顯著地) 常在句尾或句中修飾動詞時互換考察，須看修飾對象。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "Employees who arrive ___ are asked to inform their supervisors in advance.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "late"
+          },
+          {
+            "key": "B",
+            "text": "lately"
+          },
+          {
+            "key": "C",
+            "text": "latest"
+          },
+          {
+            "key": "D",
+            "text": "later"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "形容詞 late vs. 副詞 lately",
+      "analysis": "空格修飾動詞 `arrive`，表示「遲到地抵達」，`late` 本身也是副詞（不加 -ly），意為「遲、晚」➔ 選 **late**(A)。(B) lately 意為「最近」，語意不合；(C) latest 是最高級形容詞（最新的）；(D) later 是比較級（之後、稍後），與句意「遲到」不符。",
+      "grammarPoint": "對應「4. 多益常混淆組合」：late(晚的) vs. lately(最近)。",
+      "similarNote": "`late` 身兼形容詞與副詞兩種詞性；`lately` 只能當副詞使用，且意思是「最近」而非「晚」，是常見混淆陷阱。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/03_形容詞與副詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "The marketing team conducted a survey to gather ___ feedback from customers.（第一空）The results were ___ positive, prompting the company to expand the product line.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "detail"
+          },
+          {
+            "key": "B",
+            "text": "detailed"
+          },
+          {
+            "key": "C",
+            "text": "details"
+          },
+          {
+            "key": "D",
+            "text": "detailing"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "overwhelm"
+          },
+          {
+            "key": "B",
+            "text": "overwhelmed"
+          },
+          {
+            "key": "C",
+            "text": "overwhelming"
+          },
+          {
+            "key": "D",
+            "text": "overwhelmingly"
+          }
+        ],
+        "answer": "D"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- 形容詞修飾名詞 + 副詞修飾形容詞",
+      "analysis": "第一空：`gather ___ feedback`，空格在動詞後、名詞 feedback 之前，需要**形容詞**修飾 feedback ➔ **detailed**(B)（詳細的）。(A) detail 是名詞/動詞；(C) details 是複數名詞；(D) detailing 是動名詞，皆不合。\n第二空：`The results were ___ positive`，空格修飾後方形容詞 `positive`，需要**副詞** ➔ **overwhelmingly**(D)（壓倒性地）。(A) overwhelm 是動詞；(B) overwhelmed 是分詞形容詞（感到...的，通常修飾人）；(C) overwhelming 是分詞形容詞（令人...的，修飾事物但不能修飾另一個形容詞）。",
+      "grammarPoint": "對應「1. 必背形容詞字尾」與「3. 形容詞 vs. 副詞的位置」。",
+      "similarNote": "分詞形容詞 `overwhelming/overwhelmed` 不能直接修飾另一個形容詞，若要修飾形容詞則必須用副詞形式 `overwhelmingly`。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "___ the manager was on vacation, the team continued to meet the deadline.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Despite"
+          },
+          {
+            "key": "B",
+            "text": "Although"
+          },
+          {
+            "key": "C",
+            "text": "Because of"
+          },
+          {
+            "key": "D",
+            "text": "Due to"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "連接詞 vs. 介系詞判斷",
+      "analysis": "空格後方為完整子句 `the manager was on vacation`（主詞+動詞），需要**連接詞** ➔ **Although**(B)。(A) Despite 是介系詞，後面只能接名詞/動名詞；(C)(D) Because of / Due to 也是介系詞，皆不能接完整子句。",
+      "grammarPoint": "對應「1. 相反的功能詞」表格與「📝 多益秒殺解題技巧 1」。",
+      "similarNote": "判斷關鍵永遠是「空格後面有沒有主詞+動詞的完整子句」，有子句選連接詞，無子句（只有名詞/V-ing）選介系詞。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "The company will proceed with the merger ___ the shareholders approve the proposal.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "unless"
+          },
+          {
+            "key": "B",
+            "text": "despite"
+          },
+          {
+            "key": "C",
+            "text": "because of"
+          },
+          {
+            "key": "D",
+            "text": "in spite of"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "unless 條件連接詞",
+      "analysis": "句意「除非股東同意此提案，否則公司將繼續進行合併」，`unless`（除非）為連接詞，後方接完整子句 `the shareholders approve...`，語意及文法皆合。(B)(C)(D) despite / because of / in spite of 皆為介系詞，不能接完整子句。",
+      "grammarPoint": "對應「📝 多益秒殺解題技巧 1」：空格後為完整子句選連接詞。",
+      "similarNote": "`unless` = `if...not`，是多益條件句常考連接詞，注意與 `despite`(讓步介系詞) 混淆的陷阱設計。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "___ increasing competition, the firm managed to maintain its market share.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Although"
+          },
+          {
+            "key": "B",
+            "text": "Despite"
+          },
+          {
+            "key": "C",
+            "text": "Even though"
+          },
+          {
+            "key": "D",
+            "text": "While"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "介系詞 despite 後接名詞",
+      "analysis": "空格後方為名詞片語 `increasing competition`（無主詞動詞的完整子句），需要**介系詞** ➔ **Despite**(B)。(A) Although 與 (C) Even though 皆為連接詞，須接完整子句；(D) While 也是連接詞，同樣不合。",
+      "grammarPoint": "對應「1. 相反的功能詞」表格：介系詞後接名詞/V-ing。",
+      "similarNote": "`increasing competition` 中 increasing 是形容詞（現在分詞作形容詞修飾 competition），整體仍是名詞片語，並非「V-ing 開頭的子句」，故仍選介系詞。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "Employees may choose ___ to work remotely or in the office on Fridays.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "either"
+          },
+          {
+            "key": "B",
+            "text": "both"
+          },
+          {
+            "key": "C",
+            "text": "neither"
+          },
+          {
+            "key": "D",
+            "text": "not only"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "相關連接詞 either...or",
+      "analysis": "句中已有 `or` 對應，固定搭配為 **either** A **or** B(A)。(B) both 需搭配 `and`；(C) neither 需搭配 `nor`；(D) not only 需搭配 `but also`，皆與句中的 `or` 不匹配。",
+      "grammarPoint": "對應「3. 相關連接詞 (成雙成對)」。",
+      "similarNote": "相關連接詞必須成對出現且固定搭配，看到句中已出現的那一半（如 or, nor, but also），立刻可推知另一半的正確答案。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/04_連接詞#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/04_連接詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "___ the new software reduces processing time, it also improves data accuracy.（第一空）As a result, the company decided to adopt it company-wide, ___ the initial training cost.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "Despite"
+          },
+          {
+            "key": "B",
+            "text": "Not only"
+          },
+          {
+            "key": "C",
+            "text": "Because"
+          },
+          {
+            "key": "D",
+            "text": "While"
+          }
+        ],
+        "answer": "D"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "although"
+          },
+          {
+            "key": "B",
+            "text": "despite"
+          },
+          {
+            "key": "C",
+            "text": "because"
+          },
+          {
+            "key": "D",
+            "text": "so that"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- 連接詞 vs. 介系詞綜合判斷",
+      "analysis": "第一空：`___ the new software reduces processing time, it also improves data accuracy`，空格後為完整子句，且句意為「雖然／然而...也...」的對比讓步關係，搭配後方的 `it also improves` ➔ 選 **While**(D)（然而，表對比）。(A) Despite 是介系詞不能接子句；(B) Not only 需搭配 `but also` 且需倒裝，此處後方沒有倒裝結構；(C) Because 語意不合（不是因果關係）。\n第二空：`the company decided to adopt it company-wide, ___ the initial training cost`，空格後為名詞片語 `the initial training cost`（無動詞），需要**介系詞** ➔ **despite**(A)（儘管）。(B) although 是連接詞需接子句；(C) because 是連接詞；(D) so that 是連接詞（以便），皆不合文法。",
+      "grammarPoint": "對應「1. 相反的功能詞」表格，同時考察連接詞與介系詞的雙重判斷。",
+      "similarNote": "`while` 除了表示「當...的時候」，也常用來表示「然而、對比」，此為多益常考的一詞多義用法，須依上下文語意判斷。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "The new policy has been in effect ___ the beginning of this year.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "for"
+          },
+          {
+            "key": "B",
+            "text": "since"
+          },
+          {
+            "key": "C",
+            "text": "during"
+          },
+          {
+            "key": "D",
+            "text": "by"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "since 時間介系詞",
+      "analysis": "句意「新政策自今年初以來一直生效」，`since + 特定時間點`（the beginning of this year）常與完成式 `has been` 連用 ➔ 選 **since**(B)。(A) for 後面須接一段時間長度（如 for three years），不能接時間點；(C) during 表「在...期間」，通常與特定事件/時段搭配，非強調起始點；(D) by 表「在...之前」，語意不合。",
+      "grammarPoint": "對應「📚 補充秒殺公式 1」：for + 一段時間 vs. since + 特定時間點。",
+      "similarNote": "`since` 常與現在完成式 (have/has + p.p.) 搭配出現，是判斷時態與介系詞的重要連動線索。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "All applications must be submitted ___ the end of this month.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "until"
+          },
+          {
+            "key": "B",
+            "text": "by"
+          },
+          {
+            "key": "C",
+            "text": "since"
+          },
+          {
+            "key": "D",
+            "text": "within"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "by 表截止期限",
+      "analysis": "句意「所有申請必須在月底前提交」，為一次性動作（submit）在某時間點前完成，用 **by**(B)。(A) until 用於持續性動作「持續到...為止」，與 submit（一次性動作）不搭；(C) since 表「自從」，語意不合；(D) within 表「在...範圍內」，文法上可通但語意不如 by 精確對應「截止日」的固定用法。",
+      "grammarPoint": "對應「📚 補充秒殺公式 2」：by(截止,一次性動作) vs. until(持續到,持續性動作)。",
+      "similarNote": "判斷 by 與 until 的關鍵在於動詞是「一次性」(submit, finish, arrive) 還是「持續性」(stay, wait, continue)。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "The committee is ___ reviewing all budget proposals before the fiscal year ends.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "responsible to"
+          },
+          {
+            "key": "B",
+            "text": "responsible for"
+          },
+          {
+            "key": "C",
+            "text": "responsible of"
+          },
+          {
+            "key": "D",
+            "text": "responsible with"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "be responsible for 固定片語",
+      "analysis": "固定片語 `be responsible for + Ving/N`（負責...），選 **responsible for**(B)。(A) responsible to 表「對...負責、隸屬於」（如 report to a person），語意不同；(C)(D) responsible of / responsible with 皆非固定用法。",
+      "grammarPoint": "對應「🔤 相關單字和片語」：be responsible for。",
+      "similarNote": "`responsible for + 事情`（負責某事）與 `responsible to + 人`（向某人負責、隸屬）是常見的介系詞混淆陷阱。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "___ the two candidates, Ms. Lin has more relevant experience.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Among"
+          },
+          {
+            "key": "B",
+            "text": "Between"
+          },
+          {
+            "key": "C",
+            "text": "Except"
+          },
+          {
+            "key": "D",
+            "text": "Besides"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "between vs. among",
+      "analysis": "句中提到 `the two candidates`（兩位候選人），比較範圍是「兩者之間」，用 **Between**(B)。(A) Among 用於三者以上；(C) Except 意為「除了」，語意不合；(D) Besides 意為「除...之外還有」，語意不合。",
+      "grammarPoint": "對應「📚 補充秒殺公式 5」：among(三者以上) vs. between(兩者之間)。",
+      "similarNote": "看到句中出現具體數字「two」或「兩者」，直接鎖定 between；出現「所有、全部among them」等三者以上情境才用 among。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/05_介系詞#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/05_介系詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "The manager signed the agreement ___ the entire department.（第一空）Employees are expected to be ___ the updated procedures before the new system launches.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "in charge of"
+          },
+          {
+            "key": "B",
+            "text": "on behalf of"
+          },
+          {
+            "key": "C",
+            "text": "regarding"
+          },
+          {
+            "key": "D",
+            "text": "due to"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "familiar to"
+          },
+          {
+            "key": "B",
+            "text": "familiar with"
+          },
+          {
+            "key": "C",
+            "text": "familiar for"
+          },
+          {
+            "key": "D",
+            "text": "familiar of"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- on behalf of 與 familiar with",
+      "analysis": "第一空：`The manager signed the agreement ___ the entire department`，句意「經理代表整個部門簽署協議」➔ 選 **on behalf of**(B)（代表）。(A) in charge of 意為「負責、掌管」，語意不合（不是「負責簽署」而是「代表部門」）；(C) regarding 意為「關於」，語意不合；(D) due to 意為「由於」，語意不合。\n第二空：`Employees are expected to be ___ the updated procedures`，固定片語 `be familiar with`（熟悉），選 **familiar with**(B)。(A)(C)(D) familiar to/for/of 皆非固定搭配，其中 `familiar to`（為人所熟知，主詞通常是事物而非人，如 The brand is familiar to consumers）與此處人稱主詞 Employees 的用法不同。",
+      "grammarPoint": "對應「🔤 相關單字和片語」：on behalf of、be familiar with。",
+      "similarNote": "`be familiar with + 人 + 事物`(某人熟悉某事物) vs. `事物 + be familiar to + 人`(某事物為某人所熟悉)，主詞方向相反，是常見陷阱。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "The board of directors ___ Mr. Lin the new regional manager last week.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "named"
+          },
+          {
+            "key": "B",
+            "text": "said"
+          },
+          {
+            "key": "C",
+            "text": "told"
+          },
+          {
+            "key": "D",
+            "text": "spoke"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "句型五 elect/name + O + OC",
+      "analysis": "句型五結構 `S+V+O+OC`，`name`（任命）可接受詞 + 受詞補語 ➔ **named**(A)，`Mr. Lin`(受詞) + `the new regional manager`(受詞補語)。(B) said 是句型三動詞，不能接雙受詞結構；(C) told 為句型四動詞，需接「人+事」而非「人+職稱」；(D) spoke 為不及物動詞，不能接受詞。",
+      "grammarPoint": "對應「句型五：S + Vt + O + OC」：name, appoint, elect 等動詞用法。",
+      "similarNote": "`name/appoint/elect + O + OC` 常省略 `as`，考題偶爾會出現 `named him as manager`，需注意 `as` 是可加可不加的彈性用法。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "The consultant's suggestions ___ very practical to the management team.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "seemed"
+          },
+          {
+            "key": "B",
+            "text": "made"
+          },
+          {
+            "key": "C",
+            "text": "considered"
+          },
+          {
+            "key": "D",
+            "text": "kept"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "句型二 seem + 形容詞補語",
+      "analysis": "句型二結構，連綴動詞 `seem` 後接主詞補語（形容詞），選 **seemed**(A)。(B) made 是及物動詞，句意不合；(C) considered 通常用於句型五 `consider O (to be) adj.`，此處主詞是建議本身，不是「認為」的主體，不合句構；(D) kept 語意不合。",
+      "grammarPoint": "對應「句型二：S + V(連綴) + SC」。",
+      "similarNote": "連綴動詞 seem/appear 後方直接接形容詞做補語，不需要加 to be，是與句型五 `consider O to be adj.` 的重要區別。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "The HR department will ___ all new employees a copy of the handbook.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "explain"
+          },
+          {
+            "key": "B",
+            "text": "provide"
+          },
+          {
+            "key": "C",
+            "text": "give"
+          },
+          {
+            "key": "D",
+            "text": "describe"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "句型四 provide + IO + DO",
+      "analysis": "句型四結構 `S+V+IO+DO`，`provide`（提供）可接雙受詞 `all new employees`(間接受詞) + `a copy of the handbook`(直接受詞) ➔ 選 **provide**(B)。(A) explain 為句型三動詞，若接雙受詞需改為 `explain A to B`；(C) give 文法上也可用於句型四，但語意不如 provide 精確對應「提供手冊」的正式語境（此處以 provide 為最佳答案）；(D) describe 為句型三動詞，不能直接接雙受詞。",
+      "grammarPoint": "對應「句型四：S + Vt + IO + DO」：授與動詞可接兩個受詞。",
+      "similarNote": "`explain` 是常見陷阱動詞，屬於句型三動詞，不可寫成 `explain someone something`，必須改為 `explain something to someone`。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "___ several qualified candidates for the position, the committee decided to extend the deadline.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "There is"
+          },
+          {
+            "key": "B",
+            "text": "There are"
+          },
+          {
+            "key": "C",
+            "text": "There being"
+          },
+          {
+            "key": "D",
+            "text": "It is"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "there be 句型",
+      "analysis": "`There + be + S` 特殊句型，真正主詞為 `several qualified candidates`（複數），be 動詞需用複數 ➔ 選 **There are**(B)。(A) There is 主詞複數不合；(C) There being 為分詞構句形式，不能單獨作為句子主要動詞；(D) It is 不符合此處強調「存在」的語意結構。",
+      "grammarPoint": "對應「📚 補充秒殺公式 5」：there be 句型，動詞需與其後真正主詞的單複數一致。",
+      "similarNote": "`There be` 句型中動詞單複數要看緊接在 be 動詞後的名詞，而非句尾的名詞，若主詞為多個名詞並列時，通常與最靠近 be 動詞的名詞一致。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/06_五大句型#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/06_五大句型",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "The survey results ___ the marketing team valuable insight into customer preferences.（第一空）Based on these findings, the director ___ the new advertising strategy effective immediately.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "gave"
+          },
+          {
+            "key": "B",
+            "text": "said"
+          },
+          {
+            "key": "C",
+            "text": "explained"
+          },
+          {
+            "key": "D",
+            "text": "suggested"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "considered"
+          },
+          {
+            "key": "B",
+            "text": "said"
+          },
+          {
+            "key": "C",
+            "text": "told"
+          },
+          {
+            "key": "D",
+            "text": "explained"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- 句型四與句型三綜合判斷",
+      "analysis": "第一空：`The survey results ___ the marketing team valuable insight`，句型四結構，`give`（給予）可接雙受詞 `the marketing team`(間接受詞) + `valuable insight`(直接受詞) ➔ 選 **gave**(A)。(B) said 不能接雙受詞（人+事物）結構；(C) explained 為句型三動詞，須改為 `explained...to the marketing team`；(D) suggested 同樣是句型三動詞，不能直接接雙受詞。\n第二空：`the director ___ the new advertising strategy effective immediately`，句型五結構，`consider`（認為）可接受詞 + 受詞補語 `the new advertising strategy`(受詞) + `effective`(受詞補語，省略 to be) ➔ 選 **considered**(A)。(B) said 不能直接接受詞+形容詞補語的句型五結構；(C) told 為句型四動詞，需接人+事；(D) explained 為句型三動詞，不能接受詞補語。",
+      "grammarPoint": "對應「句型四：S + Vt + IO + DO」與「句型五：S + Vt + O + OC」的綜合應用。",
+      "similarNote": "`consider O (to be) adj.` 常省略 to be，是句型五的典型考點；同一段落中常混合考察不同句型，需逐句分析動詞後方結構。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#q1",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 1,
+    "stem": "___ number of applicants for the position has increased significantly this year.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "A"
+          },
+          {
+            "key": "B",
+            "text": "The"
+          },
+          {
+            "key": "C",
+            "text": "An"
+          },
+          {
+            "key": "D",
+            "text": "Many"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "the number of 當主詞",
+      "analysis": "`___ number of applicants...has increased`，句尾動詞為單數 `has increased`，符合 `the number of + 複數N` 當主詞時視為單數的規則 ➔ 選 **The**(B)。(A) A number of 意為「許多」，當主詞時動詞須用複數（have increased），與句中 has 不合；(C) An 文法上不能接 number（number 開頭非母音發音）；(D) Many 不能直接放在 number 前面構成此結構。",
+      "grammarPoint": "對應「2. 可數 vs. 不可數名詞的數量詞搭配」：the number of + 單數動詞 vs. a number of + 複數動詞。",
+      "similarNote": "`the number of`(...的數量,單數) 與 `a number of`(許多,複數) 是多益極高頻的一字之差陷阱，务必牢記動詞單複數對應。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#q2",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 2,
+    "stem": "___ employee must complete the safety training before starting work.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "All"
+          },
+          {
+            "key": "B",
+            "text": "Every"
+          },
+          {
+            "key": "C",
+            "text": "Most"
+          },
+          {
+            "key": "D",
+            "text": "Few"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "every + 單數名詞",
+      "analysis": "`___ employee must complete`，動詞 `must complete` 搭配單數主詞，且句意強調「每一位」員工皆須完成，`every` 語感上更強調「無一例外」➔ 選 **Every**(B)。(A) All 需搭配複數名詞（All employees）；(C) Most 語意為「大多數」，不符合「必須完成」的強制語氣；(D) Few 意為「很少」，語意不合。",
+      "grammarPoint": "對應「3. 限定詞：each, every, all, both」：every + 單數名詞 + 單數動詞。",
+      "similarNote": "`every` 與 `each` 都接單數名詞及單數動詞，但 `each` 強調「個別、逐一」，`every` 強調「全體無例外」，語意上可依上下文判斷但文法規則相同。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#q3",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 3,
+    "stem": "The company received ___ positive feedback after launching the new app.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "many"
+          },
+          {
+            "key": "B",
+            "text": "a few"
+          },
+          {
+            "key": "C",
+            "text": "a great deal of"
+          },
+          {
+            "key": "D",
+            "text": "numerous"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "不可數名詞數量詞搭配",
+      "analysis": "`feedback`（回饋意見）為不可數名詞，需搭配不可數數量詞 ➔ 選 **a great deal of**(C)。(A) many 只能搭配可數複數名詞；(B) a few 也只能搭配可數複數名詞；(D) numerous 同樣只能修飾可數複數名詞（如 numerous complaints）。",
+      "grammarPoint": "對應「2. 可數 vs. 不可數名詞的數量詞搭配」表格。",
+      "similarNote": "`feedback`, `information`, `advice`, `equipment` 皆為多益常考的不可數名詞，須固定搭配 `much / little / a great deal of / a large amount of`。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#q4",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 4,
+    "stem": "___ of the two proposals will require additional funding from the board.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Each"
+          },
+          {
+            "key": "B",
+            "text": "Every"
+          },
+          {
+            "key": "C",
+            "text": "Both"
+          },
+          {
+            "key": "D",
+            "text": "All"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "both of 兩者皆",
+      "analysis": "句中提到 `the two proposals`（兩個提案），範圍限定為「兩者」，且句意「兩者都需要額外資金」➔ 選 **Both**(C)。(A) Each 語意上可指「每一個」但強調逐一分開看待，與此處「兩者皆」的整體語意較不如 both 貼切；(B) Every 用於三者以上或泛指全部，且後面需接單數名詞，此處 `of the two proposals` 结构不合；(D) All 通常用於三者以上，兩者時應優先用 both。",
+      "grammarPoint": "對應「3. 限定詞：each, every, all, both」：both + 複數名詞（兩者）。",
+      "similarNote": "看到句中明確出現「two」或「兩者」的語境，優先考慮 `both`；三者以上時才用 `all` 或 `every`。"
+    }
+  },
+  {
+    "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#q5",
+    "source": "note",
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "categoryId": "01_八大詞性與句型結構",
+    "number": 5,
+    "stem": "The manager reviewed ___ applications submitted before the deadline.（第一空）Only ___ candidates were selected for the second round of interviews.（第二空）",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "much"
+          },
+          {
+            "key": "B",
+            "text": "a little"
+          },
+          {
+            "key": "C",
+            "text": "numerous"
+          },
+          {
+            "key": "D",
+            "text": "the number of"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "a few"
+          },
+          {
+            "key": "B",
+            "text": "a little"
+          },
+          {
+            "key": "C",
+            "text": "much"
+          },
+          {
+            "key": "D",
+            "text": "little"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "段落填空（Part 6 風格）- numerous 與 a few",
+      "analysis": "第一空：`reviewed ___ applications`，`applications` 為可數複數名詞，且語意強調「眾多」申請 ➔ 選 **numerous**(C)（許多的，修飾可數複數名詞）。(A) much 只能修飾不可數名詞；(B) a little 也只能修飾不可數名詞；(D) the number of 為名詞片語，通常作主詞用，此處在動詞 reviewed 後面直接接的應是形容詞性數量詞，用法不合。\n第二空：`Only ___ candidates were selected`，`candidates` 為可數複數名詞，且句意為「只有少數但確實有一些」被選中（正面/中性語氣，而非「幾乎沒有」）➔ 選 **a few**(A)。(B) a little 只能修飾不可數名詞；(C) much 也只能修飾不可數名詞；(D) little（不加 a）語意為「幾乎沒有」，且僅能修飾不可數名詞，兩者皆不合。",
+      "grammarPoint": "對應「2. 可數 vs. 不可數名詞的數量詞搭配」與「📚 補充秒殺公式 1」：little/a little、few/a few 的正負意涵及可數不可數搭配。",
+      "similarNote": "`a few`(有一些,正面) 與 `few`(幾乎沒有,負面) 雖然都搭配可數複數名詞，但語氣完全相反，須依上下文判斷是否加 `a`。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#q1",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 1,
+    "stem": "The accounting department _____ all invoices at the end of every month.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "review"
+          },
+          {
+            "key": "B",
+            "text": "reviews"
+          },
+          {
+            "key": "C",
+            "text": "is reviewing"
+          },
+          {
+            "key": "D",
+            "text": "will review"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "現在簡單式辨識（規律性動作）",
+      "analysis": "句中 \"at the end of every month\" 是明確的規律性時間副詞，表示會計部門「每個月固定會做」的動作，屬於習慣、規律，應使用**現在簡單式**。主詞 the accounting department 為單數，動詞需加 -s，故選 (B) reviews。(A) review 動詞形態未與第三人稱單數一致；(C) is reviewing 現在進行式不符合「規律習慣」語意；(D) will review 未來式與 every month 的規律語意不符。",
+      "grammarPoint": "對應第 1 節「簡單式時態」中「現在簡單：習慣、事實、規律」的用法。",
+      "similarNote": "凡出現 every day / every week / every month / on a regular basis 等規律時間片語，優先考慮現在簡單式，並注意主詞單複數決定動詞是否加 -s。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#q2",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 2,
+    "stem": "While the technician _____ the server, the office experienced a brief power outage.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "repairs"
+          },
+          {
+            "key": "B",
+            "text": "repaired"
+          },
+          {
+            "key": "C",
+            "text": "was repairing"
+          },
+          {
+            "key": "D",
+            "text": "has repaired"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "過去進行式 + while 子句",
+      "analysis": "While 引導的子句強調「過程中」，技師正在維修伺服器的過程中，辦公室發生短暫停電，應使用**過去進行式**表達「當時正在做的動作」。故選 (C) was repairing。(A) repairs 為現在簡單式，時態不一致；(B) repaired 過去簡單式僅表示動作發生，無法強調「正在進行中」被停電打斷的情境；(D) has repaired 現在完成式與過去時間軸不符。",
+      "grammarPoint": "對應第 4 節「while 與 when 的搭配」：while + 進行式，強調「過程中」。",
+      "similarNote": "注意分辨 while（強調過程，用進行式）與 when（強調時間點，用簡單式）的差異，是多益常考陷阱。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#q3",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 3,
+    "stem": "Please make sure all documents are ready before the auditor _____ tomorrow morning.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "will arrive"
+          },
+          {
+            "key": "B",
+            "text": "arrives"
+          },
+          {
+            "key": "C",
+            "text": "arrived"
+          },
+          {
+            "key": "D",
+            "text": "is arriving"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "時間子句代替未來式",
+      "analysis": "\"before + 子句\" 屬於時間子句，即使語意指向未來（tomorrow morning），子句中仍須使用**現在簡單式**代替未來式。故選 (B) arrives。(A) will arrive 未來式在時間子句中不可使用；(C) arrived 過去式與 tomorrow 未來時間矛盾；(D) is arriving 現在進行式不符合時間子句慣用現在簡單式的規則。",
+      "grammarPoint": "對應「📚 補充秒殺公式」第 1 點：時間/條件子句代替未來，使用現在簡單式。",
+      "similarNote": "if, when, before, after, as soon as, until 等連接詞引導的子句，即使句意為未來，一律使用現在簡單式，是多益極高頻考點。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#q4",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 4,
+    "stem": "Mr. Chen _____ that the new pricing strategy is more competitive than the previous one.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "is believing"
+          },
+          {
+            "key": "B",
+            "text": "believes"
+          },
+          {
+            "key": "C",
+            "text": "believed"
+          },
+          {
+            "key": "D",
+            "text": "will believe"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "狀態動詞不用進行式",
+      "analysis": "believe（認為、相信）屬於認知類的**狀態動詞**，不可使用進行式，即使描述的是現在的想法。故選 (B) believes（現在簡單式，主詞 Mr. Chen 為第三人稱單數）。(A) is believing 誤用進行式；(C) believed 過去式與句子描述現況的語意不符；(D) will believe 未來式不符合語境（現在就抱持這個看法）。",
+      "grammarPoint": "對應第 3 節「多益必考：進行式的注意事項」中「認知類動詞不可用進行式」。",
+      "similarNote": "know, understand, remember, forget, like, want, need, have（擁有）、own、belong、contain 等狀態動詞皆不可用進行式，務必牢記清單。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#q5",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/01_基本時態與進行式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 5,
+    "stem": "The customer service team is currently (1) _____ a new ticketing system to handle client inquiries more efficiently. Every request now (2) _____ automatically to the appropriate department.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "test"
+          },
+          {
+            "key": "B",
+            "text": "tests"
+          },
+          {
+            "key": "C",
+            "text": "testing"
+          },
+          {
+            "key": "D",
+            "text": "to test"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "route"
+          },
+          {
+            "key": "B",
+            "text": "routes"
+          },
+          {
+            "key": "C",
+            "text": "is routing"
+          },
+          {
+            "key": "D",
+            "text": "routed"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空（現在進行式 + 現在簡單式）",
+      "analysis": "(1) 句首已有 is，且 currently 提示「目前正在做」的動作，故空格應填 V-ing 完成 \"is currently testing\" 的現在進行式結構，選 (C) testing。(A)(B) 缺少 be 動詞搭配則不成進行式；(D) to test 不定詞不符合句構。\n(2) \"Every request now ...\" 描述系統運作的**規律性、既定流程**，應使用現在簡單式，且主詞 every request 為單數，動詞需加 -s，故選 (B) routes。(A) route 未與單數主詞一致；(C) is routing 進行式不符合「每次請求都如此」的規律語意；(D) routed 過去式時態錯誤。",
+      "grammarPoint": "對應第 2 節「進行式時態」與「📚 補充秒殺公式」第 4 點：主詞是規定/流程時，多用現在簡單式。",
+      "similarNote": "篇章題中常見「現在進行式描述當下正在做的改革／專案」搭配「現在簡單式描述既定的規則或流程」交錯出現，需依上下文線索判斷，而非單看時間副詞。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#q1",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 1,
+    "stem": "The firm _____ its logo three times since it was founded in 1998.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "changes"
+          },
+          {
+            "key": "B",
+            "text": "changed"
+          },
+          {
+            "key": "C",
+            "text": "has changed"
+          },
+          {
+            "key": "D",
+            "text": "will change"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "現在完成式（經驗 + since 過去時間點）",
+      "analysis": "\"since it was founded in 1998\" 表示「從 1998 年成立以來」，公司在這段期間內換過三次商標，屬於「從過去到現在的經驗」，應使用**現在完成式**。故選 (C) has changed。(A) changes 現在簡單式無法表達「累積至今」的語意；(B) changed 過去簡單式僅描述單一過去動作，不符合 since 引導的持續語境；(D) will change 未來式與句意不符。",
+      "grammarPoint": "對應第 1 節「現在完成式」中「經驗」用法，常搭配 since + 過去時間點。",
+      "similarNote": "注意 since 子句本身用過去式（was founded），主句才用現在完成式，是常考的時態搭配組合。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#q2",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 2,
+    "stem": "By the time the inspector arrived, the workers _____ already _____ the faulty wiring.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "have / fixed"
+          },
+          {
+            "key": "B",
+            "text": "had / fixed"
+          },
+          {
+            "key": "C",
+            "text": "will have / fixed"
+          },
+          {
+            "key": "D",
+            "text": "has / fixed"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "過去完成式（by the time + 過去式）",
+      "analysis": "\"By the time the inspector arrived\" 是 by the time 加過去式子句，表示「在檢查員抵達之前」，工人已經完成的動作應使用**過去完成式**，表達「過去的過去」。故選 (B) had / fixed。(A) have / fixed 現在完成式時態層次不對；(C) will have / fixed 未來完成式與過去時間軸矛盾；(D) has / fixed 現在完成式且單複數也不一致。",
+      "grammarPoint": "對應第 2 節「過去完成式」：by the time + 過去式子句 ➔ 主句用過去完成式。",
+      "similarNote": "by the time 子句的動詞時態決定主句時態：子句過去式 ➔ 主句過去完成式；子句現在式 ➔ 主句未來完成式（見題目 3）。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#q3",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 3,
+    "stem": "We _____ the new software by the end of this quarter.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "implement"
+          },
+          {
+            "key": "B",
+            "text": "implemented"
+          },
+          {
+            "key": "C",
+            "text": "will have implemented"
+          },
+          {
+            "key": "D",
+            "text": "had implemented"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "未來完成式（by + 未來時間）",
+      "analysis": "\"by the end of this quarter\" 是明確的未來時間點，表示「到某個未來時間點之前將完成的動作」，應使用**未來完成式**。故選 (C) will have implemented。(A) implement 現在簡單式不符合語意；(B) implemented 過去式時態錯誤；(D) had implemented 過去完成式與未來時間點矛盾。",
+      "grammarPoint": "對應第 3 節「未來完成式」：by + 未來時間 ➔ will have + p.p.。",
+      "similarNote": "by + 未來時間點（by 2027, by next Friday, by the end of...）幾乎是未來完成式的正字標記，务必快速辨識。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#q4",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 4,
+    "stem": "Ms. Lopez _____ to Berlin twice this year for client meetings.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "has been"
+          },
+          {
+            "key": "B",
+            "text": "has gone"
+          },
+          {
+            "key": "C",
+            "text": "went"
+          },
+          {
+            "key": "D",
+            "text": "is going"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "have been to vs. have gone to",
+      "analysis": "句意為「Ms. Lopez 今年已經去過柏林兩次（人現在不在柏林，已經回來了）」，強調的是「經驗、次數」，應使用 **have/has been to**。故選 (A) has been。(B) has gone 表示「去了、人目前還在該地」，與句子強調「兩次經驗」的語意不符；(C) went 過去簡單式無法搭配 twice this year 這種累計經驗的語意；(D) is going 現在進行式不符合已發生兩次的語境。",
+      "grammarPoint": "對應「📚 補充秒殺公式」第 2 點：have/has been to（去過，已回來） vs. have/has gone to（去了，人還在那）。",
+      "similarNote": "這是多益經典陷阱組合，務必牢記兩者差異：been to 強調經歷，gone to 強調目前人不在此處（在目的地）。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/02_完成式#q5",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/02_完成式",
+    "categoryId": "02_動詞時態與語態",
+    "number": 5,
+    "stem": "Since the company (1) _____ its new safety policy last spring, workplace accidents have decreased significantly. By the end of this year, management (2) _____ a full review of the policy's effectiveness.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "introduces"
+          },
+          {
+            "key": "B",
+            "text": "introduced"
+          },
+          {
+            "key": "C",
+            "text": "has introduced"
+          },
+          {
+            "key": "D",
+            "text": "will introduce"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "conducts"
+          },
+          {
+            "key": "B",
+            "text": "had conducted"
+          },
+          {
+            "key": "C",
+            "text": "will have conducted"
+          },
+          {
+            "key": "D",
+            "text": "has conducted"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空（過去簡單式 + 未來完成式）",
+      "analysis": "(1) \"Since the company ... last spring\" 中，since 引導的子句本身須使用**過去簡單式**描述過去某個確切時間點發生的動作，搭配主句 \"have decreased\"（現在完成式），形成 since + 過去式，主句 + 現在完成式 的標準結構，故選 (B) introduced。(A) introduces 現在簡單式與 last spring 明確過去時間矛盾；(C) has introduced 現在完成式不可用於 since 子句本身；(D) will introduce 未來式與句意不符。\n(2) \"By the end of this year\" 是未來時間點，表示到那時管理層將已完成政策的全面檢討，應使用**未來完成式**，故選 (C) will have conducted。(A)(D) 為現在式/現在完成式，與 by the end of this year 的未來時間點不符；(B) had conducted 過去完成式時態錯誤。",
+      "grammarPoint": "對應第 1 節「現在完成式」（since 子句用過去式）與第 3 節「未來完成式」（by + 未來時間）。",
+      "similarNote": "篇章題常在同一段落中混合過去簡單式（since 子句）與未來完成式（by + 未來時間），需分別依各句的時間線索個別判斷，不能套用同一時態。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#q1",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "categoryId": "02_動詞時態與語態",
+    "number": 1,
+    "stem": "All visitors _____ to sign in at the front desk before entering the building.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "require"
+          },
+          {
+            "key": "B",
+            "text": "are required"
+          },
+          {
+            "key": "C",
+            "text": "required"
+          },
+          {
+            "key": "D",
+            "text": "requiring"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "主動與被動的判斷（動詞後有無受詞）",
+      "analysis": "空格後方為 \"to sign in\"（不定詞片語），並非受詞（名詞），且主詞 all visitors 是「被要求」做這件事，屬於被動關係，應使用 **be required to V**。故選 (B) are required。(A) require 為主動語態，但主詞 visitors 應是被要求的對象而非要求別人；(C) required 過去式時態與句子現在式語境不符；(D) requiring 分詞形式無法單獨作為句子主要動詞。",
+      "grammarPoint": "對應第 3 節「多益必考重點：主動與被動的判斷」，並對應「🔤 相關單字和片語」中 be required to V 的固定用法。",
+      "similarNote": "be required to / be scheduled to / be authorized to / be entitled to 等「be + p.p. + to V」結構是多益高頻考點，需整組記憶。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#q2",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "categoryId": "02_動詞時態與語態",
+    "number": 2,
+    "stem": "The annual conference _____ to take place in October, but it has been moved to November.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "schedules"
+          },
+          {
+            "key": "B",
+            "text": "was scheduling"
+          },
+          {
+            "key": "C",
+            "text": "was scheduled"
+          },
+          {
+            "key": "D",
+            "text": "schedule"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "被動語態時態變化（過去簡單被動）",
+      "analysis": "會議「被排定」在十月舉行，這是被動關係（會議是被安排的對象），且描述的是過去已排定的事實，應使用**過去簡單被動**：was/were + p.p.。故選 (C) was scheduled。(A) schedules 為主動語態且時態不符；(B) was scheduling 為過去進行式主動語態，語意錯誤（會議不會主動排程）；(D) schedule 原形動詞無法作為句子主要動詞。",
+      "grammarPoint": "對應第 2 節「各時態的被動語態變化」表格：過去簡單 ➔ was/were + p.p.。",
+      "similarNote": "be scheduled to V 是固定搭配，注意被動語態中 be 動詞的時態變化才是考點核心，p.p. 本身不變。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#q3",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "categoryId": "02_動詞時態與語態",
+    "number": 3,
+    "stem": "The new headquarters _____ near the airport, making it convenient for international clients.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "is located"
+          },
+          {
+            "key": "B",
+            "text": "locates"
+          },
+          {
+            "key": "C",
+            "text": "is locating"
+          },
+          {
+            "key": "D",
+            "text": "located"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "be located（恆用被動）",
+      "analysis": "表示地點位置的動詞 locate，習慣上以被動形式 **be located** 呈現，即使沒有「被誰放置」的意味，也已是固定用法。故選 (A) is located。(B) locates 主動語態不符合英語慣用表達；(C) is locating 進行式不符合描述固定地理位置的語意；(D) located 缺少 be 動詞，無法構成完整動詞。",
+      "grammarPoint": "對應「📚 補充秒殺公式」第 5 點：be located / be situated 恆用被動。",
+      "similarNote": "類似恆用被動的動詞還包括 be situated、be positioned，都是描述地理位置時的固定被動用法。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#q4",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "categoryId": "02_動詞時態與語態",
+    "number": 4,
+    "stem": "A serious data breach _____ last night, prompting an emergency investigation.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "was occurred"
+          },
+          {
+            "key": "B",
+            "text": "occurred"
+          },
+          {
+            "key": "C",
+            "text": "is occurred"
+          },
+          {
+            "key": "D",
+            "text": "has been occurred"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "不及物動詞不可被動化",
+      "analysis": "occur（發生）是**不及物動詞**，不能使用被動語態。故選 (B) occurred（過去簡單主動式）。(A) was occurred、(C) is occurred、(D) has been occurred 皆錯誤地將不及物動詞被動化，這是文法上不允許的用法。",
+      "grammarPoint": "對應「📚 補充秒殺公式」第 1 點：不及物動詞沒有被動式（occur, happen, arrive, rise, remain）。",
+      "similarNote": "多益常以「不及物動詞 + 被動語態」作為誘答陷阱，看到 occur、happen、arrive、remain、rise 等詞時，直接排除所有被動語態選項。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/03_被動語態#q5",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/03_被動語態",
+    "categoryId": "02_動詞時態與語態",
+    "number": 5,
+    "stem": "All employees (1) _____ to complete the annual compliance training by the end of this month. Those who fail to do so (2) _____ from participating in the year-end bonus program.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "require"
+          },
+          {
+            "key": "B",
+            "text": "are required"
+          },
+          {
+            "key": "C",
+            "text": "requiring"
+          },
+          {
+            "key": "D",
+            "text": "requires"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "will exclude"
+          },
+          {
+            "key": "B",
+            "text": "will be excluded"
+          },
+          {
+            "key": "C",
+            "text": "excluded"
+          },
+          {
+            "key": "D",
+            "text": "are excluding"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空（be required to + 未來被動）",
+      "analysis": "(1) 主詞 all employees 是「被要求」完成訓練的對象，屬於被動關係，且空格後接 to V，應選 **be required to V** 結構，故選 (B) are required。(A) require 為主動語態方向錯誤；(C) requiring 分詞無法單獨作主要動詞；(D) requires 主詞為複數 employees，動詞不可加 -s。\n(2) 未通過訓練的員工「將被排除」在獎金計畫之外，屬於未來時間點的被動動作，應使用 **will be + p.p.** 結構，故選 (B) will be excluded。(A) will exclude 為主動語態，但員工是被排除的對象而非排除者；(C) excluded 過去式時態不符合未來語境；(D) are excluding 現在進行式主動語態不符合句意。",
+      "grammarPoint": "對應「🔤 相關單字和片語」be required to 用法，以及第 2 節「各時態的被動語態變化」中未來簡單被動：will be + p.p.。",
+      "similarNote": "篇章題中常見「be required to」與「will be + p.p.」搭配出現，判斷關鍵仍是主詞與動詞的邏輯關係（主詞是動作的承受者），而非單純看時間副詞。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#q1",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "categoryId": "02_動詞時態與語態",
+    "number": 1,
+    "stem": "The two companies _____ for months, but they have not yet reached a final agreement.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "negotiate"
+          },
+          {
+            "key": "B",
+            "text": "negotiated"
+          },
+          {
+            "key": "C",
+            "text": "have been negotiating"
+          },
+          {
+            "key": "D",
+            "text": "will negotiate"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "現在完成進行式（強調持續過程）",
+      "analysis": "\"for months, but they have not yet reached a final agreement\" 強調兩間公司「持續談判了數月，且尚未結束」，重點在於強調「過程的持續性」而非結果，應使用**現在完成進行式**。故選 (C) have been negotiating。(A) negotiate 現在簡單式不符合持續語意；(B) negotiated 過去簡單式僅表示過去發生的單一動作；(D) will negotiate 未來式與句意「已經談判數月」矛盾。",
+      "grammarPoint": "對應第 1 節「現在完成進行式」：強調動作從過去持續到現在，且可能尚未結束。",
+      "similarNote": "判斷完成式 vs. 完成進行式的關鍵：若句子強調「過程仍在持續、尚無結果」，優先選完成進行式；若強調「已完成、有具體結果」，選一般完成式。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#q2",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "categoryId": "02_動詞時態與語態",
+    "number": 2,
+    "stem": "By the time help arrived, the technicians _____ for over three hours to fix the network.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "have been working"
+          },
+          {
+            "key": "B",
+            "text": "had been working"
+          },
+          {
+            "key": "C",
+            "text": "work"
+          },
+          {
+            "key": "D",
+            "text": "will have worked"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "過去完成進行式（before + 過去式，強調持續）",
+      "analysis": "\"By the time help arrived\" 表示在支援抵達之前，技師們已經**持續**修理網路長達三小時以上，強調過去某時間點之前的持續動作，應使用**過去完成進行式**。故選 (B) had been working。(A) have been working 現在完成進行式時態層次錯誤；(C) work 現在簡單式不符合過去時間軸；(D) will have worked 未來完成式與過去語境矛盾。",
+      "grammarPoint": "對應第 2 節「過去完成進行式」：had been + V-ing，表示過去某時間點之前持續進行的動作。",
+      "similarNote": "看到 \"by the time + 過去式子句\" 且句意強調「持續進行、耗時多久」時，優先考慮過去完成進行式而非單純過去完成式。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#q3",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "categoryId": "02_動詞時態與語態",
+    "number": 3,
+    "stem": "The CEO announced that the company _____ its headquarters to Singapore the following year.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "will move"
+          },
+          {
+            "key": "B",
+            "text": "moves"
+          },
+          {
+            "key": "C",
+            "text": "would move"
+          },
+          {
+            "key": "D",
+            "text": "has moved"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "時態一致性（主句過去式，子句用過去式代替未來）",
+      "analysis": "主句 \"The CEO announced\" 為過去式，依照時態一致性原則，子句描述「未來會發生的計畫」時，須將原本的未來式 will 往前推一格，改為 **would**。故選 (C) would move。(A) will move 未跟隨主句時態後退；(B) moves 現在簡單式不符合「隔年搬遷」的未來計畫語意；(D) has moved 現在完成式時態層次錯誤。",
+      "grammarPoint": "對應第 4 節「時態一致性」原則一：主句是過去式，子句時態也需相應調整（will → would）。",
+      "similarNote": "said/announced/reported/mentioned (過去式) + that 子句時，子句原本的 will 需改為 would，is/are 需改為 was/were，是篇章題與間接引語常考的時態一致性考點。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#q4",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "categoryId": "02_動詞時態與語態",
+    "number": 4,
+    "stem": "By next December, Mr. Tanaka _____ for this firm for two full decades.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "has worked"
+          },
+          {
+            "key": "B",
+            "text": "had worked"
+          },
+          {
+            "key": "C",
+            "text": "will have been working"
+          },
+          {
+            "key": "D",
+            "text": "is working"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "未來完成進行式",
+      "analysis": "\"By next December\" 是未來時間點，且句意強調 Tanaka 先生到那時將已經**持續**在這間公司工作滿二十年，強調從過去到未來某時間點的持續性，應使用**未來完成進行式**。故選 (C) will have been working。(A) has worked 現在完成式無法對應未來時間點；(B) had worked 過去完成式與未來時間矛盾；(D) is working 現在進行式不符合「到未來某時間點為止」的語意。",
+      "grammarPoint": "對應第 3 節「未來完成進行式」：will have been + V-ing，表示到未來某時間點為止持續進行的動作。",
+      "similarNote": "未來完成進行式出現頻率較低，但判斷關鍵仍是「未來時間點 + 強調持續了多久」的組合，例如 by + 未來時間 + for + 一段時間。"
+    }
+  },
+  {
+    "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#q5",
+    "source": "note",
+    "chapterId": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性",
+    "categoryId": "02_動詞時態與語態",
+    "number": 5,
+    "stem": "The research team (1) _____ on the new vaccine for nearly five years before it finally received approval. During the announcement, the lead scientist noted that the results (2) _____ far better than expected.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "works"
+          },
+          {
+            "key": "B",
+            "text": "had been working"
+          },
+          {
+            "key": "C",
+            "text": "will work"
+          },
+          {
+            "key": "D",
+            "text": "has worked"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "are"
+          },
+          {
+            "key": "B",
+            "text": "were"
+          },
+          {
+            "key": "C",
+            "text": "will be"
+          },
+          {
+            "key": "D",
+            "text": "had been"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空（過去完成進行式 + 時態一致性）",
+      "analysis": "(1) \"before it finally received approval\" 是過去式子句，表示在核准之前，研究團隊已經**持續**研究疫苗將近五年，強調過去某時間點之前的持續動作，應使用**過去完成進行式**，故選 (B) had been working。(A) works 現在簡單式時態錯誤；(C) will work 未來式與過去語境矛盾；(D) has worked 現在完成式無法對應「之前」這個過去時間點。\n(2) \"During the announcement, the lead scientist noted that...\" 主句為過去式 (noted)，依時態一致性原則，子句描述「當時（宣布的同一時間點）結果比預期好」這個與主句同時發生的狀態，應相應使用**過去簡單式**，故選 (B) were。(A) are 現在式未跟隨主句時態調整；(C) will be 未來式與語境矛盾；(D) had been 過去完成式表示「在 noted 之前就已經是」，但句意強調的是宣布當下的狀態，而非更早之前，故不適用。",
+      "grammarPoint": "對應第 2 節「過去完成進行式」與第 4 節「時態一致性」原則一。",
+      "similarNote": "篇章與間接引語題型中，主句動詞（noted, said, announced）的時態會牽動子句時態的選擇，務必養成「先看主句時態，再決定子句時態」的解題習慣。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#q1",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 1,
+    "stem": "The board decided ___ the merger proposal until further review.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "postpone"
+          },
+          {
+            "key": "B",
+            "text": "postponing"
+          },
+          {
+            "key": "C",
+            "text": "to postpone"
+          },
+          {
+            "key": "D",
+            "text": "postponed"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 動詞 + 不定詞",
+      "analysis": "`decide` 是必須接不定詞的動詞，看到 decide 後面的空格，直接秒選 **to + 原形動詞**。(A) postpone 是原形動詞，不能直接接在 decided 後面；(B) postponing 是動名詞，decide 不接動名詞；(D) postponed 是過去式/過去分詞，文法上不通。正確答案為 **(C) to postpone**。",
+      "grammarPoint": "對應主章節「2. 必須接不定詞的動詞」，decide 屬於「意志/計畫類」動詞。",
+      "similarNote": "同類動詞如 plan, intend, choose, hope, wish 皆固定接 to V，只要看到這些動詞後方留空，就可以直接秒選 to V，不需分析句意。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#q2",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 2,
+    "stem": "The new intern is eager ___ from the senior consultants during the training program.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "learn"
+          },
+          {
+            "key": "B",
+            "text": "learning"
+          },
+          {
+            "key": "C",
+            "text": "to learn"
+          },
+          {
+            "key": "D",
+            "text": "learned"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 形容詞 + 不定詞",
+      "analysis": "`eager` 是固定搭配「be eager to V」（渴望做...）的形容詞，後方一定接不定詞。(A) learn 缺少 to；(B) learning 動名詞不符合 eager 的固定用法；(D) learned 為過去分詞，文法不通。正確答案為 **(C) to learn**。",
+      "grammarPoint": "對應補充秒殺公式「be + adj + to V 固定搭配：be likely/able/willing/eager/reluctant to V」。",
+      "similarNote": "常見的「形容詞 + to V」搭配還有 willing to, able to, ready to, reluctant to，都應視為固定片語直接記憶。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#q3",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 3,
+    "stem": "The shipment was too damaged ___ to customers as originally planned.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "send"
+          },
+          {
+            "key": "B",
+            "text": "sending"
+          },
+          {
+            "key": "C",
+            "text": "to send"
+          },
+          {
+            "key": "D",
+            "text": "sent"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - too...to 句型",
+      "analysis": "句型為「too + 形容詞 + to V」，表示「太...而不能」。damaged 是形容詞（過去分詞轉化），too damaged to send 表示「損壞得太嚴重以致無法寄送」。(A) send 缺少 to；(B) sending 動名詞不符合 too...to 句型；(D) sent 為過去分詞，文法不通。正確答案為 **(C) to send**。",
+      "grammarPoint": "對應補充秒殺公式「too...to / enough to：too + adj/adv + to V」。",
+      "similarNote": "注意與「adj/adv + enough to V」（足夠...而能）作對比，兩者句型結構相反但後方都固定接 to V。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#q4",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 4,
+    "stem": "Please remember ___ the client before the conference call begins tomorrow morning.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "to notify"
+          },
+          {
+            "key": "B",
+            "text": "notifying"
+          },
+          {
+            "key": "C",
+            "text": "notify"
+          },
+          {
+            "key": "D",
+            "text": "notified"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - remember 語意判斷",
+      "analysis": "本句情境是「請記得在電話會議開始前通知客戶」，這是「未來要做的動作」，屬於「remember to V」（記得去做，動作尚未發生）。若選 (B) notifying 則表示「記得曾經通知過」，與句意「未來要做」不符。(C) notify 和 (D) notified 文法上不能直接接在 remember 後面。正確答案為 **(A) to notify**。",
+      "grammarPoint": "對應主章節「3. 不定詞 vs. 動名詞：語意改變的動詞」，remember to do (未來/刻意) vs. remember doing (過去/曾經)。",
+      "similarNote": "同類動詞 forget, stop, try 也有相同的語意區分規則，需依上下文判斷「動作尚未發生」還是「動作已經發生」。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#q5",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/01_不定詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 5,
+    "stem": "To all staff, We are pleased to announce that the new employee handbook is now available on the intranet. All employees are required (1) ___ the handbook and acknowledge receipt by the end of this week. In order (2) ___ any confusion, please direct all questions to the HR department.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "review"
+          },
+          {
+            "key": "B",
+            "text": "reviewing"
+          },
+          {
+            "key": "C",
+            "text": "to review"
+          },
+          {
+            "key": "D",
+            "text": "reviewed"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "avoid"
+          },
+          {
+            "key": "B",
+            "text": "avoiding"
+          },
+          {
+            "key": "C",
+            "text": "to avoid"
+          },
+          {
+            "key": "D",
+            "text": "avoided"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - be required to V / in order to",
+      "analysis": "(1) `be required to V`（被要求做...）是固定句型，後方一定接不定詞，故選 **(C) to review**。\n(2) `in order to V`（為了）是固定片語，後方須接原形動詞，空格前已有 in order，所以只需填入「to + 原形動詞」中的 to 部分對應選項，也就是選出完整符合 in order to 的答案 **(A) avoid**（in order to avoid，避免造成混淆）。",
+      "grammarPoint": "對應主章節「2. 必須接不定詞的動詞」與「1-C. 作副詞 (表目的/結果)」中的 in order to / so as to 用法。",
+      "similarNote": "`be required to V`、`be supposed to V`、`be scheduled to V` 皆為多益公告/書信體常見的「be + p.p. + to V」固定搭配，務必整組記憶。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#q1",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 1,
+    "stem": "The manager suggested ___ the marketing budget before the next fiscal quarter.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "revise"
+          },
+          {
+            "key": "B",
+            "text": "revising"
+          },
+          {
+            "key": "C",
+            "text": "to revise"
+          },
+          {
+            "key": "D",
+            "text": "revised"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 動詞 + 動名詞",
+      "analysis": "`suggest`（建議）是必須接動名詞的動詞，看到 suggest 後方留空，直接秒選 **V-ing**。(A) revise 是原形動詞，不能直接接在 suggested 後面；(C) to revise 為不定詞，suggest 不接不定詞；(D) revised 為過去分詞，文法不通。正確答案為 **(B) revising**。",
+      "grammarPoint": "對應主章節「2. 必須接動名詞 (V-ing) 的動詞」，suggest 屬於記憶口訣中的常見字。",
+      "similarNote": "同類動詞 consider, recommend, avoid, enjoy, postpone/delay, finish, mind 皆固定接 V-ing，看到動詞即可秒選，不需分析句意。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#q2",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 2,
+    "stem": "We look forward to ___ from you regarding the partnership agreement.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "hear"
+          },
+          {
+            "key": "B",
+            "text": "heard"
+          },
+          {
+            "key": "C",
+            "text": "hearing"
+          },
+          {
+            "key": "D",
+            "text": "to hear"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 介系詞 + 動名詞",
+      "analysis": "`look forward to` 中的 to 是介系詞而非不定詞的 to，後方必須接 V-ing。(A) hear 是原形動詞；(B) heard 為過去式/過去分詞；(D) to hear 誤把 to 當作不定詞使用，皆不符合文法。正確答案為 **(C) hearing**。",
+      "grammarPoint": "對應主章節「4. 多益常見慣用語 (接 V-ing)」，look forward to + V-ing/N 是多益必考片語。",
+      "similarNote": "同類「介系詞 to + V-ing」片語還有 be used to, be accustomed to, object to, be committed to, be dedicated to，皆須特別留意 to 的詞性是介系詞而非不定詞標記。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#q3",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 3,
+    "stem": "This new software is worth ___, as it can significantly reduce processing time.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "install"
+          },
+          {
+            "key": "B",
+            "text": "installing"
+          },
+          {
+            "key": "C",
+            "text": "to install"
+          },
+          {
+            "key": "D",
+            "text": "installed"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - be worth + V-ing",
+      "analysis": "`be worth + V-ing`（值得...）是固定句型，後方一律接動名詞。(A) install 為原形動詞；(C) to install 為不定詞，worth 不接不定詞；(D) installed 為過去分詞，文法不通。正確答案為 **(B) installing**。",
+      "grammarPoint": "對應補充秒殺公式「be worth + V-ing（值得...）：固定句型，後面一律接 V-ing，不可接 to V」。",
+      "similarNote": "注意與 `be worthy of + V-ing/N` 做對比，worthy 後面需要介系詞 of，而 worth 後面直接加 V-ing，兩者結構不同但意思相近。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#q4",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 4,
+    "stem": "Despite the heavy workload, the assistant never minds ___ extra tasks from her supervisor.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "accept"
+          },
+          {
+            "key": "B",
+            "text": "accepting"
+          },
+          {
+            "key": "C",
+            "text": "to accept"
+          },
+          {
+            "key": "D",
+            "text": "accepted"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - mind + 動名詞",
+      "analysis": "`mind`（介意）是必須接動名詞的動詞，看到 mind 後方留空，秒選 **V-ing**。(A) accept 是原形動詞；(C) to accept 為不定詞，mind 不接不定詞；(D) accepted 為過去分詞，文法不通。正確答案為 **(B) accepting**。",
+      "grammarPoint": "對應主章節「2. 必須接動名詞 (V-ing) 的動詞」，mind 屬於記憶口訣中的常見字。",
+      "similarNote": "mind 在否定句/疑問句中常出現「Would you mind + V-ing?」的禮貌請求句型，也是固定接動名詞。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#q5",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/02_動名詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 5,
+    "stem": "Dear Team, As part of our sustainability initiative, we are committed to (1) ___ our paper usage by 30% this year. All departments should consider (2) ___ digital documents whenever possible instead of printing hard copies.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "reduce"
+          },
+          {
+            "key": "B",
+            "text": "reducing"
+          },
+          {
+            "key": "C",
+            "text": "to reduce"
+          },
+          {
+            "key": "D",
+            "text": "reduced"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "use"
+          },
+          {
+            "key": "B",
+            "text": "using"
+          },
+          {
+            "key": "C",
+            "text": "to use"
+          },
+          {
+            "key": "D",
+            "text": "used"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - be committed to / consider + V-ing",
+      "analysis": "(1) `be committed to`（致力於）中的 to 是介系詞，後方須接 V-ing，故選 **(B) reducing**。\n(2) `consider`（考慮）是必須接動名詞的動詞，後方須接 V-ing，故選 **(B) using**。",
+      "grammarPoint": "對應主章節「4. 多益常見慣用語 (接 V-ing)」中的 be committed to，以及「2. 必須接動名詞 (V-ing) 的動詞」中的 consider。",
+      "similarNote": "短文中若同時出現「介系詞 to + V-ing」與「動詞 + V-ing」兩種考點，需分別判斷空格前方的詞性（介系詞 vs. 動詞），避免混淆成不定詞的 to。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#q1",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 1,
+    "stem": "The report, ___ by the finance team last week, revealed a significant increase in operating costs.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "prepare"
+          },
+          {
+            "key": "B",
+            "text": "preparing"
+          },
+          {
+            "key": "C",
+            "text": "prepared"
+          },
+          {
+            "key": "D",
+            "text": "to prepare"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 分詞修飾名詞（被動）",
+      "analysis": "`the report` 是被財務團隊「準備」的，主詞（報告）與動作之間是被動關係，故選過去分詞。(A) prepare 為原形動詞，不能單獨修飾名詞；(B) preparing 為現在分詞，表示報告「主動準備」，語意不通；(D) to prepare 為不定詞，不符合分詞修飾名詞的用法。正確答案為 **(C) prepared**。",
+      "grammarPoint": "對應主章節「1. 分詞作形容詞：修飾名詞」，過去分詞 (p.p.) 表示「被動、完成」的狀態。",
+      "similarNote": "判斷分詞主動/被動時，先找出分詞與其修飾名詞的邏輯關係：名詞是動作的「發動者」用 V-ing，名詞是動作的「承受者」用 p.p.。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#q2",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 2,
+    "stem": "___ her presentation, the manager answered several questions from the audience.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Finish"
+          },
+          {
+            "key": "B",
+            "text": "Finished"
+          },
+          {
+            "key": "C",
+            "text": "Having finished"
+          },
+          {
+            "key": "D",
+            "text": "To finish"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 完成式分詞構句",
+      "analysis": "句意為「完成簡報之後，經理回答了幾個問題」，強調分詞構句的動作（完成簡報）發生在主句動作（回答問題）**之前**，因此須用完成式分詞 having p.p.。(A) Finish 為原形動詞，不能作句首分詞構句；(B) Finished 為單純過去分詞，只能表達「被完成」的被動意涵，語意不符（她是主動完成簡報者）；(D) To finish 為不定詞，不符合分詞構句的文法。正確答案為 **(C) Having finished**。",
+      "grammarPoint": "對應補充秒殺公式「完成式分詞 (Having p.p.)：表示分詞構句的動作發生在主句動作之前」。",
+      "similarNote": "簡單分詞構句 (V-ing/p.p.) 表示與主句「同時發生」；完成式分詞構句 (Having p.p.) 表示「先於」主句動作發生，兩者時間關係不同，考題常以此設計陷阱。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#q3",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 3,
+    "stem": "The customer left the store with several complaints ___ about the product quality.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "file"
+          },
+          {
+            "key": "B",
+            "text": "filed"
+          },
+          {
+            "key": "C",
+            "text": "filing"
+          },
+          {
+            "key": "D",
+            "text": "to file"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 獨立分詞構句 (with + O + p.p.)",
+      "analysis": "`with + several complaints + ___` 中，complaints（投訴）是被顧客「提出/歸檔」的，受詞與動作之間是被動關係，故選過去分詞。(A) file 為原形動詞；(C) filing 為現在分詞，表示投訴「主動提出」，語意不通（投訴不會自己主動做動作）；(D) to file 為不定詞，不符合獨立分詞構句的文法。正確答案為 **(B) filed**。",
+      "grammarPoint": "對應補充秒殺公式「獨立分詞構句 (with + O + 分詞)：受詞後方接的動作若受詞是被動承受，用 p.p.」。",
+      "similarNote": "獨立分詞構句判斷方式與一般分詞修飾名詞相同：先看 with 後面的受詞是動作的主動發出者還是被動承受者。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#q4",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 4,
+    "stem": "___ the current economic downturn, the company decided to freeze all new hires.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Given"
+          },
+          {
+            "key": "B",
+            "text": "Give"
+          },
+          {
+            "key": "C",
+            "text": "Giving"
+          },
+          {
+            "key": "D",
+            "text": "To give"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 分詞轉化之介系詞",
+      "analysis": "`Given`（鑒於）已固定化為介系詞用法，後方直接接名詞片語（the current economic downturn），不需再判斷主動/被動關係。(B) Give 為原形動詞，不能放在句首引導此類子句；(C) Giving 為現在分詞，若使用會產生「誰在給予」的邏輯主詞問題，與句意不符；(D) To give 為不定詞，文法不通。正確答案為 **(A) Given**。",
+      "grammarPoint": "對應主章節「4. 多益常考分詞慣用語」，Given (that) 表示「鑒於/假設」。",
+      "similarNote": "同類固定化分詞介系詞還有 Regarding, Concerning, Considering, Judging from, Compared to/with，皆可視為固定表達直接使用，不需分析主動被動。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#q5",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 5,
+    "stem": "Notice to all employees: The building renovation, (1) ___ to begin next Monday, will affect access to the west parking lot. (2) ___ the inconvenience this may cause, we have arranged a temporary shuttle service for affected staff.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "schedule"
+          },
+          {
+            "key": "B",
+            "text": "scheduling"
+          },
+          {
+            "key": "C",
+            "text": "scheduled"
+          },
+          {
+            "key": "D",
+            "text": "to schedule"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "Consider"
+          },
+          {
+            "key": "B",
+            "text": "Considered"
+          },
+          {
+            "key": "C",
+            "text": "Considering"
+          },
+          {
+            "key": "D",
+            "text": "To consider"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - 分詞修飾名詞 / 分詞慣用語",
+      "analysis": "(1) `the building renovation` 是被「排定」開始的，名詞與動作之間是被動關係，故選過去分詞 **(C) scheduled**（be scheduled to V 亦為固定搭配）。\n(2) `Considering the inconvenience`（考慮到這個不便）是固定分詞轉化介系詞用法，故選 **(C) Considering**。",
+      "grammarPoint": "對應主章節「1. 分詞作形容詞：修飾名詞」與「4. 多益常考分詞慣用語」。",
+      "similarNote": "短文閱讀中常見「分詞修飾名詞」與「分詞轉化介系詞」同時出現，需分別依各自的判斷原則作答，不可混用同一套邏輯。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#q1",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 1,
+    "stem": "The quarterly sales figures were quite ___ , far exceeding management's expectations.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "surprise"
+          },
+          {
+            "key": "B",
+            "text": "surprising"
+          },
+          {
+            "key": "C",
+            "text": "surprised"
+          },
+          {
+            "key": "D",
+            "text": "to surprise"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 情緒分詞修飾事物",
+      "analysis": "`the quarterly sales figures`（銷售數字）是「事物」，本身具有「令人驚訝」的特性，故用現在分詞。(A) surprise 為原形動詞，不能直接作主詞補語；(C) surprised 為過去分詞，表示「人感到驚訝」，但主詞是數字（事物），語意不符；(D) to surprise 為不定詞，文法不通。正確答案為 **(B) surprising**。",
+      "grammarPoint": "對應主章節「1. 情緒分詞的變化法則」，V-ing 修飾事物，表示事物本身具有的特性。",
+      "similarNote": "判斷情緒分詞時，先確認主詞是「人」還是「物」：物 ➔ V-ing，人 ➔ p.p.，這是最快速的判斷依據。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#q2",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 2,
+    "stem": "Many employees are ___ about the company's plan to relocate the headquarters.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "worry"
+          },
+          {
+            "key": "B",
+            "text": "worrying"
+          },
+          {
+            "key": "C",
+            "text": "worried"
+          },
+          {
+            "key": "D",
+            "text": "worries"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 情緒分詞修飾人",
+      "analysis": "`employees`（員工）是「人」，因外在因素（公司搬遷計畫）而感到擔心，故用過去分詞。(A) worry 為原形動詞；(B) worrying 為現在分詞，表示「令人擔心」，但主詞是人本身的感受，語意不符；(D) worries 為名詞/動詞第三人稱單數，文法不通。正確答案為 **(C) worried**。",
+      "grammarPoint": "對應主章節「1. 情緒分詞的變化法則」及「2. 常見的情緒動詞」，p.p. 修飾人，表示人因外在刺激而產生的情緒。",
+      "similarNote": "worried 後方常搭配介系詞 about，屬於固定搭配「be worried about」，考題常一併測驗介系詞的正確性。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#q3",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 3,
+    "stem": "The consultant found the client's feedback ___ , as it contradicted the earlier survey results.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "confuse"
+          },
+          {
+            "key": "B",
+            "text": "confusing"
+          },
+          {
+            "key": "C",
+            "text": "confused"
+          },
+          {
+            "key": "D",
+            "text": "to confuse"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 情緒分詞修飾事物（受詞補語）",
+      "analysis": "本句結構為「find + 受詞 + 受詞補語」，受詞補語用來說明 feedback（回饋，事物）的特性，回饋本身「令人困惑」，故用現在分詞。(A) confuse 為原形動詞；(C) confused 為過去分詞，表示「人感到困惑」，但此處修飾的是 feedback 這個事物，語意不符；(D) to confuse 為不定詞，文法不通。正確答案為 **(B) confusing**。",
+      "grammarPoint": "對應主章節「1. 情緒分詞的變化法則」，同樣適用於「find + O + 分詞」的受詞補語結構。",
+      "similarNote": "情緒分詞不只出現在主詞補語位置，也常出現在「受詞補語」位置（find/make/consider + O + 分詞），判斷原則相同：看該分詞修飾的對象是人還是事物。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#q4",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 4,
+    "stem": "We were extremely ___ with the outcome of the negotiation, which secured favorable terms for both parties.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "satisfy"
+          },
+          {
+            "key": "B",
+            "text": "satisfying"
+          },
+          {
+            "key": "C",
+            "text": "satisfied"
+          },
+          {
+            "key": "D",
+            "text": "satisfaction"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 情緒分詞修飾人 + 固定介系詞",
+      "analysis": "`we`（我們，人）對協商結果感到滿意，屬於人的感受，故用過去分詞，且固定搭配介系詞 with。(A) satisfy 為原形動詞；(B) satisfying 為現在分詞，表示「令人滿意」，但主詞是人本身的感受，語意不符；(D) satisfaction 為名詞，不能作主詞補語直接接 with。正確答案為 **(C) satisfied**。",
+      "grammarPoint": "對應補充秒殺公式「情緒 p.p. + 固定介系詞：be satisfied with」。",
+      "similarNote": "情緒 p.p. 的固定介系詞需整組記憶：interested in、satisfied with、worried about、confused about、excited about，介系詞選錯同樣會導致整句錯誤。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#q5",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 5,
+    "stem": "Dear Valued Customer, We understand that the recent service interruption may have been (1) ___ for you and your business operations. Our technical team has worked around the clock to resolve the issue, and we are (2) ___ to inform you that all systems are now fully restored.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "frustrate"
+          },
+          {
+            "key": "B",
+            "text": "frustrating"
+          },
+          {
+            "key": "C",
+            "text": "frustrated"
+          },
+          {
+            "key": "D",
+            "text": "frustration"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "please"
+          },
+          {
+            "key": "B",
+            "text": "pleasing"
+          },
+          {
+            "key": "C",
+            "text": "pleased"
+          },
+          {
+            "key": "D",
+            "text": "pleasure"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - 情緒分詞修飾事物 / 固定片語",
+      "analysis": "(1) `the recent service interruption`（服務中斷，事物）本身「令人感到挫折」，故用現在分詞 **(B) frustrating**。\n(2) `be pleased to inform you`（很高興通知您）為固定句型，pleased 是情緒 p.p. 當形容詞，後方固定接不定詞，故選 **(C) pleased**。",
+      "grammarPoint": "對應主章節「1. 情緒分詞的變化法則」與補充秒殺公式「be pleased to V（很高興做...）中的 pleased 是情緒 p.p. 當形容詞，後面接不定詞」。",
+      "similarNote": "be pleased to V、be delighted to V、be glad to V 都是商業書信中常見的固定客套用語，屬於情緒 p.p. + to V 的特殊固定搭配，不需再判斷修飾對象。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#q1",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 1,
+    "stem": "We greatly appreciate ___ willingness to work overtime during the busy season.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "you"
+          },
+          {
+            "key": "B",
+            "text": "your"
+          },
+          {
+            "key": "C",
+            "text": "yourself"
+          },
+          {
+            "key": "D",
+            "text": "yours"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 動名詞的邏輯主詞",
+      "analysis": "`willingness` 是名詞，appreciate 後面接的是「感謝某人的...意願」，需要用**所有格**來表示「誰的意願」，此為動名詞/名詞前的邏輯主詞正式用法。(A) you 為受格，口語上可用但不如所有格正式；(C) yourself 為反身代名詞，文法不通；(D) yours 為所有格代名詞，不能直接修飾後面的名詞 willingness。正確答案為 **(B) your**。",
+      "grammarPoint": "對應主章節「1. 動名詞的邏輯主詞 (Possessive + V-ing)」，正式書面文體優先選所有格。",
+      "similarNote": "本題雖然 willingness 是名詞而非動名詞，但邏輯與「所有格 + V-ing」相同，都是用所有格表示「動作/狀態的擁有者」，屬於同一套文法概念的延伸應用。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#q2",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 2,
+    "stem": "The director walked into the boardroom with the annual report ___ under his arm.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "tuck"
+          },
+          {
+            "key": "B",
+            "text": "tucking"
+          },
+          {
+            "key": "C",
+            "text": "tucked"
+          },
+          {
+            "key": "D",
+            "text": "to tuck"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 獨立分詞構句 (with + O + p.p.)",
+      "analysis": "`the annual report`（報告）是被夾在手臂下的，report 與 tuck 之間是被動關係，故選過去分詞。(A) tuck 為原形動詞；(B) tucking 為現在分詞，表示報告「主動夾」，語意不通；(D) to tuck 為不定詞，不符合獨立分詞構句的文法。正確答案為 **(C) tucked**。",
+      "grammarPoint": "對應主章節「2. 獨立分詞構句 (with + O + 分詞)」，受詞是被動承受動作時用 p.p.。",
+      "similarNote": "與第 03 章節「分詞與分詞構句」中的獨立分詞構句考法相同，先判斷 with 後方受詞是動作的主動發出者還是被動承受者。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#q3",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 3,
+    "stem": "___ the necessary approvals, the project manager proceeded with the construction plan.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Obtain"
+          },
+          {
+            "key": "B",
+            "text": "Obtaining"
+          },
+          {
+            "key": "C",
+            "text": "Having obtained"
+          },
+          {
+            "key": "D",
+            "text": "To obtain"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 完成式分詞構句",
+      "analysis": "句意為「取得必要的核准之後，專案經理才進行施工計畫」，強調分詞構句動作（取得核准）發生在主句動作（進行施工）**之前**，故用完成式分詞 Having p.p.。(A) Obtain 為原形動詞，不能作句首分詞構句；(B) Obtaining 為簡單現在分詞，只能表達「同時發生」，與句意的時間先後順序不符；(D) To obtain 為不定詞，不符合分詞構句文法。正確答案為 **(C) Having obtained**。",
+      "grammarPoint": "對應主章節「3. 完成式動狀詞 (Having p.p. / to have p.p.)」。",
+      "similarNote": "凡分詞構句強調「先做 A 才做 B」的時間先後關係，一律用 Having p.p.，這是與簡單分詞構句最大的差異。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#q4",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 4,
+    "stem": "The CEO seems ___ the merger agreement without consulting the board of directors.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "sign"
+          },
+          {
+            "key": "B",
+            "text": "signing"
+          },
+          {
+            "key": "C",
+            "text": "to have signed"
+          },
+          {
+            "key": "D",
+            "text": "signed"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 完成式不定詞 (to have p.p.)",
+      "analysis": "`seem`（似乎）加上不定詞表示對現在或過去情況的推測，本句意指「執行長似乎『已經』簽署了合併協議」，強調簽署動作發生在「似乎」這個判斷之前，故用完成式不定詞 to have p.p.。(A) sign 為原形動詞，seem 不會直接接原形動詞；(B) signing 為動名詞，seem 不接動名詞；(D) signed 為過去分詞，不能直接接在 seems 後面。正確答案為 **(C) to have signed**。",
+      "grammarPoint": "對應主章節「3. 完成式動狀詞」中的 to have p.p.（完成式不定詞，表示「之前已經...」）。",
+      "similarNote": "claim, seem, appear, be said/believed + to have p.p. 是多益閱讀常見句型，皆表示「該動作發生在主要動詞之前」，屬於高分關鍵句型。"
+    }
+  },
+  {
+    "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#q5",
+    "source": "note",
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型",
+    "categoryId": "03_動狀詞_非謂語動詞",
+    "number": 5,
+    "stem": "To: All Department Heads We regret (1) ___ you that the annual budget meeting originally scheduled for Friday has been postponed. (2) ___ the current review of departmental expenditures, we believe a short delay will allow for more accurate reporting.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "inform"
+          },
+          {
+            "key": "B",
+            "text": "informing"
+          },
+          {
+            "key": "C",
+            "text": "to inform"
+          },
+          {
+            "key": "D",
+            "text": "informed"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "Consider"
+          },
+          {
+            "key": "B",
+            "text": "Considering"
+          },
+          {
+            "key": "C",
+            "text": "Considered"
+          },
+          {
+            "key": "D",
+            "text": "To consider"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - regret to V 固定片語 / 分詞轉化介系詞",
+      "analysis": "(1) `regret to inform you`（很遺憾要通知您）為正式書信固定用語，表示「即將要說的壞消息」，故選 **(C) to inform**。\n(2) `Considering the current review`（考慮到目前的審查）為固定分詞轉化介系詞用法，後方直接接名詞片語，故選 **(B) Considering**。",
+      "grammarPoint": "對應補充秒殺公式「regret + V-ing vs. regret + to V：regret to say/inform（很遺憾要告知...，正式用語）」，以及第 03 章節「分詞轉化之介系詞/連接詞」。",
+      "similarNote": "`regret to V`（遺憾要做，事情尚未發生/正要說出口）與 `regret V-ing`（後悔已做的事，事情已發生）意義完全不同，是多益命題的常見陷阱，務必依上下文判斷動作的時間點。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#q1",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 1,
+    "stem": "The supervisor made all the new employees ___ the safety training before starting work.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "complete"
+          },
+          {
+            "key": "B",
+            "text": "to complete"
+          },
+          {
+            "key": "C",
+            "text": "completed"
+          },
+          {
+            "key": "D",
+            "text": "completing"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "使役動詞 make + 受詞(人) + 原形動詞",
+      "analysis": "本句主要動詞為 **made**（使役動詞），受詞 all the new employees 是「人」，且是主動去完成訓練，因此受詞補語要用**原形動詞**，答案為 (A) complete。(B) to complete 加了 to，是一般動詞才有的句型；(C) completed 是過去分詞，用於受詞「被動」接受動作時；(D) completing 為現在分詞，不符合使役動詞的固定公式。",
+      "grammarPoint": "對應主章節「1. 常見的三大強迫性使役動詞：Make, Have, Let」。",
+      "similarNote": "只要看到 make/have/let + 受詞(人)，且受詞是「主動做」，就直接刪掉所有帶 to 或 -ing 的選項，秒選原形動詞。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#q2",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 2,
+    "stem": "Ms. Chen had her presentation slides ___ by the design team before the conference.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "update"
+          },
+          {
+            "key": "B",
+            "text": "updating"
+          },
+          {
+            "key": "C",
+            "text": "updated"
+          },
+          {
+            "key": "D",
+            "text": "to update"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "使役動詞 have + 受詞(物) + p.p.",
+      "analysis": "受詞 her presentation slides 是「物」，且投影片是「被」設計團隊更新的，屬於被動關係，因此要用**過去分詞**，答案為 (C) updated。(A) update 是原形動詞，只適用於受詞主動做的情況；(B) updating 為現在分詞，語意錯誤；(D) to update 不定詞形式在此句型中不適用。",
+      "grammarPoint": "對應主章節「2. 使役動詞的被動用法 (受詞是被做的)」。",
+      "similarNote": "凡是「have + 物品 + p.p.」的句型，中文常翻譯成「把某物弄好/處理好」，這是多益高頻句型，務必牢記物品用 p.p.。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#q3",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 3,
+    "stem": "Because of the tight deadline, the director let the staff ___ home early to prepare for tomorrow's meeting.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "to go"
+          },
+          {
+            "key": "B",
+            "text": "going"
+          },
+          {
+            "key": "C",
+            "text": "gone"
+          },
+          {
+            "key": "D",
+            "text": "go"
+          }
+        ],
+        "answer": "D"
+      }
+    ],
+    "explanation": {
+      "title": "使役動詞 let + 受詞(人) + 原形動詞",
+      "analysis": "let 是三大強迫性使役動詞之一，受詞 the staff 為人且主動離開，受詞補語需用**原形動詞**，答案為 (D) go。(A) to go 多加了 to；(B) going 為現在分詞；(C) gone 為過去分詞，皆不符合 let 的固定用法。",
+      "grammarPoint": "對應主章節「1. 常見的三大強迫性使役動詞：Make, Have, Let」。",
+      "similarNote": "`let go`（放手、解僱）是常見片語，但此處是「let + 受詞 + go (回家)」的一般使役句型，並非片語用法，需依上下文判斷語意。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#q4",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 4,
+    "stem": "（Part 6 短文填空） To all warehouse staff, Starting next Monday, all outgoing shipments must be inspected before leaving the facility. The new procedure requires each supervisor to have every package ___(1)___ by a certified inspector prior to loading. This measure will help us reduce shipping errors and customer complaints.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "check"
+          },
+          {
+            "key": "B",
+            "text": "checking"
+          },
+          {
+            "key": "C",
+            "text": "checked"
+          },
+          {
+            "key": "D",
+            "text": "to check"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "使役動詞 have 的被動受詞補語（Part 6 短文）",
+      "analysis": "空格前為 have every package ___，package（包裹）是「被」檢驗員檢查的對象，屬於被動關係，因此要用**過去分詞** checked，答案為 (C)。(A) check 為原形動詞，適用於受詞主動做的情形；(B) checking 為現在分詞；(D) to check 為不定詞，皆不符合 have + 物 + p.p. 的句型。",
+      "grammarPoint": "對應主章節「2. 使役動詞的被動用法 (受詞是被做的)」。",
+      "similarNote": "商業書信、公告類文章常出現「have + 物品名詞 + p.p.」的句型，用來描述「請人完成某項檢查/處理」，是 Part 6 常考句型之一。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/01_使役動詞#q5",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 5,
+    "stem": "The IT department got the new system ___ to run automatic backups every night.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "configure"
+          },
+          {
+            "key": "B",
+            "text": "configuring"
+          },
+          {
+            "key": "C",
+            "text": "configured"
+          },
+          {
+            "key": "D",
+            "text": "to configure"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "get + 受詞(物) + p.p.",
+      "analysis": "get 是半使役動詞，此處受詞 the new system 是「物」，且是被設定(configure)的對象，屬於被動關係。根據「Get」的被動用法（與 have 相同），應直接使用**過去分詞**，不需加 to，答案為 (C) configured。(A) configure 為原形動詞，用於 get + 人 + to V 的主動句型不符；(B) configuring 為現在分詞，語意不符；(D) to configure 是不定詞，只用於 get + 人 + to V 的主動句型（例如 get him to fix the computer），此處受詞為物，不適用。",
+      "grammarPoint": "對應主章節「3. 半使役動詞：Help 與 Get」。",
+      "similarNote": "get 的用法要分兩種情況：get + 人 + to V（主動，說服某人做）vs. get + 物 + p.p.（被動，把某物弄好），是多益常考的混淆點，務必依受詞是人還是物來判斷。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#q1",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 1,
+    "stem": "The security guard saw a man ___ through the emergency exit late at night.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "slip"
+          },
+          {
+            "key": "B",
+            "text": "to slip"
+          },
+          {
+            "key": "C",
+            "text": "slipped"
+          },
+          {
+            "key": "D",
+            "text": "slips"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "感官動詞 see + 受詞 + 原形動詞（完整動作）",
+      "analysis": "saw 是感官動詞，受詞 a man 為主動執行動作，且句意強調警衛目睹了「溜出去」這個完整動作，因此用**原形動詞**，答案為 (A) slip。(B) to slip 加了 to，感官動詞主動句型不需要 to；(C) slipped 為過去分詞，代表受詞被動接受動作，語意不符（man 是主動溜走，不是被溜走）；(D) slips 為第三人稱單數現在式動詞，不可直接接在受詞後面作補語。",
+      "grammarPoint": "對應主章節「2. 感官動詞後的受詞補語」中「原形動詞 (V)」的用法。",
+      "similarNote": "本題也可選 V-ing (slipping)，語意會變成「看到他正在溜出去（動作進行中，可能只看到部分過程）」，兩者文法皆對，差別在語意強調完整或進行中，測驗設計通常只會放一個動詞形式的選項組。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#q2",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 2,
+    "stem": "While reviewing the tapes, the manager noticed an employee ___ several items without scanning them.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "to remove"
+          },
+          {
+            "key": "B",
+            "text": "removed"
+          },
+          {
+            "key": "C",
+            "text": "removing"
+          },
+          {
+            "key": "D",
+            "text": "removes"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "感官動詞 notice + 受詞 + V-ing（動作進行中）",
+      "analysis": "noticed 為感官動詞，句意強調經理「注意到」員工正在拿取商品的**當下、進行中**的動作，因此適合用**現在分詞** removing，答案為 (C)。(A) to remove 不符合感官動詞主動句型；(B) removed 為過去分詞，代表被動，但員工是主動拿取商品，語意不符；(D) removes 是限定動詞形式，不可直接作受詞補語。",
+      "grammarPoint": "對應主章節「2. 感官動詞後的受詞補語」中「現在分詞 (V-ing)」的用法，以及第 21-24 行「原形動詞 vs. V-ing 的差異」說明。",
+      "similarNote": "「監視錄影畫面中看到某人正在做某事」是多益情境常見敘述，通常搭配 V-ing 強調「當時進行中被看到」，屬於此句型典型應用場景。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#q3",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 3,
+    "stem": "The CEO was seen ___ the building shortly after the announcement was made.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "leave"
+          },
+          {
+            "key": "B",
+            "text": "leaving"
+          },
+          {
+            "key": "C",
+            "text": "to leave"
+          },
+          {
+            "key": "D",
+            "text": "left"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "感官動詞被動語態 + to V",
+      "analysis": "was seen 為感官動詞 see 的**被動語態**，根據規則，被動語態後方要**補回 to**，答案為 (C) to leave。(A) leave 為原形動詞，只用於主動語態；(B) leaving 為現在分詞，被動語態感官動詞不用此形式；(D) left 為過去式/過去分詞，語意及文法皆不符。",
+      "grammarPoint": "對應主章節「3. 感官動詞被動化時，要補回 to」。",
+      "similarNote": "凡是「be + seen/heard/watched/noticed + ___」的被動句型，一律先聯想「要加 to」，這是與使役動詞被動化（同樣要補 to）共通的規則，但要記得使役動詞主動時不加 to，感官動詞主動時可用 V 或 V-ing。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#q4",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 4,
+    "stem": "（Part 6 短文填空） During the inspection, the quality control officer heard the machine ___(1)___ an unusual noise. She immediately reported it to the maintenance team, who found a loose component. Thanks to her quick action, the equipment was ___(2)___ before it caused further damage.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "make"
+          },
+          {
+            "key": "B",
+            "text": "made"
+          },
+          {
+            "key": "C",
+            "text": "to make"
+          },
+          {
+            "key": "D",
+            "text": "making"
+          }
+        ],
+        "answer": "D"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "repair"
+          },
+          {
+            "key": "B",
+            "text": "repaired"
+          },
+          {
+            "key": "C",
+            "text": "repairing"
+          },
+          {
+            "key": "D",
+            "text": "to repair"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "感官動詞後接分詞（Part 6 短文）",
+      "analysis": "(1) heard the machine ___ an unusual noise，機器發出噪音是持續性的動作，強調「當時聽到機器正在發出」的進行中狀態，故用**現在分詞** making，答案為 (D)。此外，(A) make 原形動詞也文法正確但語意較強調「完整聽到整個發出噪音的過程」，在此語境中，強調機器**持續**發出異常聲音更符合上下文「立即回報」的邏輯，故最佳答案為 making。\n(2) the equipment was ___ before it caused further damage，equipment（設備）是「被」維修的對象，屬於被動語態，且此處主詞 equipment 之後用 was + p.p. 的被動句構，答案為 (B) repaired。(A) repair 為原形動詞不可直接接在 was 後面；(C) repairing 為現在分詞，若填入則語意變成「正在被維修」需搭配 being，與句構不符；(D) to repair 不定詞不符合此處語法結構。",
+      "grammarPoint": "對應主章節「2. 感官動詞後的受詞補語」與「3. 感官動詞被動化時，要補回 to」；第 (2) 格則對應一般被動語態 `be + p.p.` 的基礎文法（可對照 02_動詞時態與語態/03_被動語態）。",
+      "similarNote": "Part 6 短文中常混合考「感官動詞受詞補語」與「一般被動語態」，需分別辨識每個空格的句構，不要把所有空格都套用同一套規則。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/02_感官動詞#q5",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 5,
+    "stem": "Nobody felt the temperature ___ during the meeting, even though the air conditioner had been turned off.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "drop"
+          },
+          {
+            "key": "B",
+            "text": "to drop"
+          },
+          {
+            "key": "C",
+            "text": "dropped"
+          },
+          {
+            "key": "D",
+            "text": "drops"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "感官動詞 feel + 受詞 + 原形動詞",
+      "analysis": "felt 是感官動詞，受詞 the temperature 之後接完整感受到「溫度下降」的動作，強調完整感受到整個變化過程，因此用**原形動詞**，答案為 (A) drop。(B) to drop 不符合感官動詞主動句型；(C) dropped 為過去分詞，代表被動語意，但溫度下降並非被動動作，語意不符；(D) drops 為限定動詞形式，不可直接作受詞補語。",
+      "grammarPoint": "對應主章節「2. 感官動詞後的受詞補語」中「原形動詞 (V)」的用法，以及「1. 常見感官動詞清單」中的 feel。",
+      "similarNote": "feel 作感官動詞時常搭配抽象受詞（the temperature, the ground, the atmosphere），要與「feel + 形容詞」(I feel tired) 的連綴動詞用法區分，看清楚受詞後面是動詞還是形容詞。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#q1",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 1,
+    "stem": "The board of directors recommended that the merger ___ postponed until next quarter.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "is"
+          },
+          {
+            "key": "B",
+            "text": "was"
+          },
+          {
+            "key": "C",
+            "text": "be"
+          },
+          {
+            "key": "D",
+            "text": "being"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "建議動詞 recommend + that 子句 + 原形動詞",
+      "analysis": "recommended 為建議動詞，後方接 that 子句，子句動詞須用**原形動詞**（可視為省略 should），答案為 (C) be。(A) is 為現在式，未使用原形動詞；(B) was 為過去式；(D) being 為動名詞/現在分詞形式，皆不符合建議動詞 + that 子句的固定句型。",
+      "grammarPoint": "對應主章節「2. 句型結構」：`S + 意志/建議動詞 + that + S + (should) + 原形動詞`。",
+      "similarNote": "be 動詞的原形一律是 **be**，無論主詞單複數皆同，是此文法點最容易考的細節之一。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#q2",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 2,
+    "stem": "The safety regulations require that every visitor ___ a badge at all times.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "wears"
+          },
+          {
+            "key": "B",
+            "text": "wear"
+          },
+          {
+            "key": "C",
+            "text": "wearing"
+          },
+          {
+            "key": "D",
+            "text": "to wear"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "意志動詞 require + that 子句 + 原形動詞",
+      "analysis": "require 為意志動詞，後方 that 子句省略了 that（require that every visitor (should) wear...，此處 that 已包含在句子結構中），子句動詞須用**原形動詞**，不受第三人稱單數 every visitor 影響，答案為 (B) wear。(A) wears 是加了 -s 的第三人稱單數現在式，是常見陷阱選項；(C) wearing 為現在分詞；(D) to wear 為不定詞，皆不符合公式。",
+      "grammarPoint": "對應主章節「2. 句型結構」表格中 require 範例：「The policy requires that all employees **wear** ID badges. (不是 wears)」。",
+      "similarNote": "這是全題型中最常見的陷阱：主詞是第三人稱單數（every visitor, he, she），但因為前面出現 require/insist/demand 等觸發詞，子句動詞仍要用原形，不可加 -s。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#q3",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 3,
+    "stem": "It is essential that all employees ___ the updated compliance policy before the deadline.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "reviews"
+          },
+          {
+            "key": "B",
+            "text": "reviewed"
+          },
+          {
+            "key": "C",
+            "text": "review"
+          },
+          {
+            "key": "D",
+            "text": "to review"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "形容詞 essential + that 子句 + 原形動詞",
+      "analysis": "It is essential that... 為「形容詞 + that 子句」句型，子句動詞須用**原形動詞**，答案為 (C) review。(A) reviews 為第三人稱單數現在式；(B) reviewed 為過去式；(D) to review 為不定詞，皆不符合此固定句型。",
+      "grammarPoint": "對應主章節「4. 形容詞形式 (It is + adj. + that ...)」。",
+      "similarNote": "除了 essential，同類形容詞如 important, necessary, vital, crucial, advisable, imperative, urgent 皆適用相同規則，看到 `It is + 這些形容詞 + that` 就直接秒選原形動詞。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#q4",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 4,
+    "stem": "（Part 6 短文填空） To: All Department Heads Re: Budget Review Following the quarterly audit, the finance committee insists that each department ___(1)___ a detailed expense report by the end of this month. In addition, it is advisable that managers ___(2)___ any unusual expenditures directly with the finance team before submission.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "submits"
+          },
+          {
+            "key": "B",
+            "text": "submit"
+          },
+          {
+            "key": "C",
+            "text": "submitted"
+          },
+          {
+            "key": "D",
+            "text": "submitting"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "discusses"
+          },
+          {
+            "key": "B",
+            "text": "discussed"
+          },
+          {
+            "key": "C",
+            "text": "discuss"
+          },
+          {
+            "key": "D",
+            "text": "to discuss"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "意志/建議動詞混合句型（Part 6 短文）",
+      "analysis": "(1) insists that each department ___ a detailed expense report，insist 為意志動詞，之後 that 子句動詞須用**原形動詞**，答案為 (B) submit。(A) submits 為第三人稱單數現在式是常見陷阱；(C) submitted 為過去式；(D) submitting 為現在分詞，皆不符合公式。\n(2) it is advisable that managers ___ any unusual expenditures，advisable 為觸發原形動詞的形容詞，之後 that 子句動詞須用**原形動詞**，答案為 (C) discuss。(A) discusses 為第三人稱單數現在式；(B) discussed 為過去式；(D) to discuss 為不定詞，皆不符合「It is advisable that + S + 原形動詞」的句型。",
+      "grammarPoint": "對應主章節「2. 句型結構」與「4. 形容詞形式 (It is + adj. + that ...)」。",
+      "similarNote": "同一篇短文中可能同時出現「意志動詞觸發的 that 子句」與「形容詞觸發的 that 子句」，兩者規則相同（皆用原形動詞），但觸發詞的詞性不同（動詞 vs. 形容詞），閱讀時需辨識觸發詞本身，而非死記單一句型。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#q5",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 5,
+    "stem": "The client demanded that the delivery date ___ moved up by two weeks.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "is"
+          },
+          {
+            "key": "B",
+            "text": "was"
+          },
+          {
+            "key": "C",
+            "text": "be"
+          },
+          {
+            "key": "D",
+            "text": "has been"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "意志動詞 demand + that 子句 + 原形動詞（be 動詞）",
+      "analysis": "demanded 為意志動詞，之後 that 子句的動詞為 be 動詞，須用原形 **be**，答案為 (C)。(A) is 為現在式；(B) was 為過去式；(D) has been 為現在完成式，皆不符合意志動詞 + that 子句的固定句型，也不是原形動詞。",
+      "grammarPoint": "對應主章節「2. 句型結構」表格中 demand 範例，以及 insist/request 範例中 be 動詞用法（\"be，不是 is\"）。",
+      "similarNote": "凡是意志/建議動詞 + that 子句，且子句主詞後面接的是 be 動詞時，答案幾乎必為 **be**，這是最容易辨識、也最常考的固定考點。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#q1",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 1,
+    "stem": "The company requires all new hires ___ an orientation session during their first week.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "attend"
+          },
+          {
+            "key": "B",
+            "text": "to attend"
+          },
+          {
+            "key": "C",
+            "text": "attending"
+          },
+          {
+            "key": "D",
+            "text": "attended"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "require + 受詞 + to V",
+      "analysis": "requires 為「接受詞不定詞動詞」，受詞 all new hires 之後須接 **to + 原形動詞**，答案為 (B) to attend。(A) attend 為原形動詞，容易與使役動詞（make/have/let）混淆，但 require 不是使役動詞三本尊，不能省略 to；(C) attending 為現在分詞；(D) attended 為過去分詞，皆不符合此句型。",
+      "grammarPoint": "對應主章節「1. 常見的『受詞 + to V』動詞」與「2. 與使役動詞的關鍵差異」。",
+      "similarNote": "require 是最容易讓考生誤用使役動詞公式的動詞之一，務必記得：只有 make、have、let 三個字才可以省略 to，其餘動詞（包含 require）一律要加 to。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#q2",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 2,
+    "stem": "The supervisor reminded the technicians ___ the equipment before leaving the lab.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "unplug"
+          },
+          {
+            "key": "B",
+            "text": "unplugging"
+          },
+          {
+            "key": "C",
+            "text": "to unplug"
+          },
+          {
+            "key": "D",
+            "text": "unplugged"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "remind + 受詞 + to V",
+      "analysis": "reminded 為「告知/勸告類」動詞，受詞 the technicians 之後須接 **to + 原形動詞**，答案為 (C) to unplug。(A) unplug 為原形動詞；(B) unplugging 為現在分詞；(D) unplugged 為過去分詞，皆不符合 remind + O + to V 的固定句型。",
+      "grammarPoint": "對應主章節「1. 常見的『受詞 + to V』動詞」表格中「告知/勸告」類別。",
+      "similarNote": "remind 也可接 `remind + O + of N`（提醒某人某事），若空格後方是名詞而非動詞，則要改用 of，需依空格後方詞性判斷句型。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#q3",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 3,
+    "stem": "Unlike the previous system, the new software enables employees ___ their schedules remotely.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "manage"
+          },
+          {
+            "key": "B",
+            "text": "managing"
+          },
+          {
+            "key": "C",
+            "text": "managed"
+          },
+          {
+            "key": "D",
+            "text": "to manage"
+          }
+        ],
+        "answer": "D"
+      }
+    ],
+    "explanation": {
+      "title": "enable + 受詞 + to V",
+      "analysis": "enables 為「允許/使能類」動詞，受詞 employees 之後須接 **to + 原形動詞**，答案為 (D) to manage。(A) manage 為原形動詞；(B) managing 為現在分詞；(C) managed 為過去分詞，皆不符合 enable + O + to V 的固定句型。",
+      "grammarPoint": "對應主章節「1. 常見的『受詞 + to V』動詞」表格中「允許/使能」類別，以及補充秒殺公式第 5 點「enable 的常見誤用」。",
+      "similarNote": "enable 是商業/科技類文章的高頻動詞，幾乎不會有例外用法，看到 enable + 受詞 + ___ 可以直接秒選 to V。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#q4",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 4,
+    "stem": "（Part 6 短文填空） Notice to All Staff Due to the upcoming system upgrade, IT requires every employee ___(1)___ their files before Friday. The department also encourages staff ___(2)___ any technical issues to the help desk as soon as possible to avoid delays.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "back up"
+          },
+          {
+            "key": "B",
+            "text": "backing up"
+          },
+          {
+            "key": "C",
+            "text": "to back up"
+          },
+          {
+            "key": "D",
+            "text": "backed up"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "report"
+          },
+          {
+            "key": "B",
+            "text": "reporting"
+          },
+          {
+            "key": "C",
+            "text": "reported"
+          },
+          {
+            "key": "D",
+            "text": "to report"
+          }
+        ],
+        "answer": "D"
+      }
+    ],
+    "explanation": {
+      "title": "多動詞混合句型（Part 6 短文）",
+      "analysis": "(1) IT requires every employee ___ their files，require 為「接受詞不定詞動詞」，受詞 every employee 之後須接 **to + 原形動詞**，答案為 (C) to back up。(A) back up 為原形動詞，容易誤用使役動詞公式；(B) backing up 為現在分詞；(D) backed up 為過去分詞，皆不符合句型。\n(2) the department encourages staff ___ any technical issues，encourage 為「說服/促使類」動詞，受詞 staff 之後須接 **to + 原形動詞**，答案為 (D) to report。(A) report 為原形動詞；(B) reporting 為現在分詞；(C) reported 為過去分詞，皆不符合 encourage + O + to V 的固定句型。",
+      "grammarPoint": "對應主章節「1. 常見的『受詞 + to V』動詞」表格，以及補充秒殺公式第 4 點「encourage/invite + O + to V 中不可用 V-ing 或原形動詞」。",
+      "similarNote": "公告類文章常在同一段落中出現多個「動詞 + 受詞 + to V」句型，且動詞不同（require, encourage, ask, remind 等），須逐一辨識每個空格前的觸發動詞，而非套用單一規則。"
+    }
+  },
+  {
+    "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#q5",
+    "source": "note",
+    "chapterId": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞",
+    "categoryId": "04_特殊動詞用法",
+    "number": 5,
+    "stem": "The landlord permitted the tenants ___ the apartment before signing the final lease.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "inspect"
+          },
+          {
+            "key": "B",
+            "text": "inspecting"
+          },
+          {
+            "key": "C",
+            "text": "to inspect"
+          },
+          {
+            "key": "D",
+            "text": "inspected"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "permit + 受詞 + to V",
+      "analysis": "permitted 為「允許/使能類」動詞，受詞 the tenants 之後須接 **to + 原形動詞**，答案為 (C) to inspect。(A) inspect 為原形動詞，容易誤用使役動詞公式（房東不是 make/have/let 三本尊之一）；(B) inspecting 為現在分詞；(D) inspected 為過去分詞，皆不符合 permit + O + to V 的固定句型。",
+      "grammarPoint": "對應主章節「1. 常見的『受詞 + to V』動詞」表格中「允許/使能」類別，以及「2. 與使役動詞的關鍵差異」對照表。",
+      "similarNote": "permit 與 allow 用法完全相同，皆為 permit/allow + O + to V，且皆可轉為被動 be permitted/allowed to V（to 不省略），是與使役動詞被動句型（need 補回 to）不同之處：這類動詞本來就有 to，被動時只是保留，不是「補回」。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#q1",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 1,
+    "stem": "______ the merger will proceed as planned remains uncertain among shareholders.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "What"
+          },
+          {
+            "key": "B",
+            "text": "Whether"
+          },
+          {
+            "key": "C",
+            "text": "If"
+          },
+          {
+            "key": "D",
+            "text": "That which"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "選擇引導名詞子句的連接詞（主詞位置）",
+      "analysis": "空格引導的子句 \"the merger will proceed as planned\" 是完整子句 (S+V)，且整句意思是「合併案是否會照計畫進行，在股東之間仍不確定」，語意上是「是否」，且此名詞子句在句首作**主詞**。(A) What 會使句意不通（子句已完整，不缺受詞）；(C) If 雖然也表「是否」，但**不可作主詞**；(D) That which 不是正確的英文結構。故選 (B) Whether。",
+      "grammarPoint": "對應主章節「1. 引導名詞子句的連接詞」與「3. whether vs. if 的差異」表格 — whether 可作主詞，if 只能作受詞。",
+      "similarNote": "只要看到名詞子句放在**句首**或**介系詞後面**，選項中若同時有 whether 和 if，優先選 whether。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#q2",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 2,
+    "stem": "The board recommended that the proposal ______ reviewed by legal counsel before approval.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "is"
+          },
+          {
+            "key": "B",
+            "text": "was"
+          },
+          {
+            "key": "C",
+            "text": "be"
+          },
+          {
+            "key": "D",
+            "text": "being"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "意志動詞 + that 子句的原形動詞",
+      "analysis": "recommend 是意志動詞 (suggest, recommend, require, demand, insist 等)，其後接的 that 子句必須使用**原形動詞**，不受主詞單複數或時態影響。(A) is 與 (B) was 都是隨時態變化的動詞形式，不符合原形動詞規則；(D) being 為動名詞，不能作子句的主要動詞。故選 (C) be。",
+      "grammarPoint": "對應主章節「2-C. 作補語」段落註記「意志動詞規則：原形動詞」，以及本詳解對應章節補充秒殺公式第 3 點「it is + 形容詞 + that 子句」的原形動詞用法。",
+      "similarNote": "只要句中出現 suggest/recommend/require/demand/insist/request 等意志動詞，其後的 that 子句動詞一律用原形，即使主詞是第三人稱單數也不加 s。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#q3",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 3,
+    "stem": "Mr. Chen was not sure ______ the client had received the revised contract.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "that"
+          },
+          {
+            "key": "B",
+            "text": "what"
+          },
+          {
+            "key": "C",
+            "text": "whether"
+          },
+          {
+            "key": "D",
+            "text": "about that"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "whether 作受詞（介系詞後 vs. 直接受詞）",
+      "analysis": "本句中 \"the client had received the revised contract\" 是完整子句，語意是「是否收到」，且此子句直接作 be sure 後面的受詞補語（相當於受詞角色）。(A) that 用於確定事實，與「不確定是否」的語意不符；(B) what 需要子句缺少主詞或受詞，但此子句是完整的；(D) about that 文法錯誤，that 子句不可直接接在介系詞後面。故選 (C) whether。",
+      "grammarPoint": "對應主章節「1. 引導名詞子句的連接詞」表格中 whether/if 用法，以及補充秒殺公式第 4 點「名詞子句當介系詞受詞」。",
+      "similarNote": "\"not sure whether\"、\"wonder whether\"、\"unsure whether\" 是常見固定搭配，注意 that 不能接在 sure of / certain about 等介系詞後面。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#q4",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 4,
+    "stem": "短文填空：The committee has not yet decided (1)______ the annual conference will be held in Taipei or Kaohsiung. A final announcement is expected once (2)______ has completed its review of venue costs.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "what"
+          },
+          {
+            "key": "B",
+            "text": "whether"
+          },
+          {
+            "key": "C",
+            "text": "which"
+          },
+          {
+            "key": "D",
+            "text": "that"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "it"
+          },
+          {
+            "key": "B",
+            "text": "whoever"
+          },
+          {
+            "key": "C",
+            "text": "the committee that"
+          },
+          {
+            "key": "D",
+            "text": "whatever committee"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 — 名詞子句 + 代名詞指代",
+      "analysis": "(1) 空格後 \"the annual conference will be held in Taipei or Kaohsiung\" 為完整子句，且句意為「委員會尚未決定要在台北或高雄舉行」，屬於「是否 A 或 B」的選擇疑問，此為 whether...or 的固定用法。(A) what 語意不符；(C) which 通常用於「哪一個」但不與 or 連用成子句連接詞；(D) that 不表選擇疑問。故選 (B) whether。\n(2) 空格代替前一句提到的 \"the committee\"，作後面子句 \"has completed its review\" 的主詞，且該子句已經完整，只需要一個簡單代名詞。(B) whoever 語意錯誤 (並非「無論是誰」)；(C)(D) 均為累贅重複委員會的說法，不符合簡潔語法。故選 (A) it。",
+      "grammarPoint": "對應主章節「1. 引導名詞子句的連接詞」whether 用法，以及補充秒殺公式第 2 點 whatever/whoever 複合關係代名詞的辨別（此處不適用複合關係代名詞，應用簡單代名詞 it）。",
+      "similarNote": "短文題常考「前面提過的名詞，後面用代名詞代替」，注意代名詞的單複數與主受格是否正確，不要被複合關係代名詞 (whoever/whatever) 的表面相似性混淆。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/01_名詞子句#q5",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/01_名詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 5,
+    "stem": "It is essential that every applicant ______ all required documents before the deadline.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "submits"
+          },
+          {
+            "key": "B",
+            "text": "submitted"
+          },
+          {
+            "key": "C",
+            "text": "submit"
+          },
+          {
+            "key": "D",
+            "text": "submitting"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "虛主詞句型 it is essential that + 原形動詞",
+      "analysis": "\"It is essential that...\" 是虛主詞句型，essential 屬於表示「必要性」的意志形容詞，其後的 that 子句同樣要求**原形動詞**，不論主詞為 every applicant（第三人稱單數）。(A) submits、(B) submitted 都是變化過的動詞形式，不符合原形動詞規則；(D) submitting 是動名詞，不能作為子句主要動詞。故選 (C) submit。",
+      "grammarPoint": "對應補充秒殺公式第 3 點「it is + 形容詞/名詞 + that 子句」，與主章節「2-C. 作補語」的意志動詞原形規則相呼應。",
+      "similarNote": "除了 suggest/recommend 等動詞，\"It is essential/important/necessary/vital that...\" 這類形容詞句型後面也一樣要用原形動詞，是多益文法題的高頻陷阱。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#q1",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 1,
+    "stem": "The technician ______ repaired the printer said the part needed replacing.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "whom"
+          },
+          {
+            "key": "B",
+            "text": "whose"
+          },
+          {
+            "key": "C",
+            "text": "who"
+          },
+          {
+            "key": "D",
+            "text": "which"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "關係代名詞選擇（先行詞為人，作主詞）",
+      "analysis": "先行詞 \"The technician\" 是人，空格後直接接動詞 \"repaired\"，代表關代在子句中作**主詞**。先行詞是人時，主詞關代可用 who 或 that；(A) whom 是受詞格，用於關代作受詞時，此處不對；(B) whose 是所有格，後面應接名詞，但此處接的是動詞；(D) which 用於先行詞是事物。故選 (C) who。",
+      "grammarPoint": "對應主章節「1. 關係代名詞的選擇」表格 — 先行詞為人 + 主詞角色 → who/that。",
+      "similarNote": "先看先行詞是人還是事物，再看關代後面缺主詞還是受詞，兩步驟判斷法可秒殺大部分關代考題。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#q2",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 2,
+    "stem": "Ms. Alvarez, ______ has led the marketing team for five years, will retire next month.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "that"
+          },
+          {
+            "key": "B",
+            "text": "who"
+          },
+          {
+            "key": "C",
+            "text": "which"
+          },
+          {
+            "key": "D",
+            "text": "whom"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "非限定用法（有逗號）不可用 that",
+      "analysis": "空格前有逗號，且先行詞 \"Ms. Alvarez\" 是特定的人名（獨一無二），屬於**非限定用法**，補充說明先行詞的資訊。非限定用法中先行詞是人、且關代在子句中作主詞，應選 who；(A) that 在非限定用法中絕對不可使用；(C) which 用於事物；(D) whom 是受詞格，但此處空格後直接接動詞 has led，代表是主詞角色。故選 (B) who。",
+      "grammarPoint": "對應主章節「3. 限定用法與非限定用法」— 看到逗號，選項中的 that 直接刪去。",
+      "similarNote": "「人名、專有名詞、獨一無二的先行詞（如 my father, the CEO）+ 逗號」幾乎必為非限定用法，秒殺原則是先刪去 that，再依主詞/受詞角色選 who 或 whom。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#q3",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 3,
+    "stem": "______ completes the survey by Friday will receive a discount coupon.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Whoever"
+          },
+          {
+            "key": "B",
+            "text": "Whatever"
+          },
+          {
+            "key": "C",
+            "text": "Whom"
+          },
+          {
+            "key": "D",
+            "text": "Whichever"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "複合關係代名詞 whoever 作主詞",
+      "analysis": "本句沒有先出現的先行詞，空格本身要同時扮演「先行詞 + 關係代名詞」的角色，且子句意思是「無論是誰先完成問卷」，故應使用**複合關係代名詞** whoever（= anyone who），在此作主要子句的主詞。(B) Whatever 語意不符（不是指人）；(C) Whom 是受格關代，且缺乏先行詞無法單獨使用；(D) Whichever 通常用於「無論選哪一個」，語意不符（此處指人而非選項）。故選 (A) Whoever。",
+      "grammarPoint": "對應補充秒殺公式第 1 點「複合關係代名詞 (what, whoever, whatever, whichever)」— 本身已包含先行詞，前面不可再加名詞。",
+      "similarNote": "複合關係代名詞前面絕對不會有其他先行詞名詞，如果選項句子中找不到明確先行詞，就是複合關係代名詞的信號。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#q4",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 4,
+    "stem": "短文填空：The new policy applies to all employees (1)______ contracts were signed after January. Staff members, most of (2)______ have already been notified by email, must confirm their acceptance by the end of the week.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "who"
+          },
+          {
+            "key": "B",
+            "text": "whose"
+          },
+          {
+            "key": "C",
+            "text": "whom"
+          },
+          {
+            "key": "D",
+            "text": "which"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "they"
+          },
+          {
+            "key": "B",
+            "text": "whom"
+          },
+          {
+            "key": "C",
+            "text": "which"
+          },
+          {
+            "key": "D",
+            "text": "that"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 — 所有格關代 + of which/whom 數量詞",
+      "analysis": "(1) 空格後面是 \"contracts were signed after January\"，contracts 是名詞且前面沒有冠詞，代表關代在子句中扮演**所有格**角色（employees 的 contracts），應選 whose。(A) who 是主格；(C) whom 是受格；(D) which 用於事物先行詞，且不具所有格功能。故選 (B) whose。\n(2) \"most of ______ have already been notified\" 中，most of 後面接的是代替先前提到的人（staff members）的關代，且此為非限定/補充用法，先行詞是人，應使用受格 whom（介系詞 of 後面接受格）。(A) they 為人稱代名詞，不能接在介系詞 of 後面引導子句；(C) which 用於事物；(D) that 不可接在介系詞後面。故選 (B) whom。",
+      "grammarPoint": "對應主章節「1. 關係代名詞的選擇」所有格 whose 用法，以及補充秒殺公式第 4 點「all/some/most/none + of which/whom」。",
+      "similarNote": "\"數量詞 + of which/whom\" 是多益中高階考點，先確認先行詞是人還是事物，再確認介系詞後只能接 whom（人）或 which（事物），絕不可用 that 或 who。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#q5",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 5,
+    "stem": "This is the department ______ all customer complaints are handled.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "which"
+          },
+          {
+            "key": "B",
+            "text": "where"
+          },
+          {
+            "key": "C",
+            "text": "that"
+          },
+          {
+            "key": "D",
+            "text": "whom"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "關係副詞 where（地點 + 完整子句）",
+      "analysis": "先行詞 \"the department\" 是地點，且空格後面的子句 \"all customer complaints are handled\" 主詞、受詞都已完整（是被動語態的完整句），代表空格需要的是**關係副詞**而非關係代名詞。(A) which 與 (C) that 都是關代，若使用會使子句缺少介系詞，句子不完整；(D) whom 用於人。故選 (B) where（= in which）。",
+      "grammarPoint": "對應主章節「2. 關係副詞 (When, Where, Why)」— 地點 + where，以及秒殺技巧第 4 點「修飾地點/時間且後面句子完整 ➔ where/when」。",
+      "similarNote": "判斷關代 vs. 關係副詞的關鍵：看空格後面的子句是否「缺少」主詞或受詞。缺 → 關代；不缺（句子已完整）→ 關係副詞。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#q1",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 1,
+    "stem": "______ the new system is more efficient, employees still find it difficult to use.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Because"
+          },
+          {
+            "key": "B",
+            "text": "Although"
+          },
+          {
+            "key": "C",
+            "text": "Despite"
+          },
+          {
+            "key": "D",
+            "text": "So that"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "對比連接詞 although vs. despite（詞性判斷）",
+      "analysis": "空格後面是完整子句 \"the new system is more efficient\" (S+V)，所以必須選**連接詞**而非介系詞。(A) Because 語意是「因為」，與後面「員工仍覺得難用」的轉折語意不符；(C) Despite 是介系詞，後面只能接名詞或 V-ing，不能接完整子句，用法錯誤；(D) So that 表「目的」，語意不符。故選 (B) Although。",
+      "grammarPoint": "對應主章節「2. 連接詞 vs. 介系詞」表格與秒殺技巧第 1 點 — 空格後為完整子句選連接詞，為名詞/V-ing 選介系詞。",
+      "similarNote": "Although/Despite 的混淆題是多益最常考的陷阱之一，看到空格後方结構就能秒殺，不需要理解句意。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#q2",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 2,
+    "stem": "______ the shipment arrives before Friday, the store will not run out of stock.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Unless"
+          },
+          {
+            "key": "B",
+            "text": "Provided that"
+          },
+          {
+            "key": "C",
+            "text": "Because of"
+          },
+          {
+            "key": "D",
+            "text": "In spite of"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "條件連接詞 provided that",
+      "analysis": "句意為「只要貨物在星期五前送達，商店就不會缺貨」，屬於條件較嚴格的假設，適合使用 provided that (只要)。(A) Unless 意思是「除非」，若代入則語意變成「除非貨物送達，商店才不會缺貨」，邏輯不通；(C) Because of 是介系詞，後面不能接完整子句；(D) In spite of 也是介系詞，且語意「儘管」不符合條件句情境。故選 (B) Provided that。",
+      "grammarPoint": "對應主章節「條件 (If)」表格中 provided (that) 的用法，以及秒殺技巧第 1 點的連接詞/介系詞判斷。",
+      "similarNote": "provided (that) 與 as long as 為同義詞，皆表「只要」，皆為連接詞需接完整子句；因為/由於的介系詞 because of 常與連接詞 because 混淆，須看後面結構判斷。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#q3",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 3,
+    "stem": "The manager acted ______ she had already made her final decision.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "as if"
+          },
+          {
+            "key": "B",
+            "text": "even if"
+          },
+          {
+            "key": "C",
+            "text": "so that"
+          },
+          {
+            "key": "D",
+            "text": "unless"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "as if + 假設語氣",
+      "analysis": "句意是「經理表現得好像她已經做了最終決定」，用來表達「彷彿、好像」的語氣，且與現在事實可能不完全相符，應選 as if。(B) even if 表「即使」（表假設但未發生的條件），與「表現得好像」的語意不同；(C) so that 表目的；(D) unless 表「除非」。故選 (A) as if。",
+      "grammarPoint": "對應補充秒殺公式第 5 點「as if / as though」，並可連結至 [[04_假設語氣]] 中 as if 搭配假設語氣動詞的用法。",
+      "similarNote": "as if / as though 後面常接過去式表示與現在事實相反 (如 as if she were the manager)，是連接副詞子句與假設語氣的混合考點。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#q4",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 4,
+    "stem": "短文填空：All staff must complete the safety training (1)______ they begin working on the factory floor. (2)______ the training is finished, supervisors will issue the required safety equipment.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "despite"
+          },
+          {
+            "key": "B",
+            "text": "before"
+          },
+          {
+            "key": "C",
+            "text": "because of"
+          },
+          {
+            "key": "D",
+            "text": "in spite of"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "Once"
+          },
+          {
+            "key": "B",
+            "text": "Unless"
+          },
+          {
+            "key": "C",
+            "text": "Due to"
+          },
+          {
+            "key": "D",
+            "text": "Whereas"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 — before（時間連接詞）與 once（一旦）",
+      "analysis": "(1) 句意是「所有員工必須在開始在工廠樓層工作**之前**完成安全訓練」，表達時間先後順序，且空格後方為完整子句 \"they begin working\"。(A) despite 與 (D) in spite of 都是介系詞且語意不符；(C) because of 也是介系詞，語意也不符（並非因果關係）。故選 (B) before。\n(2) 句意是「**一旦**訓練完成，主管將發放安全設備」，表示「一旦...就」的時間/條件關係，且此句子未來時態不用 will 而用現在完成式已符合時間副詞子句規則。(B) Unless 語意「除非」不符；(C) Due to 是介系詞，不能接完整子句；(D) Whereas 表對比，語意不符。故選 (A) Once。",
+      "grammarPoint": "對應主章節「1. 常見副詞子句連接詞分類」時間類別表格，以及補充秒殺公式第 2 點「once 作連接詞」。",
+      "similarNote": "短文中常见「先做動作 A，再做動作 B」的邏輯鏈，需要通篇理解語意才能正確選出時間連接詞，不能只看單句。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/03_副詞子句#q5",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/03_副詞子句",
+    "categoryId": "05_子句與假設語氣",
+    "number": 5,
+    "stem": "______ the storm, the delivery team managed to arrive on time.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Although"
+          },
+          {
+            "key": "B",
+            "text": "Despite"
+          },
+          {
+            "key": "C",
+            "text": "Even though"
+          },
+          {
+            "key": "D",
+            "text": "While"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "despite + 名詞（介系詞 vs. 連接詞）",
+      "analysis": "空格後面只接名詞 \"the storm\"，沒有主詞加動詞的完整子句結構，所以必須選**介系詞**。(A) Although 與 (C) Even though 都是連接詞，後面需要接完整子句，用法錯誤；(D) While 也是連接詞。故選 (B) Despite。",
+      "grammarPoint": "對應主章節「2. 連接詞 vs. 介系詞」表格，despite/in spite of 為介系詞，although/even though 為連接詞。",
+      "similarNote": "這是「連接詞 vs. 介系詞」考點的經典反向出題方式：空格後只有名詞詞組，直接刪去所有連接詞選項即可秒殺。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#q1",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "categoryId": "05_子句與假設語氣",
+    "number": 1,
+    "stem": "If the company ______ more research, it would have avoided the product recall.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "conducts"
+          },
+          {
+            "key": "B",
+            "text": "had conducted"
+          },
+          {
+            "key": "C",
+            "text": "conducted"
+          },
+          {
+            "key": "D",
+            "text": "has conducted"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "與過去事實相反（If 子句過去完成式）",
+      "analysis": "主要子句 \"it would have avoided the product recall\" 使用 `would have + p.p.`，代表這是「與過去事實相反」的假設語氣，If 子句應搭配**過去完成式** (had + p.p.)。(A) conducts 是現在式，(C) conducted 是過去式，(D) has conducted 是現在完成式，皆不符合過去事實相反的公式。故選 (B) had conducted。",
+      "grammarPoint": "對應主章節「2. 與過去事實相反 (Past Unreal)」公式：`If + S + had + p.p., S + would/could/should/might + have + p.p.`",
+      "similarNote": "先看主要子句（逗號後）的動詞形態，反推 If 子句應該用哪一種假設時態，是最快的解題捷徑。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#q2",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "categoryId": "05_子句與假設語氣",
+    "number": 2,
+    "stem": "______ you require any further information, please do not hesitate to contact our office.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Should"
+          },
+          {
+            "key": "B",
+            "text": "Would"
+          },
+          {
+            "key": "C",
+            "text": "Were"
+          },
+          {
+            "key": "D",
+            "text": "Had"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "Should 開頭的倒裝句（與未來相反）",
+      "analysis": "句首沒有 If，且句子結構是「助動詞 + 主詞 + 原形動詞」的倒裝形式，加上後面主要子句是祈使句 \"please do not hesitate to contact\"，符合「與未來相反/萬一」假設語氣的倒裝句型。(B) Would、(C) Were、(D) Had 均不符合此倒裝句型的語意與結構（Were 用於與現在事實相反的倒裝，Had 用於與過去事實相反的倒裝）。故選 (A) Should。",
+      "grammarPoint": "對應主章節「考點 1：條件句的倒裝 (If 省略)」第 2 點「與未來相反倒裝 (最常考)：Should + S + V, 祈使句」。",
+      "similarNote": "看到句首是 Should/Were/Had 且沒有 If，且句子呈現倒裝語序，優先判斷是哪一種倒裝假設句型，再對照後半句的動詞形式確認。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#q3",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "categoryId": "05_子句與假設語氣",
+    "number": 3,
+    "stem": "I wish I ______ about the schedule change before I booked my flight.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "know"
+          },
+          {
+            "key": "B",
+            "text": "knew"
+          },
+          {
+            "key": "C",
+            "text": "had known"
+          },
+          {
+            "key": "D",
+            "text": "have known"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "I wish + 過去完成式（與過去事實相反）",
+      "analysis": "句意是「我希望我在訂機票之前就已經知道班表變動」，這件事發生在過去（訂機票之前），且與過去事實相反（當時並不知道），wish 後面的子句應使用**過去完成式**。(A) know 是現在式，(B) knew 是過去式（用於 wish + 與現在事實相反），(D) have known 是現在完成式，均不符合。故選 (C) had known。",
+      "grammarPoint": "對應補充秒殺公式第 2 點「I wish + 假設語氣」：與過去事實相反時，wish 後接過去完成式。",
+      "similarNote": "wish 後面的假設語氣時態退一格的規則和 If 子句相同：與現在相反用過去式，與過去相反用過去完成式，需依句子的時間點判斷，不能只看 wish 本身的時態。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#q4",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "categoryId": "05_子句與假設語氣",
+    "number": 4,
+    "stem": "短文填空：If the merger (1)______ approved next month, both companies will begin integrating their systems immediately. Analysts say that (2)______ the deal fallen through, shareholders would have lost significant value.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "is"
+          },
+          {
+            "key": "B",
+            "text": "were"
+          },
+          {
+            "key": "C",
+            "text": "had been"
+          },
+          {
+            "key": "D",
+            "text": "will be"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "if"
+          },
+          {
+            "key": "B",
+            "text": "had"
+          },
+          {
+            "key": "C",
+            "text": "unless"
+          },
+          {
+            "key": "D",
+            "text": "once"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 — 條件句現在式 vs. 過去完成式倒裝",
+      "analysis": "(1) 句意是「如果合併案在下個月獲得批准，兩家公司將立即開始整合系統」，主要子句使用未來式 \"will begin\"，代表這是「真實條件句」（可能發生的未來事件），If 子句依規則使用**現在式**代替未來式。(B) were 用於與現在事實相反的假設語氣，(C) had been 用於與過去事實相反，(D) will be 在真實條件句的 if 子句中不可用未來式。故選 (A) is。\n(2) 句意是「分析師表示，萬一交易告吹，股東將會損失可觀的價值」，句首無 If，且呈現倒裝語序（助動詞/had + 主詞 + 過去分詞），對應「與過去事實相反」的倒裝句型 Had + S + p.p.。(A) if 若使用則不構成倒裝句，且句子會缺少倒裝應有的助動詞前移；(C) unless 語意「除非」不符；(D) once 語意「一旦」不符此假設語境。故選 (B) had。",
+      "grammarPoint": "對應主章節「3. 與未來事實相反」的真實條件句時態規則，以及「考點 1：條件句的倒裝」第 1 點「與過去相反倒裝：Had + S + p.p., S + would have p.p.」。",
+      "similarNote": "短文中常同時出現「真實條件句（現在式代未來式）」與「假設語氣倒裝句」兩種考點，須分別判斷每個空格所屬的句型，不要互相套用公式。"
+    }
+  },
+  {
+    "id": "grammar/05_子句與假設語氣/04_假設語氣#q5",
+    "source": "note",
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "categoryId": "05_子句與假設語氣",
+    "number": 5,
+    "stem": "______ for the technical support team, the server outage would have lasted much longer.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Without"
+          },
+          {
+            "key": "B",
+            "text": "Unless"
+          },
+          {
+            "key": "C",
+            "text": "If"
+          },
+          {
+            "key": "D",
+            "text": "Despite"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "Without（要不是因為...與過去事實相反）",
+      "analysis": "句意是「要不是技術支援團隊，伺服器當機的時間會拖得更久」，主要子句使用 `would have lasted`，屬於與過去事實相反的假設語氣，句首可用 Without 或 But for 表示「要不是因為」。(B) Unless 意思是「除非」，且不能直接接名詞構成此句型；(C) If 若使用需改寫成完整子句 (If it had not been for...)，不能直接接名詞；(D) Despite 語意「儘管」，與「要不是」的邏輯不符。故選 (A) Without。",
+      "grammarPoint": "對應主章節「考點 2：Without / But for (要不是因為...)」— 與過去相反：`Without / But for + N, S + would have + p.p.`",
+      "similarNote": "Without/But for 可與 Had it not been for 互換使用（見補充秒殺公式），三者皆表達「要不是因為」，但 Had it not been for 是完整倒裝子句，Without/But for 後面直接接名詞，注意句型結構差異。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#q1",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 1,
+    "stem": "The new marketing strategy has proven to be much __________ than the previous one.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "effective"
+          },
+          {
+            "key": "B",
+            "text": "more effective"
+          },
+          {
+            "key": "C",
+            "text": "most effective"
+          },
+          {
+            "key": "D",
+            "text": "effectively"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - much + 比較級",
+      "analysis": "`much` 是強調比較級的常見副詞（much more effective / much better / much faster），空格前有 \"much\"、後面又有 \"than the previous one\"，確定是比較級句型。(A) effective 是原級，缺乏比較級變化；(C) most effective 是最高級，與句中的 than 矛盾（最高級不與 than 連用）；(D) effectively 是副詞，不能修飾句意所需的形容詞位置（此處應形容 strategy 這個名詞的性質，須用形容詞）。",
+      "grammarPoint": "對應主章節「2. 基本句型」中的 `A + 比較級 + than + B` 公式，以及「1. 形成規則」表格中長形容詞用 more 的規則。",
+      "similarNote": "注意 much、even、far、a lot 都可以強調比較級（much better、far more efficient），但**不能**用 very 修飾比較級（very more 是錯誤用法）。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#q2",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 2,
+    "stem": "Of all the candidates interviewed, Ms. Chen was considered __________ qualified for the position.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "more"
+          },
+          {
+            "key": "B",
+            "text": "most"
+          },
+          {
+            "key": "C",
+            "text": "the most"
+          },
+          {
+            "key": "D",
+            "text": "much"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 最高級 + of all",
+      "analysis": "句首 \"Of all the candidates\" 是明顯的最高級信號（範圍為 all），且最高級前必須加 the，因此答案須是 \"the most\"。(A) more 是比較級，與 of all 矛盾；(B) most 缺少 the，最高級前一定要加定冠詞 the；(D) much 是強調詞，無法單獨表達最高級語意。",
+      "grammarPoint": "對應主章節「2. 基本句型」的最高級公式 `A + the + 最高級 + in/of + 範圍`，以及秒殺技巧第 5 點「看到 of all ➔ 前面需要最高級」。",
+      "similarNote": "凡看到 `of all`, `in the world`, `in the company` 等範圍字眼，直接鎖定「the + 最高級」，不需要再考慮比較級選項。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#q3",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 3,
+    "stem": "This year's customer satisfaction score is higher than __________ of last year.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "it"
+          },
+          {
+            "key": "B",
+            "text": "that"
+          },
+          {
+            "key": "C",
+            "text": "those"
+          },
+          {
+            "key": "D",
+            "text": "one"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 比較結構對稱性",
+      "analysis": "句子要表達「今年的顧客滿意度分數」和「去年的（分數）」比較，兩者須對稱。\"that\" 用來替代單數名詞 score，因此 \"that of last year\" = \"the score of last year\"。(A) it 通常指代前面提過的**同一件事物**本身，不能用來做比較替代；(C) those 是複數，與單數的 score 不一致；(D) one 雖然也可替代單數名詞，但在正式比較句型中，替代「...的...」(of 結構) 時慣用 that/those，one 較少用於此類對比句型且會使語意不夠精確。",
+      "grammarPoint": "對應主章節「4. 比較結構的對稱性 (多益陷阱)」，比較的兩端必須是同類事物，须用 that/those 替代已提到的名詞。",
+      "similarNote": "單數名詞用 that of，複數名詞用 those of，這是多益比較句型中最常考的陷阱之一，务必分清楚被比較名詞的單複數。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#q4",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 4,
+    "stem": "The more thoroughly employees are trained, __________ they perform on the job.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "good"
+          },
+          {
+            "key": "B",
+            "text": "better"
+          },
+          {
+            "key": "C",
+            "text": "the better"
+          },
+          {
+            "key": "D",
+            "text": "best"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - the 比較級, the 比較級",
+      "analysis": "句首已出現 \"The more thoroughly employees are trained\"，這是「the + 比較級」的前半句，後面主句也必須用「the + 比較級」呼應，形成「越...越...」句型。(A) good 是原級；(B) better 缺少 the，不符合此固定句型；(D) best 是最高級，此句型不使用最高級。",
+      "grammarPoint": "對應主章節「3. 多益必考：特殊比較句型」中的 `the + 比較級, the + 比較級 (越...越...)`。",
+      "similarNote": "只要句首出現 \"The + 比較級 + S + V\"，後面主句必須也是 \"the + 比較級\"，兩邊缺一不可，這是固定的對稱句型。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#q5",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 5,
+    "stem": "請閱讀以下短文並選出最適合填入空格的答案。 Since adopting the new inventory system, our warehouse has become far ______(1)______ than it was under the old manual process. In fact, it now processes orders faster ______(2)______ any other branch in the region.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "efficient"
+          },
+          {
+            "key": "B",
+            "text": "more efficient"
+          },
+          {
+            "key": "C",
+            "text": "most efficient"
+          },
+          {
+            "key": "D",
+            "text": "efficiently"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "than"
+          },
+          {
+            "key": "B",
+            "text": "as"
+          },
+          {
+            "key": "C",
+            "text": "that"
+          },
+          {
+            "key": "D",
+            "text": "of"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - 比較級與 than any other",
+      "analysis": "第 (1) 格前有 \"far\"（強調比較級的副詞），且句意是拿現在的效率跟過去比較（than it was under the old process），須用比較級 more efficient。(A) efficient 是原級、(C) most efficient 是最高級與句意不符、(D) efficiently 是副詞，不能形容主詞倉庫的狀態。\n第 (2) 格前是 \"faster\"（比較級形容詞），後面接 \"any other branch\"，這是固定句型 than any other + 單數名詞，用來表達最高級語意，故選 than。(B) as 用於原級同等比較（as...as），與比較級 faster 不搭配；(C)(D) that/of 不符合此句型。",
+      "grammarPoint": "對應主章節「補充秒殺公式」第 1 點 `than any other + 單數名詞` 及「2. 基本句型」的比較級公式。",
+      "similarNote": "`than any other + 單數名詞` 常在閱讀測驗與短文填空中出現，是「表面比較級、實為最高級」的重要句型，考生常誤選 as 或忘記 other 後面要接單數。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#q1",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 1,
+    "stem": "Rarely __________ such a rapid increase in productivity within a single quarter.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "we have seen"
+          },
+          {
+            "key": "B",
+            "text": "have we seen"
+          },
+          {
+            "key": "C",
+            "text": "we saw"
+          },
+          {
+            "key": "D",
+            "text": "did we seeing"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 否定副詞倒裝",
+      "analysis": "句首 \"Rarely\" 是否定/限制副詞，依規則後面必須倒裝，即「助動詞 + 主詞 + 動詞」。此句的時態是現在完成式的經驗描述，正確倒裝為 \"have we seen\"。(A) we have seen 是一般直述語序，未倒裝，違反 Rarely 開頭的倒裝規則；(C) we saw 同樣未倒裝且時態改變語意；(D) did we seeing 動詞形式錯誤（did 後面須接原形動詞 see，不可用 seeing）。",
+      "grammarPoint": "對應主章節「1. 否定副詞倒裝」表格中的 Rarely/Seldom 用法，公式為 `否定副詞 + 助動詞/be + 主詞 + 動詞`。",
+      "similarNote": "凡看到 Never, Rarely, Seldom, Hardly 等否定/限制副詞開頭，先確認後面是否已經倒裝，若選項有「未倒裝」的版本，通常就是陷阱選項。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#q2",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 2,
+    "stem": "__________ received his promotion than he was assigned to lead a new team.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "No sooner had he"
+          },
+          {
+            "key": "B",
+            "text": "He had no sooner"
+          },
+          {
+            "key": "C",
+            "text": "No sooner he had"
+          },
+          {
+            "key": "D",
+            "text": "Had he no sooner"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - No sooner...than 倒裝",
+      "analysis": "\"No sooner...than\" 是「一...就...」的倒裝句型，No sooner 開頭時，後面的助動詞須移到主詞前，形成 \"No sooner had he received...\"。(B) He had no sooner 未倒裝，是錯誤語序；(C) No sooner he had 順序顛倒，had 應該在主詞前面而非後面；(D) Had he no sooner 把 No sooner 誤放在 he 之後，破壞了固定句型結構。",
+      "grammarPoint": "對應主章節「🔤 相關單字和片語」中補充的 `no sooner...than` 片語，屬於否定副詞倒裝的延伸用法，邏輯與 Never/Rarely 倒裝一致。",
+      "similarNote": "`No sooner + had + S + p.p. + than + S + 過去式動詞` 是固定句型，常與 `Hardly...when` 互相考、混淆，兩者結構相同但連接詞不同（no sooner 配 than，hardly 配 when）。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#q3",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 3,
+    "stem": "Should any issues arise during the installation, __________ our support team immediately.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "contacting"
+          },
+          {
+            "key": "B",
+            "text": "contact"
+          },
+          {
+            "key": "C",
+            "text": "to contact"
+          },
+          {
+            "key": "D",
+            "text": "contacted"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - Should 倒裝假設語氣",
+      "analysis": "\"Should any issues arise\" 是條件句 \"If any issues should arise\" 省略 If 之後的倒裝形式，主句應搭配祈使句或未來式，此處為祈使句，動詞須用**原形**。(A) contacting 是動名詞，不可作祈使句動詞；(C) to contact 是不定詞，同樣不符合祈使句需要原形動詞開頭的規則；(D) contacted 是過去式，不符合祈使句語態。",
+      "grammarPoint": "對應主章節「2. 條件句倒裝 (If 省略)」表格中的 `If should V (未來)` ➔ `Should + S + V, ...`，這是多益最常考的假設語氣倒裝之一。",
+      "similarNote": "`Should + S + 原形動詞` 開頭時，主句常見兩種形式：祈使句（原形動詞開頭）或含 will/may/should 的完整句子，兩者都要留意主句動詞形式是否正確。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#q4",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 4,
+    "stem": "A: \"I haven't finished the quarterly report yet.\" B: \"__________.\"",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "Neither have I"
+          },
+          {
+            "key": "B",
+            "text": "So have I"
+          },
+          {
+            "key": "C",
+            "text": "Neither I have"
+          },
+          {
+            "key": "D",
+            "text": "So I haven't"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - Neither 附和倒裝",
+      "analysis": "A 說 \"haven't finished\"（否定句，用 haven't），B 想表達「我也還沒」，須用 Neither + 助動詞 + 主詞 的附和倒裝句型，助動詞須對應 A 句的 have，故為 \"Neither have I\"。(B) So have I 用於**肯定**附和（我也是），與 A 的否定句意不符；(C) Neither I have 語序錯誤，Neither 開頭必須倒裝（助動詞在主詞前）；(D) So I haven't 同樣未倒裝且 So 用於肯定附和，語意矛盾。",
+      "grammarPoint": "對應主章節「4. So/Neither/Nor 的附和倒裝」，Neither + 助動詞 + 主詞 表示「...也不」的否定附和。",
+      "similarNote": "判斷 So 或 Neither 時，先看前一句是肯定還是否定：肯定句用 So 附和，否定句用 Neither/Nor 附和，且附和的助動詞須與前一句的動詞時態一致。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/02_倒裝句#q5",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 5,
+    "stem": "請閱讀以下短文並選出最適合填入空格的答案。 Not until the final inspection was complete ______(1)______ the factory allowed to resume production. Only after every safety measure had been verified ______(2)______ the manager sign off on the report.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "was"
+          },
+          {
+            "key": "B",
+            "text": "is"
+          },
+          {
+            "key": "C",
+            "text": "the factory was"
+          },
+          {
+            "key": "D",
+            "text": "had"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "does"
+          },
+          {
+            "key": "B",
+            "text": "did"
+          },
+          {
+            "key": "C",
+            "text": "do"
+          },
+          {
+            "key": "D",
+            "text": "done"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - Not until 與 Only after 倒裝",
+      "analysis": "第 (1) 格：句首為 \"Not until the final inspection was complete\"，屬於否定副詞片語開頭，後面主句必須倒裝，過去式的 be 動詞倒裝為 \"was the factory allowed\"，故選 was。(B) is 時態與前面 was complete 的過去式不一致；(C) the factory was 未倒裝（多了主詞在助動詞前面），不符合倒裝規則；(D) had 詞性錯誤，此處需要 be 動詞而非助動詞 had。\n第 (2) 格：句首為 \"Only after every safety measure had been verified\"，Only + 副詞片語開頭，主要子句須倒裝，且原句是過去式一般動詞 (sign)，倒裝助動詞用 did。故選 did。(A) does 時態錯誤（應為過去式）；(C) do 時態與人稱皆不符；(D) done 不是助動詞形式。",
+      "grammarPoint": "對應主章節「1. 否定副詞倒裝」的 Not until 用法，以及「3. Only + 副詞片語 開頭的倒裝」規則，兩者都要求後面主要子句倒裝。",
+      "similarNote": "Not until 與 Only + 副詞片語都是常考的倒裝觸發詞，考生常忽略「be 動詞」和「一般動詞」倒裝時所需的不同助動詞形式（be 動詞本身倒裝 vs 一般動詞用 do/does/did 倒裝），需特別留意原句的動詞種類。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#q1",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 1,
+    "stem": "The quality of the products __________ inspected before shipment every time.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "are"
+          },
+          {
+            "key": "B",
+            "text": "is"
+          },
+          {
+            "key": "C",
+            "text": "were"
+          },
+          {
+            "key": "D",
+            "text": "have been being"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 找出真正的主詞",
+      "analysis": "\"of the products\" 是介系詞片語，修飾 quality，並非主詞，真正的主詞是單數名詞 \"quality\"，因此動詞須用單數。加上句意是描述例行檢驗（every time，一般現在式的被動語態），故選 \"is inspected\"。(A) are 與單數主詞 quality 不一致；(C) were 時態錯誤（過去式與 every time 表達的例行公事不符）；(D) have been being 文法上不通順且為累贅結構，並非標準英文被動語態形式。",
+      "grammarPoint": "對應主章節「2. 多益陷阱：找出真正的主詞」中 A 段「中間修飾語的干擾」，介系詞片語 of/with/in 不影響主詞單複數判斷。",
+      "similarNote": "多益最愛在主詞後面插入 \"of + 複數名詞\" 的介系詞片語來誤導考生選複數動詞，務必先刪除介系詞片語再判斷主詞單複數。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#q2",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 2,
+    "stem": "Neither the supervisor nor the team members __________ aware of the schedule change.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "was"
+          },
+          {
+            "key": "B",
+            "text": "is"
+          },
+          {
+            "key": "C",
+            "text": "were"
+          },
+          {
+            "key": "D",
+            "text": "has been"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - Neither A nor B 就近原則",
+      "analysis": "\"Neither the supervisor nor the team members\" 依規則動詞要配合**最靠近的主詞**，也就是 B（team members，複數），因此須用複數動詞 were。(A) was 與 (B) is 都是單數動詞，錯誤配合了較遠的單數主詞 supervisor；(D) has been 除了單複數錯誤外，時態也與句子語境（過去某個時間點的狀態描述）不符。",
+      "grammarPoint": "對應主章節「3. 特殊主詞的一致性」表格中的 `Neither A nor B` 規則：動詞配合靠近的主詞 (B)。",
+      "similarNote": "Either...or、Neither...nor、Not only...but also 都遵循「就近原則」，只要看清楚 B（最靠近動詞的主詞）的單複數即可，不需理會 A。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#q3",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 3,
+    "stem": "A number of employees __________ requested to work from home next month.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "has"
+          },
+          {
+            "key": "B",
+            "text": "have"
+          },
+          {
+            "key": "C",
+            "text": "is"
+          },
+          {
+            "key": "D",
+            "text": "was"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - A number of",
+      "analysis": "\"A number of\" 意思是「許多」，視為**複數**，動詞須用複數形式 have。(A) has 與 (C) is 都是單數動詞，容易與意思相近但用法相反的 \"The number of\"（視為單數）混淆；(D) was 除了單複數錯誤外時態也不符合現在完成式語境 (requested)。",
+      "grammarPoint": "對應主章節「3. 特殊主詞的一致性」表格中 `A number of + N` ➔ 複數 的規則，並對比 `The number of + N` ➔ 單數。",
+      "similarNote": "\"The number of\"（...的數量，單數）與 \"A number of\"（許多，複數）是多益極常考的一組對比陷阱，務必牢記兩者動詞單複數完全相反。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#q4",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 4,
+    "stem": "Completing the annual audit __________ several weeks of careful preparation.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "require"
+          },
+          {
+            "key": "B",
+            "text": "requires"
+          },
+          {
+            "key": "C",
+            "text": "are requiring"
+          },
+          {
+            "key": "D",
+            "text": "have required"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 動名詞當主詞",
+      "analysis": "\"Completing the annual audit\" 是動名詞片語當主詞，動名詞當主詞時視為**單數**，因此動詞須用單數的 requires。(A) require 是複數動詞，與動名詞主詞的單數性質不符；(C) are requiring 除了單複數錯誤外，進行式也不符合此處描述「一般事實」的語境；(D) have required 是複數的現在完成式，同樣單複數錯誤。",
+      "grammarPoint": "對應主章節「補充秒殺公式」第 1 點：動名詞/不定詞當主詞視為單數。",
+      "similarNote": "不只動名詞，不定詞片語 (To V) 當主詞時同樣視為單數，例如 \"To finish the project on time requires extra staff.\"，判斷邏輯相同。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#q5",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/03_主動詞一致性",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 5,
+    "stem": "請閱讀以下短文並選出最適合填入空格的答案。 The number of applicants for the position ______(1)______ increased significantly this year. According to HR, the majority of the new hires ______(2)______ from overseas universities.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "have"
+          },
+          {
+            "key": "B",
+            "text": "has"
+          },
+          {
+            "key": "C",
+            "text": "are"
+          },
+          {
+            "key": "D",
+            "text": "were"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "come"
+          },
+          {
+            "key": "B",
+            "text": "comes"
+          },
+          {
+            "key": "C",
+            "text": "is coming"
+          },
+          {
+            "key": "D",
+            "text": "has come"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - The number of 與 majority of",
+      "analysis": "第 (1) 格：主詞是 \"The number of applicants\"，\"The number of\" 視為單數（強調「數量」這個概念本身），因此動詞須用單數 has。(A) have、(C) are、(D) were 都是複數或時態錯誤，與 The number of 的單數規則不符。\n第 (2) 格：主詞是 \"the majority of the new hires\"，majority of 的單複數依照 of 後面的名詞決定，new hires 是複數，因此動詞用複數原形 come。(B) comes 是單數動詞，與複數主詞不符；(C) is coming 除了單複數錯誤外進行式也不符合語境；(D) has come 是單數的現在完成式，同樣單複數錯誤。",
+      "grammarPoint": "對應主章節「3. 特殊主詞的一致性」中的 The number of 規則，以及「補充秒殺公式」中類似 the majority of 的「依 of 後方名詞決定單複數」概念（與百分比/分數規則相通）。",
+      "similarNote": "the majority of、a lot of、plenty of、fractions（如 two-thirds of）都遵循「動詞配合 of 後方名詞的單複數」規則，但 the number of 是特例，永遠視為單數，考生常混淆這兩類規則。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#q1",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 1,
+    "stem": "The shipment arrived on schedule, __________?",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "did it"
+          },
+          {
+            "key": "B",
+            "text": "didn't it"
+          },
+          {
+            "key": "C",
+            "text": "wasn't it"
+          },
+          {
+            "key": "D",
+            "text": "doesn't it"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - 一般動詞過去式的附加問句",
+      "analysis": "陳述句 \"The shipment arrived on schedule\" 是**肯定**句，一般動詞的過去式 (arrived)，依規則附加問句要用「否定 + didn't + 代名詞」。故選 didn't it。(A) did it 是肯定形式，但肯定陳述句須搭配否定附加問句，形式不符；(C) wasn't it 誤把一般動詞當成 be 動詞處理；(D) doesn't it 時態錯誤（陳述句是過去式，附加問句應為 didn't，而非現在式的 doesn't）。",
+      "grammarPoint": "對應主章節「2. 各種情況的附加問句」表格中「一般動詞肯定 (過去)」➔ didn't + 代名詞 的規則。",
+      "similarNote": "一般動詞的附加問句最容易在「時態」上出錯，考生須留意陳述句動詞是現在式還是過去式，附加問句的助動詞須對應正確時態 (don't/doesn't vs didn't)。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#q2",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 2,
+    "stem": "Let's finalize the budget before Friday, __________?",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "do we"
+          },
+          {
+            "key": "B",
+            "text": "don't we"
+          },
+          {
+            "key": "C",
+            "text": "shall we"
+          },
+          {
+            "key": "D",
+            "text": "will we"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - Let's 附加問句",
+      "analysis": "\"Let's finalize...\" 是 Let's 開頭的建議句，附加問句固定用 \"shall we?\"。(A) do we 與 (B) don't we 都不符合 Let's 句型的固定搭配；(D) will we 也不是 Let's 句型的標準附加問句形式。",
+      "grammarPoint": "對應主章節「3. 特殊情況」中的 \"Let's 的附加問句\" 規則：Let's 的附加問句固定用 shall we。",
+      "similarNote": "Let's 開頭的句子附加問句是固定搭配，不需要判斷肯定/否定，直接背誦 \"shall we?\" 即可。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#q3",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 3,
+    "stem": "Nobody has reported any issues with the new system, __________?",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "have they"
+          },
+          {
+            "key": "B",
+            "text": "haven't they"
+          },
+          {
+            "key": "C",
+            "text": "has he"
+          },
+          {
+            "key": "D",
+            "text": "hasn't he"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - Nobody 開頭的附加問句",
+      "analysis": "\"Nobody\" 本身帶有否定意義（等同於 no one），因此陳述句視為**否定句**，附加問句須用**肯定**形式。同時，不定代名詞 (nobody/everyone/someone) 在附加問句中的代名詞固定用 they，而陳述句的助動詞是 has（現在完成式），對應 they 的助動詞形式為 have，故正確答案為 \"have they\"。(B) haven't they 極性錯誤（陳述句已是否定，附加問句應為肯定）；(C) has he 代名詞錯誤（不定代名詞附加問句用 they，不用 he）；(D) hasn't he 同時犯了極性與代名詞兩個錯誤。",
+      "grammarPoint": "對應主章節「3. 特殊情況」中的「不定代名詞的附加問句」規則，以及「1. 附加問句的基本規則」中「否定陳述句 + 肯定附加問句」的公式。",
+      "similarNote": "含有 nobody, no one, nothing 等否定字的陳述句，即使表面上沒有 not/n't，也要視為否定句，附加問句須用肯定形式，這是常見的隱藏陷阱。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#q4",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 4,
+    "stem": "I think Mr. Lin is the one presenting today, __________?",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "don't I"
+          },
+          {
+            "key": "B",
+            "text": "isn't he"
+          },
+          {
+            "key": "C",
+            "text": "doesn't he"
+          },
+          {
+            "key": "D",
+            "text": "isn't it"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - I think + that 子句的附加問句",
+      "analysis": "\"I think (that) Mr. Lin is the one presenting today\" 是「I think + that 子句」的句型，附加問句規則是**對應子句的動詞**，而非 think。子句主詞是 Mr. Lin（he），動詞是 be 動詞 is（肯定），因此附加問句用 \"isn't he?\"。(A) don't I 誤把附加問句對應到主要子句的 think，是常見誤區；(C) doesn't he 誤用一般動詞形式，但子句動詞其實是 be 動詞 is；(D) isn't it 代名詞錯誤，子句主詞是 Mr. Lin（he），不是 it。",
+      "grammarPoint": "對應主章節「補充秒殺公式」第 4 點：I think/believe + that 子句的陳述句，附加問句對應子句動詞。",
+      "similarNote": "\"I think/believe/guess + that 子句\" 結構中，附加問句永遠對應**從屬子句**的主詞與動詞，而非主要子句的 think/believe，這是多益聽力與文法題常見的混淆點。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/04_附加問句#q5",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/04_附加問句",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 5,
+    "stem": "請閱讀以下對話並選出最適合填入空格的答案。 A: You've already sent the revised contract to the client, ______(1)______? B: Yes, I sent it yesterday afternoon. But the meeting hasn't been rescheduled yet, ______(2)______?",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "haven't you"
+          },
+          {
+            "key": "B",
+            "text": "don't you"
+          },
+          {
+            "key": "C",
+            "text": "didn't you"
+          },
+          {
+            "key": "D",
+            "text": "hasn't it"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "is it"
+          },
+          {
+            "key": "B",
+            "text": "isn't it"
+          },
+          {
+            "key": "C",
+            "text": "has it"
+          },
+          {
+            "key": "D",
+            "text": "hasn't it"
+          }
+        ],
+        "answer": "C"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - 附加問句綜合應用",
+      "analysis": "第 (1) 格：陳述句 \"You've already sent the revised contract\" 使用現在完成式（助動詞 have + p.p.），是**肯定**句，附加問句須用「否定 + 對應的助動詞 have + 代名詞 you」，故選 **haven't you**。(B) don't you 誤把現在完成式當成一般現在式處理；(C) didn't you 誤把現在完成式當成一般過去式處理（雖然 B 的回答用了過去式 \"sent...yesterday\"，但那是回答內容的時間描述，不影響 A 問句本身的附加問句需對應其自身的現在完成式時態）；(D) hasn't it 代名詞錯誤，主詞是 you，不是 it。\n第 (2) 格：陳述句 \"the meeting hasn't been rescheduled yet\" 是**否定**句（hasn't），依規則附加問句須用**肯定**形式，助動詞對應 has，代名詞對應 it（meeting），故選 **has it**。(A) is it 誤把助動詞 has 當成 be 動詞處理；(B) isn't it 極性錯誤（陳述句已是否定，附加問句應為肯定）；(D) hasn't it 極性錯誤，同樣誤用否定形式。",
+      "grammarPoint": "對應主章節「2. 各種情況的附加問句」表格中「be 動詞/助動詞肯定、否定」的對應規則，以及「1. 附加問句的基本規則」中「肯定陳述句 + 否定附加問句」「否定陳述句 + 肯定附加問句」的公式。",
+      "similarNote": "現在完成式的附加問句須對應句中的 have/has，不要被回答句中出現的其他時態（如過去式 sent）干擾。同時要留意陳述句本身是否已含有 not/n't（如 hasn't been rescheduled），這類句子附加問句必須反轉為肯定形式。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#q1",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 1,
+    "stem": "All employees are required to __________ with the company's code of conduct.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "comply"
+          },
+          {
+            "key": "B",
+            "text": "compliance"
+          },
+          {
+            "key": "C",
+            "text": "complying"
+          },
+          {
+            "key": "D",
+            "text": "compliant"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - comply with 固定搭配",
+      "analysis": "\"required to __________ with\" 空格後面已有 with，且 \"required to\" 後面須接**原形動詞**，\"comply with\" 是固定的動詞片語（遵守），故選 comply。(B) compliance 是名詞，若用名詞則應為 \"in compliance with\"（片語結構不同，且此處 to 後面應接動詞而非名詞）；(C) complying 是動名詞，\"required to\" 後面固定接原形動詞，不接 V-ing；(D) compliant 是形容詞，與 with 搭配時應為 \"be compliant with\"，但此處句型是 \"required to V\"，不適用形容詞。",
+      "grammarPoint": "對應主章節「2. 「依照 / 符合」意義的易混淆片語」表格中的 `comply with` (動詞片語，無須 in) 與 `in compliance with` (名詞片語，需要 in) 的對比。",
+      "similarNote": "comply with（動詞）與 in compliance with（名詞片語）意思相同但詞性不同，考題常利用句子結構（前面是否有 be 動詞、to 等）來測試考生是否分辨得出需要動詞還是名詞形式。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#q2",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 2,
+    "stem": "The intern attended the conference __________ the marketing director, who was on leave.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "instead"
+          },
+          {
+            "key": "B",
+            "text": "in place of"
+          },
+          {
+            "key": "C",
+            "text": "in addition to"
+          },
+          {
+            "key": "D",
+            "text": "regardless of"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - in place of vs instead of vs in addition to",
+      "analysis": "句意是「實習生代替請假的行銷總監出席會議」，表達「代替某人做某事（出席會議）」時，\"in place of + 人\" 是正確用法。(A) instead 後面不能直接接名詞，須搭配 of 變成 instead of 才能接名詞，此處 instead 單獨使用文法不完整；(C) in addition to 意思是「除了...之外（還有）」，與句意「取代」不符；(D) regardless of 意思是「不論」，與句意不符。",
+      "grammarPoint": "對應主章節「3. 「取代 / 除了」意義的易混淆片語」表格中 instead of、in place of、in addition to、regardless of 的辨析。",
+      "similarNote": "instead of 與 in place of 都可表示「取代」，但 instead 單獨使用時後面不可直接加名詞（需要 of），這是常見的文法陷阱；in addition to 則是完全不同語意（附加），須根據句意判斷「取代」還是「附加」。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#q3",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 3,
+    "stem": "Part-time workers are not __________ the health insurance benefits offered to full-time staff.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "eligible to"
+          },
+          {
+            "key": "B",
+            "text": "eligible for"
+          },
+          {
+            "key": "C",
+            "text": "eligible with"
+          },
+          {
+            "key": "D",
+            "text": "eligible of"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - be eligible for",
+      "analysis": "\"eligible\"（有資格的）固定搭配介系詞 for，表示「有資格獲得...」，故選 eligible for。(A) eligible to 應接原形動詞（如 eligible to apply），不能直接接名詞 benefits；(C) eligible with 不是正確搭配；(D) eligible of 也不是正確搭配，容易與 capable of 或 aware of 的 of 混淆。",
+      "grammarPoint": "對應主章節「1. 「負責 / 相關」意義的易混淆片語」表格中的 `be eligible for`，以及「🔤 相關單字和片語」中形容詞 + 介系詞固定搭配的整理。",
+      "similarNote": "多益常考「同樣是形容詞 + 介系詞，但介系詞不同」的固定搭配，例如 eligible for（有資格獲得）、capable of（有能力）、aware of（意識到）、responsible for（負責），每個形容詞的介系詞都必須個別記憶，不能用同一邏輯類推。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#q4",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 4,
+    "stem": "The delay in production __________ from a shortage of raw materials.",
+    "blanks": [
+      {
+        "label": null,
+        "options": [
+          {
+            "key": "A",
+            "text": "resulted"
+          },
+          {
+            "key": "B",
+            "text": "resulted in"
+          },
+          {
+            "key": "C",
+            "text": "caused"
+          },
+          {
+            "key": "D",
+            "text": "led"
+          }
+        ],
+        "answer": "A"
+      }
+    ],
+    "explanation": {
+      "title": "單句填空 - result from（句中已有 from）",
+      "analysis": "句尾已經出現 \"from a shortage of raw materials\"，因此空格只需要動詞本身，\"resulted\" 搭配後面的 from 恰好組成 \"resulted from\"（起因於），語意正確：生產延遲起因於原料短缺。(B) resulted in 若選這個，句子會變成 \"resulted in from...\"，重複介系詞造成文法錯誤；(C) caused 意思是「導致」，但 caused 是及物動詞，用法應為 \"caused a shortage\"（沒有 from），與句尾已有的 from 搭配矛盾；(D) led 通常搭配 to（led to），同樣與句尾的 from 矛盾。",
+      "grammarPoint": "對應主章節「4. 常見「動詞 + 介系詞」固定搭配」中 result in（導致）與 result from（起因於）方向相反的辨析，以及秒殺技巧第 2 點提醒的「看清楚主詞是原因還是結果」。",
+      "similarNote": "此類題目常在句尾先放好介系詞（如 from 或 in），要求考生選擇「動詞本身」而非「動詞+介系詞」的完整片語，須特別注意句子是否已提供介系詞，以免選出來的片語與句尾介系詞重複或衝突。"
+    }
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#q5",
+    "source": "note",
+    "chapterId": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語",
+    "categoryId": "06_其他多益必考進階題型",
+    "number": 5,
+    "stem": "請閱讀以下短文並選出最適合填入空格的答案。 All shipments must be packaged ______(1)______ international safety standards. Employees who fail to follow these guidelines may be held responsible ______(2)______ any resulting damage.",
+    "blanks": [
+      {
+        "label": "第一空",
+        "options": [
+          {
+            "key": "A",
+            "text": "in accordance with"
+          },
+          {
+            "key": "B",
+            "text": "instead of"
+          },
+          {
+            "key": "C",
+            "text": "regardless of"
+          },
+          {
+            "key": "D",
+            "text": "in addition to"
+          }
+        ],
+        "answer": "A"
+      },
+      {
+        "label": "第二空",
+        "options": [
+          {
+            "key": "A",
+            "text": "of"
+          },
+          {
+            "key": "B",
+            "text": "for"
+          },
+          {
+            "key": "C",
+            "text": "with"
+          },
+          {
+            "key": "D",
+            "text": "to"
+          }
+        ],
+        "answer": "B"
+      }
+    ],
+    "explanation": {
+      "title": "短文填空 - in accordance with 與 responsible for",
+      "analysis": "第 (1) 格：句意是「所有貨物必須依照國際安全標準包裝」，\"in accordance with\"（依照）最符合語意。(B) instead of（取代）、(C) regardless of（不論）、(D) in addition to（除了...之外）皆與「依照標準包裝」的語意不符。\n第 (2) 格：\"be held responsible for\" 是固定搭配，意思是「對...負責」，故選 for。(A) of、(C) with、(D) to 都不是 responsible 的正確固定搭配介系詞（正確固定用法僅有 responsible for）。",
+      "grammarPoint": "對應主章節「2. 「依照 / 符合」意義的易混淆片語」中的 in accordance with，以及「1. 「負責 / 相關」意義的易混淆片語」中的 be responsible for。",
+      "similarNote": "in accordance with 常出現在正式文件、規範類短文中，表示「依照規定」；be responsible for 是多益考試中出現頻率極高的固定搭配，務必記住其介系詞固定為 for，不可替換為 of/with/to。"
+    }
+  }
+]

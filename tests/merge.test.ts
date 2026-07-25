@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mergeQuestions } from '../scripts/build-content/merge'
+import { mergeQuestions, mergeGroupedQuestions } from '../scripts/build-content/merge'
 import type { ParsedQuestion } from '../scripts/build-content/parse-questions'
 import type { AnswerEntry } from '../scripts/build-content/parse-answers'
 
@@ -94,5 +94,54 @@ describe('mergeQuestions', () => {
       'chapter',
     )
     expect(result.questions.map((q) => q.number)).toEqual([3, 1, 2])
+  })
+})
+
+describe('mergeGroupedQuestions', () => {
+  // A reading file numbers its questions 1..N across every passage and ships a
+  // single explanation file for all of them. Merging one passage at a time
+  // would report every other passage's explanations as orphaned.
+  const passageA = { title: '短文一', questions: [question(1, 1), question(2, 1)] }
+  const passageB = { title: '短文二', questions: [question(3, 1), question(4, 1)] }
+  const answers = [answer(1, ['A']), answer(2, ['B']), answer(3, ['C']), answer(4, ['D'])]
+
+  it('raises no orphan warnings when answers span several groups', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], answers, 'file')
+    expect(result.issues).toEqual([])
+  })
+
+  it('returns each question to the group it came from', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], answers, 'file')
+    expect(result.groups[0]?.questions.map((q) => q.number)).toEqual([1, 2])
+    expect(result.groups[1]?.questions.map((q) => q.number)).toEqual([3, 4])
+  })
+
+  it('preserves the other group fields', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], answers, 'file')
+    expect(result.groups.map((g) => g.title)).toEqual(['短文一', '短文二'])
+  })
+
+  it('attaches the right answer to each question', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], answers, 'file')
+    expect(result.groups.flatMap((g) => g.questions.map((q) => q.blanks[0]?.answer))).toEqual([
+      'A',
+      'B',
+      'C',
+      'D',
+    ])
+  })
+
+  it('still reports a genuinely orphaned explanation once', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], [...answers, answer(99, ['A'])], 'file')
+    expect(result.issues).toHaveLength(1)
+    expect(result.issues[0]).toMatchObject({ level: 'warn' })
+    expect(result.issues[0]?.message).toContain('題目 99')
+  })
+
+  it('drops a question that failed validation from its group', () => {
+    const result = mergeGroupedQuestions([passageA, passageB], [answer(1, ['A'])], 'file')
+    expect(result.groups[0]?.questions.map((q) => q.number)).toEqual([1])
+    expect(result.groups[1]?.questions).toEqual([])
+    expect(result.issues.filter((i) => i.level === 'error')).toHaveLength(3)
   })
 })

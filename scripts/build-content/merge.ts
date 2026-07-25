@@ -86,3 +86,45 @@ export function mergeQuestions(
 
   return { questions: merged, issues }
 }
+
+export interface QuestionGroup {
+  questions: ParsedQuestion[]
+}
+
+export interface MergeGroupedResult<T extends QuestionGroup> {
+  groups: (Omit<T, 'questions'> & { questions: Question[] })[]
+  issues: Issue[]
+}
+
+/**
+ * Merge several groups of questions against one shared explanation set, then
+ * hand each question back to the group it came from.
+ *
+ * Reading files and mock exams number their questions 1..N across every
+ * passage and ship a single explanation file for the lot. Merging one group at
+ * a time would make every other group's explanations look orphaned and emit a
+ * warning per passage, so the pairing has to see the whole file at once.
+ */
+export function mergeGroupedQuestions<T extends QuestionGroup>(
+  groups: T[],
+  answers: AnswerEntry[],
+  sourceLabel: string,
+): MergeGroupedResult<T> {
+  const merged = mergeQuestions(
+    groups.flatMap((group) => group.questions),
+    answers,
+    sourceLabel,
+  )
+  const byId = new Map(merged.questions.map((q) => [q.id, q]))
+
+  return {
+    groups: groups.map((group) => ({
+      ...group,
+      // Questions dropped by validation simply do not come back.
+      questions: group.questions
+        .map((q) => byId.get(q.id))
+        .filter((q): q is Question => q !== undefined),
+    })),
+    issues: merged.issues,
+  }
+}

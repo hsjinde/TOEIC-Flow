@@ -1,0 +1,2440 @@
+[
+  {
+    "id": "mock/模擬測驗一",
+    "title": "模擬測驗一",
+    "sections": [
+      {
+        "part": "Part 5：單句文法與字彙填空（15 題）",
+        "title": "",
+        "passage": "",
+        "questions": [
+          {
+            "id": "mock/模擬測驗一#q1",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 1,
+            "stem": "The marketing team must submit the quarterly budget report ______ Friday afternoon.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "at"
+                  },
+                  {
+                    "key": "B",
+                    "text": "by"
+                  },
+                  {
+                    "key": "C",
+                    "text": "since"
+                  },
+                  {
+                    "key": "D",
+                    "text": "among"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（時間）",
+              "analysis": "表示「在（期限）之前」須用 **by**（表示動作在該時間點之前完成，強調期限）。(A) at 用於精確時間點（如 at 3 p.m.），不表示期限；(C) on 用於特定日期或星期，也不表示「之前」；(D) since 表示「自從」，須搭配完成式，句意不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q2",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 2,
+            "stem": "Ms. Rodriguez ______ as the regional sales manager for nearly eight years before she was transferred to headquarters.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "serves"
+                  },
+                  {
+                    "key": "B",
+                    "text": "served"
+                  },
+                  {
+                    "key": "C",
+                    "text": "has served"
+                  },
+                  {
+                    "key": "D",
+                    "text": "had served"
+                  }
+                ],
+                "answer": "D"
+              }
+            ],
+            "explanation": {
+              "title": "時態（過去完成式）",
+              "analysis": "句中有 before 引導的過去時間子句（she was transferred），表示「在轉調之前，已經擔任經理職務長達八年」，須用**過去完成式** had + p.p. 來表示「過去的過去」。(A) serves 為現在式，時態不合；(B) served 為簡單過去式，無法表達「持續到某過去時間點之前」的意涵；(C) has served 為現在完成式，應搭配現在的時間點，而非過去的 before 子句。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q3",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 3,
+            "stem": "The new employee handbook, ______ was distributed last Monday, outlines all company policies.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "that"
+                  },
+                  {
+                    "key": "B",
+                    "text": "what"
+                  },
+                  {
+                    "key": "C",
+                    "text": "which"
+                  },
+                  {
+                    "key": "D",
+                    "text": "who"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "關係代名詞",
+              "analysis": "空格前為逗號，引導**非限定用法的關係子句**，先行詞為 the new employee handbook（物），須用 **which**。(A) that 不可用於非限定用法（有逗號時不可用 that）；(B) what 本身已包含先行詞，不可再接先行詞；(D) who 只能指人，先行詞為物不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q4",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 4,
+            "stem": "Customers can now track their shipments ______ using the updated mobile application.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "convenient"
+                  },
+                  {
+                    "key": "B",
+                    "text": "convenience"
+                  },
+                  {
+                    "key": "C",
+                    "text": "conveniently"
+                  },
+                  {
+                    "key": "D",
+                    "text": "convenienced"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "詞性（副詞修飾動詞）",
+              "analysis": "空格修飾動詞 track（可以更方便地追蹤），須用**副詞** conveniently。(A) convenient 為形容詞；(B) convenience 為名詞；(D) convenienced 非常見詞形，且動詞用法不合句意。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q5",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 5,
+            "stem": "______ the sudden increase in raw material costs, the factory managed to keep production on schedule.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Although"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Despite"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Because"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Unless"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞片語 vs. 連接詞",
+              "analysis": "空格後接的是名詞片語（the sudden increase...），須用**介系詞** despite（儘管，後接名詞）。(A) Although 與 (C) Because 及 (D) Unless 皆為連接詞，須接「主詞+動詞」的子句，不可直接接名詞片語。句意上也是「儘管成本上升」符合轉折語意，despite 最適合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q6",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 6,
+            "stem": "The contract, ______ by both parties last week, will take effect on August 1.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "sign"
+                  },
+                  {
+                    "key": "B",
+                    "text": "signing"
+                  },
+                  {
+                    "key": "C",
+                    "text": "signed"
+                  },
+                  {
+                    "key": "D",
+                    "text": "to sign"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "分詞（過去分詞作形容詞）",
+              "analysis": "空格與逗號間為插入的分詞片語，修飾主詞 the contract。合約與「簽署」之間為**被動關係**（合約被簽署），須用**過去分詞** signed。(A) sign 為原形動詞，不可單獨作修飾語；(B) signing 為現在分詞，表示主動或進行中，語意不合（合約不會主動簽署）；(D) to sign 為不定詞，不符合此處分詞構句的用法。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q7",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 7,
+            "stem": "All interns who wish to ______ the training program must complete an application form.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "join"
+                  },
+                  {
+                    "key": "B",
+                    "text": "joining"
+                  },
+                  {
+                    "key": "C",
+                    "text": "joined"
+                  },
+                  {
+                    "key": "D",
+                    "text": "joins"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "不定詞",
+              "analysis": "wish to + **原形動詞**為固定用法，表示「希望做某事」。(B) joining 為動名詞，不可接在 to 後面作此用法；(C) joined 為過去式；(D) joins 為第三人稱單數現在式，皆不符合 to 後接原形動詞的規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q8",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 8,
+            "stem": "The committee has not yet decided ______ to postpone the annual conference.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "what"
+                  },
+                  {
+                    "key": "B",
+                    "text": "whether"
+                  },
+                  {
+                    "key": "C",
+                    "text": "that"
+                  },
+                  {
+                    "key": "D",
+                    "text": "if not"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "名詞子句連接詞",
+              "analysis": "decide 後接**名詞子句**作受詞，表示「是否」要延後會議，須用 **whether**（是否）。(A) what 表示「什麼」，句意不合；(C) that 引導的名詞子句表示「事實」，不能表達「是否」的疑問語氣；(D) if not 文法及語意皆不通順（if 雖可表示「是否」，但 if not 在此為錯誤用法）。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q9",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 9,
+            "stem": "Of the two proposals submitted, the finance director prefers ______ that includes a detailed cost analysis.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "other"
+                  },
+                  {
+                    "key": "B",
+                    "text": "another"
+                  },
+                  {
+                    "key": "C",
+                    "text": "the other"
+                  },
+                  {
+                    "key": "D",
+                    "text": "others"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "不定代名詞",
+              "analysis": "句中提到「兩個提案」（the two proposals），屬於**有範圍**且為**兩者之中剩下的一個**，須用 **the other**。(A) other 後應接複數名詞或不可數名詞，且無範圍；(B) another 表示「另一個」但無範圍限定（不特指剩下那個）；(D) others 為複數形式，與句子單數語境（偏好「那一個」提案）不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q10",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 10,
+            "stem": "This year's profits were ______ higher than last year's, thanks to the new product line.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "much"
+                  },
+                  {
+                    "key": "B",
+                    "text": "very"
+                  },
+                  {
+                    "key": "C",
+                    "text": "many"
+                  },
+                  {
+                    "key": "D",
+                    "text": "most"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "比較級的強調用法",
+              "analysis": "修飾比較級形容詞 higher，須用可修飾比較級的副詞，如 **much**（…得多）。(B) very 只能修飾原級形容詞，不能修飾比較級；(C) many 用於修飾可數名詞複數，不可修飾形容詞比較級；(D) most 為最高級用法，與句中的比較級 higher 不搭配。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q11",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 11,
+            "stem": "The manager asked her assistant to ______ the meeting minutes before sending them to the board.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "revise"
+                  },
+                  {
+                    "key": "B",
+                    "text": "revision"
+                  },
+                  {
+                    "key": "C",
+                    "text": "revising"
+                  },
+                  {
+                    "key": "D",
+                    "text": "revised"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "不定詞（ask + O + to V）",
+              "analysis": "固定句型 ask + 受詞 + **to + 原形動詞**，表示「要求某人做某事」。(B) revision 為名詞；(C) revising 為動名詞；(D) revised 為過去式/過去分詞，皆不符合 to 後須接原形動詞的文法規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q12",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 12,
+            "stem": "Not only did the company expand its overseas market, ______ it also doubled its annual revenue.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "but"
+                  },
+                  {
+                    "key": "B",
+                    "text": "so"
+                  },
+                  {
+                    "key": "C",
+                    "text": "and"
+                  },
+                  {
+                    "key": "D",
+                    "text": "or"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "對等連接詞（not only...but also）",
+              "analysis": "固定句型 **not only...but (also)...**，表示「不僅...而且...」，且此句用了倒裝（Not only did the company...），後半句須搭配 **but** 呼應。(B)(C)(D) 皆無法與 not only 搭配構成正確的對等連接詞組合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q13",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 13,
+            "stem": "The consultant recommended that the firm ______ its outdated software immediately.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "updates"
+                  },
+                  {
+                    "key": "B",
+                    "text": "update"
+                  },
+                  {
+                    "key": "C",
+                    "text": "updating"
+                  },
+                  {
+                    "key": "D",
+                    "text": "updated"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "假設語氣（建議動詞的 that 子句）",
+              "analysis": "recommend 為**建議動詞**，其後 that 子句須用**「(should) + 原形動詞」**的假設語氣，故選 update。(A) updates 為第三人稱單數現在式；(C) updating 為動名詞；(D) updated 為過去式，皆不符合建議動詞後 that 子句的原形動詞規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q14",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 14,
+            "stem": "Employees are encouraged to submit their expense reports ______ the end of each month.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "during"
+                  },
+                  {
+                    "key": "B",
+                    "text": "between"
+                  },
+                  {
+                    "key": "C",
+                    "text": "before"
+                  },
+                  {
+                    "key": "D",
+                    "text": "among"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（期限）",
+              "analysis": "表示「在…之前」須用 **before**。(A) during 表示「在…期間」；(B) between 表示「在兩者之間」；(D) among 表示「在（三者以上）之中」，皆與「月底之前」的期限語意不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q15",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 15,
+            "stem": "Having reviewed all the applications, the HR director ______ three candidates for the final interview.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "select"
+                  },
+                  {
+                    "key": "B",
+                    "text": "selects"
+                  },
+                  {
+                    "key": "C",
+                    "text": "selected"
+                  },
+                  {
+                    "key": "D",
+                    "text": "selecting"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "主要子句動詞時態（搭配句首分詞構句）",
+              "analysis": "句首 Having reviewed all the applications 為**完成式分詞構句**，表示「審核完所有申請」這個動作發生在主要子句動作**之前**，且與主詞 the HR director 為主動關係（HR 主任主動審核），故分詞構句本身寫法正確。空格位於主要子句，須為**主要動詞**，且應與分詞構句所暗示的過去時間點一致，故用**過去式** selected。(A) select 為原形動詞，不能單獨作主要動詞；(B) selects 為現在式，與句子描述的過去事件不合；(D) selecting 為現在分詞，不能作主要子句的唯一動詞。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 6：短文填空（2 篇，每篇 4 題）",
+        "title": "短文一：公司內部公告",
+        "passage": "To: All Staff\nFrom: Facilities Management\nSubject: Office Renovation Notice\n\nWe would like to inform all employees that the third-floor office space will undergo renovation starting next Monday. During this period, staff members currently ______ (16) on the third floor will be temporarily relocated to the fifth floor.\n\nThe renovation is expected to take approximately three weeks. ______ (17), the completion date may be extended if unforeseen issues arise.\n\n**(18)** ______\n\nPlease remove all personal belongings from your desks by Friday. Facilities staff will not be responsible for any items left behind. If you have questions regarding the relocation, please contact the facilities office ______ (19) extension 245.\n\nWe appreciate your patience and cooperation during this transition.",
+        "questions": [
+          {
+            "id": "mock/模擬測驗一#q16",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 16,
+            "stem": "題目 16",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "work"
+                  },
+                  {
+                    "key": "B",
+                    "text": "working"
+                  },
+                  {
+                    "key": "C",
+                    "text": "worked"
+                  },
+                  {
+                    "key": "D",
+                    "text": "to work"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "分詞作形容詞片語",
+              "analysis": "staff members currently ______ on the third floor 為省略關代與 be 動詞的形容詞子句（= who are currently working），修飾 staff members，須用**現在分詞** working 表示主動進行的動作（員工「正在」該樓層工作）。(A) work 為原形動詞，不可單獨修飾名詞；(C) worked 為被動或過去式語意不合（員工不是被工作）；(D) to work 為不定詞，不符合此處分詞修飾的用法。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q17",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 17,
+            "stem": "題目 17",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Therefore"
+                  },
+                  {
+                    "key": "B",
+                    "text": "However"
+                  },
+                  {
+                    "key": "C",
+                    "text": "In addition"
+                  },
+                  {
+                    "key": "D",
+                    "text": "For example"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "轉折語意連接副詞",
+              "analysis": "前句說「預計三週完成」，後句說「若有突發狀況可能延長」，前後語意為**轉折**，須用 **However**（然而）。(A) Therefore 表示「因此」為因果關係；(C) In addition 表示「此外」為附加關係；(D) For example 表示「例如」為舉例關係，皆不符合此處的轉折語意。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q18",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 18,
+            "stem": "題目 18：選出最適合插入的句子",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "The new office furniture has already been ordered from the supplier."
+                  },
+                  {
+                    "key": "B",
+                    "text": "All employees are required to attend the annual safety training session."
+                  },
+                  {
+                    "key": "C",
+                    "text": "Temporary desks and equipment will be provided at the new location."
+                  },
+                  {
+                    "key": "D",
+                    "text": "The company's quarterly earnings exceeded analysts' expectations."
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "選出最適合插入的句子",
+              "analysis": "上下文談的是員工搬遷至五樓辦公之事，接續的句子應與**搬遷後的安排**相關，故選 (C)「臨時辦公桌與設備將提供於新地點」，承接上文的搬遷主題。(A) 談新辦公家具已訂購，與搬遷通知無關；(B) 談安全訓練課程，離題；(D) 談公司季度盈餘，與本文全無關聯。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q19",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 19,
+            "stem": "題目 19",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "at"
+                  },
+                  {
+                    "key": "B",
+                    "text": "in"
+                  },
+                  {
+                    "key": "C",
+                    "text": "by"
+                  },
+                  {
+                    "key": "D",
+                    "text": "with"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（聯絡方式）",
+              "analysis": "表示「聯絡…分機號碼」，固定搭配為 contact + 對象 + **at** + extension（分機號碼），故選 at。(B) in 與 (D) with 不能與 extension 構成此固定搭配；(C) by 通常用於「透過某種方式/工具」（如 by phone、by email），不用於直接接續分機號碼。\n\n---\n\n### 短文二：電子郵件",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 6：短文填空（2 篇，每篇 4 題）",
+        "title": "短文二：電子郵件",
+        "passage": "Dear Mr. Thompson,\n\nThank you for ______ (20) interest in our upcoming leadership workshop. We are pleased to confirm your registration for the session scheduled on July 15.\n\nPlease arrive at the training center by 8:30 a.m., as the workshop ______ (21) promptly at 9:00 a.m. Light refreshments will be provided during the morning break.\n\n**(22)** ______\n\nIf you need to cancel or reschedule your attendance, kindly notify our office at least three business days ______ (23) advance so that we can offer your spot to another participant.\n\nWe look forward to seeing you at the workshop.\n\nBest regards,\nTraining Department",
+        "questions": [
+          {
+            "id": "mock/模擬測驗一#q20",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 20,
+            "stem": "題目 20",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "you"
+                  },
+                  {
+                    "key": "B",
+                    "text": "your"
+                  },
+                  {
+                    "key": "C",
+                    "text": "yours"
+                  },
+                  {
+                    "key": "D",
+                    "text": "yourself"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "所有格代名詞（形容詞性）",
+              "analysis": "空格後接名詞 interest，須用**所有格**修飾名詞，故選 your。(A) you 為受格/主格；(C) yours 為所有格代名詞（等於 your + 名詞，後面不可再接名詞）；(D) yourself 為反身代名詞，皆不符合空格後須接名詞的文法結構。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q21",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 21,
+            "stem": "題目 21",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "begin"
+                  },
+                  {
+                    "key": "B",
+                    "text": "begins"
+                  },
+                  {
+                    "key": "C",
+                    "text": "began"
+                  },
+                  {
+                    "key": "D",
+                    "text": "has begun"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "時態（現在式，表排定行程）",
+              "analysis": "表示排定好的行程或時刻表，慣用**現在簡單式**表示未來確定發生的事，且主詞 workshop 為單數第三人稱，須用 begins。(A) begin 為原形動詞，與單數主詞不一致；(C) began 為過去式，與上下文的未來排程語意不合；(D) has begun 為現在完成式，語意為「已經開始」，與句意（將於九點準時開始）不符。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q22",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 22,
+            "stem": "題目 22：選出最適合插入的句子",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Please note that parking is available in the lot adjacent to the building."
+                  },
+                  {
+                    "key": "B",
+                    "text": "The company was founded over twenty years ago."
+                  },
+                  {
+                    "key": "C",
+                    "text": "Our marketing team recently launched a new advertising campaign."
+                  },
+                  {
+                    "key": "D",
+                    "text": "The workshop was postponed due to unforeseen circumstances."
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "選出最適合插入的句子",
+              "analysis": "上下文提到抵達訓練中心的時間與課程流程，接續句子應與**會場相關資訊**銜接，故選 (A)「請注意，停車場位於建築物旁」，屬於行前提醒的合理延伸。(B) 談公司成立時間，離題；(C) 談行銷團隊活動，離題；(D) 談工作坊延期，與本文語意矛盾（本文是確認報名，非延期通知）。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q23",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 23,
+            "stem": "題目 23",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "at"
+                  },
+                  {
+                    "key": "B",
+                    "text": "on"
+                  },
+                  {
+                    "key": "C",
+                    "text": "in"
+                  },
+                  {
+                    "key": "D",
+                    "text": "for"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（固定搭配 in advance）",
+              "analysis": "**in advance**（提前）為固定片語，故選 in。(A) at、(B) on、(D) for 皆不能與 advance 構成此固定搭配。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 7：篇章閱讀（2 篇）",
+        "title": "文章一：徵才廣告",
+        "passage": "**Job Posting: Administrative Assistant**\n\nGlobal Tech Solutions is seeking a detail-oriented Administrative Assistant to join our growing office in downtown Seattle. The successful candidate will support the operations manager with scheduling, correspondence, and general office duties.\n\n**Responsibilities:**\n- Answer and direct phone calls\n- Maintain filing systems, both electronic and physical\n- Schedule appointments and manage the operations manager's calendar\n- Prepare reports and presentations as needed\n\n**Requirements:**\n- At least two years of administrative experience\n- Proficiency in Microsoft Office Suite\n- Strong written and verbal communication skills\n- Ability to work independently with minimal supervision\n\nThis is a full-time position with a competitive salary and benefits package, including health insurance and paid vacation. Interested candidates should submit a resume and cover letter to careers@globaltechsolutions.com by July 20. Only shortlisted applicants will be contacted for an interview.",
+        "questions": [
+          {
+            "id": "mock/模擬測驗一#q24",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 24,
+            "stem": "What is the main purpose of this notice?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "To announce a company merger"
+                  },
+                  {
+                    "key": "B",
+                    "text": "To advertise an open position"
+                  },
+                  {
+                    "key": "C",
+                    "text": "To promote a new software product"
+                  },
+                  {
+                    "key": "D",
+                    "text": "To describe upcoming office renovations"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "主旨題",
+              "analysis": "文章開頭即說明 Global Tech Solutions is seeking a detail-oriented Administrative Assistant，全文圍繞徵才職缺的內容與應徵方式展開，故答案為 (B)「宣傳一個職缺空缺」。(A) 公司合併、(C) 新軟體產品、(D) 辦公室翻修皆未在文中提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q25",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 25,
+            "stem": "What is NOT listed as a responsibility of the position?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Managing the operations manager's schedule"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Preparing reports and presentations"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Conducting job interviews"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Maintaining filing systems"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "細節題（反向排除）",
+              "analysis": "文章列出的職責為：接聽電話、維護檔案系統、安排行事曆、準備報告與簡報，並**未提及**「進行面試」（Conducting job interviews），故答案為 (C)。(A)(B)(D) 皆有在 Responsibilities 段落中明確列出。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q26",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 26,
+            "stem": "According to the notice, what should interested applicants do?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Call the office directly"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Visit the company in person"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Send a resume and cover letter by email"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Attend an open house event"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中明確指出 Interested candidates should submit a resume and cover letter to careers@globaltechsolutions.com，故答案為 (C)「以電子郵件寄送履歷與求職信」。(A)(B)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q27",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 27,
+            "stem": "The word \"shortlisted\" in the last sentence is closest in meaning to",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "rejected"
+                  },
+                  {
+                    "key": "B",
+                    "text": "selected for further consideration"
+                  },
+                  {
+                    "key": "C",
+                    "text": "newly hired"
+                  },
+                  {
+                    "key": "D",
+                    "text": "temporarily assigned"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "字義題",
+              "analysis": "\"shortlisted\" 於此語境指「入圍/被列入候選名單」，即「被選中作進一步考慮」，故最接近 (B) selected for further consideration。(A) rejected（被拒絕）恰好相反；(C) newly hired（剛被錄取）程度超過原意（尚未錄取，只是進入面試名單）；(D) temporarily assigned（臨時指派）與原意無關。\n\n---\n\n### 文章二：客戶通知信",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 7：篇章閱讀（2 篇）",
+        "title": "文章二：客戶通知信",
+        "passage": "Dear Valued Customer,\n\nWe are writing to inform you of an important update to our online banking service. Beginning August 1, our mobile application will introduce a new two-step verification process to enhance the security of your account.\n\nAfter this date, whenever you log in from a new device, you will be required to enter a verification code sent to your registered mobile number, in addition to your regular password. This additional layer of protection is designed to prevent unauthorized access to your account, especially in cases where your password may have been compromised.\n\nPlease ensure that your contact information, including your mobile number, is up to date in our system. You can verify or update this information by visiting the \"Account Settings\" section of the app or by contacting our customer service center.\n\nWe understand that this change may require a brief adjustment period, and we appreciate your understanding as we work to keep your financial information safe.\n\nIf you have any questions about this update, please do not hesitate to contact our support team at support@securebank.com or call 1-800-555-0199.\n\nSincerely,\nCustomer Security Team\nSecureBank",
+        "questions": [
+          {
+            "id": "mock/模擬測驗一#q28",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 28,
+            "stem": "Why did SecureBank send this letter?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "To apologize for a recent service outage"
+                  },
+                  {
+                    "key": "B",
+                    "text": "To notify customers of a new security feature"
+                  },
+                  {
+                    "key": "C",
+                    "text": "To announce a change in interest rates"
+                  },
+                  {
+                    "key": "D",
+                    "text": "To promote a new mobile application"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "主旨題",
+              "analysis": "文章開頭說明 we are writing to inform you of an important update...our mobile application will introduce a new two-step verification process，故答案為 (B)「通知客戶一項新的安全功能」。(A) 服務中斷道歉、(C) 利率變動、(D) 推廣新應用程式皆與文章主旨不符。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q29",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 29,
+            "stem": "According to the letter, what will customers need to do when logging in from a new device after August 1?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Visit a branch in person"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Enter a verification code sent to their phone"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Create a new password every time"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Answer a series of security questions"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中明確說明 whenever you log in from a new device, you will be required to enter a verification code sent to your registered mobile number，故答案為 (B)。(A)(C)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q30",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 30,
+            "stem": "What are customers advised to do before the change takes effect?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Close their current accounts"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Download a new application"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Make sure their mobile number is up to date"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Schedule an appointment with customer service"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中提到 Please ensure that your contact information, including your mobile number, is up to date in our system，故答案為 (C)「確保行動電話號碼為最新資訊」。(A)(B)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗一#q31",
+            "source": "note",
+            "chapterId": "mock/模擬測驗一",
+            "categoryId": "mock",
+            "number": 31,
+            "stem": "The phrase \"compromised\" in the second paragraph is closest in meaning to",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "improved"
+                  },
+                  {
+                    "key": "B",
+                    "text": "exposed to risk"
+                  },
+                  {
+                    "key": "C",
+                    "text": "permanently deleted"
+                  },
+                  {
+                    "key": "D",
+                    "text": "officially verified"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "字義題",
+              "analysis": "\"compromised\" 於資安語境中指「（帳號密碼等）遭洩漏或暴露於風險中」，最接近 (B) exposed to risk。(A) improved（改善）、(C) permanently deleted（永久刪除）、(D) officially verified（正式驗證）皆與原意不符。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mock/模擬測驗二",
+    "title": "模擬測驗二",
+    "sections": [
+      {
+        "part": "Part 5：單句文法與字彙填空（15 題）",
+        "title": "",
+        "passage": "",
+        "questions": [
+          {
+            "id": "mock/模擬測驗二#q1",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 1,
+            "stem": "The design team submitted the final ______ for the new product packaging yesterday.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "propose"
+                  },
+                  {
+                    "key": "B",
+                    "text": "proposal"
+                  },
+                  {
+                    "key": "C",
+                    "text": "proposed"
+                  },
+                  {
+                    "key": "D",
+                    "text": "proposing"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "詞性（名詞作受詞）",
+              "analysis": "動詞 submitted 後須接**名詞**作受詞，且空格前有定冠詞 the 及形容詞 final 修飾，故選名詞 proposal。(A) propose 為動詞；(C) proposed 為過去式/過去分詞；(D) proposing 為動名詞，皆不符合 the final ______ 需為名詞的文法位置。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q2",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 2,
+            "stem": "By the time the CEO arrives tomorrow morning, the staff ______ the entire conference room.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "decorate"
+                  },
+                  {
+                    "key": "B",
+                    "text": "will decorate"
+                  },
+                  {
+                    "key": "C",
+                    "text": "will have decorated"
+                  },
+                  {
+                    "key": "D",
+                    "text": "decorated"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "時態（未來完成式）",
+              "analysis": "句型 By the time + 現在式子句，表示「到某未來時間點為止」，主要子句須用**未來完成式** will have + p.p.，表示「屆時已經完成」。(A) decorate 為原形動詞；(B) will decorate 為簡單未來式，只表示未來會做，未強調「屆時已完成」；(D) decorated 為過去式，時態不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q3",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 3,
+            "stem": "The customer service representative who ______ your call yesterday has already forwarded your complaint to the manager.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "take"
+                  },
+                  {
+                    "key": "B",
+                    "text": "took"
+                  },
+                  {
+                    "key": "C",
+                    "text": "taking"
+                  },
+                  {
+                    "key": "D",
+                    "text": "is taken"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "關係代名詞（先行詞為人）",
+              "analysis": "空格引導**限定用法關係子句**，修飾先行詞 the customer service representative（人），且子句中缺少主詞，須用**主格關係代名詞** who，並依句意（過去接的電話）搭配**過去式動詞** took。(A) take 為現在式，與過去語境（yesterday）不合；(C) taking 缺少助動詞不能單獨作子句動詞；(D) is taken 為被動語態，與句意（該員接了電話，主動動作）不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q4",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 4,
+            "stem": "The negotiations between the two companies proceeded ______ despite the tight deadline.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "smooth"
+                  },
+                  {
+                    "key": "B",
+                    "text": "smoothness"
+                  },
+                  {
+                    "key": "C",
+                    "text": "smoothly"
+                  },
+                  {
+                    "key": "D",
+                    "text": "smoother"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "詞性（副詞修飾動詞）",
+              "analysis": "空格修飾動詞 proceeded（進行得如何），須用**副詞** smoothly。(A) smooth 為形容詞；(B) smoothness 為名詞；(D) smoother 為形容詞比較級，皆不能修飾動詞。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q5",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 5,
+            "stem": "______ the manual carefully, the technician was still unable to fix the printer.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Despite"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Although"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Because of"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Due to"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "連接詞（雖然）",
+              "analysis": "空格後接「主詞 + 動詞」的完整子句（the technician read the manual carefully，此處為分詞構句省略主詞與 be 動詞的簡化形式，但原句邏輯為讓步子句），須用**連接詞** Although。(A) Despite 與 (D) Due to 為介系詞，後面應接名詞或動名詞而非完整子句邏輯；(C) Because of 也是介系詞片語，且語意為「因為」，與句意（儘管讀了手冊仍無法修好）的**轉折**邏輯不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q6",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 6,
+            "stem": "The invoice, ______ to the wrong department, was returned three days later.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "send"
+                  },
+                  {
+                    "key": "B",
+                    "text": "sending"
+                  },
+                  {
+                    "key": "C",
+                    "text": "sent"
+                  },
+                  {
+                    "key": "D",
+                    "text": "to send"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "分詞（過去分詞作形容詞）",
+              "analysis": "逗號間的分詞片語修飾主詞 the invoice，發票與「寄送」之間為**被動關係**（發票被寄到錯誤部門），須用**過去分詞** sent。(A) send 為原形動詞；(B) sending 為現在分詞，表主動語意不合；(D) to send 為不定詞，皆不符合此處分詞構句的被動語意需求。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q7",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 7,
+            "stem": "Applicants hoping to ______ for the scholarship must submit all documents by June 30.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "qualify"
+                  },
+                  {
+                    "key": "B",
+                    "text": "qualifying"
+                  },
+                  {
+                    "key": "C",
+                    "text": "qualified"
+                  },
+                  {
+                    "key": "D",
+                    "text": "qualifies"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "不定詞",
+              "analysis": "hope to + **原形動詞**為固定用法。(B) qualifying 為動名詞；(C) qualified 為過去式/過去分詞；(D) qualifies 為第三人稱單數現在式，皆不符合 to 後接原形動詞的規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q8",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 8,
+            "stem": "It is still unclear ______ the merger will be finalized by the end of this quarter.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "what"
+                  },
+                  {
+                    "key": "B",
+                    "text": "whether"
+                  },
+                  {
+                    "key": "C",
+                    "text": "that"
+                  },
+                  {
+                    "key": "D",
+                    "text": "who"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "名詞子句連接詞",
+              "analysis": "It is unclear 後接**名詞子句**作真正主詞，表示「是否」合併案會定案，須用 **whether**。(A) what 表示「什麼」不合句意；(C) that 引導事實子句，無法表達「是否」的疑問語氣；(D) who 指人，與句意不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q9",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 9,
+            "stem": "The company owns two warehouses; one is in Taipei, and ______ is in Kaohsiung.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "other"
+                  },
+                  {
+                    "key": "B",
+                    "text": "another"
+                  },
+                  {
+                    "key": "C",
+                    "text": "the other"
+                  },
+                  {
+                    "key": "D",
+                    "text": "others"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "不定代名詞",
+              "analysis": "句中提到「兩個倉庫」（two warehouses），屬於**有範圍**且為**兩者之中剩下的一個**，須用 **the other**。(A) other 應接複數/不可數名詞且無範圍；(B) another 表示「另一個」但無範圍限定；(D) others 為複數形式，與句意（另一個倉庫，單數）不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q10",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 10,
+            "stem": "The new marketing strategy proved to be ______ more effective than the previous one.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "very"
+                  },
+                  {
+                    "key": "B",
+                    "text": "many"
+                  },
+                  {
+                    "key": "C",
+                    "text": "far"
+                  },
+                  {
+                    "key": "D",
+                    "text": "most"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "比較級的強調用法",
+              "analysis": "修飾比較級形容詞 more effective，須用可修飾比較級的副詞，如 **far**（…得多）。(A) very 只能修飾原級形容詞；(B) many 修飾可數名詞複數；(D) most 為最高級用法，皆與比較級 more effective 不搭配。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q11",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 11,
+            "stem": "The supervisor asked the technician to ______ the malfunctioning equipment before the next shift begins.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "inspect"
+                  },
+                  {
+                    "key": "B",
+                    "text": "inspection"
+                  },
+                  {
+                    "key": "C",
+                    "text": "inspecting"
+                  },
+                  {
+                    "key": "D",
+                    "text": "inspected"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "不定詞（ask + O + to V）",
+              "analysis": "固定句型 ask + 受詞 + **to + 原形動詞**。(B) inspection 為名詞；(C) inspecting 為動名詞；(D) inspected 為過去式/過去分詞，皆不符合 to 後須接原形動詞的規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q12",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 12,
+            "stem": "The keynote speaker not only impressed the audience ______ also inspired several attendees to launch their own start-ups.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "but"
+                  },
+                  {
+                    "key": "B",
+                    "text": "so"
+                  },
+                  {
+                    "key": "C",
+                    "text": "and"
+                  },
+                  {
+                    "key": "D",
+                    "text": "yet"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "對等連接詞（not only...but also）",
+              "analysis": "固定句型 **not only...but (also)...**，表示「不僅...而且...」，須用 **but** 與 not only 呼應。(B)(C)(D) 皆無法與 not only 搭配構成正確的對等連接詞組合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q13",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 13,
+            "stem": "The board insists that every department head ______ a monthly performance report.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "submits"
+                  },
+                  {
+                    "key": "B",
+                    "text": "submit"
+                  },
+                  {
+                    "key": "C",
+                    "text": "submitting"
+                  },
+                  {
+                    "key": "D",
+                    "text": "submitted"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "假設語氣（建議動詞的 that 子句）",
+              "analysis": "insist 作「堅持要求」解時，為**建議動詞**，其後 that 子句須用**「(should) + 原形動詞」**的假設語氣，故選 submit。(A) submits 為第三人稱單數現在式；(C) submitting 為動名詞；(D) submitted 為過去式，皆不符合建議動詞後 that 子句的原形動詞規則。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q14",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 14,
+            "stem": "The shipment is expected to arrive ______ the next two business days.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "during"
+                  },
+                  {
+                    "key": "B",
+                    "text": "within"
+                  },
+                  {
+                    "key": "C",
+                    "text": "among"
+                  },
+                  {
+                    "key": "D",
+                    "text": "since"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（期間內）",
+              "analysis": "表示「在（未來）兩個工作天之內」，須用 **within**（在…範圍內）。(A) during 後接特定的一段期間名詞（如 during the meeting），不用於「未來 N 天內」的語境；(C) among 表示「在（三者以上）之中」；(D) since 表示「自從」，皆與句意不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q15",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 15,
+            "stem": "______ received positive feedback from focus groups, the marketing team decided to launch the campaign nationwide.",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Having"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Have"
+                  },
+                  {
+                    "key": "C",
+                    "text": "To have"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Had"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "分詞構句（完成式主動分詞）",
+              "analysis": "句首分詞構句的動作（收到正面回饋）發生在主要子句動作（決定全國上市）**之前**，且與主詞 the marketing team 為**主動關係**（行銷團隊主動收到回饋），須用**完成式主動分詞** Having received。(B) Have 為原形動詞；(C) To have 為不定詞；(D) Had 為過去完成式的助動詞形式但不能單獨置於句首作分詞構句，皆不符合此處需求。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 6：短文填空（2 篇，每篇 4 題）",
+        "title": "短文一：供應商通知信",
+        "passage": "Dear Valued Partner,\n\nWe are writing to inform you of a temporary change in our ______ (16) schedule due to the upcoming holiday period. Our warehouse will be closed from December 24 to January 2, and all shipments during this period will be delayed accordingly.\n\nOrders placed before December 20 will be processed and shipped as usual. ______ (17), orders placed after this date will not be fulfilled until our warehouse reopens on January 3.\n\n**(18)** ______\n\nWe recommend that you place any urgent orders as early as possible to avoid delays. If you have questions regarding your existing orders, please contact our logistics team ______ (19) the email address below.\n\nThank you for your continued partnership.\n\nBest regards,\nLogistics Department",
+        "questions": [
+          {
+            "id": "mock/模擬測驗二#q16",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 16,
+            "stem": "題目 16",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "deliver"
+                  },
+                  {
+                    "key": "B",
+                    "text": "delivery"
+                  },
+                  {
+                    "key": "C",
+                    "text": "delivered"
+                  },
+                  {
+                    "key": "D",
+                    "text": "delivering"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "詞性（名詞修飾名詞）",
+              "analysis": "schedule 前需要一個**名詞**作複合名詞修飾語，構成 delivery schedule（出貨時程表），故選 delivery。(A) deliver 為動詞；(C) delivered 為過去分詞；(D) delivering 為現在分詞，皆不符合此處複合名詞的固定用法。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q17",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 17,
+            "stem": "題目 17",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "For example"
+                  },
+                  {
+                    "key": "B",
+                    "text": "In addition"
+                  },
+                  {
+                    "key": "C",
+                    "text": "However"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Similarly"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "轉折語意連接副詞",
+              "analysis": "前句說「12/20 前下單將如常出貨」，後句說「之後下單則會延遲」，前後語意為**轉折**，須用 **However**（然而）。(A) For example 表舉例；(B) In addition 表附加；(D) Similarly 表相似，皆不符合此處的轉折語意。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q18",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 18,
+            "stem": "題目 18：選出最適合插入的句子",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Our company was established more than fifteen years ago."
+                  },
+                  {
+                    "key": "B",
+                    "text": "We sincerely apologize for any inconvenience this may cause."
+                  },
+                  {
+                    "key": "C",
+                    "text": "The new product line will be available starting next spring."
+                  },
+                  {
+                    "key": "D",
+                    "text": "Please find attached our latest product catalog."
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "選出最適合插入的句子",
+              "analysis": "上下文說明因假期倉庫關閉導致出貨延遲，接續句子應與**致歉**相關，承接對客戶造成不便的情境，故選 (B)「對此造成的不便我們深感抱歉」。(A) 談公司成立時間，離題；(C) 談新產品線上市，離題；(D) 談附上產品型錄，與出貨延遲通知的語境不符。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q19",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 19,
+            "stem": "題目 19",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "at"
+                  },
+                  {
+                    "key": "B",
+                    "text": "by"
+                  },
+                  {
+                    "key": "C",
+                    "text": "in"
+                  },
+                  {
+                    "key": "D",
+                    "text": "on"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（透過方式）",
+              "analysis": "表示「透過（下方的電子郵件地址）聯絡」，固定搭配使用 **at**（contact us at + 聯絡方式）。(B) by 較常用於 by phone/by email 等方式名詞前，而非直接接 email address；(C) in 與 (D) on 皆不符合此固定搭配。\n\n---\n\n### 短文二：公司內部備忘錄",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 6：短文填空（2 篇，每篇 4 題）",
+        "title": "短文二：公司內部備忘錄",
+        "passage": "To: All Department Managers\nFrom: Human Resources\nSubject: Updated Performance Review Process\n\nStarting next month, the company will implement a revised performance review process for ______ (20) employee. Each manager will be required to submit evaluation forms electronically rather than on paper.\n\nThe new system ______ (21) designed to streamline the review process and reduce paperwork across all departments.\n\n**(22)** ______\n\nAll managers must complete a brief training session on the new system before the first review cycle begins. Training sessions will be held ______ (23) the human resources office next Tuesday and Wednesday.\n\nPlease confirm your attendance by replying to this email.\n\nThank you for your cooperation.\n\nHuman Resources Department",
+        "questions": [
+          {
+            "id": "mock/模擬測驗二#q20",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 20,
+            "stem": "題目 20",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "every"
+                  },
+                  {
+                    "key": "B",
+                    "text": "all"
+                  },
+                  {
+                    "key": "C",
+                    "text": "most"
+                  },
+                  {
+                    "key": "D",
+                    "text": "each of"
+                  }
+                ],
+                "answer": "A"
+              }
+            ],
+            "explanation": {
+              "title": "形容詞（修飾單數名詞）",
+              "analysis": "for 後接單數名詞 employee，須用可修飾**單數可數名詞**的 **every**（每一個）。(B) all 通常搭配複數名詞（all employees）；(C) most 也搭配複數或不可數名詞；(D) all of 用法不完整（all of + the + 複數名詞），皆與後方單數名詞 employee 不合。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q21",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 21,
+            "stem": "題目 21",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "has"
+                  },
+                  {
+                    "key": "B",
+                    "text": "is"
+                  },
+                  {
+                    "key": "C",
+                    "text": "was"
+                  },
+                  {
+                    "key": "D",
+                    "text": "had"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "主詞動詞一致性",
+              "analysis": "主詞 the new system 為單數第三人稱，且句意描述現在的狀態（新制度旨在…），須用**現在式** is。(A) has 為現在完成式助動詞但與 designed 搭配需為 has been designed 才合語法；(C) was 為過去式，與句子描述現行制度的語境不合；(D) had 同樣不符合現在式的需求。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q22",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 22,
+            "stem": "題目 22：選出最適合插入的句子",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "The company's annual revenue grew by ten percent last year."
+                  },
+                  {
+                    "key": "B",
+                    "text": "This change is part of a broader effort to modernize internal operations."
+                  },
+                  {
+                    "key": "C",
+                    "text": "Employees are encouraged to take advantage of the wellness program."
+                  },
+                  {
+                    "key": "D",
+                    "text": "The office will be relocated to a new building next year."
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "選出最適合插入的句子",
+              "analysis": "上下文談論新的績效考核系統的目的，接續句子應延伸說明此變革的**背景與目的**，故選 (B)「此變革是公司推動內部作業現代化的一部分」，承接上文語意。(A) 談公司年營收成長，離題；(C) 談健康福利計畫，離題；(D) 談辦公室搬遷，與績效考核制度無關。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q23",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 23,
+            "stem": "題目 23",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "at"
+                  },
+                  {
+                    "key": "B",
+                    "text": "in"
+                  },
+                  {
+                    "key": "C",
+                    "text": "on"
+                  },
+                  {
+                    "key": "D",
+                    "text": "with"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "介系詞（地點）",
+              "analysis": "表示「在人資辦公室（這個場所內）」，須用 **in**。(A) at 通常用於較精確的地點或機構名稱前（如 at the office），但此處後接 the human resources office 且強調「在辦公室內部」舉行訓練，in 更符合此語境的空間概念；(C) on 用於接觸面或特定日期；(D) with 表示「與…一起」，皆不符合地點介系詞的用法。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 7：篇章閱讀（2 篇）",
+        "title": "文章一：產品發表公告",
+        "passage": "**Introducing the AeroClean Pro: Now Available**\n\nHorizon Home Appliances is proud to announce the release of the AeroClean Pro, our most advanced air purifier yet. Designed for both residential and small office use, the AeroClean Pro features a five-stage filtration system that removes up to 99.9% of airborne particles, including dust, pollen, and smoke.\n\nUnlike our previous models, the AeroClean Pro includes a smart sensor that automatically adjusts the fan speed based on real-time air quality readings. The unit also connects to the Horizon Home app, allowing users to monitor air quality remotely and receive filter replacement reminders.\n\nThe AeroClean Pro is available now at all Horizon Home retail locations and on our website for $249. Customers who purchase before the end of this month will receive a complimentary replacement filter, a $35 value.\n\nFor more information or to schedule a free in-home demonstration, please call 1-800-555-0142 or visit our website.",
+        "questions": [
+          {
+            "id": "mock/模擬測驗二#q24",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 24,
+            "stem": "What is being announced in this notice?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "A change in store operating hours"
+                  },
+                  {
+                    "key": "B",
+                    "text": "The release of a new product"
+                  },
+                  {
+                    "key": "C",
+                    "text": "A merger between two companies"
+                  },
+                  {
+                    "key": "D",
+                    "text": "An update to a mobile application"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "主旨題",
+              "analysis": "文章開頭 Horizon Home Appliances is proud to announce the release of the AeroClean Pro，全文圍繞新產品的介紹與購買資訊展開，故答案為 (B)「一項新產品的發表」。(A)(C)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q25",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 25,
+            "stem": "What feature distinguishes the AeroClean Pro from previous models?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "A lower price point"
+                  },
+                  {
+                    "key": "B",
+                    "text": "A smart sensor that adjusts fan speed automatically"
+                  },
+                  {
+                    "key": "C",
+                    "text": "A larger storage capacity"
+                  },
+                  {
+                    "key": "D",
+                    "text": "A longer warranty period"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中明確指出 Unlike our previous models, the AeroClean Pro includes a smart sensor that automatically adjusts the fan speed based on real-time air quality readings，故答案為 (B)。(A) 文中未提及價格是本產品的特色差異；(C)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q26",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 26,
+            "stem": "What can customers receive if they purchase before the end of the month?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "A free in-home demonstration"
+                  },
+                  {
+                    "key": "B",
+                    "text": "A discount on their next purchase"
+                  },
+                  {
+                    "key": "C",
+                    "text": "A complimentary replacement filter"
+                  },
+                  {
+                    "key": "D",
+                    "text": "An extended warranty"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中提到 Customers who purchase before the end of this month will receive a complimentary replacement filter，故答案為 (C)。(A) 免費到府展示為另一項服務，非購買前的優惠；(B)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q27",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 27,
+            "stem": "The word \"complimentary\" in the last paragraph of the third paragraph is closest in meaning to",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "optional"
+                  },
+                  {
+                    "key": "B",
+                    "text": "free of charge"
+                  },
+                  {
+                    "key": "C",
+                    "text": "limited edition"
+                  },
+                  {
+                    "key": "D",
+                    "text": "previously used"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "字義題",
+              "analysis": "\"complimentary\" 於此語境指「免費贈送的」，最接近 (B) free of charge。(A) optional（可選的）、(C) limited edition（限量版）、(D) previously used（二手的）皆與原意不符。\n\n---\n\n### 文章二：會議通知信",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      },
+      {
+        "part": "Part 7：篇章閱讀（2 篇）",
+        "title": "文章二：會議通知信",
+        "passage": "Dear Team Members,\n\nThis is a reminder that the annual company retreat will take place from September 10 to September 12 at Lakeside Conference Center. All full-time employees are expected to attend, as this year's retreat will include important sessions on the company's five-year strategic plan.\n\nThe retreat will begin with a welcome dinner on the evening of September 10, followed by two full days of workshops, team-building activities, and department presentations. A detailed schedule will be distributed to all attendees by email one week prior to the event.\n\nTransportation will be provided from the office to the conference center on the morning of September 10, and return transportation will be arranged for the afternoon of September 12. Employees who prefer to drive themselves should notify their department manager by September 1 so that parking arrangements can be made.\n\nPlease note that casual business attire is recommended for all sessions, except for the welcome dinner, which calls for business formal attire. If you have any dietary restrictions or accessibility needs, please inform the events coordinator no later than August 25.\n\nWe look forward to a productive and enjoyable retreat.\n\nBest regards,\nEvents Coordination Team",
+        "questions": [
+          {
+            "id": "mock/模擬測驗二#q28",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 28,
+            "stem": "What is the main purpose of this letter?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "To cancel a previously scheduled event"
+                  },
+                  {
+                    "key": "B",
+                    "text": "To remind employees of an upcoming company retreat"
+                  },
+                  {
+                    "key": "C",
+                    "text": "To announce a change in company leadership"
+                  },
+                  {
+                    "key": "D",
+                    "text": "To request feedback on a past event"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "主旨題",
+              "analysis": "文章開頭 This is a reminder that the annual company retreat will take place from September 10 to September 12，全文圍繞公司年度靜修會的提醒與行前資訊，故答案為 (B)「提醒員工即將舉行的公司靜修會」。(A)(C)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q29",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 29,
+            "stem": "According to the letter, when will attendees receive a detailed schedule?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "On the first day of the retreat"
+                  },
+                  {
+                    "key": "B",
+                    "text": "One week before the retreat"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Immediately after registering"
+                  },
+                  {
+                    "key": "D",
+                    "text": "On September 1"
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中明確指出 A detailed schedule will be distributed to all attendees by email one week prior to the event，故答案為 (B)「靜修會開始前一週」。(A)(C)(D) 皆與原文不符。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q30",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 30,
+            "stem": "What should employees do if they plan to drive themselves to the retreat?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "Contact the events coordinator by August 25"
+                  },
+                  {
+                    "key": "B",
+                    "text": "Purchase their own parking pass"
+                  },
+                  {
+                    "key": "C",
+                    "text": "Notify their department manager by September 1"
+                  },
+                  {
+                    "key": "D",
+                    "text": "Arrive one hour earlier than other attendees"
+                  }
+                ],
+                "answer": "C"
+              }
+            ],
+            "explanation": {
+              "title": "細節題",
+              "analysis": "文中提到 Employees who prefer to drive themselves should notify their department manager by September 1，故答案為 (C)。(A) 8/25 前通知飲食限制或無障礙需求為另一項規定，與自行開車無關；(B)(D) 文中皆未提及。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          },
+          {
+            "id": "mock/模擬測驗二#q31",
+            "source": "note",
+            "chapterId": "mock/模擬測驗二",
+            "categoryId": "mock",
+            "number": 31,
+            "stem": "What is suggested about the welcome dinner on September 10?",
+            "blanks": [
+              {
+                "label": null,
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "It is optional for all employees."
+                  },
+                  {
+                    "key": "B",
+                    "text": "It requires more formal attire than other sessions."
+                  },
+                  {
+                    "key": "C",
+                    "text": "It will take place off-site."
+                  },
+                  {
+                    "key": "D",
+                    "text": "It will include a presentation on the five-year plan."
+                  }
+                ],
+                "answer": "B"
+              }
+            ],
+            "explanation": {
+              "title": "推論題",
+              "analysis": "文中提到 casual business attire is recommended for all sessions, except for the welcome dinner, which calls for business formal attire，可推知歡迎晚宴要求比其他場次**更正式**的服裝，故答案為 (B)。(A) 文中說明所有全職員工皆須出席，並非可選；(C) 文中未提及晚宴地點在場外；(D) 五年策略簡報屬於工作坊議程的一部分，並未特別指明在歡迎晚宴中進行。",
+              "grammarPoint": null,
+              "similarNote": null
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
