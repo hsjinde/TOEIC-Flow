@@ -1,5 +1,13 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { getDailyProgress, recordTaskCompletion } from '../src/lib/storage'
+import {
+  getDailyProgress,
+  recordTaskCompletion,
+  recordQuestionAnswer,
+  getWrongQuestionsMap,
+  updateVocabMastery,
+  getVocabMasteryMap,
+  getCategoryStats,
+} from '../src/lib/storage'
 
 const localStorageMock = (() => {
   let store: Record<string, string> = {}
@@ -40,5 +48,35 @@ describe('storage controller', () => {
     recordTaskCompletion('grammar')
     const progress = getDailyProgress()
     expect(progress.grammarCompleted).toBe(true)
+  })
+
+  it('records wrong answers and graduates after 2 consecutive correct answers', () => {
+    // 1. Answer incorrectly -> added to wrong map
+    recordQuestionAnswer('q1', 'grammar/01', false)
+    expect(getWrongQuestionsMap()['q1']?.failCount).toBe(1)
+    expect(getWrongQuestionsMap()['q1']?.consecutiveCorrect).toBe(0)
+
+    // 2. Answer correctly once -> consecutiveCorrect = 1, still in wrong map
+    recordQuestionAnswer('q1', 'grammar/01', true)
+    expect(getWrongQuestionsMap()['q1']?.consecutiveCorrect).toBe(1)
+
+    // 3. Answer correctly second time -> consecutiveCorrect = 2, graduated & removed!
+    recordQuestionAnswer('q1', 'grammar/01', true)
+    expect(getWrongQuestionsMap()['q1']).toBeUndefined()
+  })
+
+  it('updates vocab mastery levels', () => {
+    updateVocabMastery('v-information', 3)
+    expect(getVocabMasteryMap()['v-information']?.level).toBe(3)
+  })
+
+  it('calculates category accuracy stats correctly', () => {
+    recordQuestionAnswer('q1', '01_語態與時態', true)
+    recordQuestionAnswer('q2', '01_語態與時態', false)
+
+    const stats = getCategoryStats()
+    expect(stats[0]?.categoryId).toBe('01_語態與時態')
+    expect(stats[0]?.totalAnswered).toBe(2)
+    expect(stats[0]?.accuracyRate).toBe(50)
   })
 })
