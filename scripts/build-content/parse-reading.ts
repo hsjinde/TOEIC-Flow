@@ -9,8 +9,11 @@ const SKIP_HEADING_RE = /(答題策略|解題技巧)/
 const OPTION_RE = /^\(([A-D])\)\s*(.+)$/
 const RULE_RE = /^-{3,}$/
 
-/** Reading notes put each option on its own line, unlike grammar chapters. */
-function parseQuestionBody(body: string): { stem: string; options: Option[] } {
+/**
+ * Reading and mock-exam notes put each option on its own line, unlike grammar
+ * chapters. Shared with parse-mock, which uses the same layout.
+ */
+export function parseQuestionBody(body: string): { stem: string; options: Option[] } {
   const stemLines: string[] = []
   const options: Option[] = []
 

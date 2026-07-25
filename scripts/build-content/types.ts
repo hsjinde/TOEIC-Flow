@@ -90,10 +90,26 @@ export const ReadingPassageSchema = z.object({
 })
 export type ReadingPassage = z.infer<typeof ReadingPassageSchema>
 
+/**
+ * One block of a mock exam. Part 5 yields a single section with no prose; Part
+ * 6 and Part 7 yield one section per passage. The passage has to be kept or
+ * those parts are unanswerable — the blanks live in the prose, not the stem.
+ */
+export const MockExamSectionSchema = z.object({
+  /** the Part heading this block sits under, e.g. Part 6：短文填空（2 篇，每篇 4 題） */
+  part: z.string().min(1),
+  /** the passage heading, empty for Part 5 */
+  title: z.string(),
+  /** the passage prose, empty for Part 5 */
+  passage: z.string(),
+  questions: z.array(QuestionSchema).min(1),
+})
+export type MockExamSection = z.infer<typeof MockExamSectionSchema>
+
 export const MockExamSchema = z.object({
   id: z.string().min(1),
   title: z.string(),
-  questions: z.array(QuestionSchema).min(1),
+  sections: z.array(MockExamSectionSchema).min(1),
 })
 export type MockExam = z.infer<typeof MockExamSchema>
 
