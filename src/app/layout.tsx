@@ -4,7 +4,7 @@ import { BottomNav } from '../components/BottomNav'
 
 export const metadata: Metadata = {
   title: 'TOEIC Flow — 每日多益練習',
-  description: '手機優先、專注高品質的多益每日練習應用',
+  description: '手機與電腦兼備、專注高品質的多益每日練習應用',
 }
 
 export default function RootLayout({
@@ -15,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className="dark">
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
-        <main className="mx-auto max-w-md min-h-screen px-4 pt-6 pb-20 flex flex-col justify-between">
-          {children}
-        </main>
+        <div className="min-h-screen flex flex-col items-center">
+          <main className="w-full max-w-md md:max-w-2xl lg:max-w-4xl min-h-screen px-4 pt-6 pb-24 md:pb-12 flex flex-col justify-between">
+            {children}
+          </main>
+        </div>
         <BottomNav />
       </body>
     </html>
