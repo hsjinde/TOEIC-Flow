@@ -20,7 +20,13 @@ export async function onRequestGet(context: any) {
   }
 
   const userId = payload.userId
-  const db = context.env.toeic_db
+  const db = context.env.toeic_db || context.env.DB
+  if (!db) {
+    return new Response(JSON.stringify({ error: 'Cloudflare D1 資料庫未綁定' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 
   const vocabRows = await db.prepare('SELECT vocab_id, mastery_level FROM user_vocab_mastery WHERE user_id = ?').bind(userId).all()
   const wrongRows = await db.prepare('SELECT question_id, category_id, consecutive_correct FROM user_wrong_questions WHERE user_id = ?').bind(userId).all()

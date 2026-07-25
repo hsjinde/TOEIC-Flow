@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "toeic",
+  "pages_build_output_dir": "./out",
+  "compatibility_date": "2026-07-25",
+  "d1_databases": [
+    {
+      "binding": "toeic_db",
+      "database_name": "toeic-db",
+      "database_id": "9ae9f426-0b97-43c2-bf0d-ac6fedca9332"
+    }
+  ]
+}

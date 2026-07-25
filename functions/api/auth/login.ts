@@ -10,7 +10,13 @@ export async function onRequestPost(context: any) {
       })
     }
 
-    const db = context.env.toeic_db
+    const db = context.env.toeic_db || context.env.DB
+    if (!db) {
+      return new Response(JSON.stringify({ error: 'Cloudflare D1 資料庫未綁定' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
     const user = await db
       .prepare('SELECT id, email, password_hash, salt, nickname FROM users WHERE email = ?')
       .bind(email)
