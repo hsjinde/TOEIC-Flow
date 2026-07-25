@@ -12,13 +12,13 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const base = 'w-full py-3 px-4 rounded-xl font-medium transition-all duration-200 flex items-center justify-center gap-2'
+  const base = 'w-full min-h-[52px] py-3.5 px-4 rounded-[10px] font-medium transition-all duration-200 flex items-center justify-center gap-2'
   const variants = {
-    primary: 'bg-primary text-primary-foreground hover:opacity-90 shadow-sm active:scale-[0.98]',
-    secondary: 'bg-muted text-foreground hover:bg-muted/80 active:scale-[0.98]',
-    outline: 'border border-muted text-foreground hover:bg-muted/50 active:scale-[0.98]',
-    correct: 'bg-correct/15 text-correct border-2 border-correct font-semibold shadow-sm',
-    wrong: 'bg-wrong/15 text-wrong border-2 border-wrong font-semibold shadow-sm',
+    primary: 'bg-[var(--pr)] text-[var(--pr-tx)] hover:opacity-90 active:scale-[0.98] font-bold',
+    secondary: 'bg-[var(--sf2)] text-[var(--tx)] border border-[var(--ln2)] hover:bg-muted/80 active:scale-[0.98]',
+    outline: 'border border-[var(--ln)] bg-[var(--sf)] text-[var(--tx)] hover:border-[var(--pr-ln)] hover:bg-[var(--pr-sf)] active:scale-[0.98]',
+    correct: 'bg-[var(--ok-sf)] text-[var(--ok)] border-2 border-[var(--ok)] font-semibold',
+    wrong: 'bg-[var(--bad-sf)] text-[var(--bad)] border-2 border-[var(--bad)] font-semibold',
   }
 
   return (
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={cn(
         base,
         variants[variant],
-        disabled && variant === 'outline' && 'opacity-60 cursor-default',
+        disabled && variant === 'outline' && 'opacity-50 cursor-default',
         disabled && (variant === 'correct' || variant === 'wrong') && 'cursor-default',
         className
       )}

@@ -1,57 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 @layer base {
   :root,
   [data-theme="light"] {
+    --bg: #F3F2F2;
+    --sf: #FFFFFF;
+    --sf2: #EAE9E9;
+    --tx: #201E1D;
+    --mu: #5F6570;
+    --fa: #8A8F98;
+    --ln: rgba(32, 30, 29, 0.13);
+    --ln2: rgba(32, 30, 29, 0.3);
+
+    --pr: #1E3A8A;
+    --pr-tx: #FFFFFF;
+    --pr-sf: #E7EBF6;
+    --pr-ln: rgba(30, 58, 138, 0.32);
+
+    --ok: #047857;
+    --ok-sf: #E4F4EE;
+
+    --bad: #B91C1C;
+    --bad-sf: #FBEAEA;
+
     --background: 0 2% 95%;
     --foreground: 20 6% 12%;
-
     --card: 0 0% 100%;
     --card-foreground: 20 6% 12%;
-
     --primary: 224 64% 33%;
     --primary-foreground: 0 0% 100%;
-
-    --correct: 164 93% 24%;
-    --correct-foreground: 0 0% 100%;
-
-    --wrong: 0 74% 42%;
-    --wrong-foreground: 0 0% 100%;
-
     --muted: 0 2% 91%;
     --muted-foreground: 218 8% 41%;
-
     --border: 0 2% 85%;
-    --radius: 0.75rem;
+    --radius: 0.625rem;
   }
 
   .dark,
   [data-theme="dark"] {
+    --bg: #0F1115;
+    --sf: #171A21;
+    --sf2: #1E222B;
+    --tx: #E8EAF0;
+    --mu: #9AA1AE;
+    --fa: #6B7280;
+    --ln: rgba(232, 234, 240, 0.13);
+    --ln2: rgba(232, 234, 240, 0.26);
+
+    --pr: #60A5FA;
+    --pr-tx: #0F1115;
+    --pr-sf: rgba(96, 165, 250, 0.14);
+    --pr-ln: rgba(96, 165, 250, 0.42);
+
+    --ok: #34D399;
+    --ok-sf: rgba(52, 211, 153, 0.13);
+
+    --bad: #F87171;
+    --bad-sf: rgba(248, 113, 113, 0.13);
+
     --background: 222 17% 7%;
     --foreground: 225 24% 92%;
-
     --card: 222 18% 11%;
     --card-foreground: 225 24% 92%;
-
     --primary: 213 94% 68%;
     --primary-foreground: 222 17% 7%;
-
-    --correct: 160 64% 52%;
-    --correct-foreground: 222 17% 7%;
-
-    --wrong: 0 91% 71%;
-    --wrong-foreground: 222 17% 7%;
-
     --muted: 221 18% 15%;
     --muted-foreground: 219 10% 64%;
-
     --border: 225 13% 19%;
   }
 }
 
 body {
-  color: hsl(var(--foreground));
-  background: hsl(var(--background));
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Noto Sans TC', Roboto, sans-serif;
+  color: var(--tx);
+  background: var(--bg);
+  font-family: 'Noto Sans TC', 'Archivo', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-stem {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 21px;
+  line-height: 1.85;
+}
+
+.font-option {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.font-display {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.font-h1 {
+  font-family: 'Noto Sans TC', system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.font-body-text {
+  font-family: 'Noto Sans TC', system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.font-label-text {
+  font-family: 'Noto Sans TC', system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.font-caption-text {
+  font-family: 'Noto Sans TC', system-ui, sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
 }
