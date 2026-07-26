@@ -1,3 +1,9 @@
+# 這是單一套件的 repo，不是 monorepo。這個檔案存在只是因為 pnpm 10+ 把 allowBuilds
+# 移到了這裡。但檔案一旦存在，pnpm 就會把專案當 workspace 看待並要求 packages 欄位
+# ——少了它，CI 的 `pnpm install` 會直接以 "packages field missing or empty" 中止。
+packages:
+  - .
+
 allowBuilds:
   esbuild: true
   sharp: true
