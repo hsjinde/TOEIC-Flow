@@ -1,91 +1,189 @@
 'use client'
 
-import { useEffect, useState, useCallback, useRef } from 'react'
-import { ArrowLeft, ChevronDown, ChevronUp, Check, X } from 'lucide-react'
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
 import type { Question } from '../../../../scripts/build-content/types'
-import { getRandomGrammarQuestions } from '../../../../src/lib/content'
-import { recordTaskCompletion, recordQuestionAnswer } from '../../../../src/lib/storage'
-import { Button } from '../../../../src/components/ui/Button'
-import { ExplanationCard } from '../../../../src/components/ExplanationCard'
-import { SummaryModal } from '../../../../src/components/SummaryModal'
+import {
+  getCategoryLabel,
+  getChapterLabel,
+  getGrammarQuestionsByCategory,
+  getGrammarQuestionsByChapter,
+  getQuestionsByIds,
+  getRandomGrammarQuestions,
+} from '../../../lib/content'
+import {
+  getWrongQuestionsMap,
+  recordQuestionAnswer,
+  recordTaskCompletion,
+  type AnswerSource,
+} from '../../../lib/storage'
+import { Button } from '../../../components/ui/Button'
+import { ExplanationCard } from '../../../components/ExplanationCard'
+import { SummaryModal } from '../../../components/SummaryModal'
+import { GraduationDots } from '../../../components/GraduationDots'
+import { cn } from '../../../lib/utils'
 
-export default function GrammarPracticePage() {
-  const [questions, setQuestions] = useState<Question[]>([])
+const DEFAULT_COUNT = 5
+/** 設計 02：答對 600ms 後自動進下一題。 */
+const AUTO_ADVANCE_MS = 600
+
+interface Session {
+  questions: Question[]
+  source: AnswerSource
+  /** 只有每日任務模式才記「今日文法已完成」 */
+  countsAsDailyTask: boolean
+  title: string
+}
+
+function buildSession(params: URLSearchParams): Session {
+  const mode = params.get('mode')
+  const ids = params.get('ids')
+  const category = params.get('category')
+  const chapter = params.get('chapter')
+
+  if (mode === 'wrong' && ids) {
+    const list = getQuestionsByIds(ids.split(',').filter(Boolean))
+    return { questions: list, source: 'wrong', countsAsDailyTask: false, title: '錯題專攻' }
+  }
+  if (chapter) {
+    const pool = getGrammarQuestionsByChapter(chapter)
+    return {
+      questions: [...pool].sort(() => 0.5 - Math.random()).slice(0, DEFAULT_COUNT),
+      source: 'grammar',
+      countsAsDailyTask: false,
+      // 副標已經是章名，標題再放一次會變成同一行講兩遍。
+      title: '章節練習',
+    }
+  }
+  if (category) {
+    return {
+      questions: getGrammarQuestionsByCategory(category, DEFAULT_COUNT),
+      source: 'grammar',
+      countsAsDailyTask: false,
+      title: `弱項加練 · ${getCategoryLabel(category)}`,
+    }
+  }
+  return {
+    questions: getRandomGrammarQuestions(DEFAULT_COUNT),
+    source: 'grammar',
+    countsAsDailyTask: true,
+    title: '文法練習',
+  }
+}
+
+export default function GrammarPracticePageWrapper() {
+  return (
+    <Suspense fallback={<PracticeSkeleton />}>
+      <GrammarPracticePage />
+    </Suspense>
+  )
+}
+
+function GrammarPracticePage() {
+  const searchParams = useSearchParams()
+  const [session, setSession] = useState<Session | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
-  /** Maps blankIndex -> selected option key ('A' | 'B' | 'C' | 'D') */
+  /** blankIndex -> 選到的選項字母 */
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({})
   const [showExplanation, setShowExplanation] = useState(false)
   const [correctCount, setCorrectCount] = useState(0)
+  const [results, setResults] = useState<(boolean | null)[]>([])
+  const [justFiled, setJustFiled] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
-  const autoAdvanceTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    setQuestions(getRandomGrammarQuestions(5))
+    const built = buildSession(new URLSearchParams(searchParams.toString()))
+    setSession(built)
+    setResults(new Array(built.questions.length).fill(null))
+  }, [searchParams])
+
+  useEffect(() => {
+    return () => {
+      if (autoAdvanceTimerRef.current) clearTimeout(autoAdvanceTimerRef.current)
+    }
   }, [])
 
+  const questions = session?.questions ?? []
   const currentQ = questions[currentIndex]
 
-  // Check if all blanks for current question are answered
   const isQuestionAnswered = currentQ
     ? currentQ.blanks.every((_, idx) => !!selectedAnswers[idx])
     : false
+
+  const verdict: 'correct' | 'wrong' | null = useMemo(() => {
+    if (!currentQ || !isQuestionAnswered) return null
+    return currentQ.blanks.every((blank, idx) => selectedAnswers[idx] === blank.answer)
+      ? 'correct'
+      : 'wrong'
+  }, [currentQ, isQuestionAnswered, selectedAnswers])
 
   const handleNext = useCallback(() => {
     if (autoAdvanceTimerRef.current) {
       clearTimeout(autoAdvanceTimerRef.current)
       autoAdvanceTimerRef.current = null
     }
+    setJustFiled(false)
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex((prev) => prev + 1)
       setSelectedAnswers({})
       setShowExplanation(false)
     } else {
-      recordTaskCompletion('grammar')
+      if (session?.countsAsDailyTask) recordTaskCompletion('grammar')
       setIsFinished(true)
     }
-  }, [currentIndex, questions.length])
+  }, [currentIndex, questions.length, session])
 
   const handleSelectOption = useCallback(
     (blankIndex: number, optionKey: string) => {
-      if (selectedAnswers[blankIndex] || !currentQ) return
+      if (selectedAnswers[blankIndex] || !currentQ || !session) return
 
       const nextAnswers = { ...selectedAnswers, [blankIndex]: optionKey }
       setSelectedAnswers(nextAnswers)
 
-      // If all blanks are now answered, evaluate whole question
       const allDone = currentQ.blanks.every((_, idx) => !!nextAnswers[idx])
-      if (allDone) {
-        const isAllCorrect = currentQ.blanks.every(
-          (blank, idx) => nextAnswers[idx] === blank.answer
-        )
+      if (!allDone) return
 
-        recordQuestionAnswer(currentQ.id, 'grammar', isAllCorrect)
+      const isAllCorrect = currentQ.blanks.every((blank, idx) => nextAnswers[idx] === blank.answer)
+      const wasTracked = !!getWrongQuestionsMap()[currentQ.id]
 
-        if (isAllCorrect) {
-          setCorrectCount((prev) => prev + 1)
-          // 600ms auto advance as specified in design specs
-          autoAdvanceTimerRef.current = setTimeout(() => {
-            handleNext()
-          }, 600)
-        } else {
-          setShowExplanation(true)
-        }
+      recordQuestionAnswer(currentQ.id, currentQ.categoryId, isAllCorrect, {
+        selectedKey: nextAnswers[0],
+        source: session.source,
+      })
+
+      setResults((prev) => {
+        const next = [...prev]
+        next[currentIndex] = isAllCorrect
+        return next
+      })
+
+      if (isAllCorrect) {
+        setCorrectCount((prev) => prev + 1)
+        autoAdvanceTimerRef.current = setTimeout(handleNext, AUTO_ADVANCE_MS)
+      } else {
+        // 設計 02：答錯才顯示「已加入錯題本」，本來就在本裡的不重複宣告。
+        setJustFiled(!wasTracked)
+        setShowExplanation(true)
       }
     },
-    [selectedAnswers, currentQ, handleNext]
+    [selectedAnswers, currentQ, session, currentIndex, handleNext]
   )
 
-  // Keyboard Shortcuts (for first/single blank)
+  // 設計 02/14：桌機 1/2/3/4 選答、空白鍵下一題。
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isFinished || !currentQ) return
+      const target = e.target as HTMLElement | null
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return
+
       const firstBlank = currentQ.blanks[0]
       if (['1', '2', '3', '4'].includes(e.key) && !selectedAnswers[0] && firstBlank) {
-        const optionIndex = Number(e.key) - 1
-        const option = firstBlank.options[optionIndex]
+        const option = firstBlank.options[Number(e.key) - 1]
         if (option) handleSelectOption(0, option.key)
-      } else if (e.code === 'Space' && isQuestionAnswered) {
+      } else if ((e.code === 'Space' || e.key === ' ') && isQuestionAnswered) {
         e.preventDefault()
         handleNext()
       }
@@ -94,116 +192,225 @@ export default function GrammarPracticePage() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleSelectOption, handleNext, selectedAnswers, isQuestionAnswered, currentQ, isFinished])
 
-  if (!currentQ) return null
+  if (!session) return <PracticeSkeleton />
+
+  if (session.questions.length === 0) {
+    return (
+      <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
+        <h2 className="text-base font-bold text-[var(--tx)]">這組沒有可練的題目</h2>
+        <p className="text-xs text-[var(--mu)]">題目可能已從題庫移除，換一組再試。</p>
+        <Link href="/" className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">回到今日任務</Button>
+        </Link>
+      </div>
+    )
+  }
+
+  if (isFinished || !currentQ) {
+    return (
+      <SummaryModal
+        correctCount={correctCount}
+        totalCount={questions.length}
+        title={`${session.title}完成`}
+      />
+    )
+  }
+
+  const answeredCount = results.filter((r) => r !== null).length
 
   return (
-    <div className="flex flex-col justify-between h-full min-h-[80vh]">
-      {/* Top Bar */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <Link href="/" className="p-2 -ml-2 rounded-xl text-muted-foreground hover:bg-muted">
-            <ArrowLeft className="w-5 h-5" />
+    <div className="flex flex-col gap-4">
+      {/* 頂部：分類 · 章節 · 進度 */}
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-2">
+          <Link
+            href="/"
+            aria-label="返回今日任務"
+            className="-ml-2 shrink-0 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)]"
+          >
+            <ArrowLeft className="h-5 w-5" />
           </Link>
-          <span className="text-xs font-semibold text-primary">
-            {currentIndex + 1} / {questions.length}
-          </span>
+          <div className="min-w-0">
+            <p className="truncate text-sm font-bold text-[var(--tx)]">{session.title}</p>
+            <p className="truncate text-[11px] text-[var(--mu)]">
+              {getChapterLabel(currentQ.chapterId)}
+            </p>
+          </div>
         </div>
+        <div className="shrink-0 text-right">
+          <p className="text-sm font-bold text-[var(--tx)]">
+            {currentIndex + 1} / {questions.length}
+          </p>
+          <p className="text-[11px] text-[var(--mu)]">
+            已作答 {answeredCount} · 正確 {correctCount}
+          </p>
+        </div>
+      </div>
 
-        {/* Question Stem */}
-        <div className="p-5 rounded-3xl bg-[var(--sf)] border border-[var(--ln)] shadow-sm mb-6">
-          <p className="font-stem tracking-wide">
-            {currentQ.stem}
+      {/* 本回作答進度（設計 14） */}
+      <div className="flex items-center gap-1.5">
+        {results.map((r, i) => (
+          <span
+            key={i}
+            aria-hidden
+            className={cn(
+              'h-1.5 flex-1 rounded-full transition-colors duration-200',
+              r === null
+                ? i === currentIndex
+                  ? 'bg-[var(--pr)]'
+                  : 'bg-[var(--sf2)]'
+                : r
+                  ? 'bg-[var(--ok)]'
+                  : 'bg-[var(--bad)]'
+            )}
+          />
+        ))}
+      </div>
+
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start">
+        {/* 左欄：題幹與選項 */}
+        <div className="space-y-5">
+          <div className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+            <p className="font-stem text-[var(--tx)]">{currentQ.stem}</p>
+          </div>
+
+          <div className="space-y-6">
+            {currentQ.blanks.map((blank, blankIdx) => {
+              const userChoice = selectedAnswers[blankIdx]
+              const isBlankAnswered = !!userChoice
+
+              return (
+                <div key={blankIdx} className="space-y-3">
+                  {blank.label && (
+                    <div className="px-1 text-xs font-semibold text-[var(--pr)]">{blank.label}</div>
+                  )}
+
+                  <div className="grid gap-2.5">
+                    {blank.options.map((opt, idx) => {
+                      const isSelected = userChoice === opt.key
+                      const isCorrect = opt.key === blank.answer
+
+                      let variant: 'outline' | 'correct' | 'wrong' = 'outline'
+                      if (isBlankAnswered) {
+                        if (isCorrect) variant = 'correct'
+                        else if (isSelected) variant = 'wrong'
+                      }
+
+                      return (
+                        <Button
+                          key={opt.key}
+                          variant={variant}
+                          onClick={() => handleSelectOption(blankIdx, opt.key)}
+                          disabled={isBlankAnswered}
+                          className="justify-start px-5 text-left font-option"
+                        >
+                          <span className="w-6 text-xs font-semibold opacity-70">({opt.key})</span>
+                          <span className="flex-1">{opt.text}</span>
+
+                          {isBlankAnswered && isCorrect && (
+                            <span className="flex items-center gap-1 text-xs font-bold">
+                              <Check className="h-3.5 w-3.5" /> 正解
+                            </span>
+                          )}
+                          {isBlankAnswered && isSelected && !isCorrect && (
+                            <span className="flex items-center gap-1 text-xs font-bold">
+                              <X className="h-3.5 w-3.5" /> 你的答案
+                            </span>
+                          )}
+                          {!isBlankAnswered && (
+                            <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[10px] text-[var(--fa)] lg:inline">
+                              {idx + 1}
+                            </span>
+                          )}
+                        </Button>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <p className="hidden text-[11px] text-[var(--fa)] lg:block">
+            數字鍵 1–4 選答 · 空白鍵下一題
           </p>
         </div>
 
-        {/* Blanks & Options */}
-        <div className="space-y-6">
-          {currentQ.blanks.map((blank, blankIdx) => {
-            const userChoice = selectedAnswers[blankIdx]
-            const isBlankAnswered = !!userChoice
-
-            return (
-              <div key={blankIdx} className="space-y-3">
-                {blank.label && (
-                  <div className="text-xs font-semibold text-[var(--pr)] px-1">
-                    📌 {blank.label}
-                  </div>
+        {/* 右欄：判定與詳解（桌機常駐，手機接在下方） */}
+        <div className="space-y-3 lg:sticky lg:top-20">
+          {verdict && (
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span
+                className={cn(
+                  'rounded-md px-2 py-1 font-bold',
+                  verdict === 'correct'
+                    ? 'bg-[var(--ok-sf)] text-[var(--ok)]'
+                    : 'bg-[var(--bad-sf)] text-[var(--bad)]'
                 )}
+              >
+                {verdict === 'correct' ? '答對' : '答錯'}
+              </span>
+              {verdict === 'correct' ? (
+                <span className="text-[var(--mu)]">0.6 秒後下一題</span>
+              ) : (
+                <span className="flex items-center gap-1.5 text-[var(--mu)]">
+                  {justFiled ? '已加入錯題本' : '錯題本已有這題'} · 連續答對 2 次畢業
+                  <GraduationDots consecutiveCorrect={0} className="text-sm" />
+                </span>
+              )}
+            </div>
+          )}
 
-                <div className="grid gap-3">
-                  {blank.options.map((opt, idx) => {
-                    const isSelected = userChoice === opt.key
-                    const isCorrect = opt.key === blank.answer
+          {isQuestionAnswered && currentQ.explanation && (
+            <div>
+              <button
+                type="button"
+                onClick={() => setShowExplanation(!showExplanation)}
+                className="flex min-h-[36px] items-center gap-1 py-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
+              >
+                {showExplanation ? (
+                  <ChevronUp className="h-4 w-4" />
+                ) : (
+                  <ChevronDown className="h-4 w-4" />
+                )}
+                詳解 · {currentQ.explanation.title}
+              </button>
+              {showExplanation && (
+                <ExplanationCard
+                  explanation={currentQ.explanation}
+                  answerKey={currentQ.blanks[0]?.answer}
+                />
+              )}
+            </div>
+          )}
 
-                    let variant: 'outline' | 'correct' | 'wrong' = 'outline'
-                    if (isBlankAnswered) {
-                      if (isCorrect) variant = 'correct'
-                      else if (isSelected) variant = 'wrong'
-                    }
+          {!isQuestionAnswered && (
+            <p className="hidden rounded-2xl border border-dashed border-[var(--ln)] px-4 py-6 text-center text-xs text-[var(--fa)] lg:block">
+              作答後這裡會顯示判定與完整詳解
+            </p>
+          )}
 
-                    return (
-                      <Button
-                        key={opt.key}
-                        variant={variant}
-                        onClick={() => handleSelectOption(blankIdx, opt.key)}
-                        disabled={isBlankAnswered}
-                        className="justify-start px-5 text-left font-option"
-                      >
-                        <span className="w-6 text-xs font-semibold opacity-70">
-                          ({opt.key})
-                        </span>
-                        <span className="flex-1">{opt.text}</span>
-
-                        {/* Status Badges */}
-                        {isBlankAnswered && isCorrect && (
-                          <span className="flex items-center gap-1 text-xs px-2 py-1 rounded bg-[var(--ok-sf)] text-[var(--ok)] font-bold">
-                            <Check className="w-3.5 h-3.5" /> 正確答案
-                          </span>
-                        )}
-                        {isBlankAnswered && isSelected && !isCorrect && (
-                          <span className="flex items-center gap-1 text-xs px-2 py-1 rounded bg-[var(--bad-sf)] text-[var(--bad)] font-bold">
-                            <X className="w-3.5 h-3.5" /> 您的選擇
-                          </span>
-                        )}
-                        {!isBlankAnswered && (
-                          <span className="text-xs opacity-40">[{idx + 1}]</span>
-                        )}
-                      </Button>
-                    )
-                  })}
-                </div>
-              </div>
-            )
-          })}
+          {isQuestionAnswered && (
+            <Button variant="primary" onClick={handleNext}>
+              {currentIndex + 1 < questions.length ? '下一題' : '看本回結果'}
+              <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
+            </Button>
+          )}
         </div>
-
-        {/* Explanation Toggle / Content */}
-        {isQuestionAnswered && currentQ.explanation && (
-          <div className="mt-6">
-            <button
-              onClick={() => setShowExplanation(!showExplanation)}
-              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground py-1"
-            >
-              {showExplanation ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              {showExplanation ? '隱藏詳解' : '查看詳解'}
-            </button>
-            {showExplanation && <ExplanationCard explanation={currentQ.explanation} />}
-          </div>
-        )}
       </div>
+    </div>
+  )
+}
 
-      {/* Bottom Action Bar */}
-      {isQuestionAnswered && (
-        <div className="pt-6">
-          <Button variant="primary" onClick={handleNext}>
-            下一題 <span className="text-xs opacity-70">[Space]</span>
-          </Button>
-        </div>
-      )}
-
-      {isFinished && (
-        <SummaryModal correctCount={correctCount} totalCount={questions.length} />
-      )}
+function PracticeSkeleton() {
+  return (
+    <div className="flex animate-pulse flex-col gap-4">
+      <div className="h-9 w-full rounded-md bg-[var(--sf2)]" />
+      <div className="h-1.5 w-full rounded-full bg-[var(--sf2)]" />
+      <div className="h-28 rounded-2xl bg-[var(--sf2)]" />
+      {[0, 1, 2, 3].map((i) => (
+        <div key={i} className="h-[52px] rounded-[10px] bg-[var(--sf2)]" />
+      ))}
     </div>
   )
 }

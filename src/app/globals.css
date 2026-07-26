@@ -1,6 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
+/*
+ * Tailwind v4 no longer auto-loads tailwind.config.ts, so the semantic colour
+ * utilities (bg-card, text-muted-foreground, text-correct, …) have to be
+ * declared here or they compile to nothing. `inline` keeps the hsl(var(--x))
+ * reference in the utility itself so the light/dark overrides below still win.
+ */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-correct: hsl(var(--correct));
+  --color-correct-foreground: hsl(var(--correct-foreground));
+  --color-wrong: hsl(var(--wrong));
+  --color-wrong-foreground: hsl(var(--wrong-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  --animate-fade-in: fade-in 0.24s ease-out;
+  --animate-pop: pop 0.2s ease-out;
+}
+
+/* `.dark` is set on <html> by theme.ts; v4 defaults dark: to a media query. */
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.97); }
+  60% { transform: scale(1.012); }
+  100% { transform: scale(1); }
+}
+
 @layer base {
   :root,
   [data-theme="light"] {
@@ -30,6 +73,10 @@
     --card-foreground: 20 6% 12%;
     --primary: 224 64% 33%;
     --primary-foreground: 0 0% 100%;
+    --correct: 162 94% 24%;
+    --correct-foreground: 0 0% 100%;
+    --wrong: 0 74% 42%;
+    --wrong-foreground: 0 0% 100%;
     --muted: 0 2% 91%;
     --muted-foreground: 218 8% 41%;
     --border: 0 2% 85%;
@@ -64,6 +111,10 @@
     --card-foreground: 225 24% 92%;
     --primary: 213 94% 68%;
     --primary-foreground: 222 17% 7%;
+    --correct: 158 64% 52%;
+    --correct-foreground: 222 17% 7%;
+    --wrong: 0 91% 71%;
+    --wrong-foreground: 222 17% 7%;
     --muted: 221 18% 15%;
     --muted-foreground: 219 10% 64%;
     --border: 225 13% 19%;

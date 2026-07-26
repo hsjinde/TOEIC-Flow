@@ -1,72 +1,185 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ArrowLeft, BookOpen, ChevronRight, Zap } from 'lucide-react'
 import Link from 'next/link'
-import type { Chapter } from '../../../scripts/build-content/types'
-import { getChapters } from '../../../src/lib/content'
+import { ChevronDown, ChevronRight, Zap } from 'lucide-react'
+import {
+  getCategories,
+  getChapterNumber,
+  stripOrderPrefix,
+  type CategoryMeta,
+} from '../../lib/content'
+import { getChapterMasteryMap, type ChapterMastery } from '../../lib/storage'
+import { cn } from '../../lib/utils'
+
+function chapterHref(id: string): string {
+  return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
+}
+
+/** 分類掌握度＝該類所有章節的答題數加總後的正確率，不是章節百分比的平均。 */
+function categoryMastery(
+  category: CategoryMeta,
+  masteryMap: Record<string, ChapterMastery>
+): { rate: number | null; answered: number } {
+  let total = 0
+  let correct = 0
+  for (const ch of category.chapters) {
+    const m = masteryMap[ch.id]
+    if (!m) continue
+    total += m.totalAnswered
+    correct += m.correctCount
+  }
+  return { rate: total > 0 ? Math.round((correct / total) * 100) : null, answered: total }
+}
 
 export default function ChaptersPage() {
-  const [chapters, setChapters] = useState<Chapter[]>([])
+  const [categories, setCategories] = useState<CategoryMeta[] | null>(null)
+  const [mastery, setMastery] = useState<Record<string, ChapterMastery>>({})
+  const [expanded, setExpanded] = useState<Set<string>>(new Set())
 
   useEffect(() => {
-    setChapters(getChapters())
+    const cats = getCategories()
+    setCategories(cats)
+    setMastery(getChapterMasteryMap())
+    // 預設展開第一類，讓兩層結構一眼看得出來。
+    if (cats[0]) setExpanded(new Set([cats[0].id]))
   }, [])
 
-  // Group chapters by category
-  const categoriesMap: Record<string, Chapter[]> = {}
-  for (const c of chapters) {
-    if (!categoriesMap[c.categoryId]) categoriesMap[c.categoryId] = []
-    categoriesMap[c.categoryId]!.push(c)
-  }
+  if (!categories) return <ChaptersSkeleton />
+
+  const totalChapters = categories.reduce((a, c) => a + c.chapters.length, 0)
+  const overall = categories.reduce(
+    (acc, cat) => {
+      for (const ch of cat.chapters) {
+        const m = mastery[ch.id]
+        if (!m) continue
+        acc.total += m.totalAnswered
+        acc.correct += m.correctCount
+      }
+      return acc
+    },
+    { total: 0, correct: 0 }
+  )
+  const overallRate = overall.total > 0 ? Math.round((overall.correct / overall.total) * 100) : null
+
+  const toggle = (id: string) =>
+    setExpanded((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Header */}
-      <div className="flex items-center gap-2">
-        <Link href="/" className="p-2 -ml-2 rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]">
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
-        <h1 className="text-xl font-bold text-[var(--tx)]">文法章節與秒殺公式</h1>
+    <div className="flex flex-col gap-4">
+      <div>
+        <h1 className="text-xl font-bold text-[var(--tx)]">文法章節</h1>
+        <p className="mt-0.5 text-xs text-[var(--mu)]">
+          {categories.length} 大類 · {totalChapters} 章
+          {overallRate !== null && ` · 整體掌握度 ${overallRate}%`}
+        </p>
       </div>
 
-      {/* Chapters Tree */}
-      <div className="space-y-6">
-        {Object.entries(categoriesMap).map(([catId, items]) => (
-          <div key={catId} className="space-y-3">
-            <h2 className="text-xs font-semibold text-[var(--pr)] uppercase tracking-wider px-1">
-              📚 {catId} ({items.length} 章)
-            </h2>
-            <div className="space-y-2">
-              {items.map((chap) => {
-                const encodeId = chap.id.split('/')
-                return (
-                  <Link
-                    key={chap.id}
-                    href={`/chapters/${encodeId.map(encodeURIComponent).join('/')}`}
-                    className="flex items-center justify-between p-4 rounded-2xl bg-[var(--sf)] border border-[var(--ln)] hover:border-[var(--pr-ln)] transition-all shadow-sm"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-[var(--pr-sf)] text-[var(--pr)]">
-                        <BookOpen className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-[var(--tx)]">{chap.title}</h3>
-                        {chap.quickTips && (
-                          <span className="inline-flex items-center gap-1 text-[10px] text-[var(--pr)] font-medium mt-0.5">
-                            <Zap className="w-3 h-3 fill-[var(--pr)]" /> 含秒殺公式
+      <div className="space-y-2.5 lg:grid lg:grid-cols-2 lg:gap-3 lg:space-y-0">
+        {categories.map((cat) => {
+          const isOpen = expanded.has(cat.id)
+          const { rate } = categoryMastery(cat, mastery)
+
+          return (
+            <section
+              key={cat.id}
+              className="overflow-hidden rounded-2xl border border-[var(--ln)] bg-[var(--sf)] lg:self-start"
+            >
+              <button
+                type="button"
+                onClick={() => toggle(cat.id)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center gap-3 p-4 text-left transition-colors hover:bg-[var(--sf2)]"
+              >
+                <span className="font-mono text-xs font-bold text-[var(--fa)]">{cat.prefix}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-semibold text-[var(--tx)]">
+                    {cat.title}
+                  </span>
+                  <span className="mt-0.5 block text-[11px] text-[var(--mu)]">
+                    {cat.chapters.length} 章 · {cat.questionCount} 題
+                    {rate !== null ? ` · ${rate}%` : ' · 尚未練習'}
+                  </span>
+                </span>
+                {rate !== null && (
+                  <span className="w-16 shrink-0">
+                    <span className="block h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
+                      <span
+                        className="block h-full rounded-full bg-[var(--pr)] transition-all duration-300"
+                        style={{ width: `${rate}%` }}
+                      />
+                    </span>
+                  </span>
+                )}
+                {isOpen ? (
+                  <ChevronDown className="h-4 w-4 shrink-0 text-[var(--mu)]" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 shrink-0 text-[var(--mu)]" />
+                )}
+              </button>
+
+              {isOpen && (
+                <ul className="animate-fade-in border-t border-[var(--ln)]">
+                  {cat.chapters.map((chap) => {
+                    const m = mastery[chap.id]
+                    return (
+                      <li key={chap.id}>
+                        <Link
+                          href={chapterHref(chap.id)}
+                          className="flex items-center gap-3 border-b border-[var(--ln)] px-4 py-3 transition-colors last:border-b-0 hover:bg-[var(--sf2)]"
+                        >
+                          <span className="min-w-0 flex-1">
+                            <span className="flex items-center gap-1.5">
+                              <span className="truncate text-[13px] text-[var(--tx)]">
+                                第 {getChapterNumber(chap.id) ?? chap.order} 章 ·{' '}
+                                {stripOrderPrefix(chap.title)}
+                              </span>
+                              {chap.quickTips && (
+                                <Zap
+                                  className="h-3 w-3 shrink-0 text-[var(--pr)]"
+                                  aria-label="含秒殺公式"
+                                />
+                              )}
+                            </span>
+                            <span className="mt-1 block h-1 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
+                              <span
+                                className={cn(
+                                  'block h-full rounded-full transition-all duration-300',
+                                  m ? 'bg-[var(--pr)]' : 'bg-transparent'
+                                )}
+                                style={{ width: `${m?.accuracyRate ?? 0}%` }}
+                              />
+                            </span>
                           </span>
-                        )}
-                      </div>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-[var(--mu)]" />
-                  </Link>
-                )
-              })}
-            </div>
-          </div>
-        ))}
+                          <span className="w-10 shrink-0 text-right text-xs font-bold text-[var(--mu)]">
+                            {m ? `${m.accuracyRate}%` : '—'}
+                          </span>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </section>
+          )
+        })}
       </div>
+    </div>
+  )
+}
+
+function ChaptersSkeleton() {
+  return (
+    <div className="flex animate-pulse flex-col gap-3">
+      <div className="h-10 w-48 rounded-md bg-[var(--sf2)]" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <div key={i} className="h-[68px] rounded-2xl bg-[var(--sf2)]" />
+      ))}
     </div>
   )
 }

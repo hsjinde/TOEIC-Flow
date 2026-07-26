@@ -1,92 +1,347 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { BookOpen, Sparkles, FileText, Flame } from 'lucide-react'
-import { getDailyProgress, type DailyProgress } from '../lib/storage'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { BookOpen, FileText, Flame, Sparkles } from 'lucide-react'
+import {
+  getCategoryStats,
+  getDailyProgress,
+  getPracticeCalendar,
+  getPracticedDayCount,
+  getProfile,
+  getVocabMasteryMap,
+  getWrongQuestionList,
+  type CalendarDay,
+  type CategoryStat,
+  type DailyProgress,
+} from '../lib/storage'
+import { getCategories, getCategoryLabel } from '../lib/content'
+import { estimateToeicScore } from '../lib/toeicScore'
 import { ProgressRing } from '../components/ui/ProgressRing'
 import { DailyTaskCard } from '../components/DailyTaskCard'
+import { PracticeCalendar } from '../components/PracticeCalendar'
 import { ThemeToggle } from '../components/ThemeToggle'
+import { Button } from '../components/ui/Button'
+import { GraduationDots } from '../components/GraduationDots'
+
+/** 設計 01：15 分鐘 ≒ 單字 10 個＋文法 5 題＋閱讀 1 篇。 */
+const TASKS = [
+  {
+    key: 'vocab' as const,
+    title: '單字複習',
+    subtitle: '10 個 · 約 4 分鐘',
+    minutes: 4,
+    href: '/practice/vocab',
+    icon: <BookOpen className="h-5 w-5" />,
+    shortcut: '1',
+  },
+  {
+    key: 'grammar' as const,
+    title: '文法練習',
+    subtitle: '5 題 · 約 6 分鐘',
+    minutes: 6,
+    href: '/practice/grammar',
+    icon: <Sparkles className="h-5 w-5" />,
+    shortcut: '2',
+  },
+  {
+    key: 'reading' as const,
+    title: '閱讀理解',
+    subtitle: '1 篇 · 約 5 分鐘',
+    minutes: 5,
+    href: '/practice/reading',
+    icon: <FileText className="h-5 w-5" />,
+    shortcut: '3',
+  },
+]
+
+interface HomeSnapshot {
+  progress: DailyProgress
+  wrongCount: number
+  wrongPreview: { categoryId: string; count: number }[]
+  stats: CategoryStat[]
+  calendar: CalendarDay[]
+  practicedDays: number
+  vocabCount: number
+  totalAnswered: number
+  totalCorrect: number
+  reminderTime: string
+  reminderEnabled: boolean
+}
+
+function buildSnapshot(): HomeSnapshot {
+  const wrongList = getWrongQuestionList()
+  const byCategory: Record<string, number> = {}
+  for (const w of wrongList) byCategory[w.categoryId] = (byCategory[w.categoryId] ?? 0) + 1
+
+  const stats = getCategoryStats()
+  const profile = getProfile()
+
+  return {
+    progress: getDailyProgress(),
+    wrongCount: wrongList.filter((w) => w.consecutiveCorrect < 2).length,
+    wrongPreview: Object.entries(byCategory)
+      .map(([categoryId, count]) => ({ categoryId, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3),
+    stats,
+    calendar: getPracticeCalendar(84),
+    practicedDays: getPracticedDayCount(),
+    vocabCount: Object.values(getVocabMasteryMap()).filter((v) => v.level >= 2).length,
+    totalAnswered: stats.reduce((a, c) => a + c.totalAnswered, 0),
+    totalCorrect: stats.reduce((a, c) => a + c.correctCount, 0),
+    reminderTime: profile.reminderTime,
+    reminderEnabled: profile.reminderEnabled,
+  }
+}
 
 export default function HomePage() {
-  const [progress, setProgress] = useState<DailyProgress | null>(null)
+  const router = useRouter()
+  const [snap, setSnap] = useState<HomeSnapshot | null>(null)
 
   useEffect(() => {
-    setProgress(getDailyProgress())
+    setSnap(buildSnapshot())
   }, [])
 
-  if (!progress) return null
+  const doneMap = snap
+    ? {
+        vocab: snap.progress.vocabCompleted,
+        grammar: snap.progress.grammarCompleted,
+        reading: snap.progress.readingCompleted,
+      }
+    : null
 
-  const completedCount = [
-    progress.vocabCompleted,
-    progress.grammarCompleted,
-    progress.readingCompleted,
-  ].filter(Boolean).length
+  // 設計 11：數字鍵 1–3 直接開啟對應任務。
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return
+      const task = TASKS.find((t) => t.shortcut === e.key)
+      if (task) router.push(task.href)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [router])
+
+  if (!snap || !doneMap) return <HomeSkeleton />
+
+  const completedCount = TASKS.filter((t) => doneMap[t.key]).length
+  const remainingMinutes = TASKS.filter((t) => !doneMap[t.key]).reduce((a, t) => a + t.minutes, 0)
+  const allDone = completedCount === TASKS.length
+
+  const weakest = [...snap.stats].sort((a, b) => a.accuracyRate - b.accuracyRate)[0]
+  const nextTask = TASKS.find((t) => !doneMap[t.key])
+
+  const overallAccuracy =
+    snap.totalAnswered > 0 ? Math.round((snap.totalCorrect / snap.totalAnswered) * 100) : 0
+  const scoreData = estimateToeicScore({ totalAnswered: snap.totalAnswered, overallAccuracy })
 
   return (
-    <div className="flex flex-col gap-6">
-      {/* Top Header Bar */}
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-5">
+      {/* 標題列 */}
+      <div className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-xl md:text-2xl font-bold text-[var(--tx)]">TOEIC 每日練習</h1>
-          <p className="text-xs md:text-sm text-[var(--mu)] mt-0.5">
-            {new Date().toLocaleDateString('zh-TW', { month: 'long', day: 'numeric', weekday: 'short' })}
+          <h1 className="text-xl font-bold text-[var(--tx)]">今日任務</h1>
+          <p className="mt-0.5 text-xs text-[var(--mu)]">
+            {new Date().toLocaleDateString('zh-TW', {
+              month: 'long',
+              day: 'numeric',
+              weekday: 'long',
+            })}
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[var(--pr)] font-bold text-sm">
-            <Flame className="w-4 h-4 fill-[var(--pr)]" />
-            <span>{progress.streak} 天</span>
+        <div className="flex items-center gap-2">
+          <div className="lg:hidden">
+            <ThemeToggle />
           </div>
+          <span className="flex items-center gap-1.5 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-sm font-bold text-[var(--pr)]">
+            <Flame className="h-4 w-4" />
+            {snap.progress.streak} 天
+          </span>
         </div>
       </div>
 
-      {/* Progress Ring Hero */}
-      <div className="flex flex-col items-center justify-center py-8 bg-[var(--sf)] rounded-3xl border border-[var(--ln)] shadow-sm">
-        <ProgressRing completed={completedCount} total={3} size={168} strokeWidth={11} />
-        {completedCount === 3 ? (
-          <p className="text-sm font-medium text-[var(--ok)] mt-4 animate-fade-in">
-            ✨ 今日任務全數完成！明日繼續保持專注。
-          </p>
-        ) : (
-          <p className="text-xs text-[var(--mu)] mt-4">
-            再 {15 - completedCount * 5} 分鐘即可完成今天
-          </p>
-        )}
-      </div>
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start">
+        {/* 左欄：任務流程 */}
+        <div className="flex flex-col gap-4">
+          <section className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-5 py-8">
+            <ProgressRing completed={completedCount} total={TASKS.length} size={168} strokeWidth={11} />
+            {allDone ? (
+              <div className="animate-fade-in space-y-1 text-center">
+                <p className="text-sm font-semibold text-[var(--tx)]">今天的 15 分鐘做完了</p>
+                <p className="text-xs text-[var(--mu)]">
+                  連續第 {snap.progress.streak} 天
+                  {snap.reminderEnabled && ` · 明天 ${snap.reminderTime} 提醒你`}
+                </p>
+              </div>
+            ) : (
+              <p className="text-xs text-[var(--mu)]">再 {remainingMinutes} 分鐘就完成今天</p>
+            )}
 
-      {/* Task List (Responsive Grid for Desktop) */}
-      <div className="flex flex-col gap-3">
-        <h2 className="text-xs font-bold text-[var(--fa)] uppercase tracking-wider px-1">
-          今日練習任務
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <DailyTaskCard
-            title="單字複習"
-            subtitle="10 個單字"
-            timeEstimate="約 4 分鐘"
-            icon={<BookOpen className="w-5 h-5" />}
-            completed={progress.vocabCompleted}
-            href="/practice/vocab"
-          />
-          <DailyTaskCard
-            title="文法練習"
-            subtitle="5 題選擇"
-            timeEstimate="約 6 分鐘"
-            icon={<Sparkles className="w-5 h-5" />}
-            completed={progress.grammarCompleted}
-            href="/practice/grammar"
-          />
-          <DailyTaskCard
-            title="閱讀理解"
-            subtitle="1 篇閱讀"
-            timeEstimate="約 5 分鐘"
-            icon={<FileText className="w-5 h-5" />}
-            completed={progress.readingCompleted}
-            href="/practice/reading"
-          />
+            {/* 設計 11：桌機常駐的下一步與鍵盤提示 */}
+            {!allDone && nextTask && (
+              <div className="hidden w-full max-w-sm flex-col gap-2 pt-2 lg:flex">
+                <p className="text-center text-xs leading-relaxed text-[var(--mu)]">
+                  {weakest
+                    ? `今天的重點是${getCategoryLabel(weakest.categoryId)}。這一類目前正確率 ${weakest.accuracyRate}%，練完 5 題會重新估分。`
+                    : '完成三項任務後就能看到第一份弱項分析。'}
+                </p>
+                <Link href={nextTask.href}>
+                  <Button variant="primary">
+                    繼續{nextTask.title}
+                    <span className="text-xs opacity-70">{nextTask.shortcut}</span>
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </section>
+
+          <section className="flex flex-col gap-2.5">
+            <div className="flex items-baseline justify-between px-1">
+              <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">今日練習任務</h2>
+              <span className="hidden text-[11px] text-[var(--fa)] lg:inline">
+                數字鍵 1–3 可直接開啟
+              </span>
+            </div>
+            {TASKS.map((task) => (
+              <DailyTaskCard
+                key={task.key}
+                title={task.title}
+                subtitle={task.subtitle}
+                icon={task.icon}
+                completed={doneMap[task.key]}
+                href={task.href}
+                resultText={`已完成 · 約 ${task.minutes} 分`}
+                shortcut={task.shortcut}
+              />
+            ))}
+          </section>
+
+          {/* 設計 01：錯題本入口卡 */}
+          {snap.wrongCount > 0 && (
+            <Link
+              href="/wrong-questions"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-[15px] font-semibold text-[var(--tx)]">錯題本</h3>
+                  <span className="text-xs font-bold text-[var(--pr)]">
+                    {snap.wrongCount} 題待複習
+                  </span>
+                </div>
+                <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
+                  {snap.wrongPreview
+                    .map((p) => `${getCategoryLabel(p.categoryId)} ${p.count}`)
+                    .join(' · ')}
+                  {' · 連續答對 2 次'}
+                  <GraduationDots consecutiveCorrect={2} className="ml-1 align-middle text-[11px]" />
+                  {' 畢業'}
+                </p>
+              </div>
+              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)]">
+                開始複習
+              </span>
+            </Link>
+          )}
+
+          {/* 設計 01：全部完成後低調的加練入口 */}
+          {allDone && (
+            <section className="animate-fade-in space-y-2.5">
+              <h2 className="px-1 text-xs font-bold tracking-wider text-[var(--fa)]">還想練？</h2>
+              <div className="grid gap-2.5 sm:grid-cols-2">
+                <Link
+                  href="/practice/mock"
+                  className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 text-sm text-[var(--tx)] transition-colors hover:border-[var(--pr-ln)]"
+                >
+                  模擬考
+                  <span className="mt-0.5 block text-xs text-[var(--mu)]">整份計時測驗</span>
+                </Link>
+                {weakest && (
+                  <Link
+                    href={`/practice/grammar?category=${encodeURIComponent(weakest.categoryId)}`}
+                    className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 text-sm text-[var(--tx)] transition-colors hover:border-[var(--pr-ln)]"
+                  >
+                    弱項加練 · {getCategoryLabel(weakest.categoryId)}
+                    <span className="mt-0.5 block text-xs text-[var(--mu)]">
+                      正確率 {weakest.accuracyRate}%
+                    </span>
+                  </Link>
+                )}
+              </div>
+            </section>
+          )}
         </div>
+
+        {/* 右欄：長期進度（設計 11，桌機才出現） */}
+        <aside className="hidden flex-col gap-4 lg:flex">
+          <section className="space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+            <div className="flex items-baseline justify-between">
+              <h2 className="text-sm font-bold text-[var(--tx)]">練習日曆</h2>
+              <span className="text-[11px] text-[var(--mu)]">{snap.practicedDays} 天</span>
+            </div>
+            <PracticeCalendar days={snap.calendar.slice(-42)} />
+          </section>
+
+          <section className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+            <h2 className="text-sm font-bold text-[var(--tx)]">預估分數</h2>
+            <p className="mt-1 text-3xl font-extrabold text-[var(--pr)]">{scoreData.displayScore}</p>
+            <p className="mt-0.5 text-xs text-[var(--mu)]">{scoreData.levelName}</p>
+            <div className="mt-4 grid grid-cols-3 gap-2 border-t border-[var(--ln)] pt-4 text-center">
+              <MiniStat label="總答題" value={snap.totalAnswered} />
+              <MiniStat label="正確率" value={`${overallAccuracy}%`} />
+              <MiniStat label="單字" value={snap.vocabCount} />
+            </div>
+          </section>
+
+          {snap.stats.length > 0 && (
+            <section className="space-y-2 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+              <h2 className="text-sm font-bold text-[var(--tx)]">弱項</h2>
+              {[...snap.stats]
+                .sort((a, b) => a.accuracyRate - b.accuracyRate)
+                .slice(0, 3)
+                .map((s) => (
+                  <Link
+                    key={s.categoryId}
+                    href={`/practice/grammar?category=${encodeURIComponent(s.categoryId)}`}
+                    className="flex items-center justify-between gap-2 py-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
+                  >
+                    <span className="truncate">{getCategoryLabel(s.categoryId)}</span>
+                    <span className="shrink-0 font-bold text-[var(--tx)]">{s.accuracyRate}%</span>
+                  </Link>
+                ))}
+              <Link
+                href="/stats"
+                className="block pt-1 text-xs font-semibold text-[var(--pr)] hover:opacity-80"
+              >
+                看完整統計 →
+              </Link>
+            </section>
+          )}
+        </aside>
       </div>
+    </div>
+  )
+}
+
+function MiniStat({ label, value }: { label: string; value: React.ReactNode }) {
+  return (
+    <div>
+      <div className="text-sm font-bold text-[var(--tx)]">{value}</div>
+      <div className="text-[11px] text-[var(--mu)]">{label}</div>
+    </div>
+  )
+}
+
+function HomeSkeleton() {
+  return (
+    <div className="flex animate-pulse flex-col gap-5">
+      <div className="h-10 w-40 rounded-md bg-[var(--sf2)]" />
+      <div className="h-[248px] rounded-2xl bg-[var(--sf2)]" />
+      {[0, 1, 2].map((i) => (
+        <div key={i} className="h-[72px] rounded-2xl bg-[var(--sf2)]" />
+      ))}
     </div>
   )
 }

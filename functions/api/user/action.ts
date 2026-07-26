@@ -75,14 +75,26 @@ export async function onRequestPost(context: any) {
         })
       }
 
+      const selectedKey = data.selected_key || data.selectedKey || null
+      const source = data.source || null
+
       const historyId = 'h_' + crypto.randomUUID()
       await db
         .prepare(
-          `INSERT INTO user_answer_history (id, user_id, question_id, category_id, is_correct)
-           VALUES (?, ?, ?, ?, ?)`
+          `INSERT INTO user_answer_history (id, user_id, question_id, category_id, is_correct, selected_key, source)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`
         )
-        .bind(historyId, userId, questionId, categoryId, isCorrect)
+        .bind(historyId, userId, questionId, categoryId, isCorrect, selectedKey, source)
         .run()
+
+      // 模擬考交卷時只記歷程，錯題入本留給使用者按「把 N 題加入錯題本」。
+      const fileWrong = data.fileWrong ?? data.file_wrong ?? true
+      if (!fileWrong) {
+        return new Response(JSON.stringify({ success: true }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
 
       if (isCorrect) {
         if (consecutiveCorrect >= 2) {
@@ -116,6 +128,61 @@ export async function onRequestPost(context: any) {
       }
 
       return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
+    if (act === 'file_wrong') {
+      const items: { questionId: string; categoryId: string }[] = Array.isArray(data.items)
+        ? data.items
+        : []
+      if (items.length === 0) {
+        return new Response(JSON.stringify({ error: 'Missing items' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
+      const stmt = db.prepare(
+        `INSERT INTO user_wrong_questions (user_id, question_id, category_id, consecutive_correct, updated_at)
+         VALUES (?, ?, ?, 0, CURRENT_TIMESTAMP)
+         ON CONFLICT(user_id, question_id) DO UPDATE SET
+           consecutive_correct = 0,
+           updated_at = CURRENT_TIMESTAMP`
+      )
+      await db.batch(
+        items.map((i) => stmt.bind(userId, i.questionId, i.categoryId || 'general'))
+      )
+
+      return new Response(JSON.stringify({ success: true, filed: items.length }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
+    if (act === 'remove_wrong') {
+      // 使用者在錯題本手動移出。少了這個分支，本機刪掉的題目會在下次
+      // syncUserDataFromD1 時從 D1 復活。
+      const ids: string[] = Array.isArray(data.questionIds)
+        ? data.questionIds
+        : Array.isArray(data.question_ids)
+          ? data.question_ids
+          : []
+
+      if (ids.length === 0) {
+        return new Response(JSON.stringify({ error: 'Missing questionIds' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
+      const stmt = db.prepare(
+        'DELETE FROM user_wrong_questions WHERE user_id = ? AND question_id = ?'
+      )
+      await db.batch(ids.map((id) => stmt.bind(userId, id)))
+
+      return new Response(JSON.stringify({ success: true, removed: ids.length }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       })

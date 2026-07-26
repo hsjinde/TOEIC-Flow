@@ -45,3 +45,6 @@ untitled/
 
 # Obsidian workspace (this is the web-app repo, not the vault)
 .obsidian/
+
+# TypeScript incremental build cache
+*.tsbuildinfo

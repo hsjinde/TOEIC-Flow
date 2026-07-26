@@ -1,54 +1,74 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ArrowLeft, CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import type { ReadingPassage } from '../../../../scripts/build-content/types'
-import { getRandomReadingPassages } from '../../../../src/lib/content'
-import { recordTaskCompletion } from '../../../../src/lib/storage'
-import { ReadingPassageView } from '../../../../src/components/ReadingPassageView'
-import { Button } from '../../../../src/components/ui/Button'
+import { getRandomReadingPassages } from '../../../lib/content'
+import { recordTaskCompletion } from '../../../lib/storage'
+import { ReadingPassageView } from '../../../components/ReadingPassageView'
+import { SummaryModal } from '../../../components/SummaryModal'
+
+const KIND_LABELS: Record<ReadingPassage['kind'], string> = {
+  single: '單句填空',
+  paragraph: '短文填空',
+  article: '文章閱讀',
+}
 
 export default function ReadingPracticePage() {
-  const [passages, setPassages] = useState<ReadingPassage[]>([])
-  const [isFinished, setIsFinished] = useState(false)
+  const [passage, setPassage] = useState<ReadingPassage | null>(null)
+  const [result, setResult] = useState<{ correct: number; total: number } | null>(null)
 
   useEffect(() => {
-    setPassages(getRandomReadingPassages(1))
+    setPassage(getRandomReadingPassages(1)[0] ?? null)
   }, [])
 
-  const currentPassage = passages[0]
-
-  const handleComplete = () => {
+  const handleComplete = (correctCount: number) => {
     recordTaskCompletion('reading')
-    setIsFinished(true)
+    setResult({ correct: correctCount, total: passage?.questions.length ?? 0 })
   }
 
-  if (!currentPassage && !isFinished) return null
+  if (!passage) return <ReadingSkeleton />
+
+  if (result) {
+    return (
+      <SummaryModal
+        correctCount={result.correct}
+        totalCount={result.total}
+        title="閱讀任務完成"
+      />
+    )
+  }
 
   return (
-    <div className="flex flex-col justify-between h-full min-h-[80vh]">
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <Link href="/" className="p-2 -ml-2 rounded-xl text-muted-foreground hover:bg-muted">
-            <ArrowLeft className="w-5 h-5" />
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between">
+        <div className="flex min-w-0 items-center gap-2">
+          <Link
+            href="/"
+            aria-label="返回今日任務"
+            className="-ml-2 shrink-0 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)]"
+          >
+            <ArrowLeft className="h-5 w-5" />
           </Link>
-          <span className="text-sm font-semibold">閱讀理解</span>
+          <h1 className="truncate text-sm font-bold text-[var(--tx)]">
+            閱讀理解 · {KIND_LABELS[passage.kind]}
+          </h1>
         </div>
-
-        {!isFinished && currentPassage ? (
-          <ReadingPassageView passage={currentPassage} onComplete={handleComplete} />
-        ) : (
-          <div className="flex flex-col items-center justify-center p-8 bg-card border border-muted rounded-3xl text-center space-y-4 my-auto shadow-md">
-            <CheckCircle2 className="w-16 h-16 text-correct" />
-            <h2 className="text-xl font-bold">閱讀任務完成！</h2>
-            <p className="text-sm text-muted-foreground">已為您記錄閱讀測驗結果，今日閱讀任務完成。</p>
-            <Link href="/" className="block w-full pt-2">
-              <Button variant="primary">返回今日任務</Button>
-            </Link>
-          </div>
-        )}
+        <span className="shrink-0 text-xs text-[var(--mu)]">{passage.questions.length} 題</span>
       </div>
+
+      <ReadingPassageView passage={passage} onComplete={handleComplete} />
+    </div>
+  )
+}
+
+function ReadingSkeleton() {
+  return (
+    <div className="flex animate-pulse flex-col gap-4">
+      <div className="h-9 w-full rounded-md bg-[var(--sf2)]" />
+      <div className="h-10 rounded-xl bg-[var(--sf2)]" />
+      <div className="h-[320px] rounded-2xl bg-[var(--sf2)]" />
     </div>
   )
 }
