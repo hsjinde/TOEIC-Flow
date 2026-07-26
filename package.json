@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build:content": "tsx scripts/build-content/index.ts",
-    "deploy": "pnpm run build:content && pnpm run build && wrangler pages deploy out --project-name=toeic"
+    "deploy": "pnpm run build:content && pnpm run build && npx wrangler pages deploy out --project-name=toeic"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
