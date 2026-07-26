@@ -7,3 +7,7 @@ packages:
 allowBuilds:
   esbuild: true
   sharp: true
+  # wrangler-action 會在部署步驟自行安裝 wrangler，而 workerd 的 postinstall 要抓
+  # 對應平台的 binary。pnpm 10+ 預設擋掉未列名的 build script，被擋下時是直接以
+  # ERR_PNPM_IGNORED_BUILDS 失敗，不是警告——部署會整個掛掉。
+  workerd: true
