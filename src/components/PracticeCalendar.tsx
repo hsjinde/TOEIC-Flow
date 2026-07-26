@@ -52,7 +52,9 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
           {WEEKDAY_LABELS.map((label, i) => (
             <span
               key={i}
-              className="flex h-[13px] items-center text-[9px] leading-none text-[var(--fa)]"
+              // 9px 是 type ramp 的唯一例外：軸標籤要對齊 13px 的熱力圖格子行高，
+              // 物理上放不下 11px。字級破例，但顏色不破例——用 --mu 保住 4.5:1。
+              className="flex h-[13px] items-center text-[9px] leading-none text-[var(--mu)]"
             >
               {label}
             </span>
@@ -77,7 +79,7 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
         ))}
       </div>
 
-      <div className="flex items-center justify-end gap-1.5 text-[10px] text-[var(--fa)]">
+      <div className="flex items-center justify-end gap-1.5 text-[11px] text-[var(--mu)]">
         <span>少</span>
         {LEVEL_STYLE.map((style, i) => (
           <span key={i} className="h-[11px] w-[11px] rounded-[3px] border" style={style} />

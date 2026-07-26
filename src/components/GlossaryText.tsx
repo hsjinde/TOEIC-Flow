@@ -1,11 +1,12 @@
 'use client'
 
 import React, { useMemo, useState } from 'react'
-import { Check, Plus } from 'lucide-react'
+import { Check, Plus, X } from 'lucide-react'
 import type { VocabItem } from '../../scripts/build-content/types'
 import { getVocabItems } from '../lib/content'
 import { getVocabMasteryMap, updateVocabMastery } from '../lib/storage'
 import { parseMarkdownToBlocks } from './MarkdownRenderer'
+import { cn } from '../lib/utils'
 
 interface GlossaryTextProps {
   text: string
@@ -47,7 +48,23 @@ function tokenize(text: string): Token[] {
 
 export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCount }) => {
   const [openKey, setOpenKey] = useState<string | null>(null)
+  const [openItem, setOpenItem] = useState<VocabItem | null>(null)
   const [added, setAdded] = useState<Set<string>>(new Set())
+
+  // 文章框是 overflow-hidden 包 overflow-y-auto，inline 的 absolute 浮層再高的 z-index
+  // 也逃不出裁切——點在可視區下半部或靠右的字，釋義卡會被切掉一半。改成固定在視窗底部
+  // 的釋義列：不受任何祖先 overflow 影響，而且單手拿手機時本來就該落在拇指區。
+  React.useEffect(() => {
+    if (!openItem) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpenKey(null)
+        setOpenItem(null)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [openItem])
 
   const blocks = useMemo(() => parseMarkdownToBlocks(text), [text])
   const tokens = useMemo(() => tokenize(text), [text])
@@ -78,43 +95,23 @@ export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCoun
       const isOpen = openKey === tokenKey
 
       return (
-        <span key={i} className="relative inline-block">
-          <button
-            type="button"
-            onClick={() => setOpenKey(isOpen ? null : tokenKey)}
-            aria-expanded={isOpen}
-            className="cursor-pointer underline decoration-[var(--pr-ln)] decoration-dotted underline-offset-4 hover:decoration-[var(--pr)]"
-          >
-            {token.text}
-          </button>
-          {isOpen && (
-            <span className="absolute left-0 top-full z-30 mt-1.5 block w-60 animate-fade-in rounded-xl border border-[var(--ln2)] bg-[var(--sf)] p-3 text-left shadow-lg">
-              <span className="flex items-baseline gap-2">
-                <span className="font-bold text-[var(--tx)]">{item.word}</span>
-                <span className="text-[11px] text-[var(--mu)]">{item.pos}</span>
-              </span>
-              <span className="mt-1 block text-xs leading-relaxed text-[var(--mu)]">
-                {item.meaning}
-              </span>
-              <button
-                type="button"
-                onClick={() => handleAdd(item)}
-                disabled={added.has(item.id)}
-                className="mt-2 flex min-h-[32px] w-full items-center justify-center gap-1 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[11px] font-bold text-[var(--pr)] disabled:opacity-60"
-              >
-                {added.has(item.id) ? (
-                  <>
-                    <Check className="h-3 w-3" /> 已加入單字本
-                  </>
-                ) : (
-                  <>
-                    <Plus className="h-3 w-3" /> 加入單字本
-                  </>
-                )}
-              </button>
-            </span>
+        <button
+          key={i}
+          type="button"
+          onClick={() => {
+            setOpenKey(isOpen ? null : tokenKey)
+            setOpenItem(isOpen ? null : item)
+          }}
+          aria-expanded={isOpen}
+          className={cn(
+            'cursor-pointer underline decoration-dotted underline-offset-4',
+            isOpen
+              ? 'decoration-[var(--pr)] text-[var(--pr)]'
+              : 'decoration-[var(--pr-ln)] hover:decoration-[var(--pr)]'
           )}
-        </span>
+        >
+          {token.text}
+        </button>
       )
     })
   }
@@ -126,7 +123,7 @@ export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCoun
           return (
             <div
               key={idx}
-              className="my-4 overflow-x-auto rounded-xl border border-[var(--ln)] bg-[var(--sf)] shadow-sm"
+              className="my-4 overflow-x-auto rounded-xl border border-[var(--ln)] bg-[var(--sf)]"
             >
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
@@ -172,7 +169,7 @@ export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCoun
 
         if (block.type === 'quote') {
           return (
-            <blockquote key={idx} className="p-3 rounded-lg bg-[var(--pr-sf)] border-l-4 border-[var(--pr)] text-xs leading-relaxed text-[var(--mu)] my-2">
+            <blockquote key={idx} className="p-3 rounded-lg bg-[var(--pr-sf)] border border-[var(--pr-ln)] text-xs leading-relaxed text-[var(--mu)] my-2">
               {renderTokens(block.content, `b${idx}`)}
             </blockquote>
           )
@@ -212,6 +209,56 @@ export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCoun
           </p>
         )
       })}
+
+      {/*
+        釋義列。fixed 相對視窗定位，所以文章框的 overflow 裁不到它；bottom-20 是為了
+        讓開位置給手機底部導航。陰影用 DESIGN.md 的 Overlay 值——這是全站唯一
+        真正浮在內容之上、因此允許有陰影的元件。
+      */}
+      {openItem && (
+        <div
+          role="dialog"
+          aria-label={`${openItem.word} 的釋義`}
+          className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-md animate-fade-in rounded-2xl border border-[var(--ln2)] bg-[var(--sf)] p-4 text-left shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:bottom-6"
+        >
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="flex items-baseline gap-2">
+                <span className="font-bold text-[var(--tx)]">{openItem.word}</span>
+                <span className="text-[11px] text-[var(--mu)]">{openItem.pos}</span>
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-[var(--mu)]">{openItem.meaning}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setOpenKey(null)
+                setOpenItem(null)
+              }}
+              aria-label="關閉釋義"
+              className="-mr-1 -mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={() => handleAdd(openItem)}
+            disabled={added.has(openItem.id)}
+            className="mt-3 flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] text-xs font-bold text-[var(--pr)] disabled:opacity-60"
+          >
+            {added.has(openItem.id) ? (
+              <>
+                <Check className="h-3.5 w-3.5" /> 已加入單字本
+              </>
+            ) : (
+              <>
+                <Plus className="h-3.5 w-3.5" /> 加入單字本
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   )
 }

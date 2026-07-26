@@ -70,7 +70,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
       })
 
       if (isCorrect) setCorrectCount((c) => c + 1)
-      else setShowExplanation(true)
+      // 判定後不自動展開詳解：先給一行結論，要細節由使用者自己展開。
     },
     [currentQ, currentBlank, selectedAnswers]
   )
@@ -114,7 +114,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
       <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
         <GlossaryText text={passage.passage} onGlossaryCount={setGlossaryCount} />
       </div>
-      <p className="shrink-0 border-t border-[var(--ln)] px-5 py-2 text-[11px] text-[var(--fa)]">
+      <p className="shrink-0 border-t border-[var(--ln)] px-5 py-2 text-[11px] text-[var(--mu)]">
         點擊底線單字看釋義 · 本篇難字 {glossaryCount} 個
       </p>
     </div>
@@ -153,7 +153,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
                 key={opt.key}
                 variant={variant}
                 onClick={() => handleSelectOption(opt.key)}
-                disabled={!!selectedKey}
+                softDisabled={!!selectedKey}
                 className="justify-start px-4 text-left font-option"
               >
                 <span className="w-6 text-xs font-semibold opacity-70">({opt.key})</span>
@@ -169,7 +169,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
                   </span>
                 )}
                 {!selectedKey && (
-                  <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[10px] text-[var(--fa)] lg:inline">
+                  <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[11px] text-[var(--mu)] lg:inline">
                     {idx + 1}
                   </span>
                 )}
@@ -178,19 +178,33 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
           })}
         </div>
 
+        {/* 選項作答後變成 aria-disabled，結果靠這條 live region 主動播報。 */}
+        <p role="status" aria-live="polite" className="sr-only">
+          {selectedKey &&
+            (selectedKey === currentBlank.answer
+              ? `答對，正解 ${currentBlank.answer}`
+              : `答錯，你選了 ${selectedKey}，正解 ${currentBlank.answer}`)}
+        </p>
+
         {selectedKey && currentQ.explanation && (
-          <div>
+          <div className="space-y-2">
+            <p className="text-xs leading-relaxed text-[var(--mu)]">
+              <span className="font-semibold text-[var(--tx)]">正解 ({currentBlank.answer})</span>
+              {' — '}
+              {currentQ.explanation.grammarPoint ?? currentQ.explanation.title}
+            </p>
             <button
               type="button"
               onClick={() => setShowExplanation(!showExplanation)}
-              className="flex min-h-[36px] items-center gap-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
+              aria-expanded={showExplanation}
+              className="flex min-h-[44px] items-center gap-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
             >
               {showExplanation ? (
                 <ChevronUp className="h-4 w-4" />
               ) : (
                 <ChevronDown className="h-4 w-4" />
               )}
-              詳解 · {currentQ.explanation.title}
+              {showExplanation ? '收合詳解' : '看完整詳解'} · {currentQ.explanation.title}
             </button>
             {showExplanation && (
               <ExplanationCard explanation={currentQ.explanation} answerKey={currentBlank.answer} />
@@ -198,14 +212,17 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
           </div>
         )}
 
+        {/* 手機把主要動作釘在拇指區，詳解再長也不會把「下一題」推出視窗。 */}
         {selectedKey && (
-          <Button variant="primary" onClick={handleNextQuestion}>
-            {currentQIndex + 1 < passage.questions.length ? '下一題' : '完成閱讀練習'}
-            <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
-          </Button>
+          <div className="sticky bottom-16 z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)] px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+            <Button variant="primary" onClick={handleNextQuestion}>
+              {currentQIndex + 1 < passage.questions.length ? '下一題' : '完成閱讀練習'}
+              <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
+            </Button>
+          </div>
         )}
 
-        <p className="hidden text-[11px] text-[var(--fa)] lg:block">
+        <p className="hidden text-[11px] text-[var(--mu)] lg:block">
           數字鍵 1–4 選答 · 空白鍵下一題
         </p>
       </div>
@@ -222,10 +239,12 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
         >
           <button
             role="tab"
+            id="reading-tab-passage"
             aria-selected={activeTab === 'passage'}
+            aria-controls="reading-tabpanel"
             onClick={() => setActiveTab('passage')}
             className={cn(
-              'min-h-[38px] flex-1 rounded-lg text-xs font-semibold transition-colors',
+              'min-h-[44px] flex-1 rounded-lg text-xs font-semibold transition-colors',
               activeTab === 'passage'
                 ? 'bg-[var(--pr-sf)] text-[var(--pr)]'
                 : 'text-[var(--mu)] hover:text-[var(--tx)]'
@@ -235,10 +254,12 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
           </button>
           <button
             role="tab"
+            id="reading-tab-questions"
             aria-selected={activeTab === 'questions'}
+            aria-controls="reading-tabpanel"
             onClick={() => setActiveTab('questions')}
             className={cn(
-              'min-h-[38px] flex-1 rounded-lg text-xs font-semibold transition-colors',
+              'min-h-[44px] flex-1 rounded-lg text-xs font-semibold transition-colors',
               activeTab === 'questions'
                 ? 'bg-[var(--pr-sf)] text-[var(--pr)]'
                 : 'text-[var(--mu)] hover:text-[var(--tx)]'
@@ -249,7 +270,12 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
         </div>
       )}
 
-      <div className="lg:hidden">
+      <div
+        id="reading-tabpanel"
+        role={passageBox ? 'tabpanel' : undefined}
+        aria-labelledby={passageBox ? `reading-tab-${activeTab}` : undefined}
+        className="lg:hidden"
+      >
         {activeTab === 'passage' && passageBox ? (
           <div className="space-y-3">
             {passageBox}

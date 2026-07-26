@@ -136,47 +136,88 @@ describe('VocabQuiz', () => {
   })
 
   it('offers four options containing the correct meaning', () => {
-    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} />)
+    render(
+      <VocabQuiz
+        item={ITEM}
+        pool={POOL}
+        index={0}
+        currentLevel={0}
+        onAnswer={vi.fn()}
+        onNext={vi.fn()}
+      />
+    )
     const options = screen.getAllByRole('button')
     expect(options).toHaveLength(4)
     expect(screen.getByText('行程表')).toBeTruthy()
   })
 
-  it('reports whether the pick was right and then locks the options', () => {
+  it('locks the options with aria-disabled so the verdict stays readable', () => {
+    // 原生 disabled 會讓按鈕不可聚焦、被螢幕閱讀器跳過，而「正解」「你的選擇」就寫在
+    // 按鈕內部——鎖住選項不能以犧牲結果的可讀性為代價。
     const onAnswer = vi.fn()
-    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={1} onAnswer={onAnswer} />)
+    render(
+      <VocabQuiz
+        item={ITEM}
+        pool={POOL}
+        index={0}
+        currentLevel={1}
+        onAnswer={onAnswer}
+        onNext={vi.fn()}
+      />
+    )
 
     fireEvent.click(screen.getByText('行程表'))
     expect(onAnswer).toHaveBeenCalledWith(true)
 
-    for (const button of screen.getAllByRole('button')) {
-      expect((button as HTMLButtonElement).disabled).toBe(true)
+    const options = screen.getAllByRole('button').filter((b) => b.textContent?.startsWith('('))
+    expect(options).toHaveLength(4)
+    for (const button of options) {
+      expect(button.getAttribute('aria-disabled')).toBe('true')
+      expect((button as HTMLButtonElement).disabled).toBe(false)
     }
     expect(screen.getByText(/下次/)).toBeTruthy()
+  })
+
+  it('does not fire onAnswer a second time once locked', () => {
+    const onAnswer = vi.fn()
+    render(
+      <VocabQuiz
+        item={ITEM}
+        pool={POOL}
+        index={0}
+        currentLevel={1}
+        onAnswer={onAnswer}
+        onNext={vi.fn()}
+      />
+    )
+
+    fireEvent.click(screen.getByText('行程表'))
+    fireEvent.click(screen.getByText('行程表'))
+    expect(onAnswer).toHaveBeenCalledTimes(1)
   })
 
   it('advances the familiarity by exactly one step even after the parent re-renders', () => {
     // 父層會在 onAnswer 之後把新的 currentLevel 傳回來；顯示的結果檔位必須
     // 停在作答當下算好的那一格，不能再跟著 prop 往上跳。
     const { rerender } = render(
-      <VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} />
+      <VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />
     )
 
     fireEvent.click(screen.getByText('行程表'))
-    rerender(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={1} onAnswer={vi.fn()} />)
+    rerender(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={1} onAnswer={vi.fn()} onNext={vi.fn()} />)
 
     expect(screen.getByLabelText('熟悉度 1 / 4')).toBeTruthy()
     expect(screen.getByText(/下次 10 分鐘後/)).toBeTruthy()
   })
 
   it('steps the familiarity down on a wrong pick without going below zero', () => {
-    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} />)
+    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
     fireEvent.click(screen.getByText('庫存清單'))
     expect(screen.getByLabelText('熟悉度 0 / 4')).toBeTruthy()
   })
 
   it('blanks out the target word in the cloze prompt', () => {
-    render(<VocabQuiz item={ITEM} pool={POOL} index={2} currentLevel={0} onAnswer={vi.fn()} />)
+    render(<VocabQuiz item={ITEM} pool={POOL} index={2} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
     expect(screen.getByText(/Please review the ______ before the trip\./)).toBeTruthy()
   })
 })

@@ -25,7 +25,8 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
 
   return (
     <div className="flex flex-col items-center gap-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-12 text-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--ok)] bg-[var(--ok-sf)] text-[var(--ok)]">
+      {/* 完成是進度，不是判定。綠色只屬於「這一題你答對了」。 */}
+      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[var(--pr)]">
         <Check className="h-7 w-7" />
       </div>
       <div className="space-y-1">

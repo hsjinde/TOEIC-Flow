@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
@@ -26,8 +26,6 @@ import { GraduationDots } from '../../../components/GraduationDots'
 import { cn } from '../../../lib/utils'
 
 const DEFAULT_COUNT = 5
-/** 設計 02：答對 600ms 後自動進下一題。 */
-const AUTO_ADVANCE_MS = 600
 
 interface Session {
   questions: Question[]
@@ -92,19 +90,12 @@ function GrammarPracticePage() {
   const [results, setResults] = useState<(boolean | null)[]>([])
   const [justFiled, setJustFiled] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
-  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const built = buildSession(new URLSearchParams(searchParams.toString()))
     setSession(built)
     setResults(new Array(built.questions.length).fill(null))
   }, [searchParams])
-
-  useEffect(() => {
-    return () => {
-      if (autoAdvanceTimerRef.current) clearTimeout(autoAdvanceTimerRef.current)
-    }
-  }, [])
 
   const questions = session?.questions ?? []
   const currentQ = questions[currentIndex]
@@ -121,10 +112,6 @@ function GrammarPracticePage() {
   }, [currentQ, isQuestionAnswered, selectedAnswers])
 
   const handleNext = useCallback(() => {
-    if (autoAdvanceTimerRef.current) {
-      clearTimeout(autoAdvanceTimerRef.current)
-      autoAdvanceTimerRef.current = null
-    }
     setJustFiled(false)
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex((prev) => prev + 1)
@@ -162,14 +149,14 @@ function GrammarPracticePage() {
 
       if (isAllCorrect) {
         setCorrectCount((prev) => prev + 1)
-        autoAdvanceTimerRef.current = setTimeout(handleNext, AUTO_ADVANCE_MS)
       } else {
         // 設計 02：答錯才顯示「已加入錯題本」，本來就在本裡的不重複宣告。
         setJustFiled(!wasTracked)
-        setShowExplanation(true)
       }
+      // 判定後刻意不自動跳題、也不自動展開詳解：答對的人要來得及看到自己答對了，
+      // 答錯的人要先自己想。前進一律由使用者按空白鍵或「下一題」觸發。
     },
-    [selectedAnswers, currentQ, session, currentIndex, handleNext]
+    [selectedAnswers, currentQ, session, currentIndex]
   )
 
   // 設計 02/14：桌機 1/2/3/4 選答、空白鍵下一題。
@@ -217,6 +204,9 @@ function GrammarPracticePage() {
   }
 
   const answeredCount = results.filter((r) => r !== null).length
+  // 多空格題有兩組答案，只報第一格會讓「正解 (C)」在雙空格題上是錯的。
+  const answerKeys = currentQ.blanks.map((b) => b.answer).join(' · ')
+  const chosenKeys = currentQ.blanks.map((_, i) => selectedAnswers[i] ?? '—').join(' · ')
 
   return (
     <div className="flex flex-col gap-4">
@@ -226,7 +216,7 @@ function GrammarPracticePage() {
           <Link
             href="/"
             aria-label="返回今日任務"
-            className="-ml-2 shrink-0 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)]"
+            className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
           >
             <ArrowLeft className="h-5 w-5" />
           </Link>
@@ -301,7 +291,7 @@ function GrammarPracticePage() {
                           key={opt.key}
                           variant={variant}
                           onClick={() => handleSelectOption(blankIdx, opt.key)}
-                          disabled={isBlankAnswered}
+                          softDisabled={isBlankAnswered}
                           className="justify-start px-5 text-left font-option"
                         >
                           <span className="w-6 text-xs font-semibold opacity-70">({opt.key})</span>
@@ -317,8 +307,12 @@ function GrammarPracticePage() {
                               <X className="h-3.5 w-3.5" /> 你的答案
                             </span>
                           )}
-                          {!isBlankAnswered && (
-                            <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[10px] text-[var(--fa)] lg:inline">
+                          {/*
+                            數字鍵只作用在第一組空格，所以第二組以後不能印按鍵提示——
+                            印了等於叫使用者去按一個不會有反應的鍵。
+                          */}
+                          {!isBlankAnswered && blankIdx === 0 && (
+                            <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[11px] text-[var(--mu)] lg:inline">
                               {idx + 1}
                             </span>
                           )}
@@ -331,13 +325,23 @@ function GrammarPracticePage() {
             })}
           </div>
 
-          <p className="hidden text-[11px] text-[var(--fa)] lg:block">
+          <p className="hidden text-[11px] text-[var(--mu)] lg:block">
             數字鍵 1–4 選答 · 空白鍵下一題
           </p>
         </div>
 
         {/* 右欄：判定與詳解（桌機常駐，手機接在下方） */}
         <div className="space-y-3 lg:sticky lg:top-20">
+          {/*
+            螢幕閱讀器唯一的結果來源。「正解」「你的答案」寫在選項按鈕裡，而選項作答後
+            會變成 aria-disabled，游標不會自動走過去——沒有這條 live region，非視覺
+            使用者答完一題後得不到任何對錯訊息。
+          */}
+          <p role="status" aria-live="polite" className="sr-only">
+            {verdict === 'correct' && `答對，正解 ${answerKeys}`}
+            {verdict === 'wrong' && `答錯，你選了 ${chosenKeys}，正解 ${answerKeys}`}
+          </p>
+
           {verdict && (
             <div className="flex flex-wrap items-center gap-2 text-xs">
               <span
@@ -350,9 +354,7 @@ function GrammarPracticePage() {
               >
                 {verdict === 'correct' ? '答對' : '答錯'}
               </span>
-              {verdict === 'correct' ? (
-                <span className="text-[var(--mu)]">0.6 秒後下一題</span>
-              ) : (
+              {verdict === 'wrong' && (
                 <span className="flex items-center gap-1.5 text-[var(--mu)]">
                   {justFiled ? '已加入錯題本' : '錯題本已有這題'} · 連續答對 2 次畢業
                   <GraduationDots consecutiveCorrect={0} className="text-sm" />
@@ -362,39 +364,52 @@ function GrammarPracticePage() {
           )}
 
           {isQuestionAnswered && currentQ.explanation && (
-            <div>
+            <div className="space-y-2">
+              {/*
+                收合狀態下的一行結論。答錯時把整篇詳解推到臉上，只會讓通勤者為了找
+                「下一題」而滑過去；先給結論，要細節再自己展開。
+              */}
+              <p className="text-xs leading-relaxed text-[var(--mu)]">
+                <span className="font-semibold text-[var(--tx)]">正解 ({answerKeys})</span>
+                {' — '}
+                {currentQ.explanation.grammarPoint ?? currentQ.explanation.title}
+              </p>
               <button
                 type="button"
                 onClick={() => setShowExplanation(!showExplanation)}
-                className="flex min-h-[36px] items-center gap-1 py-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
+                aria-expanded={showExplanation}
+                className="flex min-h-[44px] items-center gap-1 py-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
               >
                 {showExplanation ? (
                   <ChevronUp className="h-4 w-4" />
                 ) : (
                   <ChevronDown className="h-4 w-4" />
                 )}
-                詳解 · {currentQ.explanation.title}
+                {showExplanation ? '收合詳解' : '看完整詳解'} · {currentQ.explanation.title}
               </button>
               {showExplanation && (
-                <ExplanationCard
-                  explanation={currentQ.explanation}
-                  answerKey={currentQ.blanks[0]?.answer}
-                />
+                <ExplanationCard explanation={currentQ.explanation} answerKey={answerKeys} />
               )}
             </div>
           )}
 
           {!isQuestionAnswered && (
-            <p className="hidden rounded-2xl border border-dashed border-[var(--ln)] px-4 py-6 text-center text-xs text-[var(--fa)] lg:block">
+            <p className="hidden rounded-2xl border border-dashed border-[var(--ln)] px-4 py-6 text-center text-xs text-[var(--mu)] lg:block">
               作答後這裡會顯示判定與完整詳解
             </p>
           )}
 
+          {/*
+            手機把「下一題」固定在拇指區，詳解再長也不會把主要動作推出視窗；桌機回到
+            文件流，因為右欄本來就是 sticky 的。
+          */}
           {isQuestionAnswered && (
-            <Button variant="primary" onClick={handleNext}>
-              {currentIndex + 1 < questions.length ? '下一題' : '看本回結果'}
-              <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
-            </Button>
+            <div className="sticky bottom-16 z-30 -mx-4 mt-1 border-t border-[var(--ln)] bg-[var(--bg)] px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+              <Button variant="primary" onClick={handleNext}>
+                {currentIndex + 1 < questions.length ? '下一題' : '看本回結果'}
+                <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
+              </Button>
+            </div>
           )}
         </div>
       </div>

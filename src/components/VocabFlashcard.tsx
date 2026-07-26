@@ -65,31 +65,31 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <button
-        type="button"
-        onClick={() => setIsFlipped((v) => !v)}
-        aria-label={isFlipped ? '翻回英文面' : '翻到中文釋義'}
-        className="flex min-h-[264px] w-full flex-col items-center justify-between gap-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6 text-center transition-colors duration-200 hover:border-[var(--pr-ln)]"
-      >
+      {/*
+        翻面按鈕鋪滿整張卡，內容層 pointer-events-none 讓點擊穿透下去；喇叭再單獨
+        把指標事件收回來。這樣整張卡仍然可點，但喇叭不再是巢狀在 button 裡的
+        span[role=button]——HTML 不允許互動元素巢狀，AT 的可及性樹也會壞掉。
+      */}
+      <div className="relative min-h-[264px] w-full rounded-2xl border border-[var(--ln)] bg-[var(--sf)] transition-colors duration-200 hover:border-[var(--pr-ln)]">
+        <button
+          type="button"
+          onClick={() => setIsFlipped((v) => !v)}
+          aria-label={isFlipped ? '翻回英文面' : '翻到中文釋義'}
+          aria-pressed={isFlipped}
+          className="absolute inset-0 h-full w-full rounded-2xl"
+        />
+        <div className="pointer-events-none relative flex min-h-[264px] w-full flex-col items-center justify-between gap-4 p-6 text-center">
         <div className="flex w-full items-center justify-between text-xs text-[var(--mu)]">
           <span className="rounded-md bg-[var(--sf2)] px-2.5 py-1 font-semibold">{item.pos}</span>
-          <span
-            role="button"
-            tabIndex={0}
+          <button
+            type="button"
             onClick={playSpeech}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                e.stopPropagation()
-                playSpeech(e as unknown as React.MouseEvent)
-              }
-            }}
             title="朗讀發音"
-            aria-label="朗讀發音"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-[var(--pr)] transition-colors hover:bg-[var(--pr-sf)]"
+            aria-label={`朗讀 ${item.word}`}
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full text-[var(--pr)] transition-colors hover:bg-[var(--pr-sf)]"
           >
             <Volume2 className="h-5 w-5" />
-          </span>
+          </button>
         </div>
 
         {!isFlipped ? (
@@ -116,19 +116,29 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
           </span>
           <span>{isFlipped ? '記得程度會決定下次出現時間' : '翻面後可自評'}</span>
         </div>
-      </button>
+        </div>
+      </div>
 
+      {/*
+        自評是使用者對自己的評估，不是系統判定，所以不能用綠／紅——同一顆綠色在別的
+        畫面上代表「你答對了」。三檔的差異改由文字與間隔標籤承載，只有正向的「記得」
+        帶主色。
+      */}
       {isFlipped && (
         <div className="grid animate-fade-in grid-cols-3 gap-2">
           {GRADES.map((grade) => (
             <Button
               key={grade.level}
-              variant={grade.level === 3 ? 'correct' : grade.level === 1 ? 'wrong' : 'secondary'}
+              variant={grade.level === 3 ? 'outline' : 'secondary'}
               onClick={() => onGrade(grade.level)}
-              className="flex-col gap-0.5 py-3 text-xs"
+              className={
+                grade.level === 3
+                  ? 'flex-col gap-0.5 border-[var(--pr-ln)] py-3 text-xs text-[var(--pr)]'
+                  : 'flex-col gap-0.5 py-3 text-xs'
+              }
             >
               <span className="font-bold">{grade.label}</span>
-              <span className="text-[10px] font-normal opacity-70">
+              <span className="text-[11px] font-normal opacity-80">
                 {getSrsIntervalLabel(grade.level)}
               </span>
             </Button>

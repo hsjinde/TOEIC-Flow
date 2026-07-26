@@ -28,7 +28,10 @@ export function TopNav() {
   if (!user) return null
 
   return (
-    <header className="hidden lg:block sticky top-0 z-40 w-full border-b border-[var(--ln)] bg-[var(--sf)]">
+    <header
+      data-chrome="nav"
+      className="hidden lg:block sticky top-0 z-40 w-full border-b border-[var(--ln)] bg-[var(--sf)]"
+    >
       <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center gap-8 px-6">
         <Link href="/" className="text-sm font-bold text-[var(--tx)] hover:opacity-80">
           每日多益

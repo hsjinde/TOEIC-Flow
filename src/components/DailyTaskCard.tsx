@@ -60,7 +60,7 @@ export const DailyTaskCard: React.FC<DailyTaskCardProps> = ({
 
       <span className="flex shrink-0 items-center gap-1.5 text-xs font-semibold text-[var(--mu)]">
         {shortcut && (
-          <span className="hidden rounded border border-[var(--ln)] px-1.5 py-0.5 text-[10px] text-[var(--fa)] lg:inline">
+          <span className="hidden rounded border border-[var(--ln)] px-1.5 py-0.5 text-[11px] text-[var(--mu)] lg:inline">
             {shortcut}
           </span>
         )}

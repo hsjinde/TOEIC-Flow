@@ -39,8 +39,10 @@ export function AuthModal() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="w-full max-w-md p-6 md:p-8 rounded-3xl bg-[var(--sf)] border border-[var(--ln)] shadow-2xl space-y-6">
+    // animate-fadeIn 這個 class 從來不存在（globals.css 定義的是 animate-fade-in），
+    // 所以這個淡入從第一天起就沒生效過。
+    <div className="fixed inset-0 z-50 flex animate-fade-in items-center justify-center bg-black/80 p-4 backdrop-blur-md">
+      <div className="w-full max-w-md space-y-6 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] md:p-8">
         {/* Title */}
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--pr-sf)] border border-[var(--pr-ln)] text-[var(--pr)] text-xs font-bold">
@@ -59,8 +61,10 @@ export function AuthModal() {
           <button
             type="button"
             onClick={() => { setIsLogin(true); setError(''); }}
-            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${
-              isLogin ? 'bg-[var(--pr)] text-white shadow-md' : 'text-[var(--mu)] hover:text-[var(--tx)]'
+            className={`min-h-[44px] flex-1 rounded-xl text-xs font-bold transition-colors ${
+              isLogin
+                ? 'bg-[var(--pr)] text-[var(--pr-tx)]'
+                : 'text-[var(--mu)] hover:text-[var(--tx)]'
             }`}
           >
             <LogIn className="w-3.5 h-3.5 inline mr-1" /> 帳號登入
@@ -68,8 +72,10 @@ export function AuthModal() {
           <button
             type="button"
             onClick={() => { setIsLogin(false); setError(''); }}
-            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${
-              !isLogin ? 'bg-[var(--pr)] text-white shadow-md' : 'text-[var(--mu)] hover:text-[var(--tx)]'
+            className={`min-h-[44px] flex-1 rounded-xl text-xs font-bold transition-colors ${
+              !isLogin
+                ? 'bg-[var(--pr)] text-[var(--pr-tx)]'
+                : 'text-[var(--mu)] hover:text-[var(--tx)]'
             }`}
           >
             <UserPlus className="w-3.5 h-3.5 inline mr-1" /> 新用戶註冊
@@ -78,7 +84,12 @@ export function AuthModal() {
 
         {/* Error Alert */}
         {error && (
-          <div role="alert" className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+          // 表單錯誤走中性警示，不用 --bad：紅色是答題判定的專用語言，出現在登入表單
+          // 會稀釋掉「你答錯了」這個反射。
+          <div
+            role="alert"
+            className="flex items-center gap-2 rounded-2xl border border-[var(--ln2)] bg-[var(--sf2)] p-3.5 text-xs text-[var(--tx)]"
+          >
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
@@ -98,7 +109,7 @@ export function AuthModal() {
                   placeholder="例如：多益900學霸"
                   value={nickname}
                   onChange={(e) => setNickname(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[var(--sf2)] border border-[var(--ln)] text-sm text-[var(--tx)] focus:outline-none focus:border-[var(--pr)]"
+                  className="w-full rounded-2xl border border-[var(--ln)] bg-[var(--sf2)] min-h-[44px] py-2.5 pl-10 pr-4 text-sm text-[var(--tx)] focus:border-[var(--pr)]"
                 />
               </div>
             </div>
@@ -115,7 +126,7 @@ export function AuthModal() {
                 placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[var(--sf2)] border border-[var(--ln)] text-sm text-[var(--tx)] focus:outline-none focus:border-[var(--pr)]"
+                className="w-full rounded-2xl border border-[var(--ln)] bg-[var(--sf2)] min-h-[44px] py-2.5 pl-10 pr-4 text-sm text-[var(--tx)] focus:border-[var(--pr)]"
               />
             </div>
           </div>
@@ -131,7 +142,7 @@ export function AuthModal() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-[var(--sf2)] border border-[var(--ln)] text-sm text-[var(--tx)] focus:outline-none focus:border-[var(--pr)]"
+                className="w-full rounded-2xl border border-[var(--ln)] bg-[var(--sf2)] min-h-[44px] py-2.5 pl-10 pr-4 text-sm text-[var(--tx)] focus:border-[var(--pr)]"
               />
             </div>
           </div>
@@ -139,7 +150,7 @@ export function AuthModal() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 rounded-2xl bg-[var(--pr)] hover:opacity-90 text-white font-bold text-sm shadow-lg transition-all disabled:opacity-50"
+            className="min-h-[52px] w-full rounded-2xl bg-[var(--pr)] text-sm font-bold text-[var(--pr-tx)] transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {submitting ? '驗證中...' : isLogin ? '立即登入' : '完成註冊並登入'}
           </button>

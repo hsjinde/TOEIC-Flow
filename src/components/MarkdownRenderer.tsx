@@ -173,7 +173,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           return (
             <div
               key={idx}
-              className="my-4 overflow-x-auto rounded-2xl border border-muted/80 bg-card shadow-sm"
+              className="my-4 overflow-x-auto rounded-2xl border border-muted/80 bg-card"
             >
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
@@ -224,7 +224,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           return (
             <blockquote
               key={idx}
-              className="p-3.5 rounded-xl bg-primary/5 border-l-4 border-primary text-xs leading-relaxed text-muted-foreground my-3"
+              className="p-3.5 rounded-xl bg-[var(--pr-sf)] border border-[var(--pr-ln)] text-xs leading-relaxed text-[var(--mu)] my-3"
             >
               {renderFormattedInlineText(block.content)}
             </blockquote>

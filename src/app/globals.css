@@ -22,6 +22,10 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-border: hsl(var(--border));
 
+  /* JetBrains Mono 在檔首就被載入，但沒指派給任何 utility——font-mono 一直吃的是
+     Tailwind 預設的 ui-monospace。計時器與題號要的是它的等寬數字。 */
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -119,6 +123,54 @@
     --muted-foreground: 219 10% 64%;
     --border: 225 13% 19%;
   }
+}
+
+/*
+ * WCAG 2.1 AA 要求鍵盤焦點可見，而桌機情境真的會用 1/2/3/4 鍵作答。作答後被點的
+ * 選項會失去互動性、焦點落回 <body>——沒有這條規則，使用者從第二題開始只能靠 Tab
+ * 從頭數。放在全域而不是逐元件，是因為之前逐元件的做法漏了整個 practice 流程。
+ */
+:focus-visible {
+  outline: 2px solid var(--pr);
+  outline-offset: 2px;
+}
+
+/*
+ * Tailwind 的預設 placeholder 是 currentColor 疊 50% 不透明度，在 --sf2 底上合成
+ * 出來只有 4.31:1，低於 AA 的 4.5。改成明確的 --mu（6.13:1）。
+ */
+::placeholder {
+  color: var(--mu);
+  opacity: 1;
+}
+
+/*
+ * PRODUCT.md：三處動效都要有降級版本。一次關掉全站補間比逐處加 motion-reduce:
+ * 可靠——新加的動效不會因為忘了寫而漏掉。iteration-count 讓 skeleton 的
+ * animate-pulse 停在第一幀，而不是繼續無限跳動。
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * 模擬考模式：DESIGN-PROMPT 要求「極簡介面，去掉所有干擾」，但手機版的底部導航是
+ * fixed 的，考試全程都懸在拇指區正上方——一次誤觸就是 30 分鐘作答直接離開。考試中
+ * 由 mock 頁在 <body> 掛上 data-exam-mode，把導航整個收起來。
+ */
+body[data-exam-mode='true'] [data-chrome='nav'] {
+  display: none;
+}
+
+body[data-exam-mode='true'] main {
+  padding-bottom: 2rem;
 }
 
 body {

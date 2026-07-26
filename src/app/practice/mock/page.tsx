@@ -22,6 +22,22 @@ const SECONDS_PER_QUESTION = 45
 /** 設計 08：最後 5 分鐘才轉為主色細線提示。 */
 const URGENT_THRESHOLD_SECONDS = 5 * 60
 
+/**
+ * 作答中的暫存。所有狀態原本只活在 useState 裡，被電話打斷、切走 App 再回來就整份
+ * 歸零——30 分鐘與 40 題答案一起消失，且事前毫無警告。用 sessionStorage 是刻意的：
+ * 分頁關掉就作廢，不會有一份三天前的半成品在下次開啟時跳出來。
+ */
+const STORAGE_KEY_INFLIGHT = 'toeic_mock_inflight'
+
+interface InflightExam {
+  examId: string
+  currentIndex: number
+  answers: Record<string, string>
+  marked: string[]
+  spent: Record<string, number>
+  remaining: number
+}
+
 function formatClock(totalSeconds: number): string {
   const safe = Math.max(0, totalSeconds)
   const m = Math.floor(safe / 60)
@@ -31,6 +47,9 @@ function formatClock(totalSeconds: number): string {
 
 export default function MockExamPage() {
   const [exam, setExam] = useState<MockExam | null>(null)
+  const [loaded, setLoaded] = useState(false)
+  const [inflight, setInflight] = useState<InflightExam | null>(null)
+  const [confirmingSubmit, setConfirmingSubmit] = useState(false)
   const [started, setStarted] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
@@ -53,11 +72,38 @@ export default function MockExamPage() {
     const exams = getMockExams()
     const first = exams[0] ?? null
     setExam(first)
-    if (first) {
-      const count = first.sections.reduce((a, s) => a + s.questions.length, 0)
-      setRemaining(count * SECONDS_PER_QUESTION)
+    setLoaded(true)
+    if (!first) return
+
+    const count = first.sections.reduce((a, s) => a + s.questions.length, 0)
+    const raw = sessionStorage.getItem(STORAGE_KEY_INFLIGHT)
+    if (raw) {
+      try {
+        const saved = JSON.parse(raw) as InflightExam
+        if (saved.examId === first.id && saved.remaining > 0) {
+          setInflight(saved)
+          setRemaining(saved.remaining)
+          return
+        }
+      } catch {
+        // 壞掉的暫存就當作沒有，不要讓它擋住開新的一份。
+      }
+      sessionStorage.removeItem(STORAGE_KEY_INFLIGHT)
     }
+    setRemaining(count * SECONDS_PER_QUESTION)
   }, [])
+
+  // 作答中把導航收起來，並攔截重新整理／關閉分頁。
+  useEffect(() => {
+    if (!started || report) return
+    document.body.dataset.examMode = 'true'
+    const onBeforeUnload = (e: BeforeUnloadEvent) => e.preventDefault()
+    window.addEventListener('beforeunload', onBeforeUnload)
+    return () => {
+      delete document.body.dataset.examMode
+      window.removeEventListener('beforeunload', onBeforeUnload)
+    }
+  }, [started, report])
 
   const questions: Question[] = useMemo(
     () => exam?.sections.flatMap((s) => s.questions) ?? [],
@@ -135,6 +181,7 @@ export default function MockExamPage() {
       estimatedScore: estimated.score ?? 0,
     }
     const previous = saveMockResult(result)
+    sessionStorage.removeItem(STORAGE_KEY_INFLIGHT)
 
     setReport({
       rows,
@@ -163,6 +210,40 @@ export default function MockExamPage() {
   useEffect(() => {
     if (started && !report) questionEnterRef.current = Date.now()
   }, [started, currentIndex, report])
+
+  // 每次狀態變動就寫回暫存，讓中斷後回來能接續。
+  useEffect(() => {
+    if (!started || report || !exam) return
+    const snapshot: InflightExam = {
+      examId: exam.id,
+      currentIndex,
+      answers,
+      marked: [...marked],
+      spent,
+      remaining,
+    }
+    sessionStorage.setItem(STORAGE_KEY_INFLIGHT, JSON.stringify(snapshot))
+  }, [started, report, exam, currentIndex, answers, marked, spent, remaining])
+
+  const resume = useCallback(() => {
+    if (!inflight) return
+    setCurrentIndex(inflight.currentIndex)
+    setAnswers(inflight.answers)
+    setMarked(new Set(inflight.marked))
+    setSpent(inflight.spent)
+    setRemaining(inflight.remaining)
+    setInflight(null)
+    setStarted(true)
+  }, [inflight])
+
+  const discardInflight = useCallback(() => {
+    sessionStorage.removeItem(STORAGE_KEY_INFLIGHT)
+    setInflight(null)
+    if (exam) {
+      const count = exam.sections.reduce((a, s) => a + s.questions.length, 0)
+      setRemaining(count * SECONDS_PER_QUESTION)
+    }
+  }, [exam])
 
   const goTo = useCallback(
     (index: number) => {
@@ -213,7 +294,19 @@ export default function MockExamPage() {
     setWrongFiled(true)
   }
 
-  if (!exam) return <MockSkeleton />
+  if (!loaded) return <MockSkeleton />
+
+  if (!exam) {
+    return (
+      <div className="mx-auto flex max-w-md flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
+        <h2 className="text-base font-bold text-[var(--tx)]">目前沒有可用的模擬考</h2>
+        <p className="text-xs text-[var(--mu)]">模擬考題庫是空的，重新建置題庫後再回來。</p>
+        <Link href="/" className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">回到今日任務</Button>
+        </Link>
+      </div>
+    )
+  }
 
   if (report) {
     return (
@@ -231,17 +324,42 @@ export default function MockExamPage() {
 
   // 開始前的說明頁：模擬考一旦開始就不該有導航干擾。
   if (!started) {
+    const answeredInflight = inflight ? Object.keys(inflight.answers).length : 0
     return (
       <div className="mx-auto flex max-w-md flex-col items-center gap-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-12 text-center">
         <h1 className="text-xl font-bold text-[var(--tx)]">{exam.title}</h1>
-        <p className="text-sm leading-relaxed text-[var(--mu)]">
-          {questions.length} 題 · 限時 {Math.round((questions.length * SECONDS_PER_QUESTION) / 60)} 分鐘
-          <br />
-          作答期間不顯示對錯，交卷後一次檢討。
-        </p>
-        <Button variant="primary" onClick={() => setStarted(true)} className="max-w-[240px]">
-          開始作答
-        </Button>
+
+        {inflight ? (
+          <>
+            <p className="text-sm leading-relaxed text-[var(--mu)]">
+              上次有一份沒交的作答
+              <br />
+              已作答 {answeredInflight} / {questions.length} 題 · 剩餘{' '}
+              {formatClock(inflight.remaining)}
+            </p>
+            <div className="flex w-full max-w-[240px] flex-col gap-2">
+              <Button variant="primary" onClick={resume}>
+                接續作答
+              </Button>
+              <Button variant="outline" onClick={discardInflight} className="text-xs">
+                放棄並重新開始
+              </Button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="text-sm leading-relaxed text-[var(--mu)]">
+              {questions.length} 題 · 限時{' '}
+              {Math.round((questions.length * SECONDS_PER_QUESTION) / 60)} 分鐘
+              <br />
+              作答期間不顯示對錯，交卷後一次檢討。
+            </p>
+            <Button variant="primary" onClick={() => setStarted(true)} className="max-w-[240px]">
+              開始作答
+            </Button>
+          </>
+        )}
+
         <Link href="/" className="text-xs text-[var(--mu)] hover:text-[var(--tx)]">
           先回今日任務
         </Link>
@@ -255,8 +373,26 @@ export default function MockExamPage() {
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
       {/* 計時器：明顯但不焦慮，最後 5 分鐘才轉主色 */}
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center gap-2">
+        {/* 導航在考試中被收起來了，離開的出口必須自己提供，而且要帶確認。 */}
+        <Link
+          href="/"
+          aria-label="離開模擬考"
+          onClick={(e) => {
+            if (!window.confirm('離開模擬考？作答會暫存，可以稍後接續。')) e.preventDefault()
+          }}
+          className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
+        >
+          <X className="h-5 w-5" />
+        </Link>
+        {/*
+          role=timer 搭配 aria-live=off：每秒播報一次剩餘時間會讓螢幕閱讀器整場不停說話。
+          真正需要主動通知的只有進入最後 5 分鐘那一刻，由下面獨立的 live region 說一次。
+        */}
         <span
+          role="timer"
+          aria-live="off"
+          aria-label={`剩餘時間 ${formatClock(remaining)}`}
           className={cn(
             'font-mono text-2xl font-bold tabular-nums',
             urgent ? 'text-[var(--pr)]' : 'text-[var(--tx)]'
@@ -264,19 +400,23 @@ export default function MockExamPage() {
         >
           {formatClock(remaining)}
         </span>
-        <span className="text-sm font-semibold text-[var(--mu)]">
+        <span className="ml-auto text-sm font-semibold text-[var(--mu)]">
           {currentIndex + 1} / {questions.length}
         </span>
         <button
           type="button"
           onClick={() => setShowGrid((v) => !v)}
           aria-expanded={showGrid}
-          className="flex min-h-[36px] items-center gap-1.5 rounded-lg border border-[var(--ln)] px-3 text-xs font-semibold text-[var(--mu)] hover:text-[var(--tx)]"
+          className="flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-lg border border-[var(--ln)] px-3 text-xs font-semibold text-[var(--mu)] hover:text-[var(--tx)]"
         >
           {showGrid ? <X className="h-3.5 w-3.5" /> : <Grid3x3 className="h-3.5 w-3.5" />}
           題號一覽
         </button>
       </div>
+
+      <p role="status" aria-live="polite" className="sr-only">
+        {urgent && '剩餘時間不到 5 分鐘'}
+      </p>
 
       <div
         className={cn(
@@ -286,7 +426,8 @@ export default function MockExamPage() {
       >
         {urgent && (
           <div
-            className="h-full bg-[var(--pr)] transition-all duration-1000 ease-linear"
+            // 每秒跳一格的離散更新不需要補間；1000ms 的補間也超過全站 300ms 上限。
+            className="h-full bg-[var(--pr)]"
             style={{ width: `${(remaining / URGENT_THRESHOLD_SECONDS) * 100}%` }}
           />
         )}
@@ -300,8 +441,10 @@ export default function MockExamPage() {
                 key={q.id}
                 type="button"
                 onClick={() => goTo(i)}
+                aria-label={`第 ${i + 1} 題${answers[q.id] ? '，已作答' : ''}${marked.has(q.id) ? '，已標記' : ''}`}
+                aria-current={i === currentIndex ? 'true' : undefined}
                 className={cn(
-                  'relative flex h-8 w-8 items-center justify-center rounded-lg border text-xs font-semibold',
+                  'relative flex h-11 w-11 items-center justify-center rounded-lg border text-xs font-semibold',
                   answers[q.id]
                     ? 'border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[var(--pr)]'
                     : 'border-[var(--ln)] text-[var(--mu)]',
@@ -310,7 +453,7 @@ export default function MockExamPage() {
               >
                 {i + 1}
                 {marked.has(q.id) && (
-                  <Flag className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 text-[var(--fa)]" />
+                  <Flag className="absolute right-1 top-1 h-2.5 w-2.5 text-[var(--mu)]" />
                 )}
               </button>
             ))}
@@ -342,7 +485,7 @@ export default function MockExamPage() {
                 >
                   <span className="w-6 text-xs font-semibold opacity-70">({opt.key})</span>
                   <span className="flex-1">{opt.text}</span>
-                  <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[10px] text-[var(--fa)] lg:inline">
+                  <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[11px] text-[var(--mu)] lg:inline">
                     {idx + 1}
                   </span>
                 </Button>
@@ -363,7 +506,7 @@ export default function MockExamPage() {
               }
               aria-pressed={marked.has(currentQ.id)}
               className={cn(
-                'flex min-h-[40px] items-center gap-1.5 rounded-lg border px-3 text-xs font-semibold transition-colors',
+                'flex min-h-[44px] items-center gap-1.5 rounded-lg border px-3 text-xs font-semibold transition-colors',
                 marked.has(currentQ.id)
                   ? 'border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[var(--pr)]'
                   : 'border-[var(--ln)] text-[var(--mu)] hover:text-[var(--tx)]'
@@ -373,42 +516,69 @@ export default function MockExamPage() {
               {marked.has(currentQ.id) ? '已標記' : '標記本題'}
             </button>
 
+            {/*
+              原本這裡有「略過」與「下一題」兩顆按鈕，onClick 完全一樣——決策點多一個
+              選項卻不多一個結果。未作答就前進本來就是略過，留一顆就好。
+            */}
             {currentIndex + 1 < questions.length ? (
-              <>
-                <button
-                  type="button"
-                  onClick={() => goTo(currentIndex + 1)}
-                  className="min-h-[40px] rounded-lg border border-[var(--ln)] px-3 text-xs font-semibold text-[var(--mu)] hover:text-[var(--tx)]"
-                >
-                  略過
-                </button>
-                <Button
-                  variant="primary"
-                  onClick={() => goTo(currentIndex + 1)}
-                  className="ml-auto min-h-[40px] w-auto px-5 text-xs"
-                >
-                  下一題
-                  <span className="hidden opacity-70 lg:inline">SPACE</span>
-                </Button>
-              </>
+              <Button
+                variant="primary"
+                onClick={() => goTo(currentIndex + 1)}
+                className="ml-auto min-h-[44px] w-auto px-5 text-xs"
+              >
+                下一題
+                <span className="hidden opacity-70 lg:inline">SPACE</span>
+              </Button>
             ) : (
               <Button
                 variant="primary"
-                onClick={submit}
-                className="ml-auto min-h-[40px] w-auto px-5 text-xs"
+                onClick={() => setConfirmingSubmit(true)}
+                className="ml-auto min-h-[44px] w-auto px-5 text-xs"
               >
                 交卷並看結算
               </Button>
             )}
           </div>
 
-          <button
-            type="button"
-            onClick={submit}
-            className="mx-auto text-xs text-[var(--mu)] underline-offset-4 hover:underline"
-          >
-            提前交卷（已作答 {answeredCount} 題）
-          </button>
+          {/*
+            交卷不可撤銷，而未作答的題目一律算錯。原本按下去就直接送出，40 題可以在
+            沒有任何提示的情況下交出 28 題空白。確認層的主要動作刻意是「回去作答」。
+          */}
+          {confirmingSubmit ? (
+            <div
+              role="alertdialog"
+              aria-label="確認交卷"
+              className="animate-fade-in rounded-2xl border border-[var(--pr-ln)] bg-[var(--sf)] p-4"
+            >
+              <p className="text-sm font-bold text-[var(--tx)]">確定要交卷嗎？</p>
+              <p className="mt-1 text-xs leading-relaxed text-[var(--mu)]">
+                {questions.length - answeredCount > 0
+                  ? `尚有 ${questions.length - answeredCount} 題未作答，未作答一律計為答錯。`
+                  : `${questions.length} 題都已作答。`}
+                交卷後無法返回修改。
+              </p>
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row-reverse">
+                <Button
+                  variant="primary"
+                  onClick={() => setConfirmingSubmit(false)}
+                  className="text-xs sm:flex-1"
+                >
+                  回去作答
+                </Button>
+                <Button variant="secondary" onClick={submit} className="text-xs sm:flex-1">
+                  確認交卷
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirmingSubmit(true)}
+              className="mx-auto min-h-[44px] text-xs text-[var(--mu)] underline-offset-4 hover:underline"
+            >
+              提前交卷（已作答 {answeredCount} 題）
+            </button>
+          )}
         </>
       )}
     </div>

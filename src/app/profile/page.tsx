@@ -171,7 +171,7 @@ export default function ProfilePage() {
                 value={draft.nickname}
                 onChange={(e) => set('nickname', e.target.value)}
                 maxLength={40}
-                className="mt-1.5 w-full rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--tx)] outline-none focus:border-[var(--pr)]"
+                className="mt-1.5 w-full rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--tx)] focus:border-[var(--pr)]"
               />
               {draft.nickname.length > 20 && (
                 <span className="mt-1 block text-xs text-[var(--bad)]">暱稱最多 20 個字</span>
@@ -263,7 +263,7 @@ export default function ProfilePage() {
                 type="date"
                 value={draft.examDate ?? ''}
                 onChange={(e) => set('examDate', e.target.value || null)}
-                className="mt-1.5 w-full rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--tx)] outline-none focus:border-[var(--pr)]"
+                className="mt-1.5 w-full rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--tx)] focus:border-[var(--pr)]"
               />
               {examCountdown !== null && (
                 <span className="mt-1 block text-xs text-[var(--mu)]">
@@ -298,7 +298,7 @@ export default function ProfilePage() {
                 value={draft.reminderTime}
                 disabled={!draft.reminderEnabled}
                 onChange={(e) => set('reminderTime', e.target.value)}
-                className="rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2 font-mono text-sm text-[var(--tx)] outline-none focus:border-[var(--pr)] disabled:opacity-50"
+                className="rounded-lg border border-[var(--ln)] bg-[var(--bg)] px-3 py-2 font-mono text-sm text-[var(--tx)] focus:border-[var(--pr)] disabled:opacity-50"
               />
             </label>
 

@@ -145,7 +145,7 @@ export default function StatsPage() {
               </span>
               {scoreData.score !== null && (
                 <span
-                  className="rounded-full border px-2 py-0.5 text-[10px] font-bold"
+                  className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
                   style={{
                     borderColor: scoreData.certificateColor,
                     color: scoreData.certificateColor,

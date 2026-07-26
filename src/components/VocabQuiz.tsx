@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import type { VocabItem } from '../../scripts/build-content/types'
 import { MAX_VOCAB_LEVEL, getSrsIntervalLabel } from '../lib/storage'
 import { stripEmphasis, toClozeSentence } from '../lib/emphasis'
@@ -17,6 +17,8 @@ interface VocabQuizProps {
   index: number
   currentLevel: number
   onAnswer: (isCorrect: boolean) => void
+  /** 作答後由使用者主動觸發前進，不再自動跳卡 */
+  onNext: () => void
 }
 
 const KIND_LABELS: Record<QuizKind, string> = {
@@ -52,6 +54,7 @@ export const VocabQuiz: React.FC<VocabQuizProps> = ({
   index,
   currentLevel,
   onAnswer,
+  onNext,
 }) => {
   const [picked, setPicked] = useState<string | null>(null)
   const [nextLevel, setNextLevel] = useState(0)
@@ -92,26 +95,56 @@ export const VocabQuiz: React.FC<VocabQuizProps> = ({
 
   const answered = picked !== null
 
-  const handlePick = (choice: string) => {
-    if (answered) return
-    const isCorrect = choice === correct
-    // 結果檔位要在通知父層「之前」用當下的 currentLevel 算好並鎖住。
-    // onAnswer 會讓父層更新 currentLevel，若之後才從 prop 推導就會多跳一格。
-    setPicked(choice)
-    setNextLevel(
-      isCorrect ? Math.min(MAX_VOCAB_LEVEL, currentLevel + 1) : Math.max(0, currentLevel - 1)
-    )
-    onAnswer(isCorrect)
-  }
+  const handlePick = useCallback(
+    (choice: string) => {
+      if (picked !== null) return
+      const isCorrect = choice === correct
+      // 結果檔位要在通知父層「之前」用當下的 currentLevel 算好並鎖住。
+      // onAnswer 會讓父層更新 currentLevel，若之後才從 prop 推導就會多跳一格。
+      setPicked(choice)
+      setNextLevel(
+        isCorrect ? Math.min(MAX_VOCAB_LEVEL, currentLevel + 1) : Math.max(0, currentLevel - 1)
+      )
+      onAnswer(isCorrect)
+    },
+    [picked, correct, currentLevel, onAnswer]
+  )
+
+  // 其他三個練習流程都有 1/2/3/4 與空白鍵，單字測驗沒有的話同一個動作在同一個 App
+  // 裡就有兩套操作方式。
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return
+
+      if (['1', '2', '3', '4'].includes(e.key) && picked === null) {
+        const opt = options[Number(e.key) - 1]
+        if (opt) handlePick(opt)
+      } else if ((e.code === 'Space' || e.key === ' ') && picked !== null) {
+        e.preventDefault()
+        onNext()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [options, picked, handlePick, onNext])
 
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6 text-center">
         <p className="text-xs font-semibold text-[var(--pr)]">{KIND_LABELS[kind]}</p>
+        {/*
+          zh2en 的 prompt 是中文，套 font-display（Archivo）會整串 fallback 到系統黑體，
+          字重與基線都跟著跳。中文題面走中文字體的大字級，英文題面才用 Display。
+        */}
         <p
           className={cn(
             'mt-3 text-[var(--tx)]',
-            kind === 'cloze' ? 'font-option text-left leading-relaxed' : 'font-display'
+            kind === 'cloze'
+              ? 'font-option text-left leading-relaxed'
+              : kind === 'zh2en'
+                ? 'text-3xl font-bold leading-snug'
+                : 'font-display'
           )}
         >
           {prompt}
@@ -132,9 +165,13 @@ export const VocabQuiz: React.FC<VocabQuizProps> = ({
             <Button
               key={`${opt}-${i}`}
               variant={variant}
-              disabled={answered}
+              softDisabled={answered}
               onClick={() => handlePick(opt)}
-              className="justify-start px-5 text-left font-option"
+              className={cn(
+                'justify-start px-5 text-left',
+                // en2zh 的選項是中文釋義，套 Archivo 只會逐字 fallback。
+                kind === 'en2zh' ? 'text-[15px] leading-relaxed' : 'font-option'
+              )}
             >
               <span className="w-6 text-xs font-semibold opacity-70">
                 ({String.fromCharCode(65 + i)})
@@ -144,16 +181,32 @@ export const VocabQuiz: React.FC<VocabQuizProps> = ({
               {answered && isPicked && !isCorrect && (
                 <span className="text-xs font-bold">你的選擇</span>
               )}
+              {!answered && (
+                <span className="hidden rounded border border-[var(--ln)] px-1.5 text-[11px] text-[var(--mu)] lg:inline">
+                  {i + 1}
+                </span>
+              )}
             </Button>
           )
         })}
       </div>
 
+      {/* 選項作答後變成 aria-disabled，結果得靠這條 live region 主動播報。 */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {answered &&
+          (picked === correct ? `答對，正解 ${correct}` : `答錯，你選了 ${picked}，正解 ${correct}`)}
+      </p>
+
       {answered && (
-        <p className="flex animate-fade-in items-center justify-center gap-2 text-xs text-[var(--mu)]">
-          熟悉度 <MasteryDots level={nextLevel} /> → 下次 {getSrsIntervalLabel(nextLevel)}
-          <span className="opacity-70">· 0.6 秒後下一張</span>
-        </p>
+        <div className="flex animate-fade-in flex-col gap-3">
+          <p className="flex items-center justify-center gap-2 text-xs text-[var(--mu)]">
+            熟悉度 <MasteryDots level={nextLevel} /> → 下次 {getSrsIntervalLabel(nextLevel)}
+          </p>
+          <Button variant="primary" onClick={onNext}>
+            下一張
+            <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>
+          </Button>
+        </div>
       )}
     </div>
   )

@@ -183,7 +183,8 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
                 onClick={() => setReviewIndex(i)}
                 title={`第 ${i + 1} 題`}
                 className={cn(
-                  'relative flex h-8 w-8 items-center justify-center rounded-lg border text-xs font-semibold transition-transform hover:scale-105',
+                  // hover:scale 是第四個動效場景，不在允許的三處內；改用邊框回饋。
+                  'relative flex h-11 w-11 items-center justify-center rounded-lg border text-xs font-semibold transition-colors hover:border-[var(--pr)]',
                   row.isCorrect
                     ? 'border-[var(--ok)] bg-[var(--ok-sf)] text-[var(--ok)]'
                     : 'border-[var(--bad)] bg-[var(--bad-sf)] text-[var(--bad)]',
@@ -192,7 +193,7 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
               >
                 {i + 1}
                 {row.marked && (
-                  <Flag className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 text-[var(--fa)]" />
+                  <Flag className="absolute right-1 top-1 h-2.5 w-2.5 text-[var(--mu)]" />
                 )}
               </button>
             ))}
@@ -203,7 +204,7 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
               <h3 className="text-xs font-bold text-[var(--tx)]">最花時間的三題</h3>
               {slowest.map((row) => (
                 <div key={row.question.id} className="flex items-baseline gap-2 text-[11px]">
-                  <span className="shrink-0 font-mono text-[var(--fa)]">
+                  <span className="shrink-0 font-mono text-[var(--mu)]">
                     {rows.indexOf(row) + 1}
                   </span>
                   <span className="line-clamp-1 flex-1 text-[var(--mu)]">{row.question.stem}</span>
@@ -229,7 +230,7 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
                 type="button"
                 disabled={(reviewIndex ?? 0) <= 0}
                 onClick={() => setReviewIndex((i) => Math.max(0, (i ?? 0) - 1))}
-                className="min-h-[32px] rounded-lg border border-[var(--ln)] px-3 text-xs text-[var(--mu)] disabled:opacity-40"
+                className="min-h-[44px] rounded-lg border border-[var(--ln)] px-3 text-xs text-[var(--mu)] disabled:opacity-40"
               >
                 上一題
               </button>
@@ -237,7 +238,7 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
                 type="button"
                 disabled={(reviewIndex ?? 0) >= rows.length - 1}
                 onClick={() => setReviewIndex((i) => Math.min(rows.length - 1, (i ?? 0) + 1))}
-                className="min-h-[32px] rounded-lg border border-[var(--ln)] px-3 text-xs text-[var(--mu)] disabled:opacity-40"
+                className="min-h-[44px] rounded-lg border border-[var(--ln)] px-3 text-xs text-[var(--mu)] disabled:opacity-40"
               >
                 下一題
               </button>

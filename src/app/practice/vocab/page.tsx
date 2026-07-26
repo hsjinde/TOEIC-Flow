@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Check } from 'lucide-react'
 import type { VocabItem } from '../../../../scripts/build-content/types'
@@ -17,7 +17,6 @@ import { Button } from '../../../components/ui/Button'
 import { cn } from '../../../lib/utils'
 
 const SESSION_SIZE = 10
-const AUTO_ADVANCE_MS = 600
 
 type Mode = 'flip' | 'quiz'
 
@@ -28,7 +27,6 @@ export default function VocabPracticePage() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mode, setMode] = useState<Mode>('flip')
   const [isFinished, setIsFinished] = useState(false)
-  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const list = getRandomVocabItems(SESSION_SIZE)
@@ -45,20 +43,10 @@ export default function VocabPracticePage() {
     )
   }, [])
 
-  useEffect(() => {
-    return () => {
-      if (advanceTimerRef.current) clearTimeout(advanceTimerRef.current)
-    }
-  }, [])
-
   const total = vocabList?.length ?? 0
   const currentItem = vocabList?.[currentIndex]
 
   const advance = useCallback(() => {
-    if (advanceTimerRef.current) {
-      clearTimeout(advanceTimerRef.current)
-      advanceTimerRef.current = null
-    }
     setCurrentIndex((prev) => {
       if (prev + 1 < total) return prev + 1
       recordTaskCompletion('vocab')
@@ -82,18 +70,32 @@ export default function VocabPracticePage() {
       if (!currentItem) return
       const next = bumpVocabMastery(currentItem.id, isCorrect)
       setLevels((prev) => ({ ...prev, [currentItem.id]: next }))
-      advanceTimerRef.current = setTimeout(advance, AUTO_ADVANCE_MS)
+      // 判定後停在原地，由使用者按「下一張」或空白鍵前進。
     },
-    [currentItem, advance]
+    [currentItem]
   )
 
   if (!vocabList) return <VocabSkeleton />
+
+  // 題庫抽不到字是資料缺失，不是「今天練完了」。共用完成畫面會把空題庫報告成任務成功。
+  if (vocabList.length === 0) {
+    return (
+      <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
+        <h2 className="text-base font-bold text-[var(--tx)]">目前沒有可複習的單字</h2>
+        <p className="text-xs text-[var(--mu)]">單字題庫是空的，重新建置題庫後再回來。</p>
+        <Link href="/" className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">回到今日任務</Button>
+        </Link>
+      </div>
+    )
+  }
 
   if (isFinished || !currentItem) {
     const mastered = vocabList.filter((v) => (levels[v.id] ?? 0) >= 2).length
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-12 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--ok)] bg-[var(--ok-sf)] text-[var(--ok)]">
+        {/* 完成是「進度」，不是「你答對了」。綠色留給答題判定。 */}
+        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] text-[var(--pr)]">
           <Check className="h-7 w-7" />
         </div>
         <div className="space-y-1">
@@ -115,7 +117,7 @@ export default function VocabPracticePage() {
         <Link
           href="/"
           aria-label="返回今日任務"
-          className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)]"
+          className="-ml-2 flex h-11 w-11 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>
@@ -156,10 +158,12 @@ export default function VocabPracticePage() {
           <button
             key={value}
             role="tab"
+            id={`vocab-tab-${value}`}
             aria-selected={mode === value}
+            aria-controls="vocab-tabpanel"
             onClick={() => setMode(value)}
             className={cn(
-              'min-h-[38px] flex-1 rounded-lg text-xs font-semibold transition-colors',
+              'min-h-[44px] flex-1 rounded-lg text-xs font-semibold transition-colors',
               mode === value
                 ? 'bg-[var(--pr-sf)] text-[var(--pr)]'
                 : 'text-[var(--mu)] hover:text-[var(--tx)]'
@@ -170,7 +174,12 @@ export default function VocabPracticePage() {
         ))}
       </div>
 
-      <div className="mx-auto w-full max-w-xl">
+      <div
+        id="vocab-tabpanel"
+        role="tabpanel"
+        aria-labelledby={`vocab-tab-${mode}`}
+        className="mx-auto w-full max-w-xl"
+      >
         {mode === 'flip' ? (
           <VocabFlashcard
             item={currentItem}
@@ -184,6 +193,7 @@ export default function VocabPracticePage() {
             index={currentIndex}
             currentLevel={levels[currentItem.id] ?? 0}
             onAnswer={handleQuizAnswer}
+            onNext={advance}
           />
         )}
       </div>
