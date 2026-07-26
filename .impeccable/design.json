@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-26T10:21:43Z",
+  "title": "Design System: TOEIC-Flow",
+  "extensions": {
+    "colorMeta": {
+      "ink-night": {
+        "role": "neutral",
+        "displayName": "Ink Night",
+        "canonical": "oklch(17.5% 0.012 265)",
+        "tonalRamp": ["oklch(12% 0.012 265)", "oklch(17.5% 0.012 265)", "oklch(23% 0.013 265)", "oklch(32% 0.014 265)", "oklch(45% 0.014 265)", "oklch(60% 0.012 265)", "oklch(78% 0.009 265)", "oklch(94% 0.005 265)"]
+      },
+      "slate-surface": {
+        "role": "neutral",
+        "displayName": "Slate Surface",
+        "canonical": "oklch(22.5% 0.013 265)",
+        "tonalRamp": ["oklch(15% 0.013 265)", "oklch(22.5% 0.013 265)", "oklch(29% 0.014 265)", "oklch(38% 0.014 265)", "oklch(50% 0.014 265)", "oklch(64% 0.012 265)", "oklch(80% 0.009 265)", "oklch(95% 0.005 265)"]
+      },
+      "slate-raised": {
+        "role": "neutral",
+        "displayName": "Slate Raised",
+        "canonical": "oklch(26% 0.014 265)"
+      },
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "oklch(73% 0.145 254)",
+        "tonalRamp": ["oklch(28% 0.09 254)", "oklch(38% 0.115 254)", "oklch(48% 0.14 254)", "oklch(58% 0.155 254)", "oklch(66% 0.152 254)", "oklch(73% 0.145 254)", "oklch(84% 0.09 254)", "oklch(94% 0.035 254)"]
+      },
+      "oxford-blue": {
+        "role": "primary",
+        "displayName": "Oxford Blue",
+        "canonical": "oklch(35% 0.145 265)",
+        "tonalRamp": ["oklch(20% 0.09 265)", "oklch(28% 0.12 265)", "oklch(35% 0.145 265)", "oklch(45% 0.155 265)", "oklch(57% 0.15 265)", "oklch(70% 0.115 265)", "oklch(84% 0.06 265)", "oklch(94% 0.025 265)"]
+      },
+      "verdict-green": {
+        "role": "tertiary",
+        "displayName": "Verdict Green",
+        "canonical": "oklch(78% 0.148 163)",
+        "tonalRamp": ["oklch(30% 0.08 163)", "oklch(41% 0.105 163)", "oklch(52% 0.125 163)", "oklch(62% 0.14 163)", "oklch(70% 0.148 163)", "oklch(78% 0.148 163)", "oklch(87% 0.10 163)", "oklch(95% 0.04 163)"]
+      },
+      "verdict-red": {
+        "role": "tertiary",
+        "displayName": "Verdict Red",
+        "canonical": "oklch(71% 0.163 22)",
+        "tonalRamp": ["oklch(28% 0.10 22)", "oklch(38% 0.135 22)", "oklch(48% 0.165 22)", "oklch(57% 0.18 22)", "oklch(64% 0.175 22)", "oklch(71% 0.163 22)", "oklch(84% 0.09 22)", "oklch(94% 0.035 22)"]
+      },
+      "text-bright": {
+        "role": "neutral",
+        "displayName": "Text Bright",
+        "canonical": "oklch(93% 0.008 265)"
+      },
+      "text-quiet": {
+        "role": "neutral",
+        "displayName": "Text Quiet",
+        "canonical": "oklch(70% 0.014 260)"
+      },
+      "text-faint": {
+        "role": "neutral",
+        "displayName": "Text Faint",
+        "canonical": "oklch(56% 0.017 260)"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "color-mix(in oklch, oklch(93% 0.008 265) 13%, transparent)"
+      },
+      "paper-day": {
+        "role": "neutral",
+        "displayName": "Paper Day",
+        "canonical": "oklch(95.6% 0.002 40)"
+      },
+      "card-day": {
+        "role": "neutral",
+        "displayName": "Card Day",
+        "canonical": "oklch(100% 0 0)"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "預估 TOEIC 分數與模擬考結算分數。全站僅此兩處。" },
+      "stem": { "displayName": "Stem", "purpose": "英文題幹。全站最大的正文，是這套系統的簽名。" },
+      "option": { "displayName": "Option", "purpose": "四個選項的英文文字。比題幹小一階，仍高於所有中文 UI。" },
+      "headline": { "displayName": "Headline", "purpose": "頁面標題與章節名。中文 UI 的字級天花板。" },
+      "body": { "displayName": "Body", "purpose": "中文說明與詳解正文。1.85 行高為中英混排而設。" },
+      "label": { "displayName": "Label", "purpose": "卡片副標、按鈕文字、表單標籤。" },
+      "caption": { "displayName": "Caption", "purpose": "導航文字、鍵盤提示、時間戳。" }
+    },
+    "shadows": [
+      {
+        "name": "overlay",
+        "value": "0 8px 32px rgba(0,0,0,0.4)",
+        "purpose": "僅限 modal 與浮層釋義卡。作用是把背景推遠，不是裝飾。其餘所有元件一律無陰影。"
+      }
+    ],
+    "motion": [
+      { "name": "duration-feedback", "value": "200ms", "purpose": "答題回饋、hover、按鈕 active 的過場。" },
+      { "name": "duration-reveal", "value": "300ms", "purpose": "進度環增長與詳解展開。全站動效上限，不得超過。" },
+      { "name": "ease-out", "value": "cubic-bezier(0, 0, 0.2, 1)", "purpose": "所有過場的預設緩動。不用 bounce，不用 elastic。" },
+      { "name": "fade-in", "value": "fade-in 0.24s ease-out", "purpose": "詳解展開與浮層出現。translateY(-6px) → 0 加淡入。" },
+      { "name": "pop", "value": "pop 0.2s ease-out", "purpose": "答題判定的極輕微縮放回饋，峰值僅 1.012。" }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "375px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "desktop", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "主要動作。全寬、52px 高，拇指可及。",
+      "html": "<button class=\"ds-btn-primary\">下一題</button>",
+      "css": ".ds-btn-primary { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 52px; padding: 14px 16px; border: none; border-radius: 10px; background: var(--pr, #60A5FA); color: var(--pr-tx, #0F1115); font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: opacity 200ms cubic-bezier(0,0,0.2,1), transform 200ms cubic-bezier(0,0,0.2,1); } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--pr, #60A5FA); outline-offset: 2px; }"
+    },
+    {
+      "name": "Answer Option (unanswered)",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "四選一的未作答狀態。點下去就判定，沒有送出按鈕。",
+      "html": "<button class=\"ds-option\"><span class=\"ds-option-key\">A</span>have been completed</button>",
+      "css": ".ds-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 14px 16px; border: 1px solid var(--ln, rgba(232,234,240,0.13)); border-radius: 10px; background: var(--sf, #171A21); color: var(--tx, #E8EAF0); font-family: 'Archivo', system-ui, sans-serif; font-size: 17px; line-height: 1.4; text-align: left; cursor: pointer; transition: background 200ms cubic-bezier(0,0,0.2,1), border-color 200ms cubic-bezier(0,0,0.2,1); } .ds-option:hover { border-color: var(--pr-ln, rgba(96,165,250,0.42)); background: var(--pr-sf, rgba(96,165,250,0.14)); } .ds-option:focus-visible { outline: 2px solid var(--pr, #60A5FA); outline-offset: 2px; } .ds-option-key { flex-shrink: 0; width: 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--fa, #6B7280); }"
+    },
+    {
+      "name": "Answer Option (correct)",
+      "kind": "button",
+      "refersTo": "option-correct",
+      "description": "答對的判定狀態。顏色之外必須同時有圖示，色覺障礙者才讀得到。",
+      "html": "<button class=\"ds-option-correct\" disabled><span class=\"ds-option-key\">A</span>have been completed<svg class=\"ds-verdict-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"20 6 9 17 4 12\"/></svg></button>",
+      "css": ".ds-option-correct { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 14px 16px; border: 2px solid var(--ok, #34D399); border-radius: 10px; background: var(--ok-sf, rgba(52,211,153,0.13)); color: var(--ok, #34D399); font-family: 'Archivo', system-ui, sans-serif; font-size: 17px; font-weight: 600; line-height: 1.4; text-align: left; cursor: default; animation: ds-pop 200ms cubic-bezier(0,0,0.2,1); } .ds-option-correct .ds-option-key { flex-shrink: 0; width: 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; opacity: 0.8; } .ds-verdict-icon { width: 18px; height: 18px; margin-left: auto; flex-shrink: 0; } @keyframes ds-pop { 0% { transform: scale(0.97); } 60% { transform: scale(1.012); } 100% { transform: scale(1); } } @media (prefers-reduced-motion: reduce) { .ds-option-correct { animation: none; } }"
+    },
+    {
+      "name": "Daily Task Card",
+      "kind": "card",
+      "refersTo": "task-card",
+      "description": "首頁三張任務卡之一。未完成用主色邊框，完成後降對比但仍可點——完成後的動作是重做。",
+      "html": "<a class=\"ds-task-card\" href=\"#\"><span class=\"ds-task-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/></svg></span><span class=\"ds-task-text\"><span class=\"ds-task-title\">文法練習</span><span class=\"ds-task-sub\">5 題 · 約 6 分鐘</span></span><svg class=\"ds-task-chev\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"9 18 15 12 9 6\"/></svg></a>",
+      "css": ".ds-task-card { display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 16px; border: 1px solid var(--pr-ln, rgba(96,165,250,0.42)); border-radius: 16px; background: var(--sf, #171A21); text-decoration: none; transition: background 200ms cubic-bezier(0,0,0.2,1); } .ds-task-card:hover { background: var(--pr-sf, rgba(96,165,250,0.14)); } .ds-task-card:focus-visible { outline: 2px solid var(--pr, #60A5FA); outline-offset: 2px; } .ds-task-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: var(--pr-sf, rgba(96,165,250,0.14)); color: var(--pr, #60A5FA); } .ds-task-icon svg { width: 20px; height: 20px; } .ds-task-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .ds-task-title { font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 15px; font-weight: 600; color: var(--tx, #E8EAF0); } .ds-task-sub { font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 12px; color: var(--mu, #9AA1AE); } .ds-task-chev { width: 20px; height: 20px; margin-left: auto; flex-shrink: 0; color: var(--mu, #9AA1AE); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "表單輸入。左側留 40px 給圖示；focus 時邊框轉主色並補上可見的 focus ring。",
+      "html": "<span class=\"ds-field\"><svg class=\"ds-field-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg><input class=\"ds-input\" type=\"email\" placeholder=\"你的 Email\"></span>",
+      "css": ".ds-field { position: relative; display: block; } .ds-field-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--mu, #9AA1AE); pointer-events: none; } .ds-input { width: 100%; padding: 10px 16px 10px 40px; border: 1px solid var(--ln, rgba(232,234,240,0.13)); border-radius: 16px; background: var(--sf2, #1E222B); color: var(--tx, #E8EAF0); font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 14px; } .ds-input::placeholder { color: var(--mu, #9AA1AE); } .ds-input:focus { border-color: var(--pr, #60A5FA); outline: 2px solid var(--pr, #60A5FA); outline-offset: 1px; }"
+    },
+    {
+      "name": "Bottom Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "手機底部四格 tab。當前狀態同時由顏色、字重與 aria-current 三重標示，不單靠顏色。",
+      "html": "<nav class=\"ds-nav\" aria-label=\"主導航\"><a class=\"ds-nav-item ds-nav-item--active\" href=\"#\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4M16 2v4M3 10h18\"/><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/></svg><span>今日</span></a><a class=\"ds-nav-item\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z\"/><path d=\"m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59\"/></svg><span>練習</span></a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-around; border-top: 1px solid var(--ln, rgba(232,234,240,0.13)); background: var(--sf, #171A21); padding: 8px 16px; } .ds-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 44px; padding: 4px 12px; border-radius: 12px; text-decoration: none; font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 11px; font-weight: 500; color: var(--fa, #6B7280); transition: color 200ms cubic-bezier(0,0,0.2,1); } .ds-nav-item svg { width: 20px; height: 20px; } .ds-nav-item:hover { color: var(--tx, #E8EAF0); } .ds-nav-item:focus-visible { outline: 2px solid var(--pr, #60A5FA); outline-offset: 2px; } .ds-nav-item--active { color: var(--pr, #60A5FA); font-weight: 700; } .ds-nav-item--active svg { transform: scale(1.1); }"
+    },
+    {
+      "name": "Progress Ring",
+      "kind": "custom",
+      "refersTo": "progress-ring",
+      "description": "首頁唯一的視覺焦點。全部完成時環閉合並換成勾號——這就是完成慶祝的全部。",
+      "html": "<span class=\"ds-ring\"><svg width=\"120\" height=\"120\" viewBox=\"0 0 120 120\" aria-hidden=\"true\"><circle cx=\"60\" cy=\"60\" r=\"55\" fill=\"none\" stroke=\"var(--sf2, #1E222B)\" stroke-width=\"10\"/><circle class=\"ds-ring-arc\" cx=\"60\" cy=\"60\" r=\"55\" fill=\"none\" stroke=\"var(--pr, #60A5FA)\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-dasharray=\"345.6\" stroke-dashoffset=\"115.2\"/></svg><span class=\"ds-ring-text\"><span class=\"ds-ring-count\">2/3</span><span class=\"ds-ring-label\">今日任務完成</span></span></span>",
+      "css": ".ds-ring { position: relative; display: inline-flex; align-items: center; justify-content: center; } .ds-ring svg { transform: rotate(-90deg); } .ds-ring-arc { transition: stroke-dashoffset 300ms cubic-bezier(0,0,0.2,1); } .ds-ring-text { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; } .ds-ring-count { font-family: 'Archivo', system-ui, sans-serif; font-size: 24px; font-weight: 700; color: var(--tx, #E8EAF0); } .ds-ring-label { font-family: 'Noto Sans TC', system-ui, sans-serif; font-size: 12px; color: var(--mu, #9AA1AE); } @media (prefers-reduced-motion: reduce) { .ds-ring-arc { transition: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "深夜車廂的閱讀燈",
+    "overview": "一節晚班捷運車廂，光線暗，人站著，一隻手抓著吊環。另一隻手裡的螢幕不該是這個空間裡最亮的東西，但它照亮的那一小塊必須完全清楚。這就是整套系統的物理場景：深色是預設，不是選項；亮的東西只有一樣——現在要讀的那個英文句子。\n\n版面的重量分配是這個系統唯一真正的主張。英文題幹用 Archivo 21px、行高 1.85，是全站唯一被放大的正文；中文介面文字用 Noto Sans TC 14.5px，刻意退到更低的對比層。兩種語言不搶位置，因為它們的角色不對等——題目是內容，中文是導覽。任何讓中文標籤在視覺上壓過英文題幹的排版都是錯的。\n\n顏色策略是 Restrained：整個介面由三層中性灰藍構成，主色只出現在進度、當前狀態與主要動作上。綠與紅有嚴格的管轄範圍，只在答題判定的那一刻出現，離開答題頁就完全消失。沒有漸層、沒有玻璃擬態、沒有裝飾性陰影——分層靠底色與 1px 髮絲線完成。這套系統拒絕成為學習遊戲：沒有彩帶、沒有寶石、沒有等級徽章，連續三十天也只是一個數字。",
+    "keyCharacteristics": [
+      "深色為主要模式，淺色是等價的第二套完整配色，不是反轉套用",
+      "單一主色（藍），綠／紅專屬於答題回饋",
+      "陰影近乎不存在，深度靠 --bg / --sf / --sf2 三層底色與髮絲邊框",
+      "英文題幹是全站最大的正文；中文 UI 主動退讓",
+      "動效上限 300ms，且只在三個地方出現",
+      "觸控目標最小 44px，主要操作集中在螢幕下半部"
+    ],
+    "rules": [
+      { "name": "The Verdict Rule", "body": "綠與紅是答題判定的專用語言。它們不得出現在圖表、標籤、統計數字、狀態徽章或任何非「這一題對或錯」的語境。看到綠色，使用者應該立刻知道自己答對了——這個反射一旦被稀釋就再也回不來。", "section": "colors" },
+      { "name": "The One Signal Rule", "body": "主色標示三件事：進度、當前位置、主要動作。除此之外的任何用途都是裝飾，刪掉。", "section": "colors" },
+      { "name": "The Two Themes Rule", "body": "深色與淺色是兩套獨立調過的配色，不是同一組值的明度反轉。改動任一模式的顏色時，另一套必須手動驗證對比，不能假設對稱。", "section": "colors" },
+      { "name": "The Stem Supremacy Rule", "body": "英文題幹永遠是畫面上字級最大的正文。任何中文 UI 文字都不得超過 19px。若一個版面讓中文標題看起來比題幹更重，那個版面是錯的。", "section": "typography" },
+      { "name": "The No Fluid Type Rule", "body": "這是產品介面，不是 landing page。字級全部固定 px，不用 clamp()。手機與桌機的差異用結構（欄數、導航形態）處理，不用字級縮放處理。", "section": "typography" },
+      { "name": "The Prose Width Rule", "body": "詳解與教學頁的中文正文上限 65–75ch。題幹不受此限——它本來就短。", "section": "typography" },
+      { "name": "The Flat Surface Rule", "body": "卡片、按鈕、輸入框、導航列一律無陰影。分層由底色差與髮絲線負責。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 讓英文題幹保持 21px / line-height 1.85，並確保它是畫面上最大的正文。",
+      "Do 用 --bg / --sf / --sf2 三層底色加 1px 髮絲線來分層。",
+      "Do 把主色限制在進度、當前狀態、主要動作三種用途。",
+      "Do 讓答對／答錯同時用顏色和文字或圖示表達——色覺障礙者必須讀得到結果。",
+      "Do 把主要操作（選項、下一題）放在螢幕下半部，觸控目標最小 44px。",
+      "Do 為深色與淺色兩種模式分別驗證對比，正文 ≥4.5:1、大字 ≥3:1。",
+      "Do 為每個動效準備 prefers-reduced-motion 的降級版本（淡入或直接切換）。",
+      "Do 讓詳解可收合——複習時使用者要能先自己想。"
+    ],
+    "donts": [
+      "Don't 讓綠或紅出現在答題判定以外的任何地方。統計圖表、狀態徽章、表單錯誤都不行。",
+      "Don't 用超過一個主色。沒有第二品牌色，沒有 Secondary。",
+      "Don't 做遊戲化外殼：沒有寶石、等級、虛擬寵物、連擊特效、擬人化吉祥物。",
+      "Don't 在答對時放大型慶祝動畫或彩帶。完成感由進度環閉合安靜地表達。",
+      "Don't 用彩虹漸層或任何 background-clip: text 的漸層文字。",
+      "Don't 讓中文 UI 文字在視覺上壓過英文題目。",
+      "Don't 用 border-left / border-right 大於 1px 作為色條裝飾。",
+      "Don't 把 border: 1px solid 和模糊半徑 ≥16px 的 box-shadow 加在同一個元件上。",
+      "Don't 讓卡片圓角超過 16px。",
+      "Don't 用 focus:outline-none 而不提供替代的可見焦點樣式。",
+      "Don't 硬編 Tailwind 顏色繞過 token。所有顏色都必須走 CSS 變數。",
+      "Don't 讓任何動效超過 300ms，或出現在答題回饋、進度環、詳解展開三處以外。",
+      "Don't 用 clamp() 做流體字級。這是產品介面，固定 px。",
+      "Don't 加社群層：排行榜、留言、分享、好友比較一律不做。"
+    ]
+  }
+}
