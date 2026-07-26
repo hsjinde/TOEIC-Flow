@@ -16,7 +16,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # pnpm 11 本身需要 Node >= 22.13（它會 require node:sqlite），所以這裡不能
+          # 停在 20——package.json 的 engines >=20 指的是這個 app 的執行需求，跟建置
+          # 工具鏈的需求是兩件事。
+          node-version: 22
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
