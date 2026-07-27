@@ -26,8 +26,8 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 480, classN
   const radius = Math.round(size * 0.42)
   const labelRadiusRatio = 1.12
 
-  const padX = Math.max(36, Math.round(size * 0.08))
-  const padY = Math.max(26, Math.round(size * 0.06))
+  const padX = Math.max(52, Math.round(size * 0.11))
+  const padY = Math.max(36, Math.round(size * 0.08))
   const viewW = size + padX * 2
   const viewH = size + padY * 2
 
@@ -106,10 +106,10 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 480, classN
             textAnchor={anchor}
             fill="var(--mu)"
           >
-            <tspan x={p.x} dy="-0.4em" fontSize={14} fontWeight={600}>
+            <tspan x={p.x} dy="-0.4em" fontSize={16} fontWeight={700}>
               {axis.label}
             </tspan>
-            <tspan x={p.x} dy="1.3em" fill="var(--tx)" fontSize={15} fontWeight={700}>
+            <tspan x={p.x} dy="1.35em" fill="var(--tx)" fontSize={18} fontWeight={800}>
               {axis.value}%
             </tspan>
           </text>
