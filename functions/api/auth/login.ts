@@ -1,12 +1,28 @@
 import { verifyPassword, signJwt } from '../../../src/lib/crypto'
 
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
+}
+
 export async function onRequestPost(context: any) {
+  const corsHeaders = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  }
+
   try {
     const { email, password } = await context.request.json()
     if (!email || !password) {
       return new Response(JSON.stringify({ error: '請提供帳號與密碼' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       })
     }
 
@@ -14,7 +30,7 @@ export async function onRequestPost(context: any) {
     if (!db) {
       return new Response(JSON.stringify({ error: 'Cloudflare D1 資料庫未綁定' }), {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       })
     }
     const user = await db
@@ -25,7 +41,7 @@ export async function onRequestPost(context: any) {
     if (!user) {
       return new Response(JSON.stringify({ error: '帳號或密碼錯誤' }), {
         status: 401,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       })
     }
 
@@ -33,7 +49,7 @@ export async function onRequestPost(context: any) {
     if (!isValid) {
       return new Response(JSON.stringify({ error: '帳號或密碼錯誤' }), {
         status: 401,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       })
     }
 
@@ -42,6 +58,7 @@ export async function onRequestPost(context: any) {
 
     const headers = new Headers()
     headers.append('Content-Type', 'application/json')
+    headers.append('Access-Control-Allow-Origin', '*')
     headers.append(
       'Set-Cookie',
       `toeic_session=${token}; HttpOnly; Secure; Path=/; SameSite=Lax; Max-Age=2592000`
@@ -54,7 +71,7 @@ export async function onRequestPost(context: any) {
   } catch (err: any) {
     return new Response(JSON.stringify({ error: err.message || '登入失敗' }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: corsHeaders,
     })
   }
 }

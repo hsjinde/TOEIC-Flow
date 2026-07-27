@@ -19,15 +19,46 @@ export interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null)
 
+const REMOTE_API_HOST = 'https://toeic-axf.pages.dev'
+
+async function safeFetchJson(path: string, options?: RequestInit): Promise<{ ok: boolean; status: number; data?: any }> {
+  try {
+    const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    
+    let res = await fetch(path, { credentials: 'include', ...options })
+    let contentType = res.headers.get('content-type') || ''
+    
+    // 如果在本地環境 (localhost) 且獲得 404 或 HTML 頁面，嘗試備用遠端 API
+    if (isLocal && (!res.ok || !contentType.includes('application/json'))) {
+      try {
+        const remoteRes = await fetch(`${REMOTE_API_HOST}${path}`, { credentials: 'include', ...options })
+        const remoteType = remoteRes.headers.get('content-type') || ''
+        if (remoteType.includes('application/json')) {
+          res = remoteRes
+          contentType = remoteType
+        }
+      } catch {}
+    }
+
+    if (!contentType.includes('application/json')) {
+      return { ok: false, status: res.status }
+    }
+
+    const data = await res.json()
+    return { ok: res.ok, status: res.status, data }
+  } catch (err) {
+    return { ok: false, status: 500 }
+  }
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/auth/me')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.user) {
+    safeFetchJson('/api/auth/me')
+      .then(({ ok, data }) => {
+        if (ok && data && data.user) {
           setUser(data.user)
           syncUserDataFromD1()
         } else {
@@ -44,14 +75,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      const res = await fetch('/api/auth/login', {
+      const { ok, data } = await safeFetchJson('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       })
-      const data = await res.json()
-      if (!res.ok) {
-        return { success: false, error: data.error || '登入失敗' }
+      if (!ok || !data) {
+        return { success: false, error: data?.error || '登入失敗，請確認帳號密碼' }
       }
       setUser(data.user)
       syncUserDataFromD1()
@@ -63,14 +93,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const register = async (email: string, password: string, nickname: string) => {
     try {
-      const res = await fetch('/api/auth/register', {
+      const { ok, data } = await safeFetchJson('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, nickname }),
       })
-      const data = await res.json()
-      if (!res.ok) {
-        return { success: false, error: data.error || '註冊失敗' }
+      if (!ok || !data) {
+        return { success: false, error: data?.error || '註冊失敗' }
       }
       setUser(data.user)
       return { success: true }
@@ -80,9 +109,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const logout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' })
-    } catch {}
+    await safeFetchJson('/api/auth/logout', { method: 'POST' })
     setUser(null)
   }
 
