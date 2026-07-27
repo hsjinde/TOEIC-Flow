@@ -509,6 +509,16 @@ export function getChapterMasteryMap(): Record<string, ChapterMastery> {
   return out
 }
 
+/** 判定小章節是否完成：必須答過該章節所有的題目，且正確率 >= 80% */
+export function isChapterCompleted(
+  mastery: ChapterMastery | null | undefined,
+  totalQuestionsInChapter: number
+): boolean {
+  if (!mastery || totalQuestionsInChapter <= 0) return false
+  const uniqueDone = mastery.uniqueAnsweredCount ?? 0
+  return uniqueDone >= totalQuestionsInChapter && mastery.accuracyRate >= 80
+}
+
 // --- Wrong Question Queries ---
 
 /** 待複習優先：未畢業的排前面，同組再依錯次多、最近答錯的排前面。 */

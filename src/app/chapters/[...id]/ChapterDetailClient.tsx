@@ -15,6 +15,7 @@ import {
 import {
   getChapterMasteryMap,
   getWrongQuestionList,
+  isChapterCompleted,
   type ChapterMastery,
 } from '../../../lib/storage'
 import { Button } from '../../../components/ui/Button'
@@ -172,26 +173,42 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
             <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章正確率</h2>
             {mastery ? (
               <>
-                <div className="flex items-baseline justify-between">
-                  <p className="mt-1 text-2xl font-bold text-[var(--pr)]">{mastery.accuracyRate}%</p>
-                  {mastery.accuracyRate >= 80 && (
-                    <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-500">
-                      已完成 (≥80%)
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs text-[var(--mu)]">
-                  近 {mastery.totalAnswered} 題 · {mastery.correctCount} 對
-                </p>
-                <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
-                  <div
-                    className={cn(
-                      'h-full rounded-full transition-all duration-300',
-                      mastery.accuracyRate >= 80 ? 'bg-emerald-500' : 'bg-[var(--pr)]'
-                    )}
-                    style={{ width: `${mastery.accuracyRate}%` }}
-                  />
-                </div>
+                {(() => {
+                  const uniqueDone = mastery.uniqueAnsweredCount ?? 0
+                  const isDone = isChapterCompleted(mastery, questionCount)
+                  return (
+                    <>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <p className="mt-1 text-2xl font-bold text-[var(--pr)]">
+                          {mastery.accuracyRate}%
+                        </p>
+                        {isDone ? (
+                          <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-500">
+                            已完成 (≥80%)
+                          </span>
+                        ) : (
+                          <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
+                            {uniqueDone < questionCount
+                              ? `進行中 (${uniqueDone}/${questionCount}題)`
+                              : '未達標 (<80%)'}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-[var(--mu)]">
+                        已答 {uniqueDone} / {questionCount} 題 · 近 {mastery.totalAnswered} 次作答對 {mastery.correctCount} 題
+                      </p>
+                      <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
+                        <div
+                          className={cn(
+                            'h-full rounded-full transition-all duration-300',
+                            isDone ? 'bg-emerald-500' : 'bg-[var(--pr)]'
+                          )}
+                          style={{ width: `${mastery.accuracyRate}%` }}
+                        />
+                      </div>
+                    </>
+                  )
+                })()}
               </>
             ) : (
               <p className="mt-1 text-xs text-[var(--mu)]">還沒練過這一章</p>
