@@ -80,6 +80,22 @@ export function getQuestionsByIds(ids: string[]): Question[] {
   return out
 }
 
+const vocabIndex: Map<string, VocabItem> = new Map(vocab.map((v) => [v.id, v]))
+
+export function getVocabById(id: string): VocabItem | null {
+  return vocabIndex.get(id) ?? null
+}
+
+/** 保持傳入順序；查無此字就跳過——改過筆記檔名的舊紀錄不該讓頁面掛掉。 */
+export function getVocabByIds(ids: string[]): VocabItem[] {
+  const out: VocabItem[] = []
+  for (const id of ids) {
+    const v = vocabIndex.get(id)
+    if (v) out.push(v)
+  }
+  return out
+}
+
 const chapterIndex: Map<string, Chapter> = new Map(chapters.map((c) => [c.id, c]))
 
 export function getChapterById(id: string): Chapter | null {

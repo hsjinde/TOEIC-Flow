@@ -17,6 +17,10 @@ import {
   saveMockResult,
   getMockResults,
   saveProfile,
+  getDeduplicatedAnswerHistory,
+  getCategoryStats,
+  getVocabStats,
+  getAnswerHistory,
 } from '../src/lib/storage'
 
 const localStorageMock = (() => {
@@ -218,3 +222,71 @@ describe('mock results', () => {
     expect(getMockResults()).toHaveLength(2)
   })
 })
+
+describe('same-day duplicate attempt deduplication', () => {
+  beforeEach(() => localStorage.clear())
+
+  it('deduplicates same-day attempts using first attempt by default', () => {
+    const now = Date.now()
+    seedHistory([
+      { questionId: Q1, isCorrect: false, daysAgo: 0 },
+      { questionId: Q1, isCorrect: true, daysAgo: 0 },
+      { questionId: Q1, isCorrect: true, daysAgo: 0 },
+    ])
+
+    const dedup = getDeduplicatedAnswerHistory()
+    expect(dedup).toHaveLength(1)
+    expect(dedup[0]?.isCorrect).toBe(false)
+  })
+
+  it('supports deduplication rules: last and best', () => {
+    seedHistory([
+      { questionId: Q1, isCorrect: false, daysAgo: 0 },
+      { questionId: Q1, isCorrect: true, daysAgo: 0 },
+    ])
+
+    const rawHistory = getAnswerHistory()
+    const last = getDeduplicatedAnswerHistory(rawHistory, 'last')
+    expect(last[0]?.isCorrect).toBe(true)
+
+    const best = getDeduplicatedAnswerHistory(rawHistory, 'best')
+    expect(best[0]?.isCorrect).toBe(true)
+  })
+
+  it('does not double count same-day attempts in category stats and chapter mastery', () => {
+    seedHistory([
+      { questionId: Q1, isCorrect: false, daysAgo: 0 },
+      { questionId: Q1, isCorrect: true, daysAgo: 0 },
+      { questionId: Q2, isCorrect: true, daysAgo: 0 },
+    ])
+
+    const catStats = getCategoryStats()
+    const cat = catStats.find((s) => s.categoryId === '03_動狀詞_非謂語動詞')
+    expect(cat).toBeDefined()
+    expect(cat?.totalAnswered).toBe(2) // Q1 (deduped to 1) + Q2 = 2
+    expect(cat?.correctCount).toBe(1)  // Q1 (first was false) + Q2 (true) = 1
+
+    const chapterMap = getChapterMasteryMap()
+    expect(chapterMap[CHAPTER]).toMatchObject({
+      totalAnswered: 2,
+      correctCount: 1,
+      accuracyRate: 50,
+      uniqueAnsweredCount: 2,
+    })
+  })
+
+  it('counts attempts on different days separately', () => {
+    seedHistory([
+      { questionId: Q1, isCorrect: false, daysAgo: 0 },
+      { questionId: Q1, isCorrect: true, daysAgo: 1 },
+    ])
+
+    const dedup = getDeduplicatedAnswerHistory()
+    expect(dedup).toHaveLength(2)
+
+    const catStats = getCategoryStats()
+    const cat = catStats.find((s) => s.categoryId === '03_動狀詞_非謂語動詞')
+    expect(cat?.totalAnswered).toBe(2)
+  })
+})
+

@@ -11,12 +11,13 @@ import {
   getPracticedDayCount,
   getProfile,
   getVocabMasteryMap,
+  getWeakVocabStats,
   getWrongQuestionList,
   type CalendarDay,
   type CategoryStat,
   type DailyProgress,
 } from '../lib/storage'
-import { getCategories, getCategoryLabel } from '../lib/content'
+import { getCategoryLabel, getVocabById } from '../lib/content'
 import { estimateToeicScore } from '../lib/toeicScore'
 import { ProgressRing } from '../components/ui/ProgressRing'
 import { DailyTaskCard } from '../components/DailyTaskCard'
@@ -64,6 +65,9 @@ interface HomeSnapshot {
   calendar: CalendarDay[]
   practicedDays: number
   vocabCount: number
+  weakVocabCount: number
+  /** 卡片上直接秀出來的前幾個弱點單字 */
+  weakVocabPreview: string[]
   totalAnswered: number
   totalCorrect: number
   reminderTime: string
@@ -77,6 +81,7 @@ function buildSnapshot(): HomeSnapshot {
 
   const stats = getCategoryStats()
   const profile = getProfile()
+  const weakVocab = getWeakVocabStats()
 
   return {
     progress: getDailyProgress(),
@@ -89,6 +94,11 @@ function buildSnapshot(): HomeSnapshot {
     calendar: getPracticeCalendar(84),
     practicedDays: getPracticedDayCount(),
     vocabCount: Object.values(getVocabMasteryMap()).filter((v) => v.level >= 2).length,
+    weakVocabCount: weakVocab.length,
+    weakVocabPreview: weakVocab
+      .slice(0, 3)
+      .map((s) => getVocabById(s.vocabId)?.word)
+      .filter((w): w is string => !!w),
     totalAnswered: stats.reduce((a, c) => a + c.totalAnswered, 0),
     totalCorrect: stats.reduce((a, c) => a + c.correctCount, 0),
     reminderTime: profile.reminderTime,
@@ -256,6 +266,31 @@ export default function HomePage() {
             </Link>
           )}
 
+          {/* 常錯／到期的單字，跟錯題本同一種入口卡 */}
+          {snap.weakVocabCount > 0 && (
+            <Link
+              href="/vocab-review"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-[15px] font-semibold text-[var(--tx)]">單字複習本</h3>
+                  <span className="text-xs font-bold text-[var(--pr)]">
+                    {snap.weakVocabCount} 個字要加強
+                  </span>
+                </div>
+                <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
+                  {snap.weakVocabPreview.length > 0
+                    ? `${snap.weakVocabPreview.join(' · ')}${snap.weakVocabCount > snap.weakVocabPreview.length ? ' …' : ''}`
+                    : '常錯與該複習的字都收在這裡'}
+                </p>
+              </div>
+              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)]">
+                開始複習
+              </span>
+            </Link>
+          )}
+
           {/* 設計 01：全部完成後低調的加練入口 */}
           {allDone && (
             <section className="animate-fade-in space-y-2.5">
@@ -268,6 +303,17 @@ export default function HomePage() {
                   模擬考
                   <span className="mt-0.5 block text-xs text-[var(--mu)]">整份計時測驗</span>
                 </Link>
+                {snap.weakVocabCount > 0 && (
+                  <Link
+                    href="/practice/vocab?mode=weak"
+                    className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 text-sm text-[var(--tx)] transition-colors hover:border-[var(--pr-ln)]"
+                  >
+                    弱點單字
+                    <span className="mt-0.5 block text-xs text-[var(--mu)]">
+                      常錯與該複習的 {snap.weakVocabCount} 個字
+                    </span>
+                  </Link>
+                )}
                 {weakest && (
                   <Link
                     href={`/practice/grammar?category=${encodeURIComponent(weakest.categoryId)}`}

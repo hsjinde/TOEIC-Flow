@@ -195,7 +195,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
                         )}
                       </div>
                       <p className="text-xs text-[var(--mu)]">
-                        已答 {uniqueDone} / {questionCount} 題 · 近 {mastery.totalAnswered} 次作答對 {mastery.correctCount} 題
+                        已答 {uniqueDone} / {questionCount} 題 · 作答 {mastery.totalAnswered} 題對 {mastery.correctCount} 題
                       </p>
                       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
                         <div

@@ -15,6 +15,7 @@ const LINKS = [
   { label: '練習', href: '/chapters' },
   { label: '統計', href: '/stats' },
   { label: '錯題本', href: '/wrong-questions' },
+  { label: '單字本', href: '/vocab-review' },
   { label: '模擬考', href: '/practice/mock' },
 ]
 

@@ -1,13 +1,19 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { ArrowLeft, Check } from 'lucide-react'
 import type { VocabItem } from '../../../../scripts/build-content/types'
-import { getRandomVocabItems, getVocabItems } from '../../../lib/content'
+import {
+  getRandomVocabItems,
+  getVocabByIds,
+  getVocabItems,
+} from '../../../lib/content'
 import {
   bumpVocabMastery,
   getVocabMasteryMap,
+  getWeakVocabIds,
   recordTaskCompletion,
   updateVocabMastery,
 } from '../../../lib/storage'
@@ -20,8 +26,57 @@ const SESSION_SIZE = 10
 
 type Mode = 'flip' | 'quiz'
 
-export default function VocabPracticePage() {
-  const [vocabList, setVocabList] = useState<VocabItem[] | null>(null)
+interface VocabSession {
+  items: VocabItem[]
+  title: string
+  /** 專攻是從單字複習本進來的，返回鍵要回得去那一頁而不是首頁。 */
+  backHref: string
+  backLabel: string
+}
+
+const HOME: Pick<VocabSession, 'backHref' | 'backLabel'> = {
+  backHref: '/',
+  backLabel: '今日任務',
+}
+const BOOK: Pick<VocabSession, 'backHref' | 'backLabel'> = {
+  backHref: '/vocab-review',
+  backLabel: '單字複習本',
+}
+
+function buildSession(params: URLSearchParams): VocabSession {
+  const ids = params.get('ids')
+  const mode = params.get('mode')
+
+  if (ids) {
+    const items = getVocabByIds(ids.split(',').filter(Boolean))
+    return { items, title: items.length === 1 ? '單字專攻' : `單字專攻 ${items.length} 個`, ...BOOK }
+  }
+
+  if (mode === 'weak') {
+    // 弱點不足 10 個時補隨機字，否則按下「開始複習」只練到兩張卡就結束了。
+    const weak = getVocabByIds(getWeakVocabIds(SESSION_SIZE))
+    const picked = new Set(weak.map((v) => v.id))
+    const filler = getVocabItems()
+      .filter((v) => !picked.has(v.id))
+      .sort(() => 0.5 - Math.random())
+      .slice(0, Math.max(0, SESSION_SIZE - weak.length))
+    return { items: [...weak, ...filler], title: '弱點單字複習', ...BOOK }
+  }
+
+  return { items: getRandomVocabItems(SESSION_SIZE), title: '單字複習', ...HOME }
+}
+
+export default function VocabPracticePageWrapper() {
+  return (
+    <Suspense fallback={<VocabSkeleton />}>
+      <VocabPracticePage />
+    </Suspense>
+  )
+}
+
+function VocabPracticePage() {
+  const searchParams = useSearchParams()
+  const [session, setSession] = useState<VocabSession | null>(null)
   const [pool, setPool] = useState<VocabItem[]>([])
   const [levels, setLevels] = useState<Record<string, number>>({})
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -29,22 +84,25 @@ export default function VocabPracticePage() {
   const [isFinished, setIsFinished] = useState(false)
 
   useEffect(() => {
-    const list = getRandomVocabItems(SESSION_SIZE)
-    setVocabList(list)
+    const built = buildSession(new URLSearchParams(searchParams.toString()))
+    setSession(built)
+    setCurrentIndex(0)
+    setIsFinished(false)
     const map = getVocabMasteryMap()
     setLevels(Object.fromEntries(Object.entries(map).map(([k, v]) => [k, v.level])))
     // 誘答項從全庫抽，但排除本回會出現的字，避免「兩個選項都對」。
-    const sessionIds = new Set(list.map((v) => v.id))
+    const sessionIds = new Set(built.items.map((v) => v.id))
     setPool(
       getVocabItems()
         .filter((v) => !sessionIds.has(v.id))
         .sort(() => 0.5 - Math.random())
         .slice(0, 60)
     )
-  }, [])
+  }, [searchParams])
 
-  const total = vocabList?.length ?? 0
-  const currentItem = vocabList?.[currentIndex]
+  const vocabList = session?.items ?? []
+  const total = vocabList.length
+  const currentItem = vocabList[currentIndex]
 
   const advance = useCallback(() => {
     setCurrentIndex((prev) => {
@@ -75,10 +133,10 @@ export default function VocabPracticePage() {
     [currentItem]
   )
 
-  if (!vocabList) return <VocabSkeleton />
+  if (!session) return <VocabSkeleton />
 
   // 題庫抽不到字是資料缺失，不是「今天練完了」。共用完成畫面會把空題庫報告成任務成功。
-  if (vocabList.length === 0) {
+  if (total === 0) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
         <h2 className="text-base font-bold text-[var(--tx)]">目前沒有可複習的單字</h2>
@@ -99,13 +157,13 @@ export default function VocabPracticePage() {
           <Check className="h-7 w-7" />
         </div>
         <div className="space-y-1">
-          <h2 className="text-lg font-bold text-[var(--tx)]">單字複習完成</h2>
+          <h2 className="text-lg font-bold text-[var(--tx)]">{session.title}完成</h2>
           <p className="text-sm text-[var(--mu)]">
             {total} 個字 · 其中 {mastered} 個已達熟悉
           </p>
         </div>
-        <Link href="/" className="w-full max-w-[280px] pt-1">
-          <Button variant="primary">返回今日任務</Button>
+        <Link href={session.backHref} className="w-full max-w-[280px] pt-1">
+          <Button variant="primary">返回{session.backLabel}</Button>
         </Link>
       </div>
     )
@@ -115,14 +173,14 @@ export default function VocabPracticePage() {
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <Link
-          href="/"
-          aria-label="返回今日任務"
+          href={session.backHref}
+          aria-label={`返回${session.backLabel}`}
           className="-ml-2 flex h-11 w-11 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>
         <span className="text-sm font-bold text-[var(--tx)]">
-          單字複習 {currentIndex + 1} / {total}
+          {session.title} {currentIndex + 1} / {total}
         </span>
       </div>
 

@@ -313,10 +313,21 @@ export function getVocabMasteryMap(): Record<string, { level: number; lastReview
   }
 }
 
-export function updateVocabMastery(vocabId: string, level: number): void {
+/**
+ * @param opts.isCorrect 這次「答對了沒」。翻卡自評沒有客觀對錯，就用檔位當代理
+ * （不會＝錯、有點難／記得＝對）；四選一測驗有真正的判定，一定要傳進來——從
+ * level 0 答對只會升到 1，用 `level >= 2` 推導會把一次答對記成答錯，常錯單字
+ * 的統計就整組壞掉。
+ */
+export function updateVocabMastery(
+  vocabId: string,
+  level: number,
+  opts?: { isCorrect?: boolean }
+): void {
   if (typeof window === 'undefined') return
   const map = getVocabMasteryMap()
   const now = Date.now()
+  const isCorrect = opts?.isCorrect ?? level >= 2
   map[vocabId] = { level, lastReviewed: now }
   localStorage.setItem(STORAGE_KEY_VOCAB, JSON.stringify(map))
   recordTaskCompletion('vocab')
@@ -326,7 +337,7 @@ export function updateVocabMastery(vocabId: string, level: number): void {
   history.push({
     questionId: vocabId,
     categoryId: 'vocab',
-    isCorrect: level >= 2,
+    isCorrect,
     timestamp: now,
     source: 'vocab',
   })
@@ -353,7 +364,7 @@ export function updateVocabMastery(vocabId: string, level: number): void {
       payload: {
         questionId: vocabId,
         categoryId: 'vocab',
-        isCorrect: level >= 2,
+        isCorrect,
         source: 'vocab',
       },
     }),
@@ -364,23 +375,208 @@ export function updateVocabMastery(vocabId: string, level: number): void {
 export function bumpVocabMastery(vocabId: string, isCorrect: boolean): number {
   const current = getVocabMasteryMap()[vocabId]?.level ?? 0
   const next = isCorrect ? Math.min(MAX_VOCAB_LEVEL, current + 1) : Math.max(0, current - 1)
-  updateVocabMastery(vocabId, next)
+  updateVocabMastery(vocabId, next, { isCorrect })
   return next
 }
 
 export const MAX_VOCAB_LEVEL = 4
 
-/** 設計 03：自評三檔各自對應下次出現時間，翻卡與測驗共用同一組文案。 */
-const SRS_INTERVALS: Record<number, string> = {
-  0: '10 分鐘後',
-  1: '10 分鐘後',
-  2: '明天',
-  3: '4 天後',
-  4: '10 天後',
+/**
+ * 設計 03：自評三檔各自對應下次出現時間，翻卡與測驗共用同一組文案。
+ * 間隔同時是「這個字什麼時候該再出現」的判準（getVocabStats 的 dueAt），
+ * 所以文案與毫秒數綁在同一個表——分兩處寫，改了其中一邊就會對不上。
+ */
+const SRS_STEPS: { ms: number; label: string }[] = [
+  { ms: 10 * 60_000, label: '10 分鐘後' },
+  { ms: 10 * 60_000, label: '10 分鐘後' },
+  { ms: 86_400_000, label: '明天' },
+  { ms: 4 * 86_400_000, label: '4 天後' },
+  { ms: 10 * 86_400_000, label: '10 天後' },
+]
+
+function srsStep(level: number) {
+  return SRS_STEPS[Math.max(0, Math.min(MAX_VOCAB_LEVEL, Math.floor(level)))] ?? SRS_STEPS[0]!
 }
 
 export function getSrsIntervalLabel(level: number): string {
-  return SRS_INTERVALS[Math.max(0, Math.min(MAX_VOCAB_LEVEL, level))] ?? '10 分鐘後'
+  return srsStep(level).label
+}
+
+export function getSrsIntervalMs(level: number): number {
+  return srsStep(level).ms
+}
+
+// --- Vocab Weakness Stats ---
+
+/**
+ * 一個字在複習本裡的分組。互斥且有優先序（常錯 > 待複習 > 不熟 > 已熟），
+ * 篩選晶片的數字才加得起來等於總數。
+ */
+export type VocabStatus = 'leech' | 'due' | 'learning' | 'mastered'
+
+export const VOCAB_STATUS_LABELS: Record<VocabStatus, string> = {
+  leech: '常錯',
+  due: '待複習',
+  learning: '不熟',
+  mastered: '已熟',
+}
+
+/** 錯這麼多次就算「常錯」，值只在這裡定義，UI 的說明文字也讀這個常數。 */
+export const LEECH_WRONG_THRESHOLD = 2
+
+export interface VocabStat {
+  vocabId: string
+  /** 練過幾次（翻卡自評也算一次） */
+  attempts: number
+  correctCount: number
+  wrongCount: number
+  accuracyRate: number
+  level: number
+  /** 0 代表沒有可信的時間戳 */
+  lastReviewed: number
+  lastWrongAt: number
+  /** lastReviewed + 該檔位的 SRS 間隔 */
+  dueAt: number
+  status: VocabStatus
+}
+
+const STATUS_ORDER: Record<VocabStatus, number> = { leech: 0, due: 1, learning: 2, mastered: 3 }
+
+/**
+ * 每個練過的字的複習狀態，弱的排前面。
+ *
+ * 時間戳優先採用作答歷程而不是 mastery map：syncUserDataFromD1() 會把所有
+ * 同步下來的字的 lastReviewed 寫成「現在」，只看 map 的話換一台裝置登入後
+ * 全部的字都會變成剛複習過、永遠不到期。
+ */
+export type DeduplicateRule = 'first' | 'last' | 'best'
+
+/**
+ * 取得同日去重後的作答歷程。
+ * 同一天（以當地日期 YYYY-MM-DD 為準）針對同一題目作答多次時，依據規則去重：
+ * - 'first' (預設): 取當天最早的一筆作答記錄
+ * - 'last': 取當天最晚的一筆作答記錄
+ * - 'best': 若當天有任一次答對則取答對的記錄，否則取最早的記錄
+ */
+export function getDeduplicatedAnswerHistory(
+  history?: AnswerHistoryEntry[],
+  rule: DeduplicateRule = 'first'
+): AnswerHistoryEntry[] {
+  const list = history ?? getAnswerHistory()
+  if (list.length === 0) return []
+
+  const groups = new Map<string, { entry: AnswerHistoryEntry; idx: number }[]>()
+
+  list.forEach((entry, idx) => {
+    const d = new Date(entry.timestamp)
+    const dateKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+    const key = `${entry.questionId}_${dateKey}`
+    const group = groups.get(key)
+    if (group) {
+      group.push({ entry, idx })
+    } else {
+      groups.set(key, [{ entry, idx }])
+    }
+  })
+
+  const result: AnswerHistoryEntry[] = []
+
+  for (const group of groups.values()) {
+    if (group.length === 1) {
+      result.push(group[0]!.entry)
+      continue
+    }
+
+    if (rule === 'last') {
+      group.sort((a, b) => b.entry.timestamp - a.entry.timestamp || b.idx - a.idx)
+      result.push(group[0]!.entry)
+    } else if (rule === 'best') {
+      const correctItem = group.find((item) => item.entry.isCorrect)
+      if (correctItem) {
+        result.push(correctItem.entry)
+      } else {
+        group.sort((a, b) => a.entry.timestamp - b.entry.timestamp || a.idx - b.idx)
+        result.push(group[0]!.entry)
+      }
+    } else {
+      // 'first' (default)
+      group.sort((a, b) => a.entry.timestamp - b.entry.timestamp || a.idx - b.idx)
+      result.push(group[0]!.entry)
+    }
+  }
+
+  return result
+}
+
+export function getVocabStats(): VocabStat[] {
+  const masteryMap = getVocabMasteryMap()
+  const agg: Record<
+    string,
+    { attempts: number; correct: number; wrong: number; last: number; lastWrong: number }
+  > = {}
+
+  for (const entry of getDeduplicatedAnswerHistory()) {
+    if (entry.source !== 'vocab' && entry.categoryId !== 'vocab') continue
+    const bucket = agg[entry.questionId] ?? { attempts: 0, correct: 0, wrong: 0, last: 0, lastWrong: 0 }
+    bucket.attempts += 1
+    if (entry.isCorrect) bucket.correct += 1
+    else {
+      bucket.wrong += 1
+      bucket.lastWrong = Math.max(bucket.lastWrong, entry.timestamp)
+    }
+    bucket.last = Math.max(bucket.last, entry.timestamp)
+    agg[entry.questionId] = bucket
+  }
+
+  const now = Date.now()
+  const ids = new Set([...Object.keys(agg), ...Object.keys(masteryMap)])
+  const out: VocabStat[] = []
+
+  for (const vocabId of ids) {
+    const a = agg[vocabId]
+    const level = masteryMap[vocabId]?.level ?? 0
+    const attempts = a?.attempts ?? 0
+    const correctCount = a?.correct ?? 0
+    const wrongCount = a?.wrong ?? 0
+    const lastReviewed = a?.last ?? masteryMap[vocabId]?.lastReviewed ?? 0
+    const dueAt = lastReviewed > 0 ? lastReviewed + getSrsIntervalMs(level) : 0
+
+    let status: VocabStatus
+    if (wrongCount >= LEECH_WRONG_THRESHOLD) status = 'leech'
+    else if (level >= 2 && dueAt > 0 && dueAt <= now) status = 'due'
+    else if (level < 2) status = 'learning'
+    else status = 'mastered'
+
+    out.push({
+      vocabId,
+      attempts,
+      correctCount,
+      wrongCount,
+      accuracyRate: attempts > 0 ? Math.round((correctCount / attempts) * 100) : 0,
+      level,
+      lastReviewed,
+      lastWrongAt: a?.lastWrong ?? 0,
+      dueAt,
+      status,
+    })
+  }
+
+  return out.sort((x, y) => {
+    if (x.status !== y.status) return STATUS_ORDER[x.status] - STATUS_ORDER[y.status]
+    if (x.wrongCount !== y.wrongCount) return y.wrongCount - x.wrongCount
+    if (x.accuracyRate !== y.accuracyRate) return x.accuracyRate - y.accuracyRate
+    return x.lastReviewed - y.lastReviewed
+  })
+}
+
+/** 該特別複習的字（常錯／到期／不熟），最弱的在前。 */
+export function getWeakVocabStats(): VocabStat[] {
+  return getVocabStats().filter((s) => s.status !== 'mastered')
+}
+
+export function getWeakVocabIds(limit?: number): string[] {
+  const ids = getWeakVocabStats().map((s) => s.vocabId)
+  return limit === undefined ? ids : ids.slice(0, limit)
 }
 
 // --- Category Stats Controller ---
@@ -394,8 +590,7 @@ export interface CategoryStat {
 
 export function getCategoryStats(): CategoryStat[] {
   if (typeof window === 'undefined') return []
-  const rawHist = localStorage.getItem(STORAGE_KEY_HISTORY)
-  const history: AnswerHistoryEntry[] = rawHist ? JSON.parse(rawHist) : []
+  const history = getDeduplicatedAnswerHistory()
 
   const statsMap: Record<string, { total: number; correct: number }> = {}
   for (const entry of history) {
@@ -451,7 +646,7 @@ export function getPracticeCalendar(days: number = 84): CalendarDay[] {
   const correctCounts: Record<string, number> = {}
   const sourceCounts: Record<string, Partial<Record<AnswerSource, number>>> = {}
 
-  for (const entry of getAnswerHistory()) {
+  for (const entry of getDeduplicatedAnswerHistory()) {
     const d = new Date(entry.timestamp)
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
     counts[key] = (counts[key] ?? 0) + 1
@@ -482,7 +677,7 @@ export function getPracticeCalendar(days: number = 84): CalendarDay[] {
 
 export function getPracticedDayCount(): number {
   const seen = new Set<string>()
-  for (const entry of getAnswerHistory()) {
+  for (const entry of getDeduplicatedAnswerHistory()) {
     const d = new Date(entry.timestamp)
     seen.add(`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`)
   }
@@ -502,7 +697,7 @@ export interface ChapterMastery {
  */
 export function getChapterMasteryMap(): Record<string, ChapterMastery> {
   const map: Record<string, { total: number; correct: number; questions: Set<string> }> = {}
-  for (const entry of getAnswerHistory()) {
+  for (const entry of getDeduplicatedAnswerHistory()) {
     const hashAt = entry.questionId.indexOf('#')
     if (hashAt <= 0) continue
     const chapterId = entry.questionId.slice(0, hashAt)

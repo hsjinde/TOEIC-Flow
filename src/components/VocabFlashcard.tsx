@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { RotateCw, Volume2 } from 'lucide-react'
 import type { VocabItem } from '../../scripts/build-content/types'
 import { getSrsIntervalLabel } from '../lib/storage'
+import { speakWord } from '../lib/speech'
 import { Button } from './ui/Button'
 import { EmphasisText } from './EmphasisText'
 import { MasteryDots } from './MasteryDots'
@@ -36,13 +37,7 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
   const playSpeech = useCallback(
     (e: React.MouseEvent) => {
       e.stopPropagation()
-      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel()
-        const utterance = new SpeechSynthesisUtterance(item.word)
-        utterance.lang = 'en-US'
-        utterance.rate = 0.9
-        window.speechSynthesis.speak(utterance)
-      }
+      speakWord(item.word)
     },
     [item.word]
   )

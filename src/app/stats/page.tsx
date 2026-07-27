@@ -4,19 +4,22 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Award, Target, Flame, BookOpen, ListChecks } from 'lucide-react'
 import {
-  getAnswerHistory,
+  getDeduplicatedAnswerHistory,
   getCategoryStats,
   getDailyProgress,
   getPracticeCalendar,
   getPracticedDayCount,
   getProfile,
   getVocabMasteryMap,
+  getVocabStats,
   getWrongQuestionList,
   seedDemoData,
+  VOCAB_STATUS_LABELS,
   type CalendarDay,
   type CategoryStat,
+  type VocabStatus,
 } from '../../lib/storage'
-import { getCategories } from '../../lib/content'
+import { getCategories, getVocabById } from '../../lib/content'
 import { estimateToeicScore } from '../../lib/toeicScore'
 import { RadarChart, type RadarAxis } from '../../components/RadarChart'
 import { PracticeCalendar } from '../../components/PracticeCalendar'
@@ -44,7 +47,7 @@ interface StatsSnapshot {
 
 function buildSnapshot(): StatsSnapshot {
   const stats = getCategoryStats()
-  const history = getAnswerHistory()
+  const history = getDeduplicatedAnswerHistory()
   const vocabMap = getVocabMasteryMap()
   const progress = getDailyProgress()
 
