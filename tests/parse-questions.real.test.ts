@@ -16,15 +16,15 @@ function eachChapter(fn: (chapterId: string, categoryId: string, md: string) => 
 }
 
 describe('parseQuestions against every real chapter', () => {
-  it('finds exactly 5 questions in each of the 29 chapters', () => {
+  it('finds either 5 (original) or 15 (expansion) questions in each of the 69 chapters', () => {
     const results: { chapter: string; count: number }[] = []
     eachChapter((chapterId, categoryId, md) => {
       results.push({ chapter: chapterId, count: parseQuestions(md, chapterId, categoryId).length })
     })
 
-    expect(results).toHaveLength(29)
-    const bad = results.filter((r) => r.count !== 5)
-    expect(bad, `chapters without exactly 5 questions: ${JSON.stringify(bad, null, 2)}`).toEqual([])
+    expect(results).toHaveLength(69)
+    const bad = results.filter((r) => r.count !== 5 && r.count !== 15)
+    expect(bad, `chapters without 5 or 15 questions: ${JSON.stringify(bad, null, 2)}`).toEqual([])
   })
 
   it('gives every blank at least two options', () => {
@@ -65,11 +65,11 @@ describe('parseQuestions against every real chapter', () => {
     expect(bad, `malformed stems:\n${bad.join('\n')}`).toEqual([])
   })
 
-  it('produces 145 questions in total', () => {
+  it('produces 745 questions in total', () => {
     let total = 0
     eachChapter((chapterId, categoryId, md) => {
       total += parseQuestions(md, chapterId, categoryId).length
     })
-    expect(total).toBe(145)
+    expect(total).toBe(745)
   })
 })

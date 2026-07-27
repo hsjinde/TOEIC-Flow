@@ -16,13 +16,13 @@ function eachChapter(fn: (chapterId: string, md: string) => void): void {
 }
 
 describe('parseFormulas against real notes', () => {
-  it('finds formulas in every one of the 29 chapters', () => {
+  it('finds formulas in every one of the 69 chapters', () => {
     const counts: { chapter: string; count: number }[] = []
     eachChapter((chapterId, md) => {
       counts.push({ chapter: chapterId, count: parseFormulas(md, chapterId).length })
     })
 
-    expect(counts).toHaveLength(29)
+    expect(counts).toHaveLength(69)
     const empty = counts.filter((c) => c.count === 0)
     expect(empty, `chapters with no formulas: ${JSON.stringify(empty)}`).toEqual([])
   })
