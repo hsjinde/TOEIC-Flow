@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 import { User as UserIcon } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { ThemeToggle } from './ThemeToggle'
@@ -33,8 +34,9 @@ export function TopNav() {
       className="hidden lg:block sticky top-0 z-40 w-full border-b border-[var(--ln)] bg-[var(--sf)]"
     >
       <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center gap-8 px-6">
-        <Link href="/" className="text-sm font-bold text-[var(--tx)] hover:opacity-80">
-          每日多益
+        <Link href="/" className="flex items-center gap-2 text-sm font-bold text-[var(--tx)] hover:opacity-80">
+          <Image src="/icon.png" alt="TOEIC Flow" width={26} height={26} className="rounded-lg object-cover" />
+          <span>每日多益</span>
         </Link>
 
         <nav className="flex items-center gap-1" aria-label="主導航">

@@ -9,6 +9,10 @@ import { AuthGuard } from '../components/AuthGuard'
 export const metadata: Metadata = {
   title: 'TOEIC Flow — 每日多益練習',
   description: '手機與電腦兼備、專注高品質的多益每日練習應用',
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 }
 
 /**
