@@ -160,7 +160,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-5">
       {/* 標題列 */}
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-[var(--tx)]">今日任務</h1>
           <p className="mt-0.5 text-xs text-[var(--mu)]">
@@ -199,18 +199,18 @@ export default function HomePage() {
               <p className="text-xs text-[var(--mu)]">再 {remainingMinutes} 分鐘就完成今天</p>
             )}
 
-            {/* 設計 11：桌機常駐的下一步與鍵盤提示 */}
+            {/* 下一步任務與按鈕 */}
             {!allDone && nextTask && (
-              <div className="hidden w-full max-w-sm flex-col gap-2 pt-2 lg:flex">
+              <div className="flex w-full max-w-sm flex-col gap-2 pt-2">
                 <p className="text-center text-xs leading-relaxed text-[var(--mu)]">
                   {weakest
                     ? `今天的重點是${getCategoryLabel(weakest.categoryId)}。這一類目前正確率 ${weakest.accuracyRate}%，練完 5 題會重新估分。`
                     : '完成三項任務後就能看到第一份弱項分析。'}
                 </p>
-                <Link href={nextTask.href}>
-                  <Button variant="primary">
+                <Link href={nextTask.href} className="w-full">
+                  <Button variant="primary" className="w-full">
                     繼續{nextTask.title}
-                    <span className="text-xs opacity-70">{nextTask.shortcut}</span>
+                    <span className="hidden text-xs opacity-70 lg:inline ml-1.5">{nextTask.shortcut}</span>
                   </Button>
                 </Link>
               </div>
@@ -244,14 +244,14 @@ export default function HomePage() {
               href="/wrong-questions"
               className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
             >
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <h3 className="text-[15px] font-semibold text-[var(--tx)]">錯題本</h3>
                   <span className="text-xs font-bold text-[var(--pr)]">
                     {snap.wrongCount} 題待複習
                   </span>
                 </div>
-                <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[var(--mu)]">
                   {snap.wrongPreview
                     .map((p) => `${getCategoryLabel(p.categoryId)} ${p.count}`)
                     .join(' · ')}
@@ -272,14 +272,14 @@ export default function HomePage() {
               href="/vocab-review"
               className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
             >
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <h3 className="text-[15px] font-semibold text-[var(--tx)]">單字複習本</h3>
                   <span className="text-xs font-bold text-[var(--pr)]">
                     {snap.weakVocabCount} 個字要加強
                   </span>
                 </div>
-                <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[var(--mu)]">
                   {snap.weakVocabPreview.length > 0
                     ? `${snap.weakVocabPreview.join(' · ')}${snap.weakVocabCount > snap.weakVocabPreview.length ? ' …' : ''}`
                     : '常錯與該複習的字都收在這裡'}
@@ -330,8 +330,8 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* 右欄：長期進度（設計 11，桌機才出現） */}
-        <aside className="hidden flex-col gap-4 lg:flex">
+        {/* 右欄：長期進度與預估分數卡片 */}
+        <aside className="flex flex-col gap-4">
           <section className="space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
             <div className="flex items-baseline justify-between">
               <h2 className="text-sm font-bold text-[var(--tx)]">練習日曆</h2>
