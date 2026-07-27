@@ -197,8 +197,8 @@ export default function StatsPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           <section className="flex flex-col justify-between space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6">
             <h2 className="text-base font-bold text-[var(--tx)]">六大文法類別正確率</h2>
-            <div className="flex flex-1 items-center justify-center py-4">
-              <RadarChart axes={axes} size={420} className="w-full max-w-[460px] h-auto" />
+            <div className="flex flex-1 items-center justify-center py-2">
+              <RadarChart axes={axes} size={500} className="w-full max-w-[560px] h-auto" />
             </div>
             {thinCategories.length > 0 && (
               <p className="text-center text-[11px] text-[var(--fa)]">

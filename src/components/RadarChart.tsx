@@ -17,17 +17,17 @@ interface RadarChartProps {
  * 設計 05/12 的六大類正確率雷達圖。刻意只用主色一種顏色（設計約束：單一
  * 強調色，綠／紅保留給答題回饋），層級靠透明度與線寬區分。
  */
-export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 300, className }) => {
+export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 480, className }) => {
   if (axes.length < 3) return null
 
   const cx = size / 2
   const cy = size / 2
-  // 計算網格半徑：標籤改為雙行堆疊顯示（名稱在上、百分比在下），大幅節省水平寬度，讓網格放至最大。
-  const radius = Math.round(size * 0.35)
-  const labelRadiusRatio = 1.16
+  // 網格半徑設為 42%，讓雷達圖視覺最大化，滿版大方醒目。
+  const radius = Math.round(size * 0.42)
+  const labelRadiusRatio = 1.12
 
-  const padX = Math.max(38, Math.round(size * 0.12))
-  const padY = Math.max(26, Math.round(size * 0.08))
+  const padX = Math.max(36, Math.round(size * 0.08))
+  const padY = Math.max(26, Math.round(size * 0.06))
   const viewW = size + padX * 2
   const viewH = size + padY * 2
 
@@ -68,7 +68,7 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 300, classN
             .join(' ')}
           fill="none"
           stroke="var(--ln)"
-          strokeWidth={1}
+          strokeWidth={1.5}
         />
       ))}
 
@@ -82,21 +82,20 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 300, classN
             x2={p.x}
             y2={p.y}
             stroke="var(--ln)"
-            strokeWidth={1}
+            strokeWidth={1.5}
           />
         )
       })}
 
-      <polygon points={shape} fill="var(--pr)" fillOpacity={0.18} stroke="var(--pr)" strokeWidth={2} />
+      <polygon points={shape} fill="var(--pr)" fillOpacity={0.22} stroke="var(--pr)" strokeWidth={2.5} />
 
       {axes.map((axis, i) => {
         const p = pointAt(i, Math.max(0, Math.min(100, axis.value)) / 100)
-        return <circle key={i} cx={p.x} cy={p.y} r={3.5} fill="var(--pr)" />
+        return <circle key={i} cx={p.x} cy={p.y} r={5} fill="var(--pr)" />
       })}
 
       {axes.map((axis, i) => {
         const p = pointAt(i, labelRadiusRatio)
-        // 正上與正下的標籤置中，左右兩側靠外側對齊
         const dx = p.x - cx
         const anchor = Math.abs(dx) < 4 ? 'middle' : dx > 0 ? 'start' : 'end'
         return (
@@ -105,13 +104,12 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 300, classN
             x={p.x}
             y={p.y}
             textAnchor={anchor}
-            fontSize={11.5}
             fill="var(--mu)"
           >
-            <tspan x={p.x} dy="-0.5em" fontWeight={500}>
+            <tspan x={p.x} dy="-0.4em" fontSize={14} fontWeight={600}>
               {axis.label}
             </tspan>
-            <tspan x={p.x} dy="1.25em" fill="var(--tx)" fontWeight={700}>
+            <tspan x={p.x} dy="1.3em" fill="var(--tx)" fontSize={15} fontWeight={700}>
               {axis.value}%
             </tspan>
           </text>
