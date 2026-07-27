@@ -194,10 +194,10 @@ export default function StatsPage() {
 
       {hasAnalysis ? (
         <div className="grid gap-5 lg:grid-cols-2">
-          <section className="space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+          <section className="flex flex-col justify-between space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
             <h2 className="text-sm font-bold text-[var(--tx)]">六大文法類別正確率</h2>
-            <div className="flex justify-center">
-              <RadarChart axes={axes} size={286} />
+            <div className="flex flex-1 items-center justify-center py-2">
+              <RadarChart axes={axes} size={320} className="w-full max-w-[340px]" />
             </div>
             {thinCategories.length > 0 && (
               <p className="text-center text-[11px] text-[var(--fa)]">
