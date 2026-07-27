@@ -159,7 +159,12 @@ describe('chapter mastery', () => {
     ])
 
     const map = getChapterMasteryMap()
-    expect(map[CHAPTER]).toEqual({ totalAnswered: 2, correctCount: 1, accuracyRate: 50 })
+    expect(map[CHAPTER]).toEqual({
+      totalAnswered: 2,
+      correctCount: 1,
+      accuracyRate: 50,
+      uniqueAnsweredCount: 2,
+    })
   })
 
   it('ignores ids without a # so it never keys on a truncated path', () => {
