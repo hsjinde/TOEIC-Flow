@@ -69,9 +69,14 @@ describe('parseQuestions', () => {
     expect(q5?.blanks[1]?.options[1]?.text).toBe('communication')
   })
 
-  it('excludes the wikilink footer from the last stem', () => {
+  it('excludes the wikilink footer and inline blank labels from the stem', () => {
     const q5 = questions.find((q) => q.number === 5)
     expect(q5?.stem).not.toContain('詳解請見')
+    expect(q5?.stem).not.toContain('第一空')
+    expect(q5?.stem).not.toContain('第二空')
+    expect(q5?.stem).toBe(
+      'The company published a survey to measure employee ___ regarding the policy. In addition, managers should improve their ___ with staff.',
+    )
   })
 
   it('records source, chapter and category on every question', () => {

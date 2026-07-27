@@ -80,7 +80,11 @@ export function parseQuestions(md: string, chapterId: string, categoryId: string
   const flush = () => {
     if (!current) return
     closePending(current)
-    const stem = current.stemLines.join(' ').replace(/\s+/g, ' ').trim()
+    const stem = current.stemLines
+      .join(' ')
+      .replace(/[（(]\s*第[一二三四1-4]空\s*[）)]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
     if (stem && current.blanks.length > 0) {
       questions.push({
         id: questionId(chapterId, current.number),
