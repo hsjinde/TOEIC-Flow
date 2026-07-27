@@ -43,7 +43,22 @@ interface StatsSnapshot {
   chapterCountByCategory: Record<string, number>
   scoreDelta: number | null
   targetScore: number
+  weakVocab: WeakVocabRow[]
+  weakVocabCount: number
 }
+
+interface WeakVocabRow {
+  vocabId: string
+  word: string
+  meaning: string
+  wrongCount: number
+  attempts: number
+  accuracyRate: number
+  status: VocabStatus
+}
+
+/** 統計頁只給前幾個最該複習的字，完整清單在 /vocab-review。 */
+const WEAK_VOCAB_PREVIEW = 5
 
 function buildSnapshot(): StatsSnapshot {
   const stats = getCategoryStats()
@@ -67,6 +82,24 @@ function buildSnapshot(): StatsSnapshot {
   }
   const chapterCountByCategory: Record<string, number> = {}
   for (const [cat, set] of Object.entries(chapterSets)) chapterCountByCategory[cat] = set.size
+
+  // 常錯／到期的單字。查不到字的舊紀錄（筆記改過檔名）直接略過。
+  const weakVocabStats = getVocabStats().filter((s) => s.status !== 'mastered')
+  const weakVocab: WeakVocabRow[] = []
+  for (const stat of weakVocabStats) {
+    if (weakVocab.length >= WEAK_VOCAB_PREVIEW) break
+    const item = getVocabById(stat.vocabId)
+    if (!item) continue
+    weakVocab.push({
+      vocabId: stat.vocabId,
+      word: item.word,
+      meaning: item.meaning,
+      wrongCount: stat.wrongCount,
+      attempts: stat.attempts,
+      accuracyRate: stat.accuracyRate,
+      status: stat.status,
+    })
+  }
 
   // 設計 05 的「近 30 天 +45」：拿「30 天前為止」的估分跟現在比。
   const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000
@@ -97,6 +130,8 @@ function buildSnapshot(): StatsSnapshot {
     chapterCountByCategory,
     scoreDelta,
     targetScore: getProfile().targetScore,
+    weakVocab,
+    weakVocabCount: weakVocabStats.length,
   }
 }
 
@@ -244,6 +279,51 @@ export default function StatsPage() {
             >
               載入示範測試數據
             </Button>
+          </div>
+        </section>
+      )}
+
+      {/* 單字弱點：常錯與該複習的字，完整清單在單字複習本 */}
+      {snap.weakVocab.length > 0 && (
+        <section className="space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
+          <div className="flex items-baseline justify-between gap-2">
+            <h2 className="text-sm font-bold text-[var(--tx)]">最該複習的單字</h2>
+            <span className="text-[11px] text-[var(--mu)]">
+              共 {snap.weakVocabCount} 個字要加強
+            </span>
+          </div>
+          <ul className="divide-y divide-[var(--ln)]">
+            {snap.weakVocab.map((v) => (
+              <li key={v.vocabId} className="flex items-center gap-3 py-2.5">
+                <div className="min-w-0 flex-1">
+                  <p className="flex items-center gap-2">
+                    <span className="font-option text-sm font-bold text-[var(--tx)]">{v.word}</span>
+                    <span className="rounded-md bg-[var(--pr-sf)] px-1.5 py-0.5 text-[11px] font-bold text-[var(--pr)]">
+                      {VOCAB_STATUS_LABELS[v.status]}
+                    </span>
+                  </p>
+                  <p className="mt-0.5 truncate text-[11px] text-[var(--mu)]">{v.meaning}</p>
+                </div>
+                <span className="shrink-0 text-right text-[11px] text-[var(--mu)]">
+                  {v.wrongCount > 0 && (
+                    <span className="block font-bold text-[var(--tx)]">錯 {v.wrongCount} 次</span>
+                  )}
+                  {v.attempts > 0 && <span className="block">正確率 {v.accuracyRate}%</span>}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-2 pt-1 sm:flex-row">
+            <Link href="/practice/vocab?mode=weak" className="flex-1">
+              <Button variant="primary" className="min-h-[42px] text-xs">
+                特別複習這些字
+              </Button>
+            </Link>
+            <Link href="/vocab-review" className="flex-1">
+              <Button variant="outline" className="min-h-[42px] text-xs">
+                打開單字複習本
+              </Button>
+            </Link>
           </div>
         </section>
       )}

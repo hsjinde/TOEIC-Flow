@@ -442,13 +442,6 @@ export interface VocabStat {
 
 const STATUS_ORDER: Record<VocabStatus, number> = { leech: 0, due: 1, learning: 2, mastered: 3 }
 
-/**
- * 每個練過的字的複習狀態，弱的排前面。
- *
- * 時間戳優先採用作答歷程而不是 mastery map：syncUserDataFromD1() 會把所有
- * 同步下來的字的 lastReviewed 寫成「現在」，只看 map 的話換一台裝置登入後
- * 全部的字都會變成剛複習過、永遠不到期。
- */
 export type DeduplicateRule = 'first' | 'last' | 'best'
 
 /**
@@ -508,6 +501,16 @@ export function getDeduplicatedAnswerHistory(
   return result
 }
 
+/**
+ * 每個練過的字的複習狀態，弱的排前面。
+ *
+ * 時間戳優先採用作答歷程而不是 mastery map：syncUserDataFromD1() 會把所有
+ * 同步下來的字的 lastReviewed 寫成「現在」，只看 map 的話換一台裝置登入後
+ * 全部的字都會變成剛複習過、永遠不到期。
+ *
+ * 歷程走同日去重，所以「今天一口氣練五遍同一個字」只算一次——否則一個下午
+ * 就能把任何字刷成常錯。
+ */
 export function getVocabStats(): VocabStat[] {
   const masteryMap = getVocabMasteryMap()
   const agg: Record<

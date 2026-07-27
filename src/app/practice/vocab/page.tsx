@@ -49,7 +49,7 @@ function buildSession(params: URLSearchParams): VocabSession {
 
   if (ids) {
     const items = getVocabByIds(ids.split(',').filter(Boolean))
-    return { items, title: items.length === 1 ? '單字專攻' : `單字專攻 ${items.length} 個`, ...BOOK }
+    return { items, title: '單字專攻', ...BOOK }
   }
 
   if (mode === 'weak') {
