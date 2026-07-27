@@ -15,10 +15,10 @@ function eachExam(fn: (file: string, exam: ReturnType<typeof parseMockExam>) => 
 }
 
 describe('parseMockExam against real notes', () => {
-  it('covers both mock exams', () => {
+  it('covers all six mock exams', () => {
     const titles: string[] = []
     eachExam((_, exam) => titles.push(exam.title))
-    expect(titles).toHaveLength(2)
+    expect(titles).toHaveLength(6)
   })
 
   it('finds all three parts in each exam', () => {

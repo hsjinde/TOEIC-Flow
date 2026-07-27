@@ -24,10 +24,10 @@ function eachFile(fn: (kindDir: string, file: string, chapterId: string, md: str
 }
 
 describe('parseReading against real notes', () => {
-  it('covers all 6 reading files', () => {
+  it('covers all 24 reading files', () => {
     const files: string[] = []
     eachFile((_, __, chapterId) => files.push(chapterId))
-    expect(files).toHaveLength(6)
+    expect(files).toHaveLength(24)
   })
 
   it('yields questions from every file, including single-sentence ones', () => {

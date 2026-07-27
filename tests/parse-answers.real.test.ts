@@ -19,19 +19,19 @@ function eachGrammarExplanation(fn: (label: string, md: string) => void): void {
 }
 
 describe('parseAnswers against every real explanation file', () => {
-  it('covers all 29 grammar explanation files', () => {
+  it('covers all 69 grammar explanation files', () => {
     const files: string[] = []
     eachGrammarExplanation((label) => files.push(label))
-    expect(files).toHaveLength(29)
+    expect(files).toHaveLength(69)
   })
 
-  it('finds 5 entries in each file', () => {
+  it('finds 5 (original) or 15 (expansion) entries in each file', () => {
     const bad: string[] = []
     eachGrammarExplanation((label, md) => {
       const count = parseAnswers(md).length
-      if (count !== 5) bad.push(`${label}: ${count} entries`)
+      if (count !== 5 && count !== 15) bad.push(`${label}: ${count} entries`)
     })
-    expect(bad, `explanation files without exactly 5 entries:\n${bad.join('\n')}`).toEqual([])
+    expect(bad, `explanation files without 5 or 15 entries:\n${bad.join('\n')}`).toEqual([])
   })
 
   it('leaves no entry without an answer key', () => {

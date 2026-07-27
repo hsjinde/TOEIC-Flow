@@ -14,7 +14,7 @@ describe('parseVocab against real notes', () => {
     expect(items.every((i) => i.word.length > 0 && i.meaning.length > 0)).toBe(true)
   })
 
-  it('extracts 352 items across all 29 chapters, none empty', () => {
+  it('extracts 1316 items across all 69 chapters, none empty', () => {
     let total = 0
     const counts: { chapter: string; count: number }[] = []
 
@@ -28,12 +28,12 @@ describe('parseVocab against real notes', () => {
       }
     }
 
-    expect(counts).toHaveLength(29)
+    expect(counts).toHaveLength(69)
     // A chapter with a handful of entries means the parser matched the section
     // but missed a bullet or descriptor variant inside it.
     const thin = counts.filter((c) => c.count < 5)
     expect(thin, `chapters with suspiciously few vocab entries: ${JSON.stringify(thin)}`).toEqual([])
-    expect(total).toBe(352)
+    expect(total).toBe(1316)
   })
 
   it('leaves no entry with an empty pos or a meaning that swallowed the example', () => {
