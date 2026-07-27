@@ -48,6 +48,12 @@ function getTodayString(): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+function notifyStorageUpdate(): void {
+  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
+    window.dispatchEvent(new Event('toeic_storage_update'))
+  }
+}
+
 function checkTodayCompletedTasks(history?: AnswerHistoryEntry[]): { grammar: boolean; vocab: boolean; reading: boolean } {
   if (typeof window === 'undefined') return { grammar: false, vocab: false, reading: false }
   try {
@@ -67,11 +73,22 @@ function checkTodayCompletedTasks(history?: AnswerHistoryEntry[]): { grammar: bo
 
     for (const entry of entries) {
       if (entry.timestamp >= todayMs) {
-        if (entry.source === 'grammar') grammar = true
+        if (entry.source === 'grammar' || entry.categoryId?.startsWith('grammar/')) grammar = true
         if (entry.source === 'vocab') vocab = true
-        if (entry.source === 'reading') reading = true
+        if (entry.source === 'reading' || entry.categoryId?.startsWith('reading/')) reading = true
       }
     }
+
+    if (!vocab) {
+      const vocabMap = getVocabMasteryMap()
+      for (const item of Object.values(vocabMap)) {
+        if (item.lastReviewed && item.lastReviewed >= todayMs) {
+          vocab = true
+          break
+        }
+      }
+    }
+
     return { grammar, vocab, reading }
   } catch {
     return { grammar: false, vocab: false, reading: false }
@@ -140,6 +157,7 @@ export function recordTaskCompletion(task: 'grammar' | 'vocab' | 'reading'): voi
   if (task === 'vocab') progress.vocabCompleted = true
   if (task === 'reading') progress.readingCompleted = true
   localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
+  notifyStorageUpdate()
 
   // Sync to Cloudflare D1
   fetch('/api/user/action', {
@@ -638,16 +656,26 @@ export async function syncUserDataFromD1(): Promise<void> {
       const today = getTodayString()
       const currentLocal = getDailyProgress()
       const isTodayLocal = currentLocal.date === today
-      const historyFlags = checkTodayCompletedTasks()
+      const syncedHistory: AnswerHistoryEntry[] = Array.isArray(data.answerHistory)
+        ? data.answerHistory.map((item: any) => ({
+            questionId: item.question_id,
+            categoryId: item.category_id,
+            isCorrect: item.is_correct === 1 || item.is_correct === true,
+            timestamp: new Date(item.created_at || Date.now()).getTime(),
+            source: item.source as AnswerSource,
+          }))
+        : []
+      const historyFlags = checkTodayCompletedTasks(syncedHistory)
 
       const progress: DailyProgress = {
-        date: data.stats.last_practice_date || today,
+        date: today, // Must always be client local today date, NOT last_practice_date from DB
         streak: data.stats.streak_days || 1,
         grammarCompleted: (isTodayLocal && currentLocal.grammarCompleted) || historyFlags.grammar,
         vocabCompleted: (isTodayLocal && currentLocal.vocabCompleted) || historyFlags.vocab,
         readingCompleted: (isTodayLocal && currentLocal.readingCompleted) || historyFlags.reading,
       }
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
+      notifyStorageUpdate()
     }
   } catch (e) {
     console.error('Error syncing user data from D1:', e)

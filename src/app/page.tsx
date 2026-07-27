@@ -102,6 +102,16 @@ export default function HomePage() {
 
   useEffect(() => {
     setSnap(buildSnapshot())
+
+    const handleUpdate = () => {
+      setSnap(buildSnapshot())
+    }
+    window.addEventListener('toeic_storage_update', handleUpdate)
+    window.addEventListener('storage', handleUpdate)
+    return () => {
+      window.removeEventListener('toeic_storage_update', handleUpdate)
+      window.removeEventListener('storage', handleUpdate)
+    }
   }, [])
 
   const doneMap = snap
