@@ -22,8 +22,14 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 260, classN
 
   const cx = size / 2
   const cy = size / 2
-  // 留給外圈標籤的空間，否則 375px 下標籤會被裁掉。
-  const radius = size / 2 - 34
+  // 計算網格半徑：保留足夠空間給左右兩側較寬的文字標籤（如「動詞時態 100%」），避免被邊界裁切。
+  const radius = Math.round(size * 0.28)
+  const labelRadiusRatio = 1.22
+
+  const padX = Math.max(52, Math.round(size * 0.19))
+  const padY = Math.max(20, Math.round(size * 0.07))
+  const viewW = size + padX * 2
+  const viewH = size + padY * 2
 
   const pointAt = (index: number, ratio: number) => {
     const angle = (Math.PI * 2 * index) / axes.length - Math.PI / 2
@@ -45,8 +51,8 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 260, classN
   return (
     <svg
       width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
+      height={Math.round((size * viewH) / viewW)}
+      viewBox={`-${padX} -${padY} ${viewW} ${viewH}`}
       className={className}
       role="img"
       aria-label={`六大文法類別正確率：${axes.map((a) => `${a.label} ${a.value}%`).join('、')}`}
@@ -89,7 +95,7 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 260, classN
       })}
 
       {axes.map((axis, i) => {
-        const p = pointAt(i, 1.19)
+        const p = pointAt(i, labelRadiusRatio)
         // 正上與正下的標籤置中，左右兩側靠外側對齊，避免壓到圖形。
         const dx = p.x - cx
         const anchor = Math.abs(dx) < 4 ? 'middle' : dx > 0 ? 'start' : 'end'
