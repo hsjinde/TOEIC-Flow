@@ -5,7 +5,8 @@
     "word": "information",
     "pos": "名詞",
     "meaning": "資訊（不可數）",
-    "example": "Please review the *information* carefully before signing."
+    "example": "Please review the *information* carefully before signing.",
+    "exampleZh": "簽署前請仔細審閱這份資訊。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-decision",
@@ -13,7 +14,8 @@
     "word": "decision",
     "pos": "名詞",
     "meaning": "決定",
-    "example": "The manager made a final *decision* yesterday."
+    "example": "The manager made a final *decision* yesterday.",
+    "exampleZh": "經理昨天做了最終決定。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-development",
@@ -21,7 +23,8 @@
     "word": "development",
     "pos": "名詞",
     "meaning": "發展",
-    "example": "The *development* of the new product took two years."
+    "example": "The *development* of the new product took two years.",
+    "exampleZh": "這項新產品的開發花了兩年。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-awareness",
@@ -29,7 +32,8 @@
     "word": "awareness",
     "pos": "名詞",
     "meaning": "意識、認知",
-    "example": "The campaign raised public *awareness* of recycling."
+    "example": "The campaign raised public *awareness* of recycling.",
+    "exampleZh": "這場活動提升了大眾對回收的認知。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-responsibility",
@@ -37,7 +41,8 @@
     "word": "responsibility",
     "pos": "名詞",
     "meaning": "責任",
-    "example": "It is her *responsibility* to check the figures."
+    "example": "It is her *responsibility* to check the figures.",
+    "exampleZh": "核對數字是她的責任。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-performance",
@@ -45,7 +50,8 @@
     "word": "performance",
     "pos": "名詞",
     "meaning": "表現、績效",
-    "example": "His *performance* has improved significantly."
+    "example": "His *performance* has improved significantly.",
+    "exampleZh": "他的表現有明顯進步。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-employee",
@@ -53,7 +59,8 @@
     "word": "employee",
     "pos": "名詞",
     "meaning": "員工",
-    "example": "Every *employee* must attend the training session."
+    "example": "Every *employee* must attend the training session.",
+    "exampleZh": "每位員工都必須參加這場訓練。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-applicant",
@@ -61,7 +68,8 @@
     "word": "applicant",
     "pos": "名詞",
     "meaning": "申請人",
-    "example": "The *applicant* submitted her resume online."
+    "example": "The *applicant* submitted her resume online.",
+    "exampleZh": "這位申請人在線上遞交了履歷。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-each-other",
@@ -69,7 +77,8 @@
     "word": "each other",
     "pos": "片語",
     "meaning": "彼此（兩者間）",
-    "example": "The two teams cooperated with *each other*."
+    "example": "The two teams cooperated with *each other*.",
+    "exampleZh": "這兩個團隊彼此合作。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-one-another",
@@ -77,7 +86,8 @@
     "word": "one another",
     "pos": "片語",
     "meaning": "彼此（三者以上）",
-    "example": "The staff members helped *one another* during the busy season."
+    "example": "The staff members helped *one another* during the busy season.",
+    "exampleZh": "旺季期間員工們互相幫忙。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-on-one's-own",
@@ -85,7 +95,8 @@
     "word": "on one's own",
     "pos": "片語",
     "meaning": "靠自己、獨自",
-    "example": "She finished the project *on her own*."
+    "example": "She finished the project *on her own*.",
+    "exampleZh": "她獨力完成了這個專案。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-another",
@@ -93,7 +104,8 @@
     "word": "another",
     "pos": "代名詞/形容詞",
     "meaning": "另一個（單數）",
-    "example": "Could you show me *another* option?"
+    "example": "Could you show me *another* option?",
+    "exampleZh": "可以再給我看另一個選擇嗎？"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/01_名詞與代名詞#v-the-others",
@@ -101,7 +113,8 @@
     "word": "the others",
     "pos": "代名詞",
     "meaning": "剩下的全部（有範圍）",
-    "example": "Two boxes are here; *the others* are still in transit."
+    "example": "Two boxes are here; *the others* are still in transit.",
+    "exampleZh": "這裡有兩箱，其餘的還在運送中。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-discuss",
@@ -109,7 +122,8 @@
     "word": "discuss",
     "pos": "動詞",
     "meaning": "討論（後不加 about）",
-    "example": "The team will *discuss* the proposal tomorrow."
+    "example": "The team will *discuss* the proposal tomorrow.",
+    "exampleZh": "團隊明天會討論這份提案。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-address",
@@ -117,7 +131,8 @@
     "word": "address",
     "pos": "動詞",
     "meaning": "處理、解決",
-    "example": "The manager will *address* the customer's concerns."
+    "example": "The manager will *address* the customer's concerns.",
+    "exampleZh": "經理會處理這位客戶的疑慮。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-submit",
@@ -125,7 +140,8 @@
     "word": "submit",
     "pos": "動詞",
     "meaning": "提交",
-    "example": "Employees must *submit* the form by Friday."
+    "example": "Employees must *submit* the form by Friday.",
+    "exampleZh": "員工必須在週五前繳交表格。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-announce",
@@ -133,7 +149,8 @@
     "word": "announce",
     "pos": "動詞",
     "meaning": "宣布",
-    "example": "The company will *announce* the merger next week."
+    "example": "The company will *announce* the merger next week.",
+    "exampleZh": "公司下週會宣布這樁併購案。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-arrive",
@@ -141,7 +158,8 @@
     "word": "arrive",
     "pos": "動詞",
     "meaning": "到達（後接 at/in，不可直接加受詞）",
-    "example": "The shipment will *arrive* at the warehouse tomorrow."
+    "example": "The shipment will *arrive* at the warehouse tomorrow.",
+    "exampleZh": "貨物明天會抵達倉庫。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-occur",
@@ -149,7 +167,8 @@
     "word": "occur",
     "pos": "動詞",
     "meaning": "發生",
-    "example": "The error *occurred* during the system update."
+    "example": "The error *occurred* during the system update.",
+    "exampleZh": "這個錯誤發生在系統更新期間。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-consist-of",
@@ -157,7 +176,8 @@
     "word": "consist of",
     "pos": "片語",
     "meaning": "由...組成",
-    "example": "The committee *consists of* five members."
+    "example": "The committee *consists of* five members.",
+    "exampleZh": "這個委員會由五位成員組成。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-result-in-/-result-from",
@@ -165,7 +185,8 @@
     "word": "result in / result from",
     "pos": "片語",
     "meaning": "導致 / 起因於",
-    "example": "The delay *resulted from* a technical issue."
+    "example": "The delay *resulted from* a technical issue.",
+    "exampleZh": "這次延誤肇因於技術問題。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-appear",
@@ -173,7 +194,8 @@
     "word": "appear",
     "pos": "動詞",
     "meaning": "看起來（連綴）",
-    "example": "The results *appear* promising."
+    "example": "The results *appear* promising.",
+    "exampleZh": "結果看起來很有希望。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-remain",
@@ -181,7 +203,8 @@
     "word": "remain",
     "pos": "動詞",
     "meaning": "保持、仍然是",
-    "example": "The office *remains* closed on holidays."
+    "example": "The office *remains* closed on holidays.",
+    "exampleZh": "辦公室在假日維持不開放。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-turn",
@@ -189,7 +212,8 @@
     "word": "turn",
     "pos": "動詞",
     "meaning": "變得",
-    "example": "The weather *turned* cold suddenly."
+    "example": "The weather *turned* cold suddenly.",
+    "exampleZh": "天氣突然轉冷。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-rise-/-raise",
@@ -197,7 +221,8 @@
     "word": "rise / raise",
     "pos": "動詞",
     "meaning": "上升(不及物) / 提高(及物)",
-    "example": "Prices *rise* every year. / The firm *raised* its prices."
+    "example": "Prices *rise* every year. / The firm *raised* its prices.",
+    "exampleZh": "價格每年上漲。／這家公司調漲了價格。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/02_動詞分類#v-lie-/-lay",
@@ -205,7 +230,8 @@
     "word": "lie / lay",
     "pos": "動詞",
     "meaning": "躺、位於(不及物) / 放置(及物)",
-    "example": "The documents *lie* on the desk. / She *laid* the documents on the desk."
+    "example": "The documents *lie* on the desk. / She *laid* the documents on the desk.",
+    "exampleZh": "文件放在桌上。／她把文件放到桌上。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-considerable",
@@ -213,7 +239,8 @@
     "word": "considerable",
     "pos": "形容詞",
     "meaning": "相當大的",
-    "example": "The project required a *considerable* amount of time."
+    "example": "The project required a *considerable* amount of time.",
+    "exampleZh": "這個專案需要相當多的時間。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-reliable",
@@ -221,7 +248,8 @@
     "word": "reliable",
     "pos": "形容詞",
     "meaning": "可靠的",
-    "example": "We need a *reliable* supplier for this material."
+    "example": "We need a *reliable* supplier for this material.",
+    "exampleZh": "這項材料我們需要一家可靠的供應商。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-comprehensive",
@@ -229,7 +257,8 @@
     "word": "comprehensive",
     "pos": "形容詞",
     "meaning": "全面的",
-    "example": "The manual provides a *comprehensive* guide to the software."
+    "example": "The manual provides a *comprehensive* guide to the software.",
+    "exampleZh": "這本手冊提供了完整的軟體使用指南。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-noticeable",
@@ -237,7 +266,8 @@
     "word": "noticeable",
     "pos": "形容詞",
     "meaning": "顯著的",
-    "example": "There has been a *noticeable* increase in sales."
+    "example": "There has been a *noticeable* increase in sales.",
+    "exampleZh": "銷售額有明顯的成長。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-considerate",
@@ -245,7 +275,8 @@
     "word": "considerate",
     "pos": "形容詞",
     "meaning": "體貼的（易與 considerable 混淆）",
-    "example": "He is always *considerate* toward his colleagues."
+    "example": "He is always *considerate* toward his colleagues.",
+    "exampleZh": "他對同事總是很體貼。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-approximately",
@@ -253,7 +284,8 @@
     "word": "approximately",
     "pos": "副詞",
     "meaning": "大約地",
-    "example": "The meeting will last *approximately* two hours."
+    "example": "The meeting will last *approximately* two hours.",
+    "exampleZh": "這場會議大約會持續兩小時。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-significantly",
@@ -261,7 +293,8 @@
     "word": "significantly",
     "pos": "副詞",
     "meaning": "顯著地",
-    "example": "Revenue increased *significantly* this quarter."
+    "example": "Revenue increased *significantly* this quarter.",
+    "exampleZh": "本季營收顯著成長。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-accordingly",
@@ -269,7 +302,8 @@
     "word": "accordingly",
     "pos": "副詞",
     "meaning": "相應地",
-    "example": "Please review the schedule and plan *accordingly*."
+    "example": "Please review the schedule and plan *accordingly*.",
+    "exampleZh": "請檢視這份時程並據此安排。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-currently",
@@ -277,7 +311,8 @@
     "word": "currently",
     "pos": "副詞",
     "meaning": "目前",
-    "example": "The position is *currently* unavailable."
+    "example": "The position is *currently* unavailable.",
+    "exampleZh": "這個職缺目前無法申請。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-relatively",
@@ -285,7 +320,8 @@
     "word": "relatively",
     "pos": "副詞",
     "meaning": "相對地",
-    "example": "The cost is *relatively* low compared to competitors."
+    "example": "The cost is *relatively* low compared to competitors.",
+    "exampleZh": "與競爭對手相比，成本相對較低。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-economic-/-economical",
@@ -293,7 +329,8 @@
     "word": "economic / economical",
     "pos": "形容詞",
     "meaning": "經濟(學)的 / 節省的",
-    "example": "*economic* growth / an *economical* car"
+    "example": "*economic* growth / an *economical* car",
+    "exampleZh": "經濟成長／一輛省油的車"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/03_形容詞與副詞#v-respective-/-respectively",
@@ -301,7 +338,8 @@
     "word": "respective / respectively",
     "pos": "形容詞/副詞",
     "meaning": "個別的 / 分別地",
-    "example": "They returned to their *respective* offices. / They arrived at 9 and 10, *respectively*."
+    "example": "They returned to their *respective* offices. / They arrived at 9 and 10, *respectively*.",
+    "exampleZh": "他們各自回到自己的辦公室。／他們分別在九點和十點抵達。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-although-/-even-though",
@@ -309,7 +347,8 @@
     "word": "although / even though",
     "pos": "連接詞",
     "meaning": "雖然、儘管",
-    "example": "*Although* the budget was limited, the team completed the project."
+    "example": "*Although* the budget was limited, the team completed the project.",
+    "exampleZh": "雖然預算有限，團隊仍完成了專案。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-because-/-since-/-as",
@@ -317,7 +356,8 @@
     "word": "because / since / as",
     "pos": "連接詞",
     "meaning": "因為",
-    "example": "*Since* the client was unavailable, the meeting was postponed."
+    "example": "*Since* the client was unavailable, the meeting was postponed.",
+    "exampleZh": "由於客戶沒空，會議延期了。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-while",
@@ -325,7 +365,8 @@
     "word": "while",
     "pos": "連接詞",
     "meaning": "然而／當...時",
-    "example": "*While* sales grew in Asia, they declined in Europe."
+    "example": "*While* sales grew in Asia, they declined in Europe.",
+    "exampleZh": "亞洲的銷售成長，歐洲卻下滑。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-unless",
@@ -333,7 +374,8 @@
     "word": "unless",
     "pos": "連接詞",
     "meaning": "除非",
-    "example": "*Unless* you register early, you may not get a seat."
+    "example": "*Unless* you register early, you may not get a seat.",
+    "exampleZh": "除非提早報名，否則你可能沒有位子。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-once",
@@ -341,7 +383,8 @@
     "word": "once",
     "pos": "連接詞",
     "meaning": "一旦",
-    "example": "*Once* the contract is signed, the project can begin."
+    "example": "*Once* the contract is signed, the project can begin.",
+    "exampleZh": "合約一簽訂，專案就能開始。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-despite-/-in-spite-of",
@@ -349,7 +392,8 @@
     "word": "despite / in spite of",
     "pos": "介系詞",
     "meaning": "儘管",
-    "example": "*Despite* the rain, the event proceeded as planned."
+    "example": "*Despite* the rain, the event proceeded as planned.",
+    "exampleZh": "儘管下雨，活動仍按原訂計畫進行。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-because-of-/-due-to-/-owing-to",
@@ -357,7 +401,8 @@
     "word": "because of / due to / owing to",
     "pos": "介系詞",
     "meaning": "因為",
-    "example": "The flight was delayed *due to* bad weather."
+    "example": "The flight was delayed *due to* bad weather.",
+    "exampleZh": "班機因天候不佳而延誤。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-not-only...but-also",
@@ -365,7 +410,8 @@
     "word": "not only...but also",
     "pos": "片語",
     "meaning": "不僅...而且",
-    "example": "The plan is *not only* cost-effective *but also* efficient."
+    "example": "The plan is *not only* cost-effective *but also* efficient.",
+    "exampleZh": "這個方案不僅成本效益高，效率也好。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-either...or",
@@ -373,7 +419,8 @@
     "word": "either...or",
     "pos": "片語",
     "meaning": "兩者之一",
-    "example": "You can *either* call us *or* send an email."
+    "example": "You can *either* call us *or* send an email.",
+    "exampleZh": "你可以打電話給我們，或是寄電子郵件。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/04_連接詞#v-as-a-result",
@@ -381,7 +428,8 @@
     "word": "as a result",
     "pos": "副詞片語",
     "meaning": "因此、結果",
-    "example": "Sales dropped; *as a result*, the company cut costs."
+    "example": "Sales dropped; *as a result*, the company cut costs.",
+    "exampleZh": "銷售下滑，因此公司縮減了開支。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-during",
@@ -389,7 +437,8 @@
     "word": "during",
     "pos": "介系詞",
     "meaning": "在...期間",
-    "example": "Sales increased *during* the holiday season."
+    "example": "Sales increased *during* the holiday season.",
+    "exampleZh": "假期期間銷售成長。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-since",
@@ -397,7 +446,8 @@
     "word": "since",
     "pos": "介系詞",
     "meaning": "自從",
-    "example": "The company has grown rapidly *since* 2015."
+    "example": "The company has grown rapidly *since* 2015.",
+    "exampleZh": "這家公司自 2015 年以來成長迅速。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-by",
@@ -405,7 +455,8 @@
     "word": "by",
     "pos": "介系詞",
     "meaning": "在...之前（截止）",
-    "example": "Please submit the report *by* Friday."
+    "example": "Please submit the report *by* Friday.",
+    "exampleZh": "請在週五前繳交報告。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-within",
@@ -413,7 +464,8 @@
     "word": "within",
     "pos": "介系詞",
     "meaning": "在...範圍內",
-    "example": "The refund will be processed *within* 7 business days."
+    "example": "The refund will be processed *within* 7 business days.",
+    "exampleZh": "退款會在七個工作天內處理完成。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-due-to",
@@ -421,7 +473,8 @@
     "word": "due to",
     "pos": "介系詞",
     "meaning": "由於",
-    "example": "The delay was *due to* a technical error."
+    "example": "The delay was *due to* a technical error.",
+    "exampleZh": "這次延誤是技術錯誤造成的。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-in-accordance-with",
@@ -429,7 +482,8 @@
     "word": "in accordance with",
     "pos": "片語",
     "meaning": "依照",
-    "example": "The refund is issued *in accordance with* company policy."
+    "example": "The refund is issued *in accordance with* company policy.",
+    "exampleZh": "退款依公司政策辦理。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-regarding-/-concerning",
@@ -437,7 +491,8 @@
     "word": "regarding / concerning",
     "pos": "介系詞",
     "meaning": "關於",
-    "example": "Please contact us *regarding* your account."
+    "example": "Please contact us *regarding* your account.",
+    "exampleZh": "關於你的帳戶，請與我們聯絡。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-be-responsible-for",
@@ -445,7 +500,8 @@
     "word": "be responsible for",
     "pos": "片語",
     "meaning": "負責",
-    "example": "She *is responsible for* managing the budget."
+    "example": "She *is responsible for* managing the budget.",
+    "exampleZh": "她負責管理預算。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-be-familiar-with",
@@ -453,7 +509,8 @@
     "word": "be familiar with",
     "pos": "片語",
     "meaning": "熟悉",
-    "example": "New staff should *be familiar with* the safety guidelines."
+    "example": "New staff should *be familiar with* the safety guidelines.",
+    "exampleZh": "新進員工應熟悉安全守則。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-in-charge-of",
@@ -461,7 +518,8 @@
     "word": "in charge of",
     "pos": "片語",
     "meaning": "負責、掌管",
-    "example": "He *is in charge of* the marketing department."
+    "example": "He *is in charge of* the marketing department.",
+    "exampleZh": "他負責行銷部門。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-on-behalf-of",
@@ -469,7 +527,8 @@
     "word": "on behalf of",
     "pos": "片語",
     "meaning": "代表",
-    "example": "She signed the contract *on behalf of* the company."
+    "example": "She signed the contract *on behalf of* the company.",
+    "exampleZh": "她代表公司簽署了合約。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/05_介系詞#v-as-of",
@@ -477,7 +536,8 @@
     "word": "as of",
     "pos": "片語",
     "meaning": "自...起",
-    "example": "*As of* next month, the office will relocate."
+    "example": "*As of* next month, the office will relocate.",
+    "exampleZh": "自下個月起，辦公室將搬遷。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-offer",
@@ -485,7 +545,8 @@
     "word": "offer",
     "pos": "動詞",
     "meaning": "提供",
-    "example": "The company *offered* her a promotion."
+    "example": "The company *offered* her a promotion.",
+    "exampleZh": "公司給了她升遷機會。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-send",
@@ -493,7 +554,8 @@
     "word": "send",
     "pos": "動詞",
     "meaning": "寄送",
-    "example": "Please *send* the client a confirmation email."
+    "example": "Please *send* the client a confirmation email.",
+    "exampleZh": "請寄一封確認信給客戶。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-show",
@@ -501,7 +563,8 @@
     "word": "show",
     "pos": "動詞",
     "meaning": "展示",
-    "example": "He *showed* the manager his portfolio."
+    "example": "He *showed* the manager his portfolio.",
+    "exampleZh": "他把作品集拿給經理看。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-grant",
@@ -509,7 +572,8 @@
     "word": "grant",
     "pos": "動詞",
     "meaning": "授予",
-    "example": "The university *granted* him a scholarship."
+    "example": "The university *granted* him a scholarship.",
+    "exampleZh": "這所大學頒給他獎學金。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-consider",
@@ -517,7 +581,8 @@
     "word": "consider",
     "pos": "動詞",
     "meaning": "認為",
-    "example": "We *consider* the plan feasible."
+    "example": "We *consider* the plan feasible.",
+    "exampleZh": "我們認為這個計畫可行。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-appoint",
@@ -525,7 +590,8 @@
     "word": "appoint",
     "pos": "動詞",
     "meaning": "任命",
-    "example": "The board *appointed* her CEO."
+    "example": "The board *appointed* her CEO.",
+    "exampleZh": "董事會任命她為執行長。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-keep",
@@ -533,7 +599,8 @@
     "word": "keep",
     "pos": "動詞",
     "meaning": "保持（使處於某狀態）",
-    "example": "Please *keep* the door open."
+    "example": "Please *keep* the door open.",
+    "exampleZh": "請讓門保持開著。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-name",
@@ -541,7 +608,8 @@
     "word": "name",
     "pos": "動詞",
     "meaning": "任命、命名",
-    "example": "They *named* him team leader."
+    "example": "They *named* him team leader.",
+    "exampleZh": "他們指派他當隊長。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-remain",
@@ -549,7 +617,8 @@
     "word": "remain",
     "pos": "動詞",
     "meaning": "保持",
-    "example": "The market *remains* stable."
+    "example": "The market *remains* stable.",
+    "exampleZh": "市場維持穩定。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-become",
@@ -557,7 +626,8 @@
     "word": "become",
     "pos": "動詞",
     "meaning": "變成",
-    "example": "The company *became* profitable within a year."
+    "example": "The company *became* profitable within a year.",
+    "exampleZh": "這家公司一年內轉虧為盈。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-there-be",
@@ -565,7 +635,8 @@
     "word": "there be",
     "pos": "句型",
     "meaning": "有...",
-    "example": "*There are* several options available."
+    "example": "*There are* several options available.",
+    "exampleZh": "有好幾個選項可供選擇。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/06_五大句型#v-it-is...that",
@@ -573,7 +644,8 @@
     "word": "it is...that",
     "pos": "片語",
     "meaning": "強調句型",
-    "example": "*It was* the manager *that* approved the budget."
+    "example": "*It was* the manager *that* approved the budget.",
+    "exampleZh": "核准這筆預算的正是那位經理。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-variety-of",
@@ -581,7 +653,8 @@
     "word": "a variety of",
     "pos": "片語",
     "meaning": "各式各樣的",
-    "example": "The store offers *a variety of* products."
+    "example": "The store offers *a variety of* products.",
+    "exampleZh": "這家店提供各式各樣的商品。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-the-majority-of",
@@ -589,7 +662,8 @@
     "word": "the majority of",
     "pos": "片語",
     "meaning": "大多數的",
-    "example": "*The majority of* employees support the new policy."
+    "example": "*The majority of* employees support the new policy.",
+    "exampleZh": "多數員工支持這項新政策。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-on-a-regular-basis",
@@ -597,7 +671,8 @@
     "word": "on a regular basis",
     "pos": "片語",
     "meaning": "定期地",
-    "example": "The team meets *on a regular basis*."
+    "example": "The team meets *on a regular basis*.",
+    "exampleZh": "這個團隊定期開會。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-numerous",
@@ -605,7 +680,8 @@
     "word": "numerous",
     "pos": "形容詞",
     "meaning": "許多的（後接複數可數名詞）",
-    "example": "The firm has received *numerous* awards."
+    "example": "The firm has received *numerous* awards.",
+    "exampleZh": "這家公司獲得過許多獎項。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-couple-of",
@@ -613,7 +689,8 @@
     "word": "a couple of",
     "pos": "片語",
     "meaning": "一兩個、幾個",
-    "example": "It will take *a couple of* days to process."
+    "example": "It will take *a couple of* days to process.",
+    "exampleZh": "處理這件事需要幾天時間。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-plenty-of",
@@ -621,7 +698,8 @@
     "word": "plenty of",
     "pos": "片語",
     "meaning": "大量的（可數/不可數皆可）",
-    "example": "There is *plenty of* time to finish the task."
+    "example": "There is *plenty of* time to finish the task.",
+    "exampleZh": "有充裕的時間可以完成這項工作。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-a-handful-of",
@@ -629,7 +707,8 @@
     "word": "a handful of",
     "pos": "片語",
     "meaning": "少數幾個",
-    "example": "Only *a handful of* candidates passed the exam."
+    "example": "Only *a handful of* candidates passed the exam.",
+    "exampleZh": "只有少數幾位應試者通過考試。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-the-entire-/-the-whole",
@@ -637,7 +716,8 @@
     "word": "the entire / the whole",
     "pos": "形容詞",
     "meaning": "整個的",
-    "example": "*The entire* team worked overtime."
+    "example": "*The entire* team worked overtime.",
+    "exampleZh": "整個團隊都在加班。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-each",
@@ -645,7 +725,8 @@
     "word": "each",
     "pos": "限定詞",
     "meaning": "每一個（單數）",
-    "example": "*Each* department has its own budget."
+    "example": "*Each* department has its own budget.",
+    "exampleZh": "每個部門都有自己的預算。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-every-other",
@@ -653,7 +734,8 @@
     "word": "every other",
     "pos": "片語",
     "meaning": "每隔一個",
-    "example": "The newsletter is sent out *every other* week."
+    "example": "The newsletter is sent out *every other* week.",
+    "exampleZh": "這份電子報每隔一週寄送一次。"
   },
   {
     "id": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞#v-either-/-neither",
@@ -661,7 +743,8 @@
     "word": "either / neither",
     "pos": "限定詞",
     "meaning": "兩者之一／兩者皆非",
-    "example": "*Neither* option seems suitable."
+    "example": "*Neither* option seems suitable.",
+    "exampleZh": "兩個選項似乎都不合適。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-currently",
@@ -669,7 +752,8 @@
     "word": "currently",
     "pos": "adv.",
     "meaning": "目前",
-    "example": "The department is **currently** hiring new staff."
+    "example": "The department is **currently** hiring new staff.",
+    "exampleZh": "這個部門目前正在招募新員工。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-previously",
@@ -677,7 +761,8 @@
     "word": "previously",
     "pos": "adv.",
     "meaning": "先前",
-    "example": "He **previously** worked at a law firm."
+    "example": "He **previously** worked at a law firm.",
+    "exampleZh": "他先前在一家法律事務所工作。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-eventually",
@@ -685,7 +770,8 @@
     "word": "eventually",
     "pos": "adv.",
     "meaning": "最終",
-    "example": "The merger will **eventually** take place."
+    "example": "The merger will **eventually** take place.",
+    "exampleZh": "這樁併購案最終會完成。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-routinely",
@@ -693,7 +779,8 @@
     "word": "routinely",
     "pos": "adv.",
     "meaning": "例行地",
-    "example": "Reports are **routinely** submitted every Monday."
+    "example": "Reports are **routinely** submitted every Monday.",
+    "exampleZh": "報告固定在每週一提交。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-possess",
@@ -701,7 +788,8 @@
     "word": "possess",
     "pos": "v.",
     "meaning": "擁有",
-    "example": "The firm **possesses** the necessary licenses."
+    "example": "The firm **possesses** the necessary licenses.",
+    "exampleZh": "這家公司具備必要的執照。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-resemble",
@@ -709,7 +797,8 @@
     "word": "resemble",
     "pos": "v.",
     "meaning": "相似",
-    "example": "The new design **resembles** the old logo."
+    "example": "The new design **resembles** the old logo.",
+    "exampleZh": "這個新設計和舊標誌很相似。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-prefer",
@@ -717,7 +806,8 @@
     "word": "prefer",
     "pos": "v.",
     "meaning": "偏好",
-    "example": "Most clients **prefer** email communication."
+    "example": "Most clients **prefer** email communication.",
+    "exampleZh": "多數客戶偏好以電子郵件聯絡。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-consist-(of)",
@@ -725,7 +815,8 @@
     "word": "consist (of)",
     "pos": "v.",
     "meaning": "由...組成",
-    "example": "The committee **consists of** five members."
+    "example": "The committee **consists of** five members.",
+    "exampleZh": "這個委員會由五位成員組成。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-at-present",
@@ -733,7 +824,8 @@
     "word": "at present",
     "pos": "phr.",
     "meaning": "目前",
-    "example": "**At present**, the office is closed for renovation."
+    "example": "**At present**, the office is closed for renovation.",
+    "exampleZh": "目前辦公室因整修而關閉。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-on-a-regular-basis",
@@ -741,7 +833,8 @@
     "word": "on a regular basis",
     "pos": "phr.",
     "meaning": "定期地",
-    "example": "Inspections are conducted **on a regular basis**."
+    "example": "Inspections are conducted **on a regular basis**.",
+    "exampleZh": "檢查作業定期進行。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-be-about-to-v",
@@ -749,7 +842,8 @@
     "word": "be about to V",
     "pos": "phr.",
     "meaning": "即將",
-    "example": "The train **is about to** depart."
+    "example": "The train **is about to** depart.",
+    "exampleZh": "列車即將出發。"
   },
   {
     "id": "grammar/02_動詞時態與語態/01_基本時態與進行式#v-in-the-process-of-v-ing",
@@ -757,7 +851,8 @@
     "word": "in the process of V-ing",
     "pos": "phr.",
     "meaning": "正在...過程中",
-    "example": "We **are in the process of** upgrading the system."
+    "example": "We **are in the process of** upgrading the system.",
+    "exampleZh": "我們正在升級系統。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-so-far",
@@ -765,7 +860,8 @@
     "word": "so far",
     "pos": "phr.",
     "meaning": "到目前為止",
-    "example": "**So far**, the team has completed 80% of the project."
+    "example": "**So far**, the team has completed 80% of the project.",
+    "exampleZh": "到目前為止，團隊已完成專案的八成。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-lately",
@@ -773,7 +869,8 @@
     "word": "lately",
     "pos": "adv.",
     "meaning": "最近",
-    "example": "Sales have improved **lately**."
+    "example": "Sales have improved **lately**.",
+    "exampleZh": "最近銷售有起色。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-yet",
@@ -781,7 +878,8 @@
     "word": "yet",
     "pos": "adv.",
     "meaning": "（否定/疑問）還（沒）",
-    "example": "The shipment has not arrived **yet**."
+    "example": "The shipment has not arrived **yet**.",
+    "exampleZh": "貨物還沒送到。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-already",
@@ -789,7 +887,8 @@
     "word": "already",
     "pos": "adv.",
     "meaning": "已經",
-    "example": "We have **already** signed the contract."
+    "example": "We have **already** signed the contract.",
+    "exampleZh": "我們已經簽了合約。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-prior-to",
@@ -797,7 +896,8 @@
     "word": "prior to",
     "pos": "phr.",
     "meaning": "在...之前",
-    "example": "**Prior to** the merger, the two firms had operated separately."
+    "example": "**Prior to** the merger, the two firms had operated separately.",
+    "exampleZh": "併購之前，這兩家公司是各自營運的。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-beforehand",
@@ -805,7 +905,8 @@
     "word": "beforehand",
     "pos": "adv.",
     "meaning": "事先",
-    "example": "He had prepared the slides **beforehand**."
+    "example": "He had prepared the slides **beforehand**.",
+    "exampleZh": "他事先就把簡報準備好了。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-by-then",
@@ -813,7 +914,8 @@
     "word": "by then",
     "pos": "phr.",
     "meaning": "到那時",
-    "example": "**By then**, we will have shipped all the orders."
+    "example": "**By then**, we will have shipped all the orders.",
+    "exampleZh": "到那時候，我們就會把所有訂單都出貨完畢。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-no-later-than",
@@ -821,7 +923,8 @@
     "word": "no later than",
     "pos": "phr.",
     "meaning": "不晚於",
-    "example": "The report must be finished **no later than** Friday."
+    "example": "The report must be finished **no later than** Friday.",
+    "exampleZh": "這份報告最晚必須在週五完成。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-complete-→-completed",
@@ -829,7 +932,8 @@
     "word": "complete → completed",
     "pos": "v.",
     "meaning": "完成",
-    "example": "The audit has been **completed**."
+    "example": "The audit has been **completed**.",
+    "exampleZh": "稽核已經完成。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-submit-→-submitted",
@@ -837,7 +941,8 @@
     "word": "submit → submitted",
     "pos": "v.",
     "meaning": "提交",
-    "example": "She has **submitted** her resignation."
+    "example": "She has **submitted** her resignation.",
+    "exampleZh": "她已經遞出辭呈。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-arise-→-arisen",
@@ -845,7 +950,8 @@
     "word": "arise → arisen",
     "pos": "v.",
     "meaning": "出現、發生",
-    "example": "Several issues have **arisen** since the launch."
+    "example": "Several issues have **arisen** since the launch.",
+    "exampleZh": "自從上線以來出現了好幾個問題。"
   },
   {
     "id": "grammar/02_動詞時態與語態/02_完成式#v-undergo-→-undergone",
@@ -853,7 +959,8 @@
     "word": "undergo → undergone",
     "pos": "v.",
     "meaning": "經歷",
-    "example": "The company has **undergone** major restructuring."
+    "example": "The company has **undergone** major restructuring.",
+    "exampleZh": "這家公司經歷了大規模的重組。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-interested-in",
@@ -861,7 +968,8 @@
     "word": "be interested in",
     "pos": "phr.",
     "meaning": "對...感興趣",
-    "example": "Investors **are interested in** the new startup."
+    "example": "Investors **are interested in** the new startup.",
+    "exampleZh": "投資人對這家新創公司有興趣。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-equipped-with",
@@ -869,7 +977,8 @@
     "word": "be equipped with",
     "pos": "phr.",
     "meaning": "配備有",
-    "example": "The lab **is equipped with** advanced instruments."
+    "example": "The lab **is equipped with** advanced instruments.",
+    "exampleZh": "這間實驗室配備了先進儀器。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-committed-to",
@@ -877,7 +986,8 @@
     "word": "be committed to",
     "pos": "phr.",
     "meaning": "致力於",
-    "example": "The firm **is committed to** reducing waste."
+    "example": "The firm **is committed to** reducing waste.",
+    "exampleZh": "這家公司致力於減少廢棄物。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-based-in",
@@ -885,7 +995,8 @@
     "word": "be based in",
     "pos": "phr.",
     "meaning": "總部位於",
-    "example": "The company **is based in** Taipei."
+    "example": "The company **is based in** Taipei.",
+    "exampleZh": "這家公司總部設在台北。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-satisfied-with",
@@ -893,7 +1004,8 @@
     "word": "be satisfied with",
     "pos": "phr.",
     "meaning": "對...感到滿意",
-    "example": "Customers **are satisfied with** the service."
+    "example": "Customers **are satisfied with** the service.",
+    "exampleZh": "顧客對這項服務感到滿意。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-required-to-v",
@@ -901,7 +1013,8 @@
     "word": "be required to V",
     "pos": "phr.",
     "meaning": "被要求（做）",
-    "example": "Employees **are required to** wear badges."
+    "example": "Employees **are required to** wear badges.",
+    "exampleZh": "員工必須配戴識別證。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-scheduled-to-v",
@@ -909,7 +1022,8 @@
     "word": "be scheduled to V",
     "pos": "phr.",
     "meaning": "預定（做）",
-    "example": "The meeting **is scheduled to** begin at 10 A.M."
+    "example": "The meeting **is scheduled to** begin at 10 A.M.",
+    "exampleZh": "這場會議預定上午十點開始。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-authorized-to-v",
@@ -917,7 +1031,8 @@
     "word": "be authorized to V",
     "pos": "phr.",
     "meaning": "被授權（做）",
-    "example": "Only managers **are authorized to** approve refunds."
+    "example": "Only managers **are authorized to** approve refunds.",
+    "exampleZh": "只有主管有權核准退款。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-be-entitled-to-n",
@@ -925,7 +1040,8 @@
     "word": "be entitled to N",
     "pos": "phr.",
     "meaning": "有權享有",
-    "example": "Staff **are entitled to** paid leave."
+    "example": "Staff **are entitled to** paid leave.",
+    "exampleZh": "員工享有帶薪假。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-occur",
@@ -933,7 +1049,8 @@
     "word": "occur",
     "pos": "v.",
     "meaning": "發生",
-    "example": "The error **occurred** during installation."
+    "example": "The error **occurred** during installation.",
+    "exampleZh": "這個錯誤發生在安裝過程中。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-remain",
@@ -941,7 +1058,8 @@
     "word": "remain",
     "pos": "v.",
     "meaning": "保持",
-    "example": "Prices **remained** stable last quarter."
+    "example": "Prices **remained** stable last quarter.",
+    "exampleZh": "上一季價格維持穩定。"
   },
   {
     "id": "grammar/02_動詞時態與語態/03_被動語態#v-arrive",
@@ -949,7 +1067,8 @@
     "word": "arrive",
     "pos": "v.",
     "meaning": "到達",
-    "example": "The shipment **arrived** on time."
+    "example": "The shipment **arrived** on time.",
+    "exampleZh": "貨物準時送達。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-for-the-past-+-時間",
@@ -957,7 +1076,8 @@
     "word": "for the past + 時間",
     "pos": "phr.",
     "meaning": "過去這段時間",
-    "example": "She **has been studying** English *for the past two years*."
+    "example": "She **has been studying** English *for the past two years*.",
+    "exampleZh": "過去兩年她一直在學英文。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-all-along",
@@ -965,7 +1085,8 @@
     "word": "all along",
     "pos": "phr.",
     "meaning": "一直（以來）",
-    "example": "He **has been planning** this **all along**."
+    "example": "He **has been planning** this **all along**.",
+    "exampleZh": "他一直都在計畫這件事。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-continuously",
@@ -973,7 +1094,8 @@
     "word": "continuously",
     "pos": "adv.",
     "meaning": "持續不斷地",
-    "example": "The machine **has been running continuously** since morning."
+    "example": "The machine **has been running continuously** since morning.",
+    "exampleZh": "這台機器從早上就持續運轉到現在。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-subsequently",
@@ -981,7 +1103,8 @@
     "word": "subsequently",
     "pos": "adv.",
     "meaning": "隨後",
-    "example": "The firm was founded in 1990 and **subsequently** expanded overseas."
+    "example": "The firm was founded in 1990 and **subsequently** expanded overseas.",
+    "exampleZh": "這家公司成立於 1990 年，之後便向海外拓展。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-prior-to-that",
@@ -989,7 +1112,8 @@
     "word": "prior to that",
     "pos": "phr.",
     "meaning": "在那之前",
-    "example": "Prior to that, he had worked as a consultant."
+    "example": "Prior to that, he had worked as a consultant.",
+    "exampleZh": "在那之前，他曾擔任顧問。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-at-the-time",
@@ -997,7 +1121,8 @@
     "word": "at the time",
     "pos": "phr.",
     "meaning": "當時",
-    "example": "At the time, the company was still a small startup."
+    "example": "At the time, the company was still a small startup.",
+    "exampleZh": "當時這家公司還只是一間小新創。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-ever-since",
@@ -1005,7 +1130,8 @@
     "word": "ever since",
     "pos": "phr.",
     "meaning": "從那時起一直",
-    "example": "Sales have improved **ever since** the new manager took over."
+    "example": "Sales have improved **ever since** the new manager took over.",
+    "exampleZh": "自從新經理接手後，業績就一直在進步。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-negotiate",
@@ -1013,7 +1139,8 @@
     "word": "negotiate",
     "pos": "v.",
     "meaning": "協商",
-    "example": "The two sides **have been negotiating** for weeks."
+    "example": "The two sides **have been negotiating** for weeks.",
+    "exampleZh": "雙方已經談判了好幾個星期。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-expand",
@@ -1021,7 +1148,8 @@
     "word": "expand",
     "pos": "v.",
     "meaning": "擴張",
-    "example": "The firm **had been expanding** rapidly before the recession hit."
+    "example": "The firm **had been expanding** rapidly before the recession hit.",
+    "exampleZh": "在經濟衰退來襲之前，這家公司一直快速擴張。"
   },
   {
     "id": "grammar/02_動詞時態與語態/04_完成進行式與時態一致性#v-decline",
@@ -1029,7 +1157,8 @@
     "word": "decline",
     "pos": "v.",
     "meaning": "下滑",
-    "example": "Profits **have been declining** since last quarter."
+    "example": "Profits **have been declining** since last quarter.",
+    "exampleZh": "自上一季以來，獲利就持續下滑。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-intend",
@@ -1037,7 +1166,8 @@
     "word": "intend",
     "pos": "及物動詞",
     "meaning": "打算",
-    "example": "We **intend to** expand our operations next year."
+    "example": "We **intend to** expand our operations next year.",
+    "exampleZh": "我們打算明年擴展業務。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-refuse",
@@ -1045,7 +1175,8 @@
     "word": "refuse",
     "pos": "及物動詞",
     "meaning": "拒絕",
-    "example": "He **refused to** sign the agreement."
+    "example": "He **refused to** sign the agreement.",
+    "exampleZh": "他拒絕簽署這份協議。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-afford",
@@ -1053,7 +1184,8 @@
     "word": "afford",
     "pos": "及物動詞（常與",
     "meaning": "can/cannot 連用） 負擔得起",
-    "example": "We cannot **afford to** delay the shipment."
+    "example": "We cannot **afford to** delay the shipment.",
+    "exampleZh": "我們無法承擔延遲出貨的後果。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-hesitate",
@@ -1061,7 +1193,8 @@
     "word": "hesitate",
     "pos": "不及物動詞",
     "meaning": "猶豫",
-    "example": "Please do not **hesitate to** contact us."
+    "example": "Please do not **hesitate to** contact us.",
+    "exampleZh": "請不要猶豫，隨時與我們聯絡。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-strive",
@@ -1069,7 +1202,8 @@
     "word": "strive",
     "pos": "不及物動詞",
     "meaning": "努力",
-    "example": "The company **strives to** improve customer service."
+    "example": "The company **strives to** improve customer service.",
+    "exampleZh": "這家公司致力於改善客戶服務。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-eager",
@@ -1077,7 +1211,8 @@
     "word": "eager",
     "pos": "形容詞",
     "meaning": "渴望的",
-    "example": "She is **eager to** learn new skills."
+    "example": "She is **eager to** learn new skills.",
+    "exampleZh": "她渴望學習新技能。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-reluctant",
@@ -1085,7 +1220,8 @@
     "word": "reluctant",
     "pos": "形容詞",
     "meaning": "不情願的",
-    "example": "He was **reluctant to** accept the offer."
+    "example": "He was **reluctant to** accept the offer.",
+    "exampleZh": "他不太願意接受這個提議。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-eligible",
@@ -1093,7 +1229,8 @@
     "word": "eligible",
     "pos": "形容詞",
     "meaning": "有資格的",
-    "example": "Employees are **eligible to** apply for the program."
+    "example": "Employees are **eligible to** apply for the program.",
+    "exampleZh": "員工有資格申請這項計畫。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-likely",
@@ -1101,7 +1238,8 @@
     "word": "likely",
     "pos": "形容詞",
     "meaning": "可能的",
-    "example": "The price is **likely to** increase next month."
+    "example": "The price is **likely to** increase next month.",
+    "exampleZh": "價格下個月很可能會上漲。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-in-order-to",
@@ -1109,7 +1247,8 @@
     "word": "in order to",
     "pos": "片語",
     "meaning": "為了",
-    "example": "We hired more staff **in order to** meet the deadline."
+    "example": "We hired more staff **in order to** meet the deadline.",
+    "exampleZh": "為了趕上期限，我們增聘了人手。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-so-as-to",
@@ -1117,7 +1256,8 @@
     "word": "so as to",
     "pos": "片語",
     "meaning": "為了（較正式）",
-    "example": "The manager arrived early **so as to** prepare the meeting room."
+    "example": "The manager arrived early **so as to** prepare the meeting room.",
+    "exampleZh": "經理提早到，好把會議室準備好。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-be-supposed-to-v",
@@ -1125,7 +1265,8 @@
     "word": "be supposed to V",
     "pos": "片語",
     "meaning": "應該",
-    "example": "The report **is supposed to** be finished by Friday."
+    "example": "The report **is supposed to** be finished by Friday.",
+    "exampleZh": "這份報告應該要在週五前完成。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-be-scheduled-to-v",
@@ -1133,7 +1274,8 @@
     "word": "be scheduled to V",
     "pos": "片語",
     "meaning": "預計",
-    "example": "The flight **is scheduled to** depart at noon."
+    "example": "The flight **is scheduled to** depart at noon.",
+    "exampleZh": "這班飛機預定中午起飛。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/01_不定詞#v-too...to-v",
@@ -1141,7 +1283,8 @@
     "word": "too...to V",
     "pos": "句型",
     "meaning": "太...以致於不能",
-    "example": "The box is **too heavy to** carry alone."
+    "example": "The box is **too heavy to** carry alone.",
+    "exampleZh": "這個箱子太重，一個人搬不動。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-avoid",
@@ -1149,7 +1292,8 @@
     "word": "avoid",
     "pos": "及物動詞",
     "meaning": "避免",
-    "example": "We should **avoid** *making* the same mistake twice."
+    "example": "We should **avoid** *making* the same mistake twice.",
+    "exampleZh": "我們應該避免重蹈覆轍。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-suggest",
@@ -1157,7 +1301,8 @@
     "word": "suggest",
     "pos": "及物動詞",
     "meaning": "建議",
-    "example": "The consultant **suggested** *restructuring* the department."
+    "example": "The consultant **suggested** *restructuring* the department.",
+    "exampleZh": "顧問建議重整這個部門。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-consider",
@@ -1165,7 +1310,8 @@
     "word": "consider",
     "pos": "及物動詞",
     "meaning": "考慮",
-    "example": "Please **consider** *joining* our new project team."
+    "example": "Please **consider** *joining* our new project team.",
+    "exampleZh": "請考慮加入我們的新專案團隊。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-postpone",
@@ -1173,7 +1319,8 @@
     "word": "postpone",
     "pos": "及物動詞",
     "meaning": "延後",
-    "example": "They **postponed** *releasing* the quarterly report."
+    "example": "They **postponed** *releasing* the quarterly report.",
+    "exampleZh": "他們延後發布季度報告。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-recommend",
@@ -1181,7 +1328,8 @@
     "word": "recommend",
     "pos": "及物動詞",
     "meaning": "推薦；建議",
-    "example": "I **recommend** *booking* the flight early."
+    "example": "I **recommend** *booking* the flight early.",
+    "exampleZh": "我建議提早訂機票。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-finish",
@@ -1189,7 +1337,8 @@
     "word": "finish",
     "pos": "及物動詞",
     "meaning": "完成",
-    "example": "She **finished** *drafting* the proposal this morning."
+    "example": "She **finished** *drafting* the proposal this morning.",
+    "exampleZh": "她今天早上寫完了提案草稿。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-mind",
@@ -1197,7 +1346,8 @@
     "word": "mind",
     "pos": "及物動詞",
     "meaning": "介意",
-    "example": "Would you **mind** *closing* the window?"
+    "example": "Would you **mind** *closing* the window?",
+    "exampleZh": "可以麻煩你把窗戶關上嗎？"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-look-forward-to",
@@ -1205,7 +1355,8 @@
     "word": "look forward to",
     "pos": "片語",
     "meaning": "期待",
-    "example": "We **look forward to** *working* with you."
+    "example": "We **look forward to** *working* with you.",
+    "exampleZh": "我們期待與您合作。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-used-to",
@@ -1213,7 +1364,8 @@
     "word": "be used to",
     "pos": "片語",
     "meaning": "習慣於",
-    "example": "He **is used to** *waking* up early."
+    "example": "He **is used to** *waking* up early.",
+    "exampleZh": "他習慣早起。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-committed-to",
@@ -1221,7 +1373,8 @@
     "word": "be committed to",
     "pos": "片語",
     "meaning": "致力於",
-    "example": "The firm **is committed to** *reducing* waste."
+    "example": "The firm **is committed to** *reducing* waste.",
+    "exampleZh": "這家公司致力於減少廢棄物。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-object-to",
@@ -1229,7 +1382,8 @@
     "word": "object to",
     "pos": "片語",
     "meaning": "反對",
-    "example": "Several employees **object to** *changing* the schedule."
+    "example": "Several employees **object to** *changing* the schedule.",
+    "exampleZh": "好幾位員工反對更動班表。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-be-worth",
@@ -1237,7 +1391,8 @@
     "word": "be worth",
     "pos": "片語",
     "meaning": "值得",
-    "example": "The seminar **is worth** *attending*."
+    "example": "The seminar **is worth** *attending*.",
+    "exampleZh": "這場研討會值得參加。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-networking",
@@ -1245,7 +1400,8 @@
     "word": "networking",
     "pos": "動名詞（作名詞）",
     "meaning": "建立人脈",
-    "example": "**Networking** *is* essential for career growth."
+    "example": "**Networking** *is* essential for career growth.",
+    "exampleZh": "建立人脈對職涯發展至關重要。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/02_動名詞#v-budgeting",
@@ -1253,7 +1409,8 @@
     "word": "budgeting",
     "pos": "動名詞（作名詞）",
     "meaning": "編列預算",
-    "example": "**Budgeting** *requires* careful planning."
+    "example": "**Budgeting** *requires* careful planning.",
+    "exampleZh": "編列預算需要縝密的規劃。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-leading",
@@ -1261,7 +1418,8 @@
     "word": "leading",
     "pos": "形容詞（分詞）",
     "meaning": "領先的",
-    "example": "**Leading** companies invest heavily in R&D."
+    "example": "**Leading** companies invest heavily in R&D.",
+    "exampleZh": "頂尖企業在研發上投入巨資。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-remaining",
@@ -1269,7 +1427,8 @@
     "word": "remaining",
     "pos": "形容詞（分詞）",
     "meaning": "剩餘的",
-    "example": "Please review the **remaining** issues before the deadline."
+    "example": "Please review the **remaining** issues before the deadline.",
+    "exampleZh": "請在期限前檢視剩下的問題。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-rising",
@@ -1277,7 +1436,8 @@
     "word": "rising",
     "pos": "形容詞（分詞）",
     "meaning": "上升中的",
-    "example": "The **rising** cost of materials affects our margin."
+    "example": "The **rising** cost of materials affects our margin.",
+    "exampleZh": "原物料成本上漲影響了我們的利潤率。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-attached",
@@ -1285,7 +1445,8 @@
     "word": "attached",
     "pos": "形容詞（分詞）",
     "meaning": "附加的",
-    "example": "Please see the **attached** file for details."
+    "example": "Please see the **attached** file for details.",
+    "exampleZh": "詳情請見附件檔案。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-enclosed",
@@ -1293,7 +1454,8 @@
     "word": "enclosed",
     "pos": "形容詞（分詞）",
     "meaning": "隨函附上的",
-    "example": "The **enclosed** brochure explains our services."
+    "example": "The **enclosed** brochure explains our services.",
+    "exampleZh": "隨附的手冊說明了我們的服務內容。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-qualified",
@@ -1301,7 +1463,8 @@
     "word": "qualified",
     "pos": "形容詞（分詞）",
     "meaning": "合格的",
-    "example": "We are looking for **qualified** candidates."
+    "example": "We are looking for **qualified** candidates.",
+    "exampleZh": "我們正在尋找符合資格的人選。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-detailed",
@@ -1309,7 +1472,8 @@
     "word": "detailed",
     "pos": "形容詞（分詞）",
     "meaning": "詳細的",
-    "example": "A **detailed** report will be sent next week."
+    "example": "A **detailed** report will be sent next week.",
+    "exampleZh": "下週會寄出一份詳細的報告。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-regarding",
@@ -1317,7 +1481,8 @@
     "word": "regarding",
     "pos": "介系詞",
     "meaning": "關於",
-    "example": "**Regarding** your request, we need more information."
+    "example": "**Regarding** your request, we need more information.",
+    "exampleZh": "關於您的要求，我們需要更多資訊。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-given-(that)",
@@ -1325,7 +1490,8 @@
     "word": "given (that)",
     "pos": "介系詞/連接詞",
     "meaning": "鑒於",
-    "example": "**Given** the current budget, we must cut costs."
+    "example": "**Given** the current budget, we must cut costs.",
+    "exampleZh": "考量目前的預算，我們必須刪減開支。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-provided-(that)",
@@ -1333,7 +1499,8 @@
     "word": "provided (that)",
     "pos": "連接詞",
     "meaning": "只要；假如",
-    "example": "You may proceed **provided that** you have approval."
+    "example": "You may proceed **provided that** you have approval.",
+    "exampleZh": "只要你取得核准，就可以繼續進行。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/03_分詞與分詞構句#v-considering",
@@ -1341,7 +1508,8 @@
     "word": "considering",
     "pos": "介系詞",
     "meaning": "考慮到",
-    "example": "**Considering** the weather, the event may be delayed."
+    "example": "**Considering** the weather, the event may be delayed.",
+    "exampleZh": "考慮到天候狀況，活動可能會延期。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-bore",
@@ -1349,7 +1517,8 @@
     "word": "bore",
     "pos": "及物動詞",
     "meaning": "使無聊",
-    "example": "boring/bored | The lecture was so **boring** that many students fell asleep."
+    "example": "boring/bored | The lecture was so **boring** that many students fell asleep.",
+    "exampleZh": "這堂課無聊到很多學生都睡著了。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-tire",
@@ -1357,7 +1526,8 @@
     "word": "tire",
     "pos": "及物動詞",
     "meaning": "使疲累",
-    "example": "tiring/tired | After a **tiring** day, she went straight to bed."
+    "example": "tiring/tired | After a **tiring** day, she went straight to bed.",
+    "exampleZh": "忙了累人的一天後，她倒頭就睡。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-amaze",
@@ -1365,7 +1535,8 @@
     "word": "amaze",
     "pos": "及物動詞",
     "meaning": "使驚奇",
-    "example": "amazing/amazed | We were **amazed** *at* the results of the survey."
+    "example": "amazing/amazed | We were **amazed** *at* the results of the survey.",
+    "exampleZh": "這份問卷的結果讓我們大為驚訝。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-frustrate",
@@ -1373,7 +1544,8 @@
     "word": "frustrate",
     "pos": "及物動詞",
     "meaning": "使沮喪",
-    "example": "frustrating/frustrated | The delay was extremely **frustrating** for the customers."
+    "example": "frustrating/frustrated | The delay was extremely **frustrating** for the customers.",
+    "exampleZh": "這次延誤讓顧客非常沮喪。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-motivate",
@@ -1381,7 +1553,8 @@
     "word": "motivate",
     "pos": "及物動詞",
     "meaning": "激勵",
-    "example": "motivating/motivated | The bonus scheme is highly **motivating** for the sales team."
+    "example": "motivating/motivated | The bonus scheme is highly **motivating** for the sales team.",
+    "exampleZh": "這套獎金制度對業務團隊非常有激勵作用。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-overwhelm",
@@ -1389,7 +1562,8 @@
     "word": "overwhelm",
     "pos": "及物動詞",
     "meaning": "使不知所措",
-    "example": "overwhelming/overwhelmed | She felt **overwhelmed** *by* the amount of work."
+    "example": "overwhelming/overwhelmed | She felt **overwhelmed** *by* the amount of work.",
+    "exampleZh": "龐大的工作量讓她應接不暇。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-fascinate",
@@ -1397,7 +1571,8 @@
     "word": "fascinate",
     "pos": "及物動詞",
     "meaning": "使著迷",
-    "example": "fascinating/fascinated | The museum exhibit was truly **fascinating**."
+    "example": "fascinating/fascinated | The museum exhibit was truly **fascinating**.",
+    "exampleZh": "這個博物館的展覽真的很吸引人。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-interested-in",
@@ -1405,7 +1580,8 @@
     "word": "be interested in",
     "pos": "片語",
     "meaning": "對...感興趣",
-    "example": "He **is interested in** *pursuing* a career in finance."
+    "example": "He **is interested in** *pursuing* a career in finance.",
+    "exampleZh": "他有興趣往金融業發展。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-satisfied-with",
@@ -1413,7 +1589,8 @@
     "word": "be satisfied with",
     "pos": "片語",
     "meaning": "對...感到滿意",
-    "example": "The client **is satisfied with** the final design."
+    "example": "The client **is satisfied with** the final design.",
+    "exampleZh": "客戶對最終設計感到滿意。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-worried-about",
@@ -1421,7 +1598,8 @@
     "word": "be worried about",
     "pos": "片語",
     "meaning": "對...感到擔心",
-    "example": "Employees **are worried about** the upcoming layoffs."
+    "example": "Employees **are worried about** the upcoming layoffs.",
+    "exampleZh": "員工們擔心即將到來的裁員。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞#v-be-excited-about",
@@ -1429,7 +1607,8 @@
     "word": "be excited about",
     "pos": "片語",
     "meaning": "對...感到興奮",
-    "example": "The team **is excited about** the new product launch."
+    "example": "The team **is excited about** the new product launch.",
+    "exampleZh": "團隊對新產品上市感到興奮。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-claim",
@@ -1437,7 +1616,8 @@
     "word": "claim",
     "pos": "及物動詞",
     "meaning": "宣稱",
-    "example": "He **claims to have completed** the certification last year."
+    "example": "He **claims to have completed** the certification last year.",
+    "exampleZh": "他聲稱去年已經取得這張證照。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-seem",
@@ -1445,7 +1625,8 @@
     "word": "seem",
     "pos": "不及物動詞",
     "meaning": "似乎",
-    "example": "The data **seems to have been** miscalculated."
+    "example": "The data **seems to have been** miscalculated.",
+    "exampleZh": "這筆數據似乎算錯了。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-regret",
@@ -1453,7 +1634,8 @@
     "word": "regret",
     "pos": "及物動詞",
     "meaning": "後悔；遺憾",
-    "example": "We **regret to inform** you of the delay."
+    "example": "We **regret to inform** you of the delay.",
+    "exampleZh": "我們遺憾地通知您延誤一事。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-acknowledge",
@@ -1461,7 +1643,8 @@
     "word": "acknowledge",
     "pos": "及物動詞",
     "meaning": "承認",
-    "example": "She **acknowledged having made** an error in the report."
+    "example": "She **acknowledged having made** an error in the report.",
+    "exampleZh": "她承認自己在報告裡出了錯。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-carry",
@@ -1469,7 +1652,8 @@
     "word": "carry",
     "pos": "及物動詞",
     "meaning": "攜帶",
-    "example": "He entered **with** a folder **carrying** important documents."
+    "example": "He entered **with** a folder **carrying** important documents.",
+    "exampleZh": "他拿著一個裝有重要文件的資料夾走進來。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-verify",
@@ -1477,7 +1661,8 @@
     "word": "verify",
     "pos": "及物動詞",
     "meaning": "核實",
-    "example": "The invoice was approved **with** all figures **verified**."
+    "example": "The invoice was approved **with** all figures **verified**.",
+    "exampleZh": "這張發票在所有數字都經過核對後獲得核准。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-attach",
@@ -1485,7 +1670,8 @@
     "word": "attach",
     "pos": "及物動詞",
     "meaning": "附加",
-    "example": "She sent the email **with** a file **attached**."
+    "example": "She sent the email **with** a file **attached**.",
+    "exampleZh": "她寄出那封附有檔案的電子郵件。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-without-+-v-ing",
@@ -1493,7 +1679,8 @@
     "word": "without + V-ing",
     "pos": "片語",
     "meaning": "沒有做...的情況下",
-    "example": "You cannot enter the lab **without** *wearing* proper gear."
+    "example": "You cannot enter the lab **without** *wearing* proper gear.",
+    "exampleZh": "沒有穿戴適當裝備就不能進入實驗室。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-be-worthy-of-+-v-ing/n",
@@ -1501,7 +1688,8 @@
     "word": "be worthy of + V-ing/N",
     "pos": "片語",
     "meaning": "值得...",
-    "example": "This achievement **is worthy of** *recognition*."
+    "example": "This achievement **is worthy of** *recognition*.",
+    "exampleZh": "這項成就值得表揚。"
   },
   {
     "id": "grammar/03_動狀詞_非謂語動詞/05_動狀詞補充句型#v-being-p.p.",
@@ -1509,7 +1697,8 @@
     "word": "being p.p.",
     "pos": "動名詞被動",
     "meaning": "被...",
-    "example": "She disliked **being interrupted** during presentations."
+    "example": "She disliked **being interrupted** during presentations.",
+    "exampleZh": "她不喜歡簡報時被打斷。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-compel",
@@ -1517,7 +1706,8 @@
     "word": "compel",
     "pos": "v.",
     "meaning": "強迫、迫使",
-    "example": "The new regulation **compelled** the company to change its policy."
+    "example": "The new regulation **compelled** the company to change its policy.",
+    "exampleZh": "這項新法規迫使公司修改政策。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-force",
@@ -1525,7 +1715,8 @@
     "word": "force",
     "pos": "v.",
     "meaning": "強迫",
-    "example": "They were **forced** to relocate the factory."
+    "example": "They were **forced** to relocate the factory.",
+    "exampleZh": "他們被迫將工廠遷址。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-oblige",
@@ -1533,7 +1724,8 @@
     "word": "oblige",
     "pos": "v.",
     "meaning": "使有義務、迫使",
-    "example": "The contract **obliges** both parties to comply with the terms."
+    "example": "The contract **obliges** both parties to comply with the terms.",
+    "exampleZh": "這份合約使雙方都必須遵守條款。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-permit",
@@ -1541,7 +1733,8 @@
     "word": "permit",
     "pos": "v.",
     "meaning": "允許",
-    "example": "The manager **permitted** staff to leave early on Friday."
+    "example": "The manager **permitted** staff to leave early on Friday.",
+    "exampleZh": "經理准許員工週五提早下班。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-allow",
@@ -1549,7 +1742,8 @@
     "word": "allow",
     "pos": "v.",
     "meaning": "允許",
-    "example": "The policy **allows** employees to work remotely."
+    "example": "The policy **allows** employees to work remotely.",
+    "exampleZh": "這項政策允許員工遠端工作。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-enable",
@@ -1557,7 +1751,8 @@
     "word": "enable",
     "pos": "v.",
     "meaning": "使能夠",
-    "example": "This software **enables** users to track expenses easily."
+    "example": "This software **enables** users to track expenses easily.",
+    "exampleZh": "這套軟體讓使用者能輕鬆追蹤支出。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-assist",
@@ -1565,7 +1760,8 @@
     "word": "assist",
     "pos": "v.",
     "meaning": "協助",
-    "example": "The consultant **assisted** the team in preparing the report."
+    "example": "The consultant **assisted** the team in preparing the report.",
+    "exampleZh": "顧問協助團隊撰寫這份報告。"
   },
   {
     "id": "grammar/04_特殊動詞用法/01_使役動詞#v-instruct",
@@ -1573,7 +1769,8 @@
     "word": "instruct",
     "pos": "v.",
     "meaning": "指示、命令",
-    "example": "She **instructed** her assistant to file the documents."
+    "example": "She **instructed** her assistant to file the documents.",
+    "exampleZh": "她吩咐助理把文件歸檔。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-observe",
@@ -1581,7 +1778,8 @@
     "word": "observe",
     "pos": "v.",
     "meaning": "觀察、注意到",
-    "example": "Auditors **observed** the staff following the new procedure."
+    "example": "Auditors **observed** the staff following the new procedure.",
+    "exampleZh": "稽核人員觀察到員工確實依照新流程作業。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-spot",
@@ -1589,7 +1787,8 @@
     "word": "spot",
     "pos": "v.",
     "meaning": "發現、認出",
-    "example": "She **spotted** an error in the invoice."
+    "example": "She **spotted** an error in the invoice.",
+    "exampleZh": "她發現發票上有個錯誤。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-glimpse",
@@ -1597,7 +1796,8 @@
     "word": "glimpse",
     "pos": "v.",
     "meaning": "瞥見",
-    "example": "He **glimpsed** the manager leaving the building."
+    "example": "He **glimpsed** the manager leaving the building.",
+    "exampleZh": "他瞥見經理走出大樓。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-overhear",
@@ -1605,7 +1805,8 @@
     "word": "overhear",
     "pos": "v.",
     "meaning": "無意中聽到",
-    "example": "I **overheard** them discussing the merger."
+    "example": "I **overheard** them discussing the merger.",
+    "exampleZh": "我無意間聽到他們在討論併購案。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-perceive",
@@ -1613,7 +1814,8 @@
     "word": "perceive",
     "pos": "v.",
     "meaning": "察覺、感知",
-    "example": "Customers **perceived** the new packaging as more eco-friendly."
+    "example": "Customers **perceived** the new packaging as more eco-friendly.",
+    "exampleZh": "顧客認為新包裝更環保。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-sense",
@@ -1621,7 +1823,8 @@
     "word": "sense",
     "pos": "v.",
     "meaning": "感覺到",
-    "example": "The manager **sensed** tension among the team members."
+    "example": "The manager **sensed** tension among the team members.",
+    "exampleZh": "經理察覺到團隊成員之間的緊張氣氛。"
   },
   {
     "id": "grammar/04_特殊動詞用法/02_感官動詞#v-notice",
@@ -1629,7 +1832,8 @@
     "word": "notice",
     "pos": "v.",
     "meaning": "注意到",
-    "example": "Nobody **noticed** the printer running out of paper."
+    "example": "Nobody **noticed** the printer running out of paper.",
+    "exampleZh": "沒有人注意到印表機的紙用完了。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-insist",
@@ -1637,7 +1841,8 @@
     "word": "insist",
     "pos": "v.",
     "meaning": "堅持",
-    "example": "The client **insisted** that the order be delivered by Friday."
+    "example": "The client **insisted** that the order be delivered by Friday.",
+    "exampleZh": "客戶堅持這筆訂單要在週五前送達。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-demand",
@@ -1645,7 +1850,8 @@
     "word": "demand",
     "pos": "v.",
     "meaning": "要求",
-    "example": "The union **demanded** that management raise wages."
+    "example": "The union **demanded** that management raise wages.",
+    "exampleZh": "工會要求資方調漲薪資。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-require",
@@ -1653,7 +1859,8 @@
     "word": "require",
     "pos": "v.",
     "meaning": "要求、規定",
-    "example": "The law **requires** that all drivers carry insurance."
+    "example": "The law **requires** that all drivers carry insurance.",
+    "exampleZh": "法律規定所有駕駛人都必須投保。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-command",
@@ -1661,7 +1868,8 @@
     "word": "command",
     "pos": "v.",
     "meaning": "命令",
-    "example": "The general **commanded** that the troops withdraw immediately."
+    "example": "The general **commanded** that the troops withdraw immediately.",
+    "exampleZh": "將軍下令部隊立即撤退。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-suggest",
@@ -1669,7 +1877,8 @@
     "word": "suggest",
     "pos": "v.",
     "meaning": "建議",
-    "example": "The doctor **suggested** that she rest for a week."
+    "example": "The doctor **suggested** that she rest for a week.",
+    "exampleZh": "醫生建議她休息一週。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-recommend",
@@ -1677,7 +1886,8 @@
     "word": "recommend",
     "pos": "v.",
     "meaning": "推薦、建議",
-    "example": "We **recommend** that applicants submit their forms early."
+    "example": "We **recommend** that applicants submit their forms early.",
+    "exampleZh": "我們建議申請人及早遞交表格。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-propose",
@@ -1685,7 +1895,8 @@
     "word": "propose",
     "pos": "v.",
     "meaning": "提議",
-    "example": "He **proposed** that the meeting be rescheduled."
+    "example": "He **proposed** that the meeting be rescheduled.",
+    "exampleZh": "他提議把會議改期。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-urge",
@@ -1693,7 +1904,8 @@
     "word": "urge",
     "pos": "v.",
     "meaning": "敦促",
-    "example": "The manager **urged** that the team finish the project on time."
+    "example": "The manager **urged** that the team finish the project on time.",
+    "exampleZh": "經理力促團隊準時完成專案。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-advise",
@@ -1701,7 +1913,8 @@
     "word": "advise",
     "pos": "v.",
     "meaning": "建議、勸告",
-    "example": "The consultant **advised** that the company invest in training."
+    "example": "The consultant **advised** that the company invest in training.",
+    "exampleZh": "顧問建議公司投資教育訓練。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-imperative",
@@ -1709,7 +1922,8 @@
     "word": "imperative",
     "pos": "adj.",
     "meaning": "必要的、緊急的",
-    "example": "It is **imperative** that the issue be resolved today."
+    "example": "It is **imperative** that the issue be resolved today.",
+    "exampleZh": "這個問題今天務必要解決。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-advisable",
@@ -1717,7 +1931,8 @@
     "word": "advisable",
     "pos": "adj.",
     "meaning": "明智的、可取的",
-    "example": "It is **advisable** that new staff attend orientation."
+    "example": "It is **advisable** that new staff attend orientation.",
+    "exampleZh": "新進員工最好參加職前訓練。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-requirement",
@@ -1725,7 +1940,8 @@
     "word": "requirement",
     "pos": "n.",
     "meaning": "要求、規定",
-    "example": "The **requirement** that all staff wear badges is strictly enforced."
+    "example": "The **requirement** that all staff wear badges is strictly enforced.",
+    "exampleZh": "全體員工配戴識別證的規定執行得很嚴格。"
   },
   {
     "id": "grammar/04_特殊動詞用法/03_意志動詞與建議動詞#v-recommendation",
@@ -1733,7 +1949,8 @@
     "word": "recommendation",
     "pos": "n.",
     "meaning": "建議",
-    "example": "Her **recommendation** that the budget be increased was approved."
+    "example": "Her **recommendation** that the budget be increased was approved.",
+    "exampleZh": "她提出的增加預算建議獲得採納。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-require",
@@ -1741,7 +1958,8 @@
     "word": "require",
     "pos": "v.",
     "meaning": "要求、需要",
-    "example": "The job **requires** applicants to have three years of experience."
+    "example": "The job **requires** applicants to have three years of experience.",
+    "exampleZh": "這份工作要求應徵者具備三年經驗。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-expect",
@@ -1749,7 +1967,8 @@
     "word": "expect",
     "pos": "v.",
     "meaning": "期待、預期",
-    "example": "We **expect** the shipment to arrive by Monday."
+    "example": "We **expect** the shipment to arrive by Monday.",
+    "exampleZh": "我們預計貨物會在週一前送達。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-need",
@@ -1757,7 +1976,8 @@
     "word": "need",
     "pos": "v.",
     "meaning": "需要",
-    "example": "The team **needs** everyone to cooperate on this project."
+    "example": "The team **needs** everyone to cooperate on this project.",
+    "exampleZh": "這個專案需要每個人一起配合。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-allow",
@@ -1765,7 +1985,8 @@
     "word": "allow",
     "pos": "v.",
     "meaning": "允許",
-    "example": "The new software **allows** users to customize their dashboard."
+    "example": "The new software **allows** users to customize their dashboard.",
+    "exampleZh": "這套新軟體讓使用者可以自訂儀表板。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-enable",
@@ -1773,7 +1994,8 @@
     "word": "enable",
     "pos": "v.",
     "meaning": "使能夠",
-    "example": "This grant **enables** small businesses to expand overseas."
+    "example": "This grant **enables** small businesses to expand overseas.",
+    "exampleZh": "這筆補助讓小型企業得以拓展海外市場。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-permit",
@@ -1781,7 +2003,8 @@
     "word": "permit",
     "pos": "v.",
     "meaning": "准許",
-    "example": "The manager **permitted** the intern to leave early."
+    "example": "The manager **permitted** the intern to leave early.",
+    "exampleZh": "經理准許實習生提早離開。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-remind",
@@ -1789,7 +2012,8 @@
     "word": "remind",
     "pos": "v.",
     "meaning": "提醒",
-    "example": "The system will **remind** users to update their passwords."
+    "example": "The system will **remind** users to update their passwords.",
+    "exampleZh": "系統會提醒使用者更新密碼。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-warn",
@@ -1797,7 +2021,8 @@
     "word": "warn",
     "pos": "v.",
     "meaning": "警告",
-    "example": "The sign **warns** pedestrians to watch for traffic."
+    "example": "The sign **warns** pedestrians to watch for traffic.",
+    "exampleZh": "這個標誌提醒行人注意來車。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-advise",
@@ -1805,7 +2030,8 @@
     "word": "advise",
     "pos": "v.",
     "meaning": "建議",
-    "example": "The lawyer **advised** the client to sign the agreement."
+    "example": "The lawyer **advised** the client to sign the agreement.",
+    "exampleZh": "律師建議客戶簽署這份協議。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-instruct",
@@ -1813,7 +2039,8 @@
     "word": "instruct",
     "pos": "v.",
     "meaning": "指示",
-    "example": "The manual **instructs** technicians to check the voltage first."
+    "example": "The manual **instructs** technicians to check the voltage first.",
+    "exampleZh": "這本手冊指示技師先檢查電壓。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-persuade",
@@ -1821,7 +2048,8 @@
     "word": "persuade",
     "pos": "v.",
     "meaning": "說服",
-    "example": "The salesperson **persuaded** the customer to upgrade the plan."
+    "example": "The salesperson **persuaded** the customer to upgrade the plan.",
+    "exampleZh": "業務員說服顧客升級方案。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-encourage",
@@ -1829,7 +2057,8 @@
     "word": "encourage",
     "pos": "v.",
     "meaning": "鼓勵",
-    "example": "Managers are **encouraged** to give constructive feedback."
+    "example": "Managers are **encouraged** to give constructive feedback.",
+    "exampleZh": "公司鼓勵主管給予建設性的回饋。"
   },
   {
     "id": "grammar/04_特殊動詞用法/04_接受詞不定詞動詞#v-invite",
@@ -1837,7 +2066,8 @@
     "word": "invite",
     "pos": "v.",
     "meaning": "邀請",
-    "example": "The organizer **invited** attendees to ask questions."
+    "example": "The organizer **invited** attendees to ask questions.",
+    "exampleZh": "主辦人邀請與會者提問。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-assume",
@@ -1845,7 +2075,8 @@
     "word": "assume",
     "pos": "v.",
     "meaning": "假設、認為",
-    "example": "I **assume** that the shipment will arrive on time."
+    "example": "I **assume** that the shipment will arrive on time.",
+    "exampleZh": "我認為貨物應該會準時送達。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-confirm",
@@ -1853,7 +2084,8 @@
     "word": "confirm",
     "pos": "v.",
     "meaning": "確認",
-    "example": "Please **confirm** whether you will attend the seminar."
+    "example": "Please **confirm** whether you will attend the seminar.",
+    "exampleZh": "請確認您是否會出席這場研討會。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-determine",
@@ -1861,7 +2093,8 @@
     "word": "determine",
     "pos": "v.",
     "meaning": "決定、判斷",
-    "example": "We need to **determine** what caused the delay."
+    "example": "We need to **determine** what caused the delay.",
+    "exampleZh": "我們必須查明延誤的原因。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-doubt",
@@ -1869,7 +2102,8 @@
     "word": "doubt",
     "pos": "v./n.",
     "meaning": "懷疑",
-    "example": "I **doubt** that the plan will work."
+    "example": "I **doubt** that the plan will work.",
+    "exampleZh": "我懷疑這個計畫行不行得通。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-essential",
@@ -1877,7 +2111,8 @@
     "word": "essential",
     "pos": "adj.",
     "meaning": "必要的、必需的",
-    "example": "It is **essential** that all employees attend the training."
+    "example": "It is **essential** that all employees attend the training.",
+    "exampleZh": "全體員工都必須參加這場訓練。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-evident",
@@ -1885,7 +2120,8 @@
     "word": "evident",
     "pos": "adj.",
     "meaning": "明顯的",
-    "example": "It is **evident** that sales have increased."
+    "example": "It is **evident** that sales have increased.",
+    "exampleZh": "銷售額顯然已經成長。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-inquire",
@@ -1893,7 +2129,8 @@
     "word": "inquire",
     "pos": "v.",
     "meaning": "詢問",
-    "example": "She **inquired** whether the position was still open."
+    "example": "She **inquired** whether the position was still open.",
+    "exampleZh": "她詢問這個職缺是否還開放。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-mandatory",
@@ -1901,7 +2138,8 @@
     "word": "mandatory",
     "pos": "adj.",
     "meaning": "強制的、必須的",
-    "example": "It is **mandatory** that staff wear badges."
+    "example": "It is **mandatory** that staff wear badges.",
+    "exampleZh": "員工一律必須配戴識別證。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-recommend",
@@ -1909,7 +2147,8 @@
     "word": "recommend",
     "pos": "v.",
     "meaning": "建議",
-    "example": "The manager **recommends** that we revise the budget."
+    "example": "The manager **recommends** that we revise the budget.",
+    "exampleZh": "經理建議我們修改預算。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-require",
@@ -1917,7 +2156,8 @@
     "word": "require",
     "pos": "v.",
     "meaning": "要求",
-    "example": "Policy **requires** that visitors sign in."
+    "example": "Policy **requires** that visitors sign in.",
+    "exampleZh": "規定要求訪客必須簽到。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-suggestion",
@@ -1925,7 +2165,8 @@
     "word": "suggestion",
     "pos": "n.",
     "meaning": "建議",
-    "example": "My **suggestion** is that we postpone the launch."
+    "example": "My **suggestion** is that we postpone the launch.",
+    "exampleZh": "我的建議是把上市時間延後。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-uncertain",
@@ -1933,7 +2174,8 @@
     "word": "uncertain",
     "pos": "adj.",
     "meaning": "不確定的",
-    "example": "I am **uncertain** whether the data is accurate."
+    "example": "I am **uncertain** whether the data is accurate.",
+    "exampleZh": "我不確定這筆資料是否正確。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-whatever",
@@ -1941,7 +2183,8 @@
     "word": "whatever",
     "pos": "pron.",
     "meaning": "無論什麼",
-    "example": "Choose **whatever** option suits you best."
+    "example": "Choose **whatever** option suits you best.",
+    "exampleZh": "選一個最適合你的方案就好。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-in-charge-of",
@@ -1949,7 +2192,8 @@
     "word": "in charge of",
     "pos": "片語",
     "meaning": "負責",
-    "example": "We don't know who is **in charge of** the project."
+    "example": "We don't know who is **in charge of** the project.",
+    "exampleZh": "我們不知道誰負責這個專案。"
   },
   {
     "id": "grammar/05_子句與假設語氣/01_名詞子句#v-as-to",
@@ -1957,7 +2201,8 @@
     "word": "as to",
     "pos": "片語",
     "meaning": "關於",
-    "example": "There is disagreement **as to** whether the plan is feasible."
+    "example": "There is disagreement **as to** whether the plan is feasible.",
+    "exampleZh": "對於這個計畫是否可行，各方看法不一。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whoever",
@@ -1965,7 +2210,8 @@
     "word": "whoever",
     "pos": "pron.",
     "meaning": "無論是誰",
-    "example": "**Whoever** submits the form first will be considered."
+    "example": "**Whoever** submits the form first will be considered.",
+    "exampleZh": "最先繳交表格的人將優先列入考慮。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whatever",
@@ -1973,7 +2219,8 @@
     "word": "whatever",
     "pos": "pron.",
     "meaning": "無論什麼",
-    "example": "You can use **whatever** tools you need."
+    "example": "You can use **whatever** tools you need.",
+    "exampleZh": "你需要什麼工具都可以用。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-whichever",
@@ -1981,7 +2228,8 @@
     "word": "whichever",
     "pos": "pron.",
     "meaning": "無論哪一個",
-    "example": "Choose **whichever** plan fits your budget."
+    "example": "Choose **whichever** plan fits your budget.",
+    "exampleZh": "選一個符合你預算的方案。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-candidate",
@@ -1989,7 +2237,8 @@
     "word": "candidate",
     "pos": "n.",
     "meaning": "候選人",
-    "example": "The candidate **whom** we interviewed impressed us."
+    "example": "The candidate **whom** we interviewed impressed us.",
+    "exampleZh": "我們面試過的那位人選讓我們印象深刻。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-qualify",
@@ -1997,7 +2246,8 @@
     "word": "qualify",
     "pos": "v.",
     "meaning": "符合資格",
-    "example": "Employees **who qualify** may apply for the grant."
+    "example": "Employees **who qualify** may apply for the grant.",
+    "exampleZh": "符合資格的員工可以申請這筆補助。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-eligible",
@@ -2005,7 +2255,8 @@
     "word": "eligible",
     "pos": "adj.",
     "meaning": "有資格的",
-    "example": "Staff **who are eligible** will receive benefits."
+    "example": "Staff **who are eligible** will receive benefits.",
+    "exampleZh": "符合資格的員工將可獲得福利。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-supervisor",
@@ -2013,7 +2264,8 @@
     "word": "supervisor",
     "pos": "n.",
     "meaning": "主管",
-    "example": "The supervisor **whose** team performed best was promoted."
+    "example": "The supervisor **whose** team performed best was promoted.",
+    "exampleZh": "那位團隊表現最好的主管獲得升遷。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-branch",
@@ -2021,7 +2273,8 @@
     "word": "branch",
     "pos": "n.",
     "meaning": "分公司、分行",
-    "example": "This is the branch **where** the incident occurred."
+    "example": "This is the branch **where** the incident occurred.",
+    "exampleZh": "這就是事故發生的那間分公司。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-occasion",
@@ -2029,7 +2282,8 @@
     "word": "occasion",
     "pos": "n.",
     "meaning": "場合、時機",
-    "example": "There was an occasion **when** the system failed."
+    "example": "There was an occasion **when** the system failed.",
+    "exampleZh": "曾經有一次系統故障。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-invest-in",
@@ -2037,7 +2291,8 @@
     "word": "invest in",
     "pos": "片語",
     "meaning": "投資於",
-    "example": "The fund **in which** we invested grew steadily."
+    "example": "The fund **in which** we invested grew steadily.",
+    "exampleZh": "我們投資的那檔基金穩定成長。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-be-responsible-for",
@@ -2045,7 +2300,8 @@
     "word": "be responsible for",
     "pos": "片語",
     "meaning": "負責",
-    "example": "The manager **who is responsible for** logistics resigned."
+    "example": "The manager **who is responsible for** logistics resigned.",
+    "exampleZh": "負責物流的那位經理辭職了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-credential",
@@ -2053,7 +2309,8 @@
     "word": "credential",
     "pos": "n.",
     "meaning": "資格證明",
-    "example": "Applicants **whose credentials** meet the standard will be shortlisted."
+    "example": "Applicants **whose credentials** meet the standard will be shortlisted.",
+    "exampleZh": "資歷符合標準的申請人將進入複選。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-comply-with",
@@ -2061,7 +2318,8 @@
     "word": "comply with",
     "pos": "片語",
     "meaning": "遵守",
-    "example": "Employees **who comply with** the policy avoid penalties."
+    "example": "Employees **who comply with** the policy avoid penalties.",
+    "exampleZh": "遵守規定的員工就不會受罰。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-omit",
@@ -2069,7 +2327,8 @@
     "word": "omit",
     "pos": "v.",
     "meaning": "省略、遺漏",
-    "example": "The clause **(which was) omitted** changed the contract's meaning."
+    "example": "The clause **(which was) omitted** changed the contract's meaning.",
+    "exampleZh": "被刪掉的那個條款改變了合約的意思。"
   },
   {
     "id": "grammar/05_子句與假設語氣/02_關係子句_形容詞子句#v-majority",
@@ -2077,7 +2336,8 @@
     "word": "majority",
     "pos": "n.",
     "meaning": "多數",
-    "example": "The firm has 50 clients, **most of whom** renewed their contracts."
+    "example": "The firm has 50 clients, **most of whom** renewed their contracts.",
+    "exampleZh": "這家公司有 50 位客戶，其中多數都續約了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-provided",
@@ -2085,7 +2345,8 @@
     "word": "provided",
     "pos": "conj.",
     "meaning": "只要、假使",
-    "example": "You may leave early, **provided** you finish the report."
+    "example": "You may leave early, **provided** you finish the report.",
+    "exampleZh": "只要你把報告寫完，就可以提早離開。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-once",
@@ -2093,7 +2354,8 @@
     "word": "once",
     "pos": "conj.",
     "meaning": "一旦",
-    "example": "**Once** approved, the budget cannot be changed."
+    "example": "**Once** approved, the budget cannot be changed.",
+    "exampleZh": "預算一經核准就不能再更動。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-whereas",
@@ -2101,7 +2363,8 @@
     "word": "whereas",
     "pos": "conj.",
     "meaning": "然而、反之",
-    "example": "Some prefer email, **whereas** others prefer calls."
+    "example": "Some prefer email, **whereas** others prefer calls.",
+    "exampleZh": "有些人偏好電子郵件，有些人則偏好電話。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-owing-to",
@@ -2109,7 +2372,8 @@
     "word": "owing to",
     "pos": "片語，介系詞",
     "meaning": "由於",
-    "example": "The flight was delayed **owing to** bad weather."
+    "example": "The flight was delayed **owing to** bad weather.",
+    "exampleZh": "班機因天候不佳而延誤。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-due-to",
@@ -2117,7 +2381,8 @@
     "word": "due to",
     "pos": "片語，介系詞",
     "meaning": "由於",
-    "example": "The meeting was postponed **due to** a scheduling conflict."
+    "example": "The meeting was postponed **due to** a scheduling conflict.",
+    "exampleZh": "這場會議因行程衝突而延期。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-in-spite-of",
@@ -2125,7 +2390,8 @@
     "word": "in spite of",
     "pos": "片語，介系詞",
     "meaning": "儘管",
-    "example": "**In spite of** the rain, sales remained strong."
+    "example": "**In spite of** the rain, sales remained strong.",
+    "exampleZh": "儘管下雨，業績依然強勁。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-renovation",
@@ -2133,7 +2399,8 @@
     "word": "renovation",
     "pos": "n.",
     "meaning": "翻新、整修",
-    "example": "The store closed until **renovations** were complete."
+    "example": "The store closed until **renovations** were complete.",
+    "exampleZh": "這家店歇業到整修完成為止。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-overtime",
@@ -2141,7 +2408,8 @@
     "word": "overtime",
     "pos": "n./adv.",
     "meaning": "加班",
-    "example": "Staff worked **overtime** so that deadlines could be met."
+    "example": "Staff worked **overtime** so that deadlines could be met.",
+    "exampleZh": "員工加班，以便趕上期限。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-finalize",
@@ -2149,7 +2417,8 @@
     "word": "finalize",
     "pos": "v.",
     "meaning": "完成、定案",
-    "example": "**Once** the design is **finalized**, production begins."
+    "example": "**Once** the design is **finalized**, production begins.",
+    "exampleZh": "設計一旦定案，就會開始生產。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-postpone",
@@ -2157,7 +2426,8 @@
     "word": "postpone",
     "pos": "v.",
     "meaning": "延後",
-    "example": "The launch was **postponed** because the samples were delayed."
+    "example": "The launch was **postponed** because the samples were delayed.",
+    "exampleZh": "上市延期，因為樣品延誤了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-in-the-event-that",
@@ -2165,7 +2435,8 @@
     "word": "in the event that",
     "pos": "片語",
     "meaning": "萬一、如果",
-    "example": "**In the event that** the server fails, contact IT immediately."
+    "example": "**In the event that** the server fails, contact IT immediately.",
+    "exampleZh": "萬一伺服器故障，請立即聯絡資訊部門。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-as-long-as",
@@ -2173,7 +2444,8 @@
     "word": "as long as",
     "pos": "片語",
     "meaning": "只要",
-    "example": "You may work remotely **as long as** you attend meetings."
+    "example": "You may work remotely **as long as** you attend meetings.",
+    "exampleZh": "只要你出席會議，就可以遠端工作。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-come-into-effect",
@@ -2181,7 +2453,8 @@
     "word": "come into effect",
     "pos": "片語",
     "meaning": "生效",
-    "example": "The new policy will **come into effect** once it is approved."
+    "example": "The new policy will **come into effect** once it is approved.",
+    "exampleZh": "這項新政策一經核准就會生效。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-budget",
@@ -2189,7 +2462,8 @@
     "word": "budget",
     "pos": "n.",
     "meaning": "預算",
-    "example": "**Although** the **budget** was tight, the project succeeded."
+    "example": "**Although** the **budget** was tight, the project succeeded.",
+    "exampleZh": "儘管預算吃緊，這個專案仍然成功了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/03_副詞子句#v-compliant",
@@ -2197,7 +2471,8 @@
     "word": "compliant",
     "pos": "adj.",
     "meaning": "符合規定的",
-    "example": "**Provided that** the report is **compliant**, it will be accepted."
+    "example": "**Provided that** the report is **compliant**, it will be accepted.",
+    "exampleZh": "只要報告符合規定，就會被接受。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-unreal",
@@ -2205,7 +2480,8 @@
     "word": "unreal",
     "pos": "adj.",
     "meaning": "不真實的、假設的",
-    "example": "This is an **unreal** condition contrary to fact."
+    "example": "This is an **unreal** condition contrary to fact.",
+    "exampleZh": "這是與事實相反的非真實條件句。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-hypothetical",
@@ -2213,7 +2489,8 @@
     "word": "hypothetical",
     "pos": "adj.",
     "meaning": "假設性的",
-    "example": "The scenario is purely **hypothetical**."
+    "example": "The scenario is purely **hypothetical**.",
+    "exampleZh": "這個情境純屬假設。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-insist",
@@ -2221,7 +2498,8 @@
     "word": "insist",
     "pos": "v.",
     "meaning": "堅持",
-    "example": "The client **insisted** that the deadline be extended."
+    "example": "The client **insisted** that the deadline be extended.",
+    "exampleZh": "客戶堅持要延長期限。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-assumption",
@@ -2229,7 +2507,8 @@
     "word": "assumption",
     "pos": "n.",
     "meaning": "假設",
-    "example": "Our budget is based on an **assumption** that costs stay stable."
+    "example": "Our budget is based on an **assumption** that costs stay stable.",
+    "exampleZh": "我們的預算是建立在成本維持穩定的假設上。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-contrary-to",
@@ -2237,7 +2516,8 @@
     "word": "contrary to",
     "pos": "片語",
     "meaning": "與...相反",
-    "example": "**Contrary to** expectations, sales dropped."
+    "example": "**Contrary to** expectations, sales dropped.",
+    "exampleZh": "與預期相反，銷售下滑了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-regret",
@@ -2245,7 +2525,8 @@
     "word": "regret",
     "pos": "v./n.",
     "meaning": "後悔",
-    "example": "I **regret** that I did not accept the offer."
+    "example": "I **regret** that I did not accept the offer.",
+    "exampleZh": "我後悔當初沒有接受那個提議。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-otherwise",
@@ -2253,7 +2534,8 @@
     "word": "otherwise",
     "pos": "adv.",
     "meaning": "否則、不然",
-    "example": "Submit the form by Friday; **otherwise**, it will not be processed."
+    "example": "Submit the form by Friday; **otherwise**, it will not be processed.",
+    "exampleZh": "請在週五前繳交表格，否則將不予受理。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-assistance",
@@ -2261,7 +2543,8 @@
     "word": "assistance",
     "pos": "n.",
     "meaning": "協助",
-    "example": "**Should** you need further **assistance**, contact support."
+    "example": "**Should** you need further **assistance**, contact support.",
+    "exampleZh": "如需進一步協助，請聯絡客服。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-inquiry",
@@ -2269,7 +2552,8 @@
     "word": "inquiry",
     "pos": "n.",
     "meaning": "詢問",
-    "example": "**Should** you have an **inquiry**, please call the hotline."
+    "example": "**Should** you have an **inquiry**, please call the hotline.",
+    "exampleZh": "如有疑問，請撥打服務專線。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-compensate",
@@ -2277,7 +2561,8 @@
     "word": "compensate",
     "pos": "v.",
     "meaning": "補償",
-    "example": "If the flight had been cancelled, the airline **would have compensated** passengers."
+    "example": "If the flight had been cancelled, the airline **would have compensated** passengers.",
+    "exampleZh": "假如當時班機取消，航空公司就會賠償旅客。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-presume",
@@ -2285,7 +2570,8 @@
     "word": "presume",
     "pos": "v.",
     "meaning": "推測、假定",
-    "example": "I **presume** that he would have agreed if asked."
+    "example": "I **presume** that he would have agreed if asked.",
+    "exampleZh": "我猜想如果當時問他，他應該會同意。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-wish",
@@ -2293,7 +2579,8 @@
     "word": "wish",
     "pos": "v.",
     "meaning": "希望（與事實相反）",
-    "example": "I **wish** the meeting **were** shorter."
+    "example": "I **wish** the meeting **were** shorter.",
+    "exampleZh": "真希望這場會議可以短一點。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-exhausted",
@@ -2301,7 +2588,8 @@
     "word": "exhausted",
     "pos": "adj.",
     "meaning": "精疲力盡的",
-    "example": "He looked **as if** he **were exhausted**."
+    "example": "He looked **as if** he **were exhausted**.",
+    "exampleZh": "他看起來像是累壞了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-had-it-not-been-for",
@@ -2309,7 +2597,8 @@
     "word": "had it not been for",
     "pos": "片語",
     "meaning": "要不是因為",
-    "example": "**Had it not been for** her help, we would have failed."
+    "example": "**Had it not been for** her help, we would have failed.",
+    "exampleZh": "要不是有她幫忙，我們早就失敗了。"
   },
   {
     "id": "grammar/05_子句與假設語氣/04_假設語氣#v-on-short-notice",
@@ -2317,7 +2606,8 @@
     "word": "on short notice",
     "pos": "片語",
     "meaning": "臨時通知",
-    "example": "**Were** we notified **on short notice**, we could still adapt."
+    "example": "**Were** we notified **on short notice**, we could still adapt.",
+    "exampleZh": "就算臨時才通知我們，我們還是能調整。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-efficient",
@@ -2325,7 +2615,8 @@
     "word": "efficient",
     "pos": "adj. 有效率的",
     "meaning": "高效的",
-    "example": "This method is **more efficient than** the old one."
+    "example": "This method is **more efficient than** the old one.",
+    "exampleZh": "這個方法比舊的更有效率。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-reliable",
@@ -2333,7 +2624,8 @@
     "word": "reliable",
     "pos": "adj. 可靠的",
     "meaning": "值得信賴的",
-    "example": "This brand is **as reliable as** the leading one."
+    "example": "This brand is **as reliable as** the leading one.",
+    "exampleZh": "這個品牌和領導品牌一樣可靠。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-competitive",
@@ -2341,7 +2633,8 @@
     "word": "competitive",
     "pos": "adj. 競爭激烈的",
     "meaning": "有競爭力的",
-    "example": "The market is becoming **more competitive**."
+    "example": "The market is becoming **more competitive**.",
+    "exampleZh": "市場競爭愈來愈激烈。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-substantial",
@@ -2349,7 +2642,8 @@
     "word": "substantial",
     "pos": "adj. 大量的",
     "meaning": "顯著的",
-    "example": "The company reported **a substantial increase** in profit."
+    "example": "The company reported **a substantial increase** in profit.",
+    "exampleZh": "這家公司公布獲利大幅成長。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-considerable",
@@ -2357,7 +2651,8 @@
     "word": "considerable",
     "pos": "adj. 相當大的",
     "meaning": "可觀的",
-    "example": "There was **a considerable difference** between the two proposals."
+    "example": "There was **a considerable difference** between the two proposals.",
+    "exampleZh": "這兩份提案之間有相當大的差異。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-significantly",
@@ -2365,7 +2660,8 @@
     "word": "significantly",
     "pos": "adv. 顯著地",
     "meaning": "大幅地",
-    "example": "Sales rose **significantly higher than** projected."
+    "example": "Sales rose **significantly higher than** projected.",
+    "exampleZh": "銷售的成長明顯高於預期。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-relatively",
@@ -2373,7 +2669,8 @@
     "word": "relatively",
     "pos": "adv.",
     "meaning": "相對地",
-    "example": "The new system is **relatively faster** than the old one."
+    "example": "The new system is **relatively faster** than the old one.",
+    "exampleZh": "這套新系統比舊的相對快一些。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-increasingly",
@@ -2381,7 +2678,8 @@
     "word": "increasingly",
     "pos": "adv.",
     "meaning": "日益地",
-    "example": "Customers are **increasingly demanding** better service."
+    "example": "Customers are **increasingly demanding** better service.",
+    "exampleZh": "顧客對服務品質的要求愈來愈高。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-margin",
@@ -2389,7 +2687,8 @@
     "word": "margin",
     "pos": "n.",
     "meaning": "差距、利潤",
-    "example": "The company won by a narrow **margin**."
+    "example": "The company won by a narrow **margin**.",
+    "exampleZh": "這家公司以些微差距勝出。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-counterpart",
@@ -2397,7 +2696,8 @@
     "word": "counterpart",
     "pos": "n.",
     "meaning": "對應的人/物",
-    "example": "Our sales figures exceeded those of our **counterpart** in Europe."
+    "example": "Our sales figures exceeded those of our **counterpart** in Europe.",
+    "exampleZh": "我們的銷售數字超越了歐洲同單位。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-benchmark",
@@ -2405,7 +2705,8 @@
     "word": "benchmark",
     "pos": "n.",
     "meaning": "基準、標竿",
-    "example": "The new product set **a benchmark** for quality."
+    "example": "The new product set **a benchmark** for quality.",
+    "exampleZh": "這項新產品為品質樹立了標竿。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-outperform",
@@ -2413,7 +2714,8 @@
     "word": "outperform",
     "pos": "v.",
     "meaning": "表現優於",
-    "example": "This model **outperforms** all competitors."
+    "example": "This model **outperforms** all competitors.",
+    "exampleZh": "這個機型的表現勝過所有競爭對手。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-surpass-/-exceed",
@@ -2421,7 +2723,8 @@
     "word": "surpass / exceed",
     "pos": "v.",
     "meaning": "超越、超過",
-    "example": "Revenue **surpassed** expectations this quarter."
+    "example": "Revenue **surpassed** expectations this quarter.",
+    "exampleZh": "本季營收超出預期。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-on-par-with",
@@ -2429,7 +2732,8 @@
     "word": "on par with",
     "pos": "phr.",
     "meaning": "與...同等水準",
-    "example": "Our service is **on par with** industry standards."
+    "example": "Our service is **on par with** industry standards.",
+    "exampleZh": "我們的服務與業界水準相當。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/01_比較級與最高級#v-far-and-away",
@@ -2437,7 +2741,8 @@
     "word": "far and away",
     "pos": "phr.",
     "meaning": "遠遠地、最...",
-    "example": "She is **far and away** the best candidate."
+    "example": "She is **far and away** the best candidate.",
+    "exampleZh": "她遠遠是最出色的人選。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-rarely",
@@ -2445,7 +2750,8 @@
     "word": "rarely",
     "pos": "adv.",
     "meaning": "很少地",
-    "example": "**Rarely does** she miss a deadline."
+    "example": "**Rarely does** she miss a deadline.",
+    "exampleZh": "她很少錯過期限。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-seldom",
@@ -2453,7 +2759,8 @@
     "word": "seldom",
     "pos": "adv.",
     "meaning": "不常地",
-    "example": "**Seldom is** the office this quiet."
+    "example": "**Seldom is** the office this quiet.",
+    "exampleZh": "辦公室很少這麼安靜。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-hardly",
@@ -2461,7 +2768,8 @@
     "word": "hardly",
     "pos": "adv.",
     "meaning": "幾乎不",
-    "example": "**Hardly had** the meeting begun when the fire alarm rang."
+    "example": "**Hardly had** the meeting begun when the fire alarm rang.",
+    "exampleZh": "會議才剛開始，火警警報就響了。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-under-no-circumstances",
@@ -2469,7 +2777,8 @@
     "word": "under no circumstances",
     "pos": "phr.",
     "meaning": "在任何情況下都不",
-    "example": "**Under no circumstances should** you disclose client data."
+    "example": "**Under no circumstances should** you disclose client data.",
+    "exampleZh": "你在任何情況下都不得洩漏客戶資料。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-not-until",
@@ -2477,7 +2786,8 @@
     "word": "not until",
     "pos": "phr.",
     "meaning": "直到...才",
-    "example": "**Not until** the contract is signed **will** the deal proceed."
+    "example": "**Not until** the contract is signed **will** the deal proceed.",
+    "exampleZh": "要等到合約簽署，這樁交易才會進行。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-in-no-way",
@@ -2485,7 +2795,8 @@
     "word": "in no way",
     "pos": "phr.",
     "meaning": "絕不",
-    "example": "**In no way does** this affect our schedule."
+    "example": "**In no way does** this affect our schedule.",
+    "exampleZh": "這件事完全不會影響我們的時程。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-exceed",
@@ -2493,7 +2804,8 @@
     "word": "exceed",
     "pos": "v.",
     "meaning": "超過",
-    "example": "The results **exceeded** all expectations."
+    "example": "The results **exceeded** all expectations.",
+    "exampleZh": "結果超出了所有人的預期。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-submit",
@@ -2501,7 +2813,8 @@
     "word": "submit",
     "pos": "v.",
     "meaning": "提交",
-    "example": "**Not until** the form is **submitted** will the application be processed."
+    "example": "**Not until** the form is **submitted** will the application be processed.",
+    "exampleZh": "要等到表格送出，申請才會開始處理。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-disclose",
@@ -2509,7 +2822,8 @@
     "word": "disclose",
     "pos": "v.",
     "meaning": "揭露",
-    "example": "**Under no circumstances should** employees **disclose** confidential data."
+    "example": "**Under no circumstances should** employees **disclose** confidential data.",
+    "exampleZh": "員工在任何情況下都不得洩漏機密資料。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-acknowledge",
@@ -2517,7 +2831,8 @@
     "word": "acknowledge",
     "pos": "v.",
     "meaning": "承認、確認收到",
-    "example": "**Only after** reviewing the file did she **acknowledge** the mistake."
+    "example": "**Only after** reviewing the file did she **acknowledge** the mistake.",
+    "exampleZh": "直到看完檔案，她才承認自己的錯誤。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-so-far",
@@ -2525,7 +2840,8 @@
     "word": "so far",
     "pos": "phr.",
     "meaning": "到目前為止",
-    "example": "**So far**, the project has gone smoothly."
+    "example": "**So far**, the project has gone smoothly.",
+    "exampleZh": "到目前為止，這個專案進行得很順利。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/02_倒裝句#v-no-sooner...than",
@@ -2533,7 +2849,8 @@
     "word": "no sooner...than",
     "pos": "phr.",
     "meaning": "一...就...",
-    "example": "**No sooner had** he arrived **than** the meeting started."
+    "example": "**No sooner had** he arrived **than** the meeting started.",
+    "exampleZh": "他一到，會議就開始了。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-committee",
@@ -2541,7 +2858,8 @@
     "word": "committee",
     "pos": "n. 委員會",
     "meaning": "集合名詞，多益視為單數",
-    "example": "The **committee has** approved the budget."
+    "example": "The **committee has** approved the budget.",
+    "exampleZh": "委員會已經核准這筆預算。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-equipment",
@@ -2549,7 +2867,8 @@
     "word": "equipment",
     "pos": "n. 設備",
     "meaning": "不可數",
-    "example": "The **equipment is** stored in the warehouse."
+    "example": "The **equipment is** stored in the warehouse.",
+    "exampleZh": "這些設備存放在倉庫裡。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-furniture",
@@ -2557,7 +2876,8 @@
     "word": "furniture",
     "pos": "n. 家具",
     "meaning": "不可數",
-    "example": "New **furniture has** arrived at the office."
+    "example": "New **furniture has** arrived at the office.",
+    "exampleZh": "新家具已經運到辦公室了。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-research",
@@ -2565,7 +2885,8 @@
     "word": "research",
     "pos": "n. 研究",
     "meaning": "不可數",
-    "example": "**Research shows** that remote work boosts productivity."
+    "example": "**Research shows** that remote work boosts productivity.",
+    "exampleZh": "研究顯示遠距工作能提升生產力。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-personnel",
@@ -2573,7 +2894,8 @@
     "word": "personnel",
     "pos": "n. 全體人員",
     "meaning": "恆為複數",
-    "example": "**Personnel are** required to wear ID badges."
+    "example": "**Personnel are** required to wear ID badges.",
+    "exampleZh": "全體人員都必須配戴識別證。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-each",
@@ -2581,7 +2903,8 @@
     "word": "each",
     "pos": "pron./adj. 每一個",
     "meaning": "恆單數",
-    "example": "**Each** applicant **is** interviewed individually."
+    "example": "**Each** applicant **is** interviewed individually.",
+    "exampleZh": "每位申請人都會個別面試。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-everyone-/-everybody",
@@ -2589,7 +2912,8 @@
     "word": "everyone / everybody",
     "pos": "pron. 每個人",
     "meaning": "恆單數",
-    "example": "**Everyone is** invited to the event."
+    "example": "**Everyone is** invited to the event.",
+    "exampleZh": "每個人都受邀參加這場活動。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-several",
@@ -2597,7 +2921,8 @@
     "word": "several",
     "pos": "adj. 幾個的",
     "meaning": "恆複數",
-    "example": "**Several** proposals **have** been submitted."
+    "example": "**Several** proposals **have** been submitted.",
+    "exampleZh": "已經有好幾份提案送出。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-the-majority-of",
@@ -2605,7 +2930,8 @@
     "word": "the majority of",
     "pos": "phr. 大部分的",
     "meaning": "依後面名詞決定單複數",
-    "example": "**The majority of** staff **are** satisfied."
+    "example": "**The majority of** staff **are** satisfied.",
+    "exampleZh": "多數員工都感到滿意。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-consist-of",
@@ -2613,7 +2939,8 @@
     "word": "consist of",
     "pos": "v.",
     "meaning": "由...組成",
-    "example": "The team **consists of** ten engineers."
+    "example": "The team **consists of** ten engineers.",
+    "exampleZh": "這個團隊由十位工程師組成。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/03_主動詞一致性#v-vary",
@@ -2621,7 +2948,8 @@
     "word": "vary",
     "pos": "v.",
     "meaning": "因人/物而異",
-    "example": "Prices **vary** depending on the region."
+    "example": "Prices **vary** depending on the region.",
+    "exampleZh": "價格會依地區而有所不同。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-submit",
@@ -2629,7 +2957,8 @@
     "word": "submit",
     "pos": "v.",
     "meaning": "提交",
-    "example": "You **submitted** the invoice, **didn't** you?"
+    "example": "You **submitted** the invoice, **didn't** you?",
+    "exampleZh": "發票是你送出的，對吧？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-attend",
@@ -2637,7 +2966,8 @@
     "word": "attend",
     "pos": "v.",
     "meaning": "出席",
-    "example": "He **will attend** the seminar, **won't** he?"
+    "example": "He **will attend** the seminar, **won't** he?",
+    "exampleZh": "他會參加這場研討會，不是嗎？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-confirm",
@@ -2645,7 +2975,8 @@
     "word": "confirm",
     "pos": "v.",
     "meaning": "確認",
-    "example": "She **has confirmed** the reservation, **hasn't** she?"
+    "example": "She **has confirmed** the reservation, **hasn't** she?",
+    "exampleZh": "她已經確認訂位了，不是嗎？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-postpone",
@@ -2653,7 +2984,8 @@
     "word": "postpone",
     "pos": "v.",
     "meaning": "延後",
-    "example": "The meeting **wasn't postponed**, **was** it?"
+    "example": "The meeting **wasn't postponed**, **was** it?",
+    "exampleZh": "這場會議沒有延期，對吧？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-if-i'm-not-mistaken",
@@ -2661,7 +2993,8 @@
     "word": "if I'm not mistaken",
     "pos": "phr.",
     "meaning": "如果我沒記錯",
-    "example": "If I'm not mistaken, the deadline is Friday, **isn't** it?"
+    "example": "If I'm not mistaken, the deadline is Friday, **isn't** it?",
+    "exampleZh": "如果我沒記錯，期限是週五，對吧？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-as-far-as-i-know",
@@ -2669,7 +3002,8 @@
     "word": "as far as I know",
     "pos": "phr.",
     "meaning": "據我所知",
-    "example": "As far as I know, he's still on leave, **isn't** he?"
+    "example": "As far as I know, he's still on leave, **isn't** he?",
+    "exampleZh": "就我所知，他還在休假，不是嗎？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-let-me-verify",
@@ -2677,7 +3011,8 @@
     "word": "let me verify",
     "pos": "phr.",
     "meaning": "讓我確認一下",
-    "example": "**Let me verify** that before I answer."
+    "example": "**Let me verify** that before I answer.",
+    "exampleZh": "讓我先確認一下再回答你。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-i'll-double-check",
@@ -2685,7 +3020,8 @@
     "word": "I'll double-check",
     "pos": "phr.",
     "meaning": "我會再確認",
-    "example": "**I'll double-check** and get back to you."
+    "example": "**I'll double-check** and get back to you.",
+    "exampleZh": "我會再確認一次，然後回覆你。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-presumably",
@@ -2693,7 +3029,8 @@
     "word": "presumably",
     "pos": "adv.",
     "meaning": "據推測",
-    "example": "Presumably, she'll be here on time, **won't** she?"
+    "example": "Presumably, she'll be here on time, **won't** she?",
+    "exampleZh": "她應該會準時到，不是嗎？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/04_附加問句#v-allegedly",
@@ -2701,7 +3038,8 @@
     "word": "allegedly",
     "pos": "adv.",
     "meaning": "據稱",
-    "example": "He allegedly missed the flight, **didn't** he?"
+    "example": "He allegedly missed the flight, **didn't** he?",
+    "exampleZh": "據說他錯過了班機，不是嗎？"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-dependent-on",
@@ -2709,7 +3047,8 @@
     "word": "be dependent on",
     "pos": "adj.",
     "meaning": "依賴於",
-    "example": "Success **is dependent on** teamwork."
+    "example": "Success **is dependent on** teamwork.",
+    "exampleZh": "成功取決於團隊合作。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-aware-of",
@@ -2717,7 +3056,8 @@
     "word": "be aware of",
     "pos": "adj.",
     "meaning": "知悉、意識到",
-    "example": "Please **be aware of** the new safety rules."
+    "example": "Please **be aware of** the new safety rules.",
+    "exampleZh": "請留意新的安全規定。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-capable-of",
@@ -2725,7 +3065,8 @@
     "word": "be capable of",
     "pos": "adj.",
     "meaning": "有能力做到",
-    "example": "She **is capable of** managing the entire department."
+    "example": "She **is capable of** managing the entire department.",
+    "exampleZh": "她有能力管理整個部門。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-exempt-from",
@@ -2733,7 +3074,8 @@
     "word": "be exempt from",
     "pos": "adj.",
     "meaning": "被豁免",
-    "example": "Non-profit organizations **are exempt from** this tax."
+    "example": "Non-profit organizations **are exempt from** this tax.",
+    "exampleZh": "非營利組織免課這項稅。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-be-entitled-to",
@@ -2741,7 +3083,8 @@
     "word": "be entitled to",
     "pos": "adj.",
     "meaning": "有權獲得",
-    "example": "Full-time staff **are entitled to** paid leave."
+    "example": "Full-time staff **are entitled to** paid leave.",
+    "exampleZh": "全職員工享有帶薪假。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-comply-with",
@@ -2749,7 +3092,8 @@
     "word": "comply with",
     "pos": "v.",
     "meaning": "遵守",
-    "example": "All vendors must **comply with** the contract terms."
+    "example": "All vendors must **comply with** the contract terms.",
+    "exampleZh": "所有供應商都必須遵守合約條款。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-consist-of",
@@ -2757,7 +3101,8 @@
     "word": "consist of",
     "pos": "v.",
     "meaning": "由...組成",
-    "example": "The package **consists of** three components."
+    "example": "The package **consists of** three components.",
+    "exampleZh": "這個包裝由三個部分組成。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-refrain-from",
@@ -2765,7 +3110,8 @@
     "word": "refrain from",
     "pos": "v.",
     "meaning": "克制不做",
-    "example": "Visitors should **refrain from** taking photos."
+    "example": "Visitors should **refrain from** taking photos.",
+    "exampleZh": "訪客請勿拍照。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-result-from-/-result-in",
@@ -2773,7 +3119,8 @@
     "word": "result from / result in",
     "pos": "v.",
     "meaning": "起因於 / 導致",
-    "example": "The error **resulted from** a system glitch."
+    "example": "The error **resulted from** a system glitch.",
+    "exampleZh": "這個錯誤起因於系統故障。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-in-accordance-with",
@@ -2781,7 +3128,8 @@
     "word": "in accordance with",
     "pos": "phr.",
     "meaning": "依照",
-    "example": "Payment will be made **in accordance with** the agreement."
+    "example": "Payment will be made **in accordance with** the agreement.",
+    "exampleZh": "款項將依協議支付。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-in-compliance-with",
@@ -2789,7 +3137,8 @@
     "word": "in compliance with",
     "pos": "phr.",
     "meaning": "遵守",
-    "example": "The building was constructed **in compliance with** fire codes."
+    "example": "The building was constructed **in compliance with** fire codes.",
+    "exampleZh": "這棟建築是依照消防法規建造的。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-at-the-discretion-of",
@@ -2797,7 +3146,8 @@
     "word": "at the discretion of",
     "pos": "phr.",
     "meaning": "由...自行決定",
-    "example": "Bonuses are given **at the discretion of** management."
+    "example": "Bonuses are given **at the discretion of** management.",
+    "exampleZh": "獎金由管理階層斟酌發放。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-regardless-of",
@@ -2805,7 +3155,8 @@
     "word": "regardless of",
     "pos": "phr.",
     "meaning": "不論",
-    "example": "All applicants are considered **regardless of** experience level."
+    "example": "All applicants are considered **regardless of** experience level.",
+    "exampleZh": "所有應徵者不論經驗多寡都會被納入考量。"
   },
   {
     "id": "grammar/06_其他多益必考進階題型/05_易混淆介系詞片語#v-on-behalf-of",
@@ -2813,6 +3164,7 @@
     "word": "on behalf of",
     "pos": "phr.",
     "meaning": "代表",
-    "example": "She signed the document **on behalf of** the director."
+    "example": "She signed the document **on behalf of** the director.",
+    "exampleZh": "她代表主管簽署了這份文件。"
   }
 ]

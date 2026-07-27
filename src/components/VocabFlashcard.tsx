@@ -4,8 +4,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { RotateCw, Volume2 } from 'lucide-react'
 import type { VocabItem } from '../../scripts/build-content/types'
 import { getSrsIntervalLabel } from '../lib/storage'
-import { splitEmphasis } from '../lib/emphasis'
 import { Button } from './ui/Button'
+import { EmphasisText } from './EmphasisText'
 import { MasteryDots } from './MasteryDots'
 
 interface VocabFlashcardProps {
@@ -13,22 +13,6 @@ interface VocabFlashcardProps {
   /** level 1=不會 2=有點難 3=記得（見 storage.updateVocabMastery） */
   onGrade: (level: number) => void
   currentLevel: number
-}
-
-/**
- * 例句裡的目標字用星號標起來，渲染時去掉星號但保留強調。
- * 筆記兩種寫法都有（*斜體* 與 **粗體**），只認單星號會把外圈的 * 漏在畫面上。
- */
-function renderExample(example: string): React.ReactNode {
-  return splitEmphasis(example).map((part, i) =>
-    part.emphasised ? (
-      <strong key={i} className="font-bold text-[var(--tx)]">
-        {part.text}
-      </strong>
-    ) : (
-      <React.Fragment key={i}>{part.text}</React.Fragment>
-    )
-  )
 }
 
 const GRADES = [
@@ -103,9 +87,17 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
           <div className="my-auto animate-fade-in space-y-3">
             <h3 className="text-xl font-bold text-[var(--pr)]">{item.meaning}</h3>
             {item.example && (
-              <p className="mx-auto max-w-xs border-t border-[var(--ln)] pt-3 text-sm leading-relaxed text-[var(--mu)]">
-                {renderExample(item.example)}
-              </p>
+              <div className="mx-auto max-w-xs space-y-1.5 border-t border-[var(--ln)] pt-3">
+                <p className="text-sm leading-relaxed text-[var(--mu)]">
+                  <EmphasisText text={item.example} />
+                </p>
+                {/* 例句看得懂才有意義；沒有翻譯的字就只留英文，不留空欄位。 */}
+                {item.exampleZh && (
+                  <p className="text-[13px] leading-relaxed text-[var(--mu)] opacity-80">
+                    {item.exampleZh}
+                  </p>
+                )}
+              </div>
             )}
           </div>
         )}

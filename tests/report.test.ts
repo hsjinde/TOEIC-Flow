@@ -5,6 +5,7 @@ const stats: BuildStats = {
   chapters: 29,
   grammar: 145,
   vocab: 352,
+  vocabExampleZh: 352,
   formulas: 145,
   readingPassages: 8,
   readingQuestions: 46,
@@ -17,7 +18,7 @@ describe('formatReport', () => {
     const output = formatReport(stats, [])
     expect(output).toContain('章節：29')
     expect(output).toContain('文法題：145')
-    expect(output).toContain('單字：352')
+    expect(output).toContain('單字：352（352 筆有例句中文）')
     expect(output).toContain('秒殺公式：145')
     expect(output).toContain('閱讀篇章：8')
     expect(output).toContain('模擬考：2')

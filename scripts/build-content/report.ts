@@ -4,6 +4,8 @@ export interface BuildStats {
   chapters: number
   grammar: number
   vocab: number
+  /** 其中有例句中文翻譯的筆數 */
+  vocabExampleZh: number
   formulas: number
   readingPassages: number
   readingQuestions: number
@@ -20,7 +22,7 @@ export function formatReport(stats: BuildStats, issues: Issue[]): string {
   lines.push('=== 題庫 build report ===')
   lines.push(`章節：${stats.chapters}`)
   lines.push(`文法題：${stats.grammar}`)
-  lines.push(`單字：${stats.vocab}`)
+  lines.push(`單字：${stats.vocab}（${stats.vocabExampleZh} 筆有例句中文）`)
   lines.push(`秒殺公式：${stats.formulas}`)
   lines.push(`閱讀篇章：${stats.readingPassages}（${stats.readingQuestions} 題）`)
   lines.push(`模擬考：${stats.mockExams}（${stats.mockQuestions} 題）`)

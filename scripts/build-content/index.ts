@@ -14,6 +14,8 @@ import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } 
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
 const OUT_DIR = join(process.cwd(), 'content')
+/** 例句中文翻譯的側車檔（筆記裡沒有這份資料），key 是單字 id。 */
+const EXAMPLE_ZH_PATH = join(process.cwd(), 'data', 'vocab-example-zh.json')
 
 const READING_KINDS: Record<string, 'single' | 'paragraph' | 'article'> = {
   '01_單句填空題': 'single',
@@ -41,6 +43,46 @@ function readAnswers(path: string, label: string, issues: Issue[]): AnswerEntry[
     return []
   }
   return parseAnswers(readFileSync(path, 'utf8'))
+}
+
+/**
+ * 把例句中文併進單字，並把對不上的字記成警告。
+ *
+ * id 是從筆記路徑推出來的，改檔名就會讓翻譯無聲脫鉤——所以這裡一定要報出數量，
+ * 不能靜靜地退回空字串（同 merge.ts 的原則：解析器要吵，不能沉默）。
+ */
+function attachExampleZh(vocab: VocabItem[], issues: Issue[]): void {
+  const table: Record<string, string> = existsSync(EXAMPLE_ZH_PATH)
+    ? JSON.parse(readFileSync(EXAMPLE_ZH_PATH, 'utf8'))
+    : {}
+
+  const missing: string[] = []
+  for (const item of vocab) {
+    const zh = table[item.id]?.trim()
+    if (zh) item.exampleZh = zh
+    else if (item.example) missing.push(item.id)
+  }
+
+  if (missing.length > 0) {
+    issues.push({
+      level: 'warn',
+      questionId: 'vocab-example-zh',
+      message: `${missing.length} 個單字缺少例句中文（${EXAMPLE_ZH_PATH}）：${missing
+        .slice(0, 5)
+        .join('、')}${missing.length > 5 ? ' …' : ''}`,
+    })
+  }
+
+  const orphans = Object.keys(table).filter((id) => !vocab.some((v) => v.id === id))
+  if (orphans.length > 0) {
+    issues.push({
+      level: 'warn',
+      questionId: 'vocab-example-zh',
+      message: `${orphans.length} 筆例句中文對不到任何單字（筆記可能改名）：${orphans
+        .slice(0, 5)
+        .join('、')}${orphans.length > 5 ? ' …' : ''}`,
+    })
+  }
 }
 
 function main(): void {
@@ -113,10 +155,13 @@ function main(): void {
     })
   }
 
+  attachExampleZh(vocab, issues)
+
   const stats: BuildStats = {
     chapters: chapterList.length,
     grammar: grammar.length,
     vocab: vocab.length,
+    vocabExampleZh: vocab.filter((v) => v.exampleZh).length,
     formulas: formulas.length,
     readingPassages: reading.length,
     readingQuestions: reading.reduce((n, p) => n + p.questions.length, 0),

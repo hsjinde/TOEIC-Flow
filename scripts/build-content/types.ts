@@ -53,6 +53,11 @@ export const VocabItemSchema = z.object({
   pos: z.string(),
   meaning: z.string().min(1),
   example: z.string(),
+  /**
+   * 例句中文翻譯。筆記本身沒有這欄，由 `data/vocab-example-zh.json` 在 build 時併入；
+   * 對不上的字留空字串，UI 才能條件渲染而不是印出 undefined。
+   */
+  exampleZh: z.string().default(''),
 })
 export type VocabItem = z.infer<typeof VocabItemSchema>
 

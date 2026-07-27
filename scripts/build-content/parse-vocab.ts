@@ -53,7 +53,8 @@ export function parseVocab(md: string, chapterId: string): VocabItem[] {
     const { pos, meaning } = splitPos((beforeExample ?? '').trim())
 
     if (!word || !meaning) continue
-    items.push({ id: vocabId(chapterId, word), chapterId, word, pos, meaning, example })
+    // exampleZh 不在筆記裡，由 index.ts 從 data/vocab-example-zh.json 併入。
+    items.push({ id: vocabId(chapterId, word), chapterId, word, pos, meaning, example, exampleZh: '' })
   }
   return items
 }

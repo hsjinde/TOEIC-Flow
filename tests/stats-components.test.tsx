@@ -7,6 +7,7 @@ import { PracticeCalendar } from '../src/components/PracticeCalendar'
 import { GraduationDots } from '../src/components/GraduationDots'
 import { MasteryDots } from '../src/components/MasteryDots'
 import { VocabQuiz, quizKindFor } from '../src/components/VocabQuiz'
+import { VocabFlashcard } from '../src/components/VocabFlashcard'
 import type { VocabItem } from '../scripts/build-content/types'
 
 const AXES = [
@@ -101,6 +102,7 @@ const ITEM: VocabItem = {
   pos: '名詞',
   meaning: '行程表',
   example: 'Please review the *itinerary* before the trip.',
+  exampleZh: '出發前請先看過這份行程表。',
 }
 
 const POOL: VocabItem[] = [
@@ -109,6 +111,35 @@ const POOL: VocabItem[] = [
   { ...ITEM, id: 'c', word: 'agenda', meaning: '會議記錄' },
   { ...ITEM, id: 'd', word: 'invoice', meaning: '發票' },
 ]
+
+/**
+ * 作答後解析卡也會寫出釋義，getByText 會一次撈到選項和解析兩個節點。
+ * 要點的一定是選項按鈕，所以這裡指名按鈕，不靠 DOM 順序。
+ */
+function pickOption(text: string): HTMLElement {
+  return screen
+    .getAllByRole('button')
+    .find((b) => b.textContent?.startsWith('(') && b.textContent.includes(text))!
+}
+
+describe('VocabFlashcard', () => {
+  it('shows the example sentence with its chinese once flipped', () => {
+    render(<VocabFlashcard item={ITEM} onGrade={vi.fn()} currentLevel={0} />)
+    expect(screen.queryByText('出發前請先看過這份行程表。')).toBeNull()
+
+    fireEvent.click(screen.getByLabelText('翻到中文釋義'))
+
+    expect(screen.getByText(/Please review the/)).toBeTruthy()
+    expect(screen.getByText('出發前請先看過這份行程表。')).toBeTruthy()
+  })
+
+  it('leaves the sentence in english when there is no translation', () => {
+    render(<VocabFlashcard item={{ ...ITEM, exampleZh: '' }} onGrade={vi.fn()} currentLevel={0} />)
+    fireEvent.click(screen.getByLabelText('翻到中文釋義'))
+    expect(screen.getByText(/Please review the/)).toBeTruthy()
+    expect(screen.queryByText('出發前請先看過這份行程表。')).toBeNull()
+  })
+})
 
 describe('VocabQuiz', () => {
   beforeEach(() => {
@@ -191,8 +222,8 @@ describe('VocabQuiz', () => {
       />
     )
 
-    fireEvent.click(screen.getByText('行程表'))
-    fireEvent.click(screen.getByText('行程表'))
+    fireEvent.click(pickOption('行程表'))
+    fireEvent.click(pickOption('行程表'))
     expect(onAnswer).toHaveBeenCalledTimes(1)
   })
 
@@ -214,6 +245,43 @@ describe('VocabQuiz', () => {
     render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
     fireEvent.click(screen.getByText('庫存清單'))
     expect(screen.getByLabelText('熟悉度 0 / 4')).toBeTruthy()
+  })
+
+  it('shows an explanation with the full example and its chinese once answered', () => {
+    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
+    expect(screen.queryByText('解析')).toBeNull()
+
+    fireEvent.click(pickOption('行程表'))
+
+    expect(screen.getByText('解析')).toBeTruthy()
+    expect(screen.getByText(/Please review the/)).toBeTruthy()
+    expect(screen.getByText('出發前請先看過這份行程表。')).toBeTruthy()
+  })
+
+  it('spells out what the wrong pick actually meant', () => {
+    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
+    fireEvent.click(pickOption('庫存清單'))
+
+    // 錯選的那個字是誰、是什麼意思，才是這題真正要學的東西。
+    const note = screen.getByText(/你選的/)
+    expect(note.textContent).toContain('inventory')
+    expect(note.textContent).toContain('庫存清單')
+  })
+
+  it('keeps the explanation out of the way when the answer was right', () => {
+    render(<VocabQuiz item={ITEM} pool={POOL} index={0} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
+    fireEvent.click(pickOption('行程表'))
+    expect(screen.queryByText(/你選的/)).toBeNull()
+  })
+
+  it('shows the filled-in sentence in the cloze explanation, not the blanked one', () => {
+    // 填空題的教學點就是「字填回去長什麼樣」，解析再給一次挖空的句子等於沒解析。
+    render(<VocabQuiz item={ITEM} pool={POOL} index={2} currentLevel={0} onAnswer={vi.fn()} onNext={vi.fn()} />)
+    fireEvent.click(pickOption('itinerary'))
+    // 題面那句仍是挖空的，所以這裡本來就會撈到兩句；解析那句要看得到答案。
+    const sentences = screen.getAllByText(/Please review the/).map((el) => el.textContent)
+    expect(sentences).toContain('Please review the ______ before the trip.')
+    expect(sentences).toContain('Please review the itinerary before the trip.')
   })
 
   it('blanks out the target word in the cloze prompt', () => {

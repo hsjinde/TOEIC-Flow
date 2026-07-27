@@ -35,6 +35,7 @@ Obsidian markdown notes are parsed at build time into committed JSON, which is i
 - **The parser must be loud, never silent.** `merge.ts` drops any question that fails an error-level check and records an `Issue`; `hasBlockingIssues()` then fails the build. Adding a lenient fallback that silently accepts malformed notes defeats the whole design.
 - `id.ts` derives ids from note paths (`grammar/01_八大詞性與句型結構/01_名詞與代名詞#q5`). **These ids are persisted in user SRS/wrong-answer records in D1** — renaming a note file or category silently orphans user data.
 - `types.ts` holds zod schemas that are the single source of truth for content shape; `src/lib/content.ts` casts the JSON to those types.
+- `data/vocab-example-zh.json` is the one build **input** that does not come from the vault: the notes carry no Chinese for vocab example sentences, so the translations are hand-maintained here, keyed by vocab id, and merged onto `VocabItem.exampleZh` by `attachExampleZh()` in `index.ts`. Same "loud, never silent" rule — the build report prints how many items got a translation, and warns both for vocab with no entry and for entries matching no vocab (the symptom of a renamed note). Adding a word to the notes means adding its translation here too.
 - `content/*.json` is committed and forced to LF by `.gitattributes` — without it every rebuild shows six files changed by line endings alone.
 
 ### 2. Frontend (`src/`, Next.js App Router, `output: 'export'`)

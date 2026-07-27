@@ -3,3 +3,5 @@
 # six modified files that differ only in line endings — which would hide
 # whether a note change actually altered the content.
 content/*.json text eol=lf
+# 同理：例句中文是 build 的輸入，混到 CRLF 一樣會讓 diff 假動作。
+data/*.json text eol=lf
