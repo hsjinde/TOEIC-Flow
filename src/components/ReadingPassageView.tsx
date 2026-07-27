@@ -214,7 +214,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
 
         {/* 手機把主要動作釘在拇指區，詳解再長也不會把「下一題」推出視窗。 */}
         {selectedKey && (
-          <div className="sticky bottom-16 z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)] px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+          <div className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom,0px))] z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)]/95 backdrop-blur-md px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
             <Button variant="primary" onClick={handleNextQuestion}>
               {currentQIndex + 1 < passage.questions.length ? '下一題' : '完成閱讀練習'}
               <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>

@@ -24,7 +24,7 @@ export const BottomNav: React.FC = () => {
     <nav
       aria-label="主導航"
       data-chrome="nav"
-      className="fixed bottom-0 left-0 right-0 z-40 mx-auto max-w-md border-t border-[var(--ln)] bg-[var(--sf)] px-4 py-2 backdrop-blur-md md:max-w-2xl lg:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 mx-auto max-w-md border-t border-[var(--ln)] bg-[var(--sf)] px-4 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] backdrop-blur-md md:max-w-2xl lg:hidden"
     >
       <div className="flex items-center justify-around">
         {NAV_ITEMS.map((item) => {

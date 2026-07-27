@@ -1,4 +1,5 @@
 import React from 'react'
+import { cn } from '../lib/utils'
 
 export interface RadarAxis {
   label: string
@@ -53,7 +54,7 @@ export const RadarChart: React.FC<RadarChartProps> = ({ axes, size = 480, classN
       width={size}
       height={Math.round((size * viewH) / viewW)}
       viewBox={`-${padX} -${padY} ${viewW} ${viewH}`}
-      className={className}
+      className={cn('w-full max-w-full h-auto mx-auto block', className)}
       role="img"
       aria-label={`六大文法類別正確率：${axes.map((a) => `${a.label} ${a.value}%`).join('、')}`}
     >

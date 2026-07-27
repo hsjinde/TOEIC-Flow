@@ -42,7 +42,7 @@ export function AuthModal() {
     // animate-fadeIn 這個 class 從來不存在（globals.css 定義的是 animate-fade-in），
     // 所以這個淡入從第一天起就沒生效過。
     <div className="fixed inset-0 z-50 flex animate-fade-in items-center justify-center bg-black/80 p-4 backdrop-blur-md">
-      <div className="w-full max-w-md space-y-6 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] md:p-8">
+      <div className="w-full max-w-md max-h-[90vh] overflow-y-auto space-y-6 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] sm:p-8">
         {/* Title */}
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--pr-sf)] border border-[var(--pr-ln)] text-[var(--pr)] text-xs font-bold">

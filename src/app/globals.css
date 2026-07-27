@@ -179,6 +179,13 @@ body {
   overflow-x: hidden;
 }
 
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   color: var(--tx);
   background: var(--bg);
