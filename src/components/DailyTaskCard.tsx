@@ -33,25 +33,25 @@ export const DailyTaskCard: React.FC<DailyTaskCardProps> = ({
     <Link
       href={href}
       className={cn(
-        'flex min-h-[72px] items-center justify-between gap-3 rounded-2xl border p-4 transition-colors duration-200',
+        'flex min-h-[64px] sm:min-h-[72px] items-center justify-between gap-3 rounded-2xl border p-3.5 sm:p-4 transition-colors duration-200 overflow-hidden',
         completed
           ? 'border-[var(--ln)] bg-[var(--sf)] opacity-70 hover:opacity-100'
           : 'border-[var(--pr-ln)] bg-[var(--sf)] hover:bg-[var(--pr-sf)]'
       )}
     >
-      <div className="flex min-w-0 items-center gap-3.5">
+      <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-3.5">
         <div
           className={cn(
-            'flex h-10 w-10 shrink-0 items-center justify-center rounded-xl',
+            'flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl',
             completed
               ? 'bg-[var(--sf2)] text-[var(--mu)]'
               : 'bg-[var(--pr-sf)] text-[var(--pr)]'
           )}
         >
-          {completed ? <Check className="h-5 w-5" /> : icon}
+          {completed ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : icon}
         </div>
-        <div className="min-w-0">
-          <h3 className="truncate text-[15px] font-semibold text-[var(--tx)]">{title}</h3>
+        <div className="min-w-0 flex-1">
+          <h3 className="truncate text-sm sm:text-[15px] font-semibold text-[var(--tx)]">{title}</h3>
           <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
             {completed && resultText ? resultText : subtitle}
           </p>
@@ -69,9 +69,10 @@ export const DailyTaskCard: React.FC<DailyTaskCardProps> = ({
             <RotateCcw className="h-3.5 w-3.5" /> 重做
           </>
         ) : (
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
         )}
       </span>
     </Link>
   )
 }
+

@@ -17,8 +17,8 @@ interface ProgressRingProps {
 export const ProgressRing: React.FC<ProgressRingProps> = ({
   completed,
   total,
-  size = 120,
-  strokeWidth = 10,
+  size = 168,
+  strokeWidth = 11,
   label = '今日任務完成',
 }) => {
   const radius = (size - strokeWidth) / 2
@@ -29,11 +29,16 @@ export const ProgressRing: React.FC<ProgressRingProps> = ({
 
   return (
     <div
-      className="relative inline-flex items-center justify-center"
+      className="relative inline-flex items-center justify-center max-w-full"
       role="img"
       aria-label={`${label} ${completed} / ${total}`}
     >
-      <svg width={size} height={size} className="-rotate-90 transform">
+      <svg
+        width={size}
+        height={size}
+        viewBox={`0 0 ${size} ${size}`}
+        className="-rotate-90 transform w-36 h-36 sm:w-44 sm:h-44 max-w-full h-auto"
+      >
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -55,23 +60,24 @@ export const ProgressRing: React.FC<ProgressRingProps> = ({
           fill="transparent"
         />
       </svg>
-      <div className="absolute flex flex-col items-center text-center">
+      <div className="absolute flex flex-col items-center text-center px-2">
         {isComplete ? (
           <>
-            <Check className="h-8 w-8 text-[var(--pr)]" />
+            <Check className="h-7 w-7 sm:h-8 sm:w-8 text-[var(--pr)]" />
             <span className="mt-1 text-xs font-semibold text-[var(--mu)]">
               {completed}/{total} 已完成
             </span>
           </>
         ) : (
           <>
-            <span className="text-2xl font-bold text-[var(--tx)]">
+            <span className="text-xl sm:text-2xl font-bold text-[var(--tx)]">
               {completed}/{total}
             </span>
-            <span className="block text-xs text-[var(--mu)]">{label}</span>
+            <span className="block text-[11px] sm:text-xs text-[var(--mu)]">{label}</span>
           </>
         )}
       </div>
     </div>
   )
 }
+
