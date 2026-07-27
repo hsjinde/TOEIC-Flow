@@ -103,15 +103,15 @@ export async function onRequestPost(context: any) {
             .bind(userId, questionId)
             .run()
         } else {
+          // 只更新既有紀錄——第一次就答對的題目在表裡沒有列，UPDATE 不會新增，
+          // 避免把從未答錯的題目誤植入錯題本（見 storage.ts 的 tracked 判斷）。
           await db
             .prepare(
-              `INSERT INTO user_wrong_questions (user_id, question_id, category_id, consecutive_correct, updated_at)
-               VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
-               ON CONFLICT(user_id, question_id) DO UPDATE SET
-                 consecutive_correct = excluded.consecutive_correct,
-                 updated_at = CURRENT_TIMESTAMP`
+              `UPDATE user_wrong_questions
+               SET consecutive_correct = ?, updated_at = CURRENT_TIMESTAMP
+               WHERE user_id = ? AND question_id = ?`
             )
-            .bind(userId, questionId, categoryId, consecutiveCorrect)
+            .bind(consecutiveCorrect, userId, questionId)
             .run()
         }
       } else {

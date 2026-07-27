@@ -56,6 +56,11 @@ function createMockD1() {
           } else if (query.includes('INSERT INTO user_wrong_questions')) {
             const [user_id, question_id, category_id, consecutive_correct] = bindings
             wrongTable.set(`${user_id}:${question_id}`, { user_id, question_id, category_id, consecutive_correct })
+          } else if (query.includes('UPDATE user_wrong_questions')) {
+            const [consecutive_correct, user_id, question_id] = bindings
+            const key = `${user_id}:${question_id}`
+            const existing = wrongTable.get(key)
+            if (existing) wrongTable.set(key, { ...existing, consecutive_correct })
           } else if (query.includes('DELETE FROM user_wrong_questions')) {
             const [user_id, question_id] = bindings
             wrongTable.delete(`${user_id}:${question_id}`)
@@ -177,6 +182,37 @@ describe('Cloudflare Pages Functions Auth & User API', () => {
     const data = await dataRes.json()
     expect(data.vocabMastery.length).toBe(1)
     expect(data.wrongQuestions.length).toBe(1)
+    expect(data.answerHistory.length).toBe(1)
+  })
+
+  it('never files a question that was answered correctly on the first try', async () => {
+    // 第一次就答對的題目不該被寫進 user_wrong_questions（見 storage.ts 的 tracked 判斷，
+    // 後端要鏡射同一條規則，否則 syncUserDataFromD1 會把幽靈錯題復活回本機錯題本）。
+    const regReq = new Request('http://localhost/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'firsttry@example.com', password: 'password123', nickname: 'FirstTry' }),
+    })
+    const regRes = await registerHandler({ request: regReq, env })
+    const cookieValue = regRes.headers.get('Set-Cookie')?.match(/toeic_session=([^;]+)/)?.[1] || ''
+
+    const actionReq = new Request('http://localhost/api/user/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Cookie: `toeic_session=${cookieValue}` },
+      body: JSON.stringify({
+        action: 'record_answer',
+        payload: { question_id: 'q_202', category_id: 'part2', is_correct: true, consecutive_correct: 0 },
+      }),
+    })
+    const actionRes = await userActionHandler({ request: actionReq, env })
+    expect(actionRes.status).toBe(200)
+
+    const dataReq = new Request('http://localhost/api/user/data', {
+      headers: { Cookie: `toeic_session=${cookieValue}` },
+    })
+    const dataRes = await userDataHandler({ request: dataReq, env })
+    const data = await dataRes.json()
+    expect(data.wrongQuestions.length).toBe(0)
     expect(data.answerHistory.length).toBe(1)
   })
 })
