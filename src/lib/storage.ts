@@ -316,8 +316,21 @@ export function getVocabMasteryMap(): Record<string, { level: number; lastReview
 export function updateVocabMastery(vocabId: string, level: number): void {
   if (typeof window === 'undefined') return
   const map = getVocabMasteryMap()
-  map[vocabId] = { level, lastReviewed: Date.now() }
+  const now = Date.now()
+  map[vocabId] = { level, lastReviewed: now }
   localStorage.setItem(STORAGE_KEY_VOCAB, JSON.stringify(map))
+  recordTaskCompletion('vocab')
+
+  const rawHist = localStorage.getItem(STORAGE_KEY_HISTORY)
+  const history: AnswerHistoryEntry[] = rawHist ? JSON.parse(rawHist) : []
+  history.push({
+    questionId: vocabId,
+    categoryId: 'vocab',
+    isCorrect: level >= 2,
+    timestamp: now,
+    source: 'vocab',
+  })
+  localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history))
 
   // Sync to Cloudflare D1
   fetch('/api/user/action', {
@@ -328,6 +341,20 @@ export function updateVocabMastery(vocabId: string, level: number): void {
       payload: {
         vocabId,
         masteryLevel: level,
+      },
+    }),
+  }).catch(() => {})
+
+  fetch('/api/user/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'record_answer',
+      payload: {
+        questionId: vocabId,
+        categoryId: 'vocab',
+        isCorrect: level >= 2,
+        source: 'vocab',
       },
     }),
   }).catch(() => {})

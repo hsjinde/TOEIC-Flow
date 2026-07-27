@@ -65,9 +65,10 @@ describe('storage controller', () => {
     expect(getWrongQuestionsMap()['q1']).toBeUndefined()
   })
 
-  it('updates vocab mastery levels', () => {
+  it('updates vocab mastery levels and marks vocab completed', () => {
     updateVocabMastery('v-information', 3)
     expect(getVocabMasteryMap()['v-information']?.level).toBe(3)
+    expect(getDailyProgress().vocabCompleted).toBe(true)
   })
 
   it('calculates category accuracy stats correctly', () => {
