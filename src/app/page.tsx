@@ -160,10 +160,10 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-5">
       {/* 標題列 */}
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <h1 className="text-xl font-bold text-[var(--tx)]">今日任務</h1>
-          <p className="mt-0.5 text-xs text-[var(--mu)]">
+      <div className="flex items-center justify-between gap-2 overflow-hidden">
+        <div className="min-w-0 shrink">
+          <h1 className="truncate text-lg font-bold text-[var(--tx)] sm:text-xl">今日任務</h1>
+          <p className="mt-0.5 truncate text-xs text-[var(--mu)]">
             {new Date().toLocaleDateString('zh-TW', {
               month: 'long',
               day: 'numeric',
@@ -171,12 +171,12 @@ export default function HomePage() {
             })}
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <div className="lg:hidden">
-            <ThemeToggle />
+            <ThemeToggle compact />
           </div>
-          <span className="flex items-center gap-1.5 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-sm font-bold text-[var(--pr)]">
-            <Flame className="h-4 w-4" />
+          <span className="flex shrink-0 items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1 text-xs font-bold text-[var(--pr)] sm:px-3 sm:py-1.5 sm:text-sm">
+            <Flame className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             {snap.progress.streak} 天
           </span>
         </div>
@@ -184,8 +184,8 @@ export default function HomePage() {
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-start">
         {/* 左欄：任務流程 */}
-        <div className="flex flex-col gap-4">
-          <section className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-5 py-8">
+        <div className="flex flex-col gap-4 min-w-0">
+          <section className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-4 py-6 sm:px-5 sm:py-8">
             <ProgressRing completed={completedCount} total={TASKS.length} size={168} strokeWidth={11} />
             {allDone ? (
               <div className="animate-fade-in space-y-1 text-center">
@@ -217,7 +217,7 @@ export default function HomePage() {
             )}
           </section>
 
-          <section className="flex flex-col gap-2.5">
+          <section className="flex flex-col gap-2.5 min-w-0">
             <div className="flex items-baseline justify-between px-1">
               <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">今日練習任務</h2>
               <span className="hidden text-[11px] text-[var(--fa)] lg:inline">
@@ -242,25 +242,25 @@ export default function HomePage() {
           {snap.wrongCount > 0 && (
             <Link
               href="/wrong-questions"
-              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3.5 sm:p-4 transition-colors hover:border-[var(--pr-ln)] overflow-hidden"
             >
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-[15px] font-semibold text-[var(--tx)]">錯題本</h3>
-                  <span className="text-xs font-bold text-[var(--pr)]">
+              <div className="min-w-0 flex-1 overflow-hidden">
+                <div className="flex items-center gap-2 min-w-0">
+                  <h3 className="text-[15px] font-semibold text-[var(--tx)] shrink-0">錯題本</h3>
+                  <span className="text-xs font-bold text-[var(--pr)] truncate">
                     {snap.wrongCount} 題待複習
                   </span>
                 </div>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[var(--mu)]">
+                <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
                   {snap.wrongPreview
                     .map((p) => `${getCategoryLabel(p.categoryId)} ${p.count}`)
                     .join(' · ')}
                   {' · 連續答對 2 次'}
-                  <GraduationDots consecutiveCorrect={2} className="ml-1 align-middle text-[11px]" />
+                  <GraduationDots consecutiveCorrect={2} className="ml-1 inline-block align-middle text-[11px]" />
                   {' 畢業'}
                 </p>
               </div>
-              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)]">
+              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
                 開始複習
               </span>
             </Link>
@@ -270,22 +270,22 @@ export default function HomePage() {
           {snap.weakVocabCount > 0 && (
             <Link
               href="/vocab-review"
-              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
+              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3.5 sm:p-4 transition-colors hover:border-[var(--pr-ln)] overflow-hidden"
             >
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-[15px] font-semibold text-[var(--tx)]">單字複習本</h3>
-                  <span className="text-xs font-bold text-[var(--pr)]">
+              <div className="min-w-0 flex-1 overflow-hidden">
+                <div className="flex items-center gap-2 min-w-0">
+                  <h3 className="text-[15px] font-semibold text-[var(--tx)] shrink-0">單字複習本</h3>
+                  <span className="text-xs font-bold text-[var(--pr)] truncate">
                     {snap.weakVocabCount} 個字要加強
                   </span>
                 </div>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[var(--mu)]">
+                <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
                   {snap.weakVocabPreview.length > 0
                     ? `${snap.weakVocabPreview.join(' · ')}${snap.weakVocabCount > snap.weakVocabPreview.length ? ' …' : ''}`
                     : '常錯與該複習的字都收在這裡'}
                 </p>
               </div>
-              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)]">
+              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
                 開始複習
               </span>
             </Link>

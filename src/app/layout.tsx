@@ -41,7 +41,7 @@ export default function RootLayout({
             <OfflineBanner />
             <TopNav />
             <div className="flex min-h-screen flex-col items-center">
-              <main className="flex w-full max-w-md flex-col px-4 pt-4 pb-24 md:max-w-2xl lg:max-w-[1180px] lg:px-6 lg:pt-6 lg:pb-12">
+              <main className="flex w-full max-w-md flex-col px-4 pt-4 pb-24 md:max-w-2xl lg:max-w-[1180px] lg:px-6 lg:pt-6 lg:pb-12 overflow-x-hidden">
                 {children}
               </main>
             </div>

@@ -3,8 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import { Sun, Moon } from 'lucide-react'
 import { getStoredTheme, applyTheme, type Theme } from '../lib/theme'
+import { cn } from '../lib/utils'
 
-export const ThemeToggle: React.FC = () => {
+interface ThemeToggleProps {
+  compact?: boolean
+}
+
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({ compact }) => {
   const [theme, setTheme] = useState<Theme>('dark')
 
   useEffect(() => {
@@ -22,20 +27,24 @@ export const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--ln2)] bg-[var(--sf)] hover:bg-[var(--sf2)] text-xs font-semibold text-[var(--tx)] transition-all"
+      className={cn(
+        'flex items-center justify-center gap-1.5 rounded-full border border-[var(--ln2)] bg-[var(--sf)] text-xs font-semibold text-[var(--tx)] transition-all hover:bg-[var(--sf2)]',
+        compact ? 'px-2.5 py-1.5 sm:px-3' : 'px-3 py-1.5'
+      )}
       title="切換深色/淺色模式"
     >
       {theme === 'dark' ? (
         <>
-          <Sun className="w-3.5 h-3.5 text-[var(--pr)]" />
-          <span>淺色</span>
+          <Sun className="h-3.5 w-3.5 text-[var(--pr)] shrink-0" />
+          <span className={cn(compact && 'hidden sm:inline')}>淺色</span>
         </>
       ) : (
         <>
-          <Moon className="w-3.5 h-3.5 text-[var(--pr)]" />
-          <span>深色</span>
+          <Moon className="h-3.5 w-3.5 text-[var(--pr)] shrink-0" />
+          <span className={cn(compact && 'hidden sm:inline')}>深色</span>
         </>
       )}
     </button>
   )
 }
+
