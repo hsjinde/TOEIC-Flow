@@ -777,8 +777,9 @@ export function seedDemoData(): void {
         wrongMap[qId] = {
           questionId: qId,
           categoryId: cat.id,
-          wrongCount: Math.floor(Math.random() * 2) + 1,
-          lastWrongTime: Math.round(entryTime),
+          failCount: Math.floor(Math.random() * 2) + 1,
+          consecutiveCorrect: 0,
+          lastFailedAt: Math.round(entryTime),
         }
       }
     }
