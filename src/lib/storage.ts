@@ -737,3 +737,54 @@ export async function syncUserDataFromD1(): Promise<void> {
     console.error('Error syncing user data from D1:', e)
   }
 }
+
+/** 一鍵載入示範答題數據（供展示雷達圖與分析數據） */
+export function seedDemoData(): void {
+  if (typeof window === 'undefined') return
+
+  const now = Date.now()
+  const dayMs = 86400000
+
+  const categories = [
+    { id: '01_八大詞性與句型結構', chapter: '01_名詞與代名詞', total: 17, correct: 13 },
+    { id: '02_動詞時態與語態', chapter: '01_現在式與過去式', total: 15, correct: 15 },
+    { id: '03_動狀詞_非謂語動詞', chapter: '01_動名詞基礎用法', total: 10, correct: 0 },
+    { id: '04_特殊動詞用法', chapter: '01_感官動詞與使役動詞', total: 12, correct: 4 },
+    { id: '05_子句與假設語氣', chapter: '01_關係代名詞基礎', total: 8, correct: 0 },
+    { id: '06_其他多益必考進階題型', chapter: '01_倒裝句型精選', total: 9, correct: 3 },
+  ]
+
+  const history: AnswerHistoryEntry[] = []
+  const wrongMap: Record<string, WrongQuestionRecord> = {}
+
+  let timeOffset = 0
+  categories.forEach((cat) => {
+    for (let i = 0; i < cat.total; i++) {
+      const isCorrect = i < cat.correct
+      const qId = `grammar/${cat.id}/${cat.chapter}#q${i + 1}`
+      const entryTime = now - (timeOffset % 12) * dayMs - Math.random() * 3600000
+      timeOffset++
+
+      history.push({
+        questionId: qId,
+        categoryId: cat.id,
+        isCorrect,
+        timestamp: Math.round(entryTime),
+        source: 'grammar',
+      })
+
+      if (!isCorrect) {
+        wrongMap[qId] = {
+          questionId: qId,
+          categoryId: cat.id,
+          wrongCount: Math.floor(Math.random() * 2) + 1,
+          lastWrongTime: Math.round(entryTime),
+        }
+      }
+    }
+  })
+
+  localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history))
+  localStorage.setItem(STORAGE_KEY_WRONG, JSON.stringify(wrongMap))
+  notifyStorageUpdate()
+}

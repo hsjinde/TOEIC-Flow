@@ -12,6 +12,7 @@ import {
   getProfile,
   getVocabMasteryMap,
   getWrongQuestionList,
+  seedDemoData,
   type CalendarDay,
   type CategoryStat,
 } from '../../lib/storage'
@@ -194,10 +195,10 @@ export default function StatsPage() {
 
       {hasAnalysis ? (
         <div className="grid gap-5 lg:grid-cols-2">
-          <section className="flex flex-col justify-between space-y-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
-            <h2 className="text-sm font-bold text-[var(--tx)]">六大文法類別正確率</h2>
-            <div className="flex flex-1 items-center justify-center py-2">
-              <RadarChart axes={axes} size={320} className="w-full max-w-[340px]" />
+          <section className="flex flex-col justify-between space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6">
+            <h2 className="text-base font-bold text-[var(--tx)]">六大文法類別正確率</h2>
+            <div className="flex flex-1 items-center justify-center py-4">
+              <RadarChart axes={axes} size={420} className="w-full max-w-[460px] h-auto" />
             </div>
             {thinCategories.length > 0 && (
               <p className="text-center text-[11px] text-[var(--fa)]">
@@ -226,9 +227,21 @@ export default function StatsPage() {
           <p className="text-xs text-[var(--mu)]">
             目前已答 {snap.totalAnswered} 題 · 雷達圖需要每類至少 {MIN_PER_CATEGORY} 題
           </p>
-          <Link href="/practice/grammar" className="w-full max-w-[240px] pt-1">
-            <Button variant="primary">開始文法練習</Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-2.5 w-full max-w-[360px] pt-2">
+            <Link href="/practice/grammar" className="flex-1">
+              <Button variant="primary" className="w-full">開始文法練習</Button>
+            </Link>
+            <Button
+              variant="outline"
+              className="flex-1 border-[var(--pr)] text-[var(--pr)] hover:bg-[var(--pr-sf)]"
+              onClick={() => {
+                seedDemoData()
+                setSnap(buildSnapshot())
+              }}
+            >
+              載入示範測試數據
+            </Button>
+          </div>
         </section>
       )}
 
