@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description: '手機與電腦兼備、專注高品質的多益每日練習應用',
   icons: {
     icon: [
-      { url: '/icon.png', type: 'image/png' },
-      { url: '/favicon.ico' },
+      { url: '/icon.png?v=2', type: 'image/png' },
+      { url: '/favicon.ico?v=2' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico?v=2',
+    apple: '/apple-icon.png?v=2',
   },
 }
 

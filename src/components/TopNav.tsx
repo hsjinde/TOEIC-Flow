@@ -35,7 +35,7 @@ export function TopNav() {
     >
       <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center gap-8 px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-bold text-[var(--tx)] hover:opacity-80">
-          <Image src="/icon.png" alt="TOEIC Flow" width={26} height={26} className="rounded-lg object-cover" />
+          <Image src="/logo.png?v=2" alt="TOEIC Flow" width={26} height={26} className="rounded-lg object-cover" />
           <span>每日多益</span>
         </Link>
 
