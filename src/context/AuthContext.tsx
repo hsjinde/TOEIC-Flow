@@ -26,13 +26,13 @@ async function safeFetchJson(path: string, options?: RequestInit): Promise<{ ok:
     const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     
     let res = await fetch(path, { credentials: 'include', ...options })
-    let contentType = res.headers.get('content-type') || ''
+    let contentType = res.headers?.get?.('content-type') || ''
     
     // 如果在本地環境 (localhost) 且獲得 404 或 HTML 頁面，嘗試備用遠端 API
-    if (isLocal && (!res.ok || !contentType.includes('application/json'))) {
+    if (isLocal && (res.status === 404 || contentType.includes('text/html'))) {
       try {
         const remoteRes = await fetch(`${REMOTE_API_HOST}${path}`, { credentials: 'include', ...options })
-        const remoteType = remoteRes.headers.get('content-type') || ''
+        const remoteType = remoteRes.headers?.get?.('content-type') || ''
         if (remoteType.includes('application/json')) {
           res = remoteRes
           contentType = remoteType
@@ -40,7 +40,7 @@ async function safeFetchJson(path: string, options?: RequestInit): Promise<{ ok:
       } catch {}
     }
 
-    if (!contentType.includes('application/json')) {
+    if (contentType.includes('text/html')) {
       return { ok: false, status: res.status }
     }
 
