@@ -75,6 +75,30 @@ describe('PracticeCalendar', () => {
     const { container } = render(<PracticeCalendar days={[]} />)
     expect(container.firstChild).toBeNull()
   })
+
+  it('shows detailed popup on cell hover with accuracy and source breakdown', () => {
+    const customDays = [
+      {
+        date: '2026-07-27',
+        count: 10,
+        correctCount: 8,
+        sources: { grammar: 6, vocab: 4 },
+      },
+    ]
+    const { container } = render(<PracticeCalendar days={customDays} />)
+    const cell = container.querySelector('.cursor-pointer')!
+    expect(cell).toBeTruthy()
+
+    fireEvent.mouseEnter(cell)
+
+    expect(screen.getByText('7月27日 (一)')).toBeTruthy()
+    expect(screen.getByText('當日正確率')).toBeTruthy()
+    expect(screen.getByText('80%')).toBeTruthy()
+    expect(screen.getByText('8 題')).toBeTruthy()
+    expect(screen.getByText('2 題')).toBeTruthy()
+    expect(screen.getByText('文法練習')).toBeTruthy()
+    expect(screen.getByText('單字測驗')).toBeTruthy()
+  })
 })
 
 describe('progress dots', () => {
