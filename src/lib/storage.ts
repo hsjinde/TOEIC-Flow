@@ -4,6 +4,8 @@ export interface DailyProgress {
   grammarCompleted: boolean
   vocabCompleted: boolean
   readingCompleted: boolean
+  /** 見 PROGRESS_VERSION：舊版寫壞的今日進度要洗掉重算。 */
+  v?: number
 }
 
 export interface WrongQuestionRecord {
@@ -37,6 +39,12 @@ export const ANSWER_SOURCE_LABELS: Record<AnswerSource, string> = {
 }
 
 const STORAGE_KEY_PROGRESS = 'toeic_daily_progress'
+/**
+ * 今日進度的格式版本。v2 之前 checkTodayCompletedTasks() 會把「同步下來的單字
+ * lastReviewed」當成今天練過，於是登入當下就把 vocabCompleted 寫成 true 存進
+ * localStorage——修好推斷邏輯還不夠，那顆存壞的旗標得重算一次才會消失。
+ */
+const PROGRESS_VERSION = 2
 const STORAGE_KEY_WRONG = 'toeic_wrong_questions'
 const STORAGE_KEY_VOCAB = 'toeic_vocab_mastery'
 const STORAGE_KEY_HISTORY = 'toeic_answer_history'
@@ -46,6 +54,22 @@ const STORAGE_KEY_MOCK = 'toeic_mock_results'
 function getTodayString(): string {
   const d = new Date()
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+/**
+ * D1 的 DATETIME 欄位由 `CURRENT_TIMESTAMP` 產生，格式是 `YYYY-MM-DD HH:MM:SS`
+ * 的 UTC 時間、但字串上沒有時區標記——直接丟給 `new Date()` 會被當成本地時間，
+ * 在 UTC+8 整整差 8 小時。解析不出來就回 0（代表「不知道時間」），呼叫端才不會
+ * 拿 `Date.now()` 頂替、把幾個月前的紀錄標成剛剛才發生。
+ */
+function parseDbTimestamp(value: unknown): number {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0
+  if (typeof value !== 'string' || value === '') return 0
+  const normalized = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/.test(value)
+    ? `${value.replace(' ', 'T')}Z`
+    : value
+  const ms = new Date(normalized).getTime()
+  return Number.isNaN(ms) ? 0 : ms
 }
 
 function notifyStorageUpdate(): void {
@@ -79,16 +103,10 @@ function checkTodayCompletedTasks(history?: AnswerHistoryEntry[]): { grammar: bo
       }
     }
 
-    if (!vocab) {
-      const vocabMap = getVocabMasteryMap()
-      for (const item of Object.values(vocabMap)) {
-        if (item.lastReviewed && item.lastReviewed >= todayMs) {
-          vocab = true
-          break
-        }
-      }
-    }
-
+    // 這裡刻意「只」看作答歷程，不看 toeic_vocab_mastery 的 lastReviewed：
+    // updateVocabMastery() 一定會同時寫一筆 source: 'vocab' 的歷程，所以歷程不會漏，
+    // 而 mastery map 的時間戳是同步下來的，只要同步端寫錯就會讓首頁在使用者還沒
+    // 練之前就顯示「單字複習已完成」。
     return { grammar, vocab, reading }
   } catch {
     return { grammar: false, vocab: false, reading: false }
@@ -110,6 +128,7 @@ export function getDailyProgress(): DailyProgress {
       grammarCompleted: historyFlags.grammar,
       vocabCompleted: historyFlags.vocab,
       readingCompleted: historyFlags.reading,
+      v: PROGRESS_VERSION,
     }
     localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(initial))
     return initial
@@ -131,9 +150,24 @@ export function getDailyProgress(): DailyProgress {
         grammarCompleted: historyFlags.grammar,
         vocabCompleted: historyFlags.vocab,
         readingCompleted: historyFlags.reading,
+        v: PROGRESS_VERSION,
       }
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(updated))
       return updated
+    }
+    if (parsed.v !== PROGRESS_VERSION) {
+      // 舊版可能已經把今天的 vocabCompleted 存成 true 了。三個任務完成時都會留下
+      // 作答歷程，所以直接照歷程重算一次，真的練過的不會被洗掉。
+      const migrated: DailyProgress = {
+        date: today,
+        streak: parsed.streak,
+        grammarCompleted: historyFlags.grammar,
+        vocabCompleted: historyFlags.vocab,
+        readingCompleted: historyFlags.reading,
+        v: PROGRESS_VERSION,
+      }
+      localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(migrated))
+      return migrated
     }
     parsed.grammarCompleted = parsed.grammarCompleted || historyFlags.grammar
     parsed.vocabCompleted = parsed.vocabCompleted || historyFlags.vocab
@@ -146,6 +180,7 @@ export function getDailyProgress(): DailyProgress {
       grammarCompleted: historyFlags.grammar,
       vocabCompleted: historyFlags.vocab,
       readingCompleted: historyFlags.reading,
+      v: PROGRESS_VERSION,
     }
   }
 }
@@ -504,9 +539,9 @@ export function getDeduplicatedAnswerHistory(
 /**
  * 每個練過的字的複習狀態，弱的排前面。
  *
- * 時間戳優先採用作答歷程而不是 mastery map：syncUserDataFromD1() 會把所有
- * 同步下來的字的 lastReviewed 寫成「現在」，只看 map 的話換一台裝置登入後
- * 全部的字都會變成剛複習過、永遠不到期。
+ * 時間戳優先採用作答歷程而不是 mastery map：map 的 lastReviewed 是同步下來的
+ * （早期版本甚至直接寫「現在」），只看 map 的話換一台裝置登入後全部的字都會
+ * 變成剛複習過、永遠不到期。
  *
  * 歷程走同日去重，所以「今天一口氣練五遍同一個字」只算一次——否則一個下午
  * 就能把任何字刷成常錯。
@@ -852,15 +887,26 @@ export async function syncUserDataFromD1(): Promise<void> {
 
     // 1. Sync Vocab Mastery
     if (Array.isArray(data.vocabMastery) && data.vocabMastery.length > 0) {
+      // lastReviewed 一定要用 D1 的 updated_at。這裡曾經寫 Date.now()，於是每次
+      // 登入／恢復 session 都把全部單字標成「今天剛複習過」——首頁的單字複習在
+      // 使用者還沒練之前就顯示已完成，SRS 到期日也被推到永遠不會到。
+      const localVocab = getVocabMasteryMap()
       const vocabMap: Record<string, { level: number; lastReviewed: number }> = {}
       for (const item of data.vocabMastery) {
-        vocabMap[item.vocab_id] = { level: item.mastery_level, lastReviewed: Date.now() }
+        // 有 updated_at 就以它為準（順便把舊版寫壞的本機時間戳洗回真實時間），
+        // 只有舊後端沒回這個欄位時才退回本機既有值。
+        const remote = parseDbTimestamp(item.updated_at)
+        vocabMap[item.vocab_id] = {
+          level: item.mastery_level,
+          lastReviewed: remote || localVocab[item.vocab_id]?.lastReviewed || 0,
+        }
       }
       localStorage.setItem(STORAGE_KEY_VOCAB, JSON.stringify(vocabMap))
     }
 
     // 2. Sync Wrong Questions
     if (Array.isArray(data.wrongQuestions)) {
+      const localWrong = getWrongQuestionsMap()
       const wrongMap: Record<string, WrongQuestionRecord> = {}
       for (const item of data.wrongQuestions) {
         wrongMap[item.question_id] = {
@@ -868,7 +914,11 @@ export async function syncUserDataFromD1(): Promise<void> {
           categoryId: item.category_id,
           failCount: 1,
           consecutiveCorrect: item.consecutive_correct,
-          lastFailedAt: Date.now(),
+          // 錯題本要顯示「最後答錯 X 天前」，用 Date.now() 會讓每題都變成今天。
+          lastFailedAt:
+            parseDbTimestamp(item.updated_at) ||
+            localWrong[item.question_id]?.lastFailedAt ||
+            Date.now(),
         }
       }
       localStorage.setItem(STORAGE_KEY_WRONG, JSON.stringify(wrongMap))
@@ -880,7 +930,7 @@ export async function syncUserDataFromD1(): Promise<void> {
         questionId: item.question_id,
         categoryId: item.category_id,
         isCorrect: item.is_correct === 1 || item.is_correct === true,
-        timestamp: new Date(item.created_at || Date.now()).getTime(),
+        timestamp: parseDbTimestamp(item.created_at) || Date.now(),
         ...(item.selected_key ? { selectedKey: item.selected_key } : {}),
         ...(item.source ? { source: item.source as AnswerSource } : {}),
       }))
@@ -915,7 +965,7 @@ export async function syncUserDataFromD1(): Promise<void> {
             questionId: item.question_id,
             categoryId: item.category_id,
             isCorrect: item.is_correct === 1 || item.is_correct === true,
-            timestamp: new Date(item.created_at || Date.now()).getTime(),
+            timestamp: parseDbTimestamp(item.created_at) || Date.now(),
             source: item.source as AnswerSource,
           }))
         : []
@@ -927,6 +977,7 @@ export async function syncUserDataFromD1(): Promise<void> {
         grammarCompleted: (isTodayLocal && currentLocal.grammarCompleted) || historyFlags.grammar,
         vocabCompleted: (isTodayLocal && currentLocal.vocabCompleted) || historyFlags.vocab,
         readingCompleted: (isTodayLocal && currentLocal.readingCompleted) || historyFlags.reading,
+        v: PROGRESS_VERSION,
       }
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
       notifyStorageUpdate()
