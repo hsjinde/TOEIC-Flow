@@ -28,10 +28,12 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ compact }) => {
     <button
       onClick={toggle}
       className={cn(
-        'flex items-center justify-center gap-1.5 rounded-full border border-[var(--ln2)] bg-[var(--sf)] text-xs font-semibold text-[var(--tx)] transition-all hover:bg-[var(--sf2)]',
-        compact ? 'px-2.5 py-1.5 sm:px-3' : 'px-3 py-1.5'
+        // 手機 44px 觸控高，桌機（有指標裝置）回到原本較緊的尺寸。
+        'flex min-h-[44px] items-center justify-center gap-1.5 rounded-full border border-[var(--ln2)] bg-[var(--sf)] text-xs font-semibold text-[var(--tx)] transition-all hover:bg-[var(--sf2)] lg:min-h-0',
+        compact ? 'px-3 py-1.5' : 'px-3.5 py-1.5 lg:px-3'
       )}
       title="切換深色/淺色模式"
+      aria-label="切換深色/淺色模式"
     >
       {theme === 'dark' ? (
         <>

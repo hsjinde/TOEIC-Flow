@@ -12,6 +12,7 @@ import type {
   Chapter,
   Formula,
 } from '../../scripts/build-content/types'
+import { resolveStem } from './stem'
 
 const grammar = (grammarData as unknown) as Question[]
 const vocab = (vocabData as unknown) as VocabItem[]
@@ -68,6 +69,36 @@ const questionIndex: Map<string, Question> = (() => {
 
 export function getQuestionById(id: string): Question | null {
   return questionIndex.get(id) ?? null
+}
+
+/**
+ * Question id → the prose it belongs to. Part 6/7 and paragraph reading keep the
+ * blank in the passage, not the stem, so any screen that shows one of those
+ * questions needs the passage to make it answerable — and to turn the 「題目 16」
+ * placeholder stem into the sentence the blank actually sits in.
+ */
+const passageIndex: Map<string, { title: string; passage: string }> = (() => {
+  const map = new Map<string, { title: string; passage: string }>()
+  for (const p of reading) {
+    if (!p.passage) continue
+    for (const q of p.questions) map.set(q.id, { title: p.title, passage: p.passage })
+  }
+  for (const m of mocks) {
+    for (const s of m.sections) {
+      if (!s.passage) continue
+      for (const q of s.questions) map.set(q.id, { title: s.title, passage: s.passage })
+    }
+  }
+  return map
+})()
+
+export function getQuestionPassage(id: string): { title: string; passage: string } | null {
+  return passageIndex.get(id) ?? null
+}
+
+/** 給人看的題幹。佔位題幹會換成空格所在的那一句，其餘題型原樣返回。 */
+export function getQuestionStem(question: Question): string {
+  return resolveStem(question.stem, question.number, passageIndex.get(question.id)?.passage)
 }
 
 /** Skips ids with no matching question — orphaned records must not crash a page. */

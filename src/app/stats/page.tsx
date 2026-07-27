@@ -25,6 +25,7 @@ import { RadarChart, type RadarAxis } from '../../components/RadarChart'
 import { PracticeCalendar } from '../../components/PracticeCalendar'
 import { WeaknessCards } from '../../components/WeaknessCards'
 import { Button } from '../../components/ui/Button'
+import { useIsDesktop } from '../../lib/useIsDesktop'
 
 /** 設計 06 空狀態：低於這個題數還看不出弱項，直接給下一步而不是空圖。 */
 const MIN_TOTAL_FOR_ANALYSIS = 10
@@ -136,6 +137,7 @@ function buildSnapshot(): StatsSnapshot {
 }
 
 export default function StatsPage() {
+  const isDesktop = useIsDesktop()
   const [snap, setSnap] = useState<StatsSnapshot | null>(null)
 
   useEffect(() => {
@@ -235,8 +237,18 @@ export default function StatsPage() {
         <div className="grid gap-5 lg:grid-cols-2">
           <section className="flex flex-col justify-between space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-6">
             <h2 className="text-base font-bold text-[var(--tx)]">六大文法類別正確率</h2>
+            {/*
+              SVG 的文字跟著 viewBox 一起縮。size=500 的圖被塞進 390px 手機時縮到
+              0.51 倍，類別標籤實際只有 8px、數值 9px——比熱力圖那個唯一破例的 9px
+              還小，而且沒有理由。手機改用較小的 viewBox，縮放比拉回 0.77，標籤回到
+              12px 上下。
+            */}
             <div className="flex flex-1 items-center justify-center py-2">
-              <RadarChart axes={axes} size={500} className="w-full max-w-[560px] h-auto" />
+              <RadarChart
+                axes={axes}
+                size={isDesktop ? 500 : 300}
+                className="h-auto w-full max-w-[560px]"
+              />
             </div>
             {thinCategories.length > 0 && (
               <p className="text-center text-[11px] text-[var(--fa)]">

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Flag, Grid3x3, X } from 'lucide-react'
 import type { MockExam, Question } from '../../../../scripts/build-content/types'
-import { getMockExams } from '../../../lib/content'
+import { getMockExams, getQuestionPassage, getQuestionStem } from '../../../lib/content'
 import {
   fileWrongQuestions,
   getProfile,
@@ -14,6 +14,7 @@ import {
 } from '../../../lib/storage'
 import { estimateToeicScore } from '../../../lib/toeicScore'
 import { Button } from '../../../components/ui/Button'
+import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { MockReportModal, type MockAnswerRow } from '../../../components/MockReportModal'
 import { cn } from '../../../lib/utils'
 
@@ -124,6 +125,7 @@ export default function MockExamPage() {
     return map
   }, [exam])
 
+
   /** 把停留在目前題目的秒數記進 spent，換題與交卷前都要呼叫。 */
   const flushTime = useCallback(() => {
     const q = questions[currentIndex]
@@ -154,6 +156,8 @@ export default function MockExamPage() {
         marked: marked.has(question.id),
         seconds: finalSpent[question.id] ?? 0,
         part: partOf[question.id] ?? '其他',
+        // 檢討頁不能只印「題目 16」——那對使用者不構成一道可以檢討的題目。
+        displayStem: getQuestionStem(question),
       }
     })
 
@@ -189,7 +193,7 @@ export default function MockExamPage() {
       durationSeconds,
       previousCorrect: previous?.correctCount ?? null,
     })
-  }, [exam, questions, answers, marked, spent, currentIndex])
+  }, [exam, questions, answers, marked, spent, currentIndex, partOf])
 
   // 倒數計時；歸零自動交卷。
   useEffect(() => {
@@ -256,6 +260,12 @@ export default function MockExamPage() {
 
   const currentQ = questions[currentIndex]
   const currentBlank = currentQ?.blanks[0]
+  /*
+   * Part 6/7 的空格與線索都在文章裡，題幹本身只是「題目 16」這種佔位字串——沒有把
+   * 文章印出來，31 題裡有 16 題在畫面上是無從作答的（types.ts 早就寫了「The passage
+   * has to be kept or those parts are unanswerable」，只是從沒被讀出來）。
+   */
+  const currentPassage = currentQ ? getQuestionPassage(currentQ.id) : null
 
   const handleSelect = useCallback(
     (optionKey: string) => {
@@ -371,7 +381,11 @@ export default function MockExamPage() {
   const urgent = remaining <= URGENT_THRESHOLD_SECONDS
 
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
+    /*
+     * 手機把作答區撐滿一屏，讓動作列落到螢幕底部。題幹長度不一，動作列若跟著文字流
+     * 走，「下一題」會在每一題之間上下跳——單手拿著考 30 分鐘，拇指得重新找一次位置。
+     */
+    <div className="mx-auto flex min-h-[calc(100dvh-3.5rem)] w-full max-w-2xl flex-col gap-4 lg:min-h-0">
       {/* 計時器：明顯但不焦慮，最後 5 分鐘才轉主色 */}
       <div className="flex items-center gap-2">
         {/* 導航在考試中被收起來了，離開的出口必須自己提供，而且要帶確認。 */}
@@ -466,8 +480,30 @@ export default function MockExamPage() {
 
       {currentQ && currentBlank && (
         <>
+          {/*
+            Part 6/7 的文章。手機上限 34dvh 並自己捲動，讓題幹與選項一定留在畫面內——
+            整篇 1000 字直接展開的話，作答區會被推到兩個螢幕之外。
+          */}
+          {currentPassage && (
+            <div className="flex max-h-[34dvh] flex-col overflow-hidden rounded-2xl border border-[var(--ln)] bg-[var(--sf)] lg:max-h-[42dvh]">
+              {currentPassage.title && (
+                <h2 className="shrink-0 border-b border-[var(--ln)] px-4 py-2.5 text-xs font-bold tracking-wider text-[var(--mu)]">
+                  {currentPassage.title}
+                </h2>
+              )}
+              {/*
+                走 MarkdownRenderer 而不是純文字：文章裡有 **粗體** 這類標記，直接印
+                會把星號當內文顯示。這裡刻意不用 GlossaryText——考試中不該點一下就有
+                中文釋義。
+              */}
+              <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
+                <MarkdownRenderer content={currentPassage.passage} />
+              </div>
+            </div>
+          )}
+
           <div className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
-            <p className="font-stem text-[var(--tx)]">{currentQ.stem}</p>
+            <p className="font-stem text-[var(--tx)]">{getQuestionStem(currentQ)}</p>
           </div>
 
           <div className="grid gap-2.5">
@@ -493,7 +529,7 @@ export default function MockExamPage() {
             })}
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="mt-auto flex flex-wrap items-center gap-2 pt-2 lg:mt-0 lg:pt-0">
             <button
               type="button"
               onClick={() =>

@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { ANSWER_SOURCE_LABELS, type AnswerSource, type CalendarDay } from '../lib/storage'
+import { cn } from '../lib/utils'
 
 interface PracticeCalendarProps {
   days: CalendarDay[]
@@ -36,6 +37,8 @@ interface HoverInfo {
   x: number
   y: number
   isBelow: boolean
+  /** 點出來的（手機）要黏著，滑出去不關；用滑鼠移出來的照舊 hover 即走。 */
+  pinned: boolean
 }
 
 /**
@@ -45,6 +48,23 @@ interface HoverInfo {
 export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
+
+  // 點出來的浮卡要有出口：點空白處或 Esc 都關得掉。
+  useEffect(() => {
+    if (!hoverInfo?.pinned) return
+    const onPointerDown = (e: PointerEvent) => {
+      if (!containerRef.current?.contains(e.target as Node)) setHoverInfo(null)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setHoverInfo(null)
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [hoverInfo?.pinned])
 
   if (days.length === 0) return null
 
@@ -59,7 +79,11 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
 
   const activeDays = days.filter((d) => d.count > 0).length
 
-  const handleCellMouseEnter = (e: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>, day: CalendarDay) => {
+  const showTooltip = (
+    e: React.MouseEvent<HTMLElement> | React.FocusEvent<HTMLElement>,
+    day: CalendarDay,
+    pinned: boolean
+  ) => {
     if (!containerRef.current) return
     const containerRect = containerRef.current.getBoundingClientRect()
     const cellRect = e.currentTarget.getBoundingClientRect()
@@ -79,17 +103,20 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
       x: clampedX,
       y: relativeY,
       isBelow,
+      pinned,
     })
   }
 
-  const handleCellMouseLeave = () => {
-    setHoverInfo(null)
+  /** hover 離開只收掉 hover 出來的那張；點出來的要等再點一次或按 Esc。 */
+  const handleContainerMouseLeave = () => {
+    setHoverInfo((prev) => (prev?.pinned ? prev : null))
   }
 
   return (
-    <div ref={containerRef} className="relative space-y-2.5" onMouseLeave={handleCellMouseLeave}>
-      <div className="flex items-center justify-between text-[11px] text-[var(--mu)]">
-        <span>顏色深淺＝當日答題量 · 滑鼠移至格子看細節</span>
+    <div ref={containerRef} className="relative space-y-2.5" onMouseLeave={handleContainerMouseLeave}>
+      <div className="flex items-center justify-between gap-2 text-[11px] text-[var(--mu)]">
+        {/* 原文是「滑鼠移至格子看細節」——手機沒有滑鼠，這段資訊等於整個消失。 */}
+        <span>顏色深淺＝當日答題量 · 點格子看當天細節</span>
         <span className="font-semibold text-[var(--tx)]">練了 {activeDays} 天</span>
       </div>
 
@@ -112,15 +139,29 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
             {week.map((day, di) => {
               if (!day) return <span key={di} className="h-[13px] w-[13px]" />
               const style = LEVEL_STYLE[levelOf(day.count)]!
+              const isOpen = hoverInfo?.pinned && hoverInfo.day.date === day.date
               return (
-                <span
+                // 真的可以按，就要是 button：先前是 span[tabIndex]，鍵盤能聚焦卻按不動。
+                // hover:scale 是全站第四個動效場景（只允許三處），回饋改用邊框。
+                <button
                   key={di}
-                  title={`${day.date} · ${day.count} 題`}
-                  tabIndex={0}
-                  className="h-[13px] w-[13px] cursor-pointer rounded-[3px] border transition-transform duration-100 hover:scale-125 hover:z-10 focus:outline-none focus:ring-1 focus:ring-[var(--pr)]"
+                  type="button"
+                  aria-label={`${formatDateZh(day.date)} ${day.count} 題`}
+                  aria-expanded={isOpen}
+                  className={cn(
+                    'h-[13px] w-[13px] rounded-[3px] border transition-colors duration-150',
+                    isOpen && 'ring-2 ring-[var(--pr)]'
+                  )}
                   style={style}
-                  onMouseEnter={(e) => handleCellMouseEnter(e, day)}
-                  onFocus={(e) => handleCellMouseEnter(e, day)}
+                  onClick={(e) =>
+                    isOpen ? setHoverInfo(null) : showTooltip(e, day, true)
+                  }
+                  onMouseEnter={(e) => {
+                    if (!hoverInfo?.pinned) showTooltip(e, day, false)
+                  }}
+                  onFocus={(e) => {
+                    if (!hoverInfo?.pinned) showTooltip(e, day, false)
+                  }}
                 />
               )
             })}
@@ -131,7 +172,8 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
       {/* 詳細浮動卡片 Tooltip */}
       {hoverInfo && (
         <div
-          className="pointer-events-none absolute z-50 w-[190px] rounded-xl border border-[var(--ln)] bg-[var(--sf)] p-3 shadow-xl backdrop-blur-md transition-all duration-150 text-xs animate-fade-in"
+          role={hoverInfo.pinned ? 'dialog' : undefined}
+          className="pointer-events-none absolute z-50 w-[190px] animate-fade-in rounded-xl border border-[var(--ln2)] bg-[var(--sf)] p-3 text-xs shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
           style={{
             left: `${hoverInfo.x}px`,
             top: hoverInfo.isBelow ? `${hoverInfo.y + 18}px` : `${hoverInfo.y - 6}px`,
@@ -163,12 +205,14 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
                       <span className="text-[var(--mu)]">當日正確率</span>
                       <span className="font-bold text-[var(--tx)]">{accuracy}%</span>
                     </div>
+                    {/*
+                      綠與紅只屬於「這一題你答對了」那一刻。統計裡的答對／答錯是數字，
+                      不是判定——用文字標籤區分，顏色留給答題頁。
+                    */}
                     <div className="flex items-center justify-between text-[11px]">
                       <span className="text-[var(--mu)]">答對 / 答錯</span>
-                      <span className="text-[var(--tx)]">
-                        <span className="font-semibold text-emerald-500">{correct} 題</span>
-                        {' · '}
-                        <span className="font-semibold text-rose-400">{wrong} 題</span>
+                      <span className="font-semibold text-[var(--tx)]">
+                        {correct} / {wrong} 題
                       </span>
                     </div>
                     {sources.length > 0 && (

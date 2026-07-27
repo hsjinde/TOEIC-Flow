@@ -173,8 +173,9 @@ export default function ChaptersPage() {
                                 />
                               )}
                               {isCompleted && (
+                                // 完成是進度，用主色；綠色專屬於「這一題答對了」。
                                 <CheckCircle2
-                                  className="h-3.5 w-3.5 shrink-0 text-emerald-500"
+                                  className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]"
                                   aria-label="已完成 (全章答完且正確率 80% 以上)"
                                 />
                               )}
@@ -183,11 +184,7 @@ export default function ChaptersPage() {
                               <span
                                 className={cn(
                                   'block h-full rounded-full transition-all duration-300',
-                                  isCompleted
-                                    ? 'bg-emerald-500'
-                                    : m
-                                    ? 'bg-[var(--pr)]'
-                                    : 'bg-transparent'
+                                  m ? 'bg-[var(--pr)]' : 'bg-transparent'
                                 )}
                                 style={{ width: `${m?.accuracyRate ?? 0}%` }}
                               />
@@ -197,7 +194,7 @@ export default function ChaptersPage() {
                             <span
                               className={cn(
                                 'block text-xs font-bold',
-                                isCompleted ? 'text-emerald-500' : 'text-[var(--mu)]'
+                                isCompleted ? 'text-[var(--pr)]' : 'text-[var(--mu)]'
                               )}
                             >
                               {m ? `${m.accuracyRate}%` : '—'}

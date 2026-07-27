@@ -211,15 +211,15 @@ export const GlossaryText: React.FC<GlossaryTextProps> = ({ text, onGlossaryCoun
       })}
 
       {/*
-        釋義列。fixed 相對視窗定位，所以文章框的 overflow 裁不到它；bottom-20 是為了
-        讓開位置給手機底部導航。陰影用 DESIGN.md 的 Overlay 值——這是全站唯一
-        真正浮在內容之上、因此允許有陰影的元件。
+        釋義列。fixed 相對視窗定位，所以文章框的 overflow 裁不到它；--nav-h 讓開手機
+        底部導航（含瀏海機的 home indicator）。陰影用 DESIGN.md 的 Overlay 值——這是
+        全站唯一真正浮在內容之上、因此允許有陰影的元件。
       */}
       {openItem && (
         <div
           role="dialog"
           aria-label={`${openItem.word} 的釋義`}
-          className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-md animate-fade-in rounded-2xl border border-[var(--ln2)] bg-[var(--sf)] p-4 text-left shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:bottom-6"
+          className="fixed inset-x-3 bottom-[calc(var(--nav-h)+0.75rem)] z-50 mx-auto max-w-md animate-fade-in rounded-2xl border border-[var(--ln2)] bg-[var(--sf)] p-4 text-left shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">

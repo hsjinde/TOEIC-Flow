@@ -43,13 +43,13 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
   )
 
   return (
-    <div className="flex w-full flex-col gap-4">
+    <div className="flex w-full flex-1 flex-col gap-4">
       {/*
         翻面按鈕鋪滿整張卡，內容層 pointer-events-none 讓點擊穿透下去；喇叭再單獨
         把指標事件收回來。這樣整張卡仍然可點，但喇叭不再是巢狀在 button 裡的
         span[role=button]——HTML 不允許互動元素巢狀，AT 的可及性樹也會壞掉。
       */}
-      <div className="relative min-h-[264px] w-full rounded-2xl border border-[var(--ln)] bg-[var(--sf)] transition-colors duration-200 hover:border-[var(--pr-ln)]">
+      <div className="relative flex min-h-[264px] w-full flex-1 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] transition-colors duration-200 hover:border-[var(--pr-ln)] lg:flex-none">
         <button
           type="button"
           onClick={() => setIsFlipped((v) => !v)}
@@ -57,7 +57,7 @@ export const VocabFlashcard: React.FC<VocabFlashcardProps> = ({
           aria-pressed={isFlipped}
           className="absolute inset-0 h-full w-full rounded-2xl"
         />
-        <div className="pointer-events-none relative flex min-h-[264px] w-full flex-col items-center justify-between gap-4 p-6 text-center">
+        <div className="pointer-events-none relative flex w-full flex-1 flex-col items-center justify-between gap-4 p-6 text-center">
         <div className="flex w-full items-center justify-between text-xs text-[var(--mu)]">
           <span className="rounded-md bg-[var(--sf2)] px-2.5 py-1 font-semibold">{item.pos}</span>
           <button

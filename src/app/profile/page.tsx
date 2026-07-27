@@ -103,7 +103,8 @@ export default function ProfilePage() {
   const examCountdown = draft.examDate ? daysUntil(draft.examDate) : null
 
   return (
-    <div className="flex flex-col gap-5 pb-28 lg:pb-6">
+    // 底部的儲存列是 fixed 的，內容要自己讓出它的高度，否則最後一顆按鈕永遠被蓋住。
+    <div className="flex flex-col gap-5 pb-24 lg:pb-20">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold text-[var(--tx)]">帳號設定</h1>
         <div className="lg:hidden">
@@ -332,7 +333,7 @@ export default function ProfilePage() {
       </div>
 
       {/* 儲存列固定在底部，未變更時停用（設計 10） */}
-      <div className="fixed bottom-[68px] left-0 right-0 z-30 mx-auto max-w-md px-4 md:max-w-2xl lg:bottom-4 lg:max-w-[1180px] lg:px-6">
+      <div className="fixed bottom-[calc(var(--nav-h)+0.5rem)] left-0 right-0 z-30 mx-auto max-w-md px-4 md:max-w-2xl lg:max-w-[1180px] lg:px-6">
         <div className="flex items-center gap-3 rounded-2xl border border-[var(--ln2)] bg-[var(--sf)] p-3 shadow-lg">
           <span className="flex-1 text-xs text-[var(--mu)]">
             {changedKeys.length > 0

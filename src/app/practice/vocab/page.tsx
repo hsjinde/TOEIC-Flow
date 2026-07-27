@@ -170,7 +170,12 @@ function VocabPracticePage() {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    /*
+     * 手機撐滿一屏。翻卡模式的卡片只有 264px，剩下的半個螢幕是空的，自評三顆按鈕就
+     * 卡在畫面中段——單手拿著時那是最難按到的位置。卡片改成吃掉剩餘高度，按鈕自然
+     * 落到拇指區。
+     */
+    <div className="flex min-h-[calc(100dvh-var(--nav-h)-3.5rem)] flex-col gap-4 lg:min-h-0">
       <div className="flex items-center justify-between">
         <Link
           href={session.backHref}
@@ -236,7 +241,7 @@ function VocabPracticePage() {
         id="vocab-tabpanel"
         role="tabpanel"
         aria-labelledby={`vocab-tab-${mode}`}
-        className="mx-auto w-full max-w-xl"
+        className="mx-auto flex w-full max-w-xl flex-1 flex-col"
       >
         {mode === 'flip' ? (
           <VocabFlashcard

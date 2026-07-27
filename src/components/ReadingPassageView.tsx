@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Check, ChevronDown, ChevronUp, X } from 'lucide-react'
 import type { ReadingPassage } from '../../scripts/build-content/types'
 import { recordQuestionAnswer } from '../lib/storage'
+import { resolveStem } from '../lib/stem'
 import { Button } from './ui/Button'
 import { ExplanationCard } from './ExplanationCard'
 import { GlossaryText } from './GlossaryText'
@@ -12,35 +13,6 @@ import { cn } from '../lib/utils'
 interface ReadingPassageViewProps {
   passage: ReadingPassage
   onComplete: (correctCount: number) => void
-}
-
-/** 短文／文章題的 stem 在題庫裡只是「題目 N」佔位字串，沒有內容。 */
-export const PLACEHOLDER_STEM = /^題目\s*\d+$/
-
-/**
- * 設計 13：題目要顯示空格所在的那一句，而不是佔位標題。
- * 空格在文章裡標成 `______(N)`，往前後找到句界就是上下文。
- */
-export function contextSentence(passageText: string, questionNumber: number): string | null {
-  const marker = `______(${questionNumber})`
-  const at = passageText.indexOf(marker)
-  if (at < 0) return null
-
-  const before = passageText.slice(0, at)
-  const after = passageText.slice(at + marker.length)
-  const start = Math.max(
-    before.lastIndexOf('. '),
-    before.lastIndexOf('\n'),
-    before.lastIndexOf('? '),
-    before.lastIndexOf('! ')
-  )
-  const endCandidates = ['.', '\n', '?', '!']
-    .map((ch) => after.indexOf(ch))
-    .filter((i) => i >= 0)
-  const end = endCandidates.length > 0 ? Math.min(...endCandidates) : after.length
-
-  const sentence = `${before.slice(start + 1)}___${after.slice(0, end + 1)}`.trim()
-  return sentence.length > 0 ? sentence : null
 }
 
 export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage, onComplete }) => {
@@ -105,7 +77,8 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
   }, [currentQ, currentBlank, selectedAnswers, handleSelectOption, handleNextQuestion])
 
   const passageBox = passage.passage ? (
-    <div className="flex max-h-[58vh] flex-col overflow-hidden rounded-2xl border border-[var(--ln)] bg-[var(--sf)] lg:max-h-[calc(100vh-13rem)]">
+    // dvh 而非 vh：手機瀏覽器工具列收合時 vh 不會跟著變，文章框會比實際可視區高一截。
+    <div className="flex max-h-[58dvh] flex-col overflow-hidden rounded-2xl border border-[var(--ln)] bg-[var(--sf)] lg:max-h-[calc(100dvh-13rem)]">
       {passage.title && (
         <h3 className="shrink-0 border-b border-[var(--ln)] px-5 py-3 text-xs font-bold tracking-wider text-[var(--mu)]">
           {passage.title}
@@ -131,9 +104,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
             </span>
           </div>
           <p className="mt-2 font-option text-[var(--tx)]">
-            {PLACEHOLDER_STEM.test(currentQ.stem)
-              ? (contextSentence(passage.passage, currentQ.number) ?? '請對照左側文章作答')
-              : currentQ.stem}
+            {resolveStem(currentQ.stem, currentQ.number, passage.passage)}
           </p>
         </div>
 
@@ -214,7 +185,7 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
 
         {/* 手機把主要動作釘在拇指區，詳解再長也不會把「下一題」推出視窗。 */}
         {selectedKey && (
-          <div className="sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom,0px))] z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)]/95 backdrop-blur-md px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+          <div className="sticky bottom-[var(--nav-h)] z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)]/95 px-4 pb-3 pt-3 backdrop-blur-md lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <Button variant="primary" onClick={handleNextQuestion}>
               {currentQIndex + 1 < passage.questions.length ? '下一題' : '完成閱讀練習'}
               <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>

@@ -37,7 +37,8 @@ export const ProgressRing: React.FC<ProgressRingProps> = ({
         width={size}
         height={size}
         viewBox={`0 0 ${size} ${size}`}
-        className="-rotate-90 transform w-36 h-36 sm:w-44 sm:h-44 max-w-full h-auto"
+        // h-36 與 h-auto 同時掛在同一個元素上，最後誰贏取決於 CSS 產生順序。留一個。
+        className="h-36 w-36 max-w-full -rotate-90 transform sm:h-44 sm:w-44"
       >
         <circle
           cx={size / 2}

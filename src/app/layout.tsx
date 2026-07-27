@@ -35,13 +35,13 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
+      <body className="min-h-dvh bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground">
         <AuthProvider>
           <AuthGuard>
             <OfflineBanner />
             <TopNav />
-            <div className="flex min-h-screen flex-col items-center">
-              <main className="flex w-full max-w-md flex-col px-4 pt-4 pb-[calc(6.5rem+env(safe-area-inset-bottom,0px))] md:max-w-2xl lg:max-w-[1180px] lg:px-6 lg:pt-6 lg:pb-12 overflow-x-hidden">
+            <div className="flex min-h-dvh flex-col items-center">
+              <main className="flex w-full max-w-md flex-col overflow-x-clip px-4 pt-4 pb-[calc(var(--nav-h)+2.5rem)] md:max-w-2xl lg:max-w-[1180px] lg:px-6 lg:pt-6">
                 {children}
               </main>
             </div>

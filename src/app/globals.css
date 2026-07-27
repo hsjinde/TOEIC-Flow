@@ -49,6 +49,23 @@
 }
 
 @layer base {
+  /*
+   * 手機底部導航實際佔用的高度：pt-2 (8) + 44 的觸控列 + pb-2 (8) + 1px 上框 ≒ 61px，
+   * 再加上瀏海機的 home indicator。全站所有貼在拇指區上緣的 sticky／fixed 元件都吃
+   * 這個值——先前錯題本用 bottom-20、練習頁用 bottom-16、閱讀頁用 3.5rem+inset、
+   * 設定頁用 68px，四個地方四個數字，而且三個沒算 safe-area，在 iPhone 上被導航蓋住。
+   * 1024px 以上導航換成頂部列，值歸零，因此不需要再逐處寫 lg: 覆蓋。
+   */
+  :root {
+    --nav-h: calc(3.8125rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --nav-h: 0px;
+    }
+  }
+
   :root,
   [data-theme="light"] {
     --bg: #F3F2F2;
@@ -169,14 +186,21 @@ body[data-exam-mode='true'] [data-chrome='nav'] {
   display: none;
 }
 
-body[data-exam-mode='true'] main {
-  padding-bottom: 2rem;
+/* 導航收起來了，貼在拇指區的元件就不必再讓位。 */
+body[data-exam-mode='true'] {
+  --nav-h: 0px;
 }
 
+/*
+ * clip 而非 hidden。`overflow-x: hidden` 會把 overflow-y 連帶算成 auto，於是 html、
+ * body 與 main 三層全變成捲動容器，裡面所有 `position: sticky` 都失去作用——練習頁
+ * 釘在拇指區的「下一題」、錯題本與單字本的批次列，全部只是跟著文件往下捲，從來沒有
+ * 真的貼住過。clip 一樣裁掉水平溢出，但不建立捲動容器。
+ */
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 button,

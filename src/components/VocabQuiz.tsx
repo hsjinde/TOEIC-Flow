@@ -262,7 +262,7 @@ export const VocabQuiz: React.FC<VocabQuizProps> = ({
             同文法練習：解析卡一長，「下一張」就會被推出視窗，而手機沒有 SPACE 可按。
             把它釘在拇指區（底部導覽上方），桌機回到文件流。
           */}
-          <div className="sticky bottom-16 z-30 bg-[var(--bg)] pb-1 pt-1 lg:static lg:z-auto lg:bg-transparent lg:p-0">
+          <div className="sticky bottom-[var(--nav-h)] z-30 -mx-4 border-t border-[var(--ln)] bg-[var(--bg)]/95 px-4 pb-3 pt-3 backdrop-blur-md lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
             <Button variant="primary" onClick={onNext}>
               下一張
               <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>

@@ -361,7 +361,7 @@ export default function HomePage() {
                   <Link
                     key={s.categoryId}
                     href={`/practice/grammar?category=${encodeURIComponent(s.categoryId)}`}
-                    className="flex items-center justify-between gap-2 py-1 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
+                    className="flex min-h-[44px] items-center justify-between gap-2 text-xs text-[var(--mu)] hover:text-[var(--tx)]"
                   >
                     <span className="truncate">{getCategoryLabel(s.categoryId)}</span>
                     <span className="shrink-0 font-bold text-[var(--tx)]">{s.accuracyRate}%</span>
@@ -369,7 +369,7 @@ export default function HomePage() {
                 ))}
               <Link
                 href="/stats"
-                className="block pt-1 text-xs font-semibold text-[var(--pr)] hover:opacity-80"
+                className="flex min-h-[44px] items-center text-xs font-semibold text-[var(--pr)] hover:opacity-80"
               >
                 看完整統計 →
               </Link>

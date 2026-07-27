@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, BookOpen, RotateCcw, Volume2 } from 'lucide-react'
+import { ArrowLeft, BookOpen, ChevronDown, RotateCcw, Volume2 } from 'lucide-react'
 import type { VocabItem } from '../../../scripts/build-content/types'
 import {
   LEECH_WRONG_THRESHOLD,
@@ -19,6 +19,7 @@ import { Button } from '../../components/ui/Button'
 import { MasteryDots } from '../../components/MasteryDots'
 import { EmphasisText } from '../../components/EmphasisText'
 import { speakWord } from '../../lib/speech'
+import { useIsDesktop } from '../../lib/useIsDesktop'
 import { cn } from '../../lib/utils'
 
 /** 一鍵複習抓幾個字，跟每日單字任務同一個量。 */
@@ -50,6 +51,7 @@ function relativeDue(stat: VocabStat): string {
 }
 
 export default function VocabReviewPage() {
+  const isDesktop = useIsDesktop()
   const [rows, setRows] = useState<VocabRow[] | null>(null)
   const [filter, setFilter] = useState<string>(ALL)
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -63,9 +65,8 @@ export default function VocabReviewPage() {
       if (item) next.push({ stat, item })
     }
     setRows(next)
-    setSelectedId((prev) =>
-      prev && next.some((r) => r.stat.vocabId === prev) ? prev : (next[0]?.stat.vocabId ?? null)
-    )
+    // 手機就地展開，預設收合；桌機右欄的 fallback 在下面。
+    setSelectedId((prev) => (prev && next.some((r) => r.stat.vocabId === prev) ? prev : null))
   }, [])
 
   useEffect(() => {
@@ -83,10 +84,12 @@ export default function VocabReviewPage() {
     [rows, filter]
   )
 
-  const selected = useMemo(
-    () => visible.find((r) => r.stat.vocabId === selectedId) ?? visible[0] ?? null,
+  const openRow = useMemo(
+    () => visible.find((r) => r.stat.vocabId === selectedId) ?? null,
     [visible, selectedId]
   )
+  /** 桌機右欄永遠有內容；沒點過就顯示第一個字。 */
+  const selected = openRow ?? visible[0] ?? null
 
   if (!rows) return <VocabReviewSkeleton />
 
@@ -155,58 +158,81 @@ export default function VocabReviewPage() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
         {/* 清單 */}
         <div className="space-y-2.5">
-          {visible.map(({ stat, item }) => {
+          {visible.map((row) => {
+            const { stat, item } = row
             const isSelected = selected?.stat.vocabId === stat.vocabId
+            const isOpen = openRow?.stat.vocabId === stat.vocabId
+            const panelId = `vocab-detail-${encodeURIComponent(stat.vocabId)}`
             return (
               <div
                 key={stat.vocabId}
                 className={cn(
-                  'flex items-start gap-3 rounded-2xl border bg-[var(--sf)] p-4 transition-colors',
+                  'overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
                   isSelected ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
                 )}
               >
-                <input
-                  type="checkbox"
-                  aria-label={`選取 ${item.word}`}
-                  checked={checked.has(stat.vocabId)}
-                  onChange={() => toggleCheck(stat.vocabId)}
-                  className="mt-1 h-4 w-4 shrink-0 accent-[var(--pr)]"
-                />
-                <button
-                  type="button"
-                  onClick={() => setSelectedId(stat.vocabId)}
-                  className="min-w-0 flex-1 text-left"
-                >
-                  <p className="flex items-center gap-2">
-                    <span className="font-option text-[15px] font-bold text-[var(--tx)]">
-                      {item.word}
-                    </span>
-                    {item.pos && (
-                      <span className="rounded-md bg-[var(--sf2)] px-1.5 py-0.5 text-[11px] text-[var(--mu)]">
-                        {item.pos}
+                <div className="flex items-start gap-1 p-4">
+                  <label className="-m-1.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center">
+                    <input
+                      type="checkbox"
+                      aria-label={`選取 ${item.word}`}
+                      checked={checked.has(stat.vocabId)}
+                      onChange={() => toggleCheck(stat.vocabId)}
+                      className="h-4 w-4 accent-[var(--pr)]"
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedId(isOpen && !isDesktop ? null : stat.vocabId)}
+                    aria-expanded={isDesktop ? undefined : isOpen}
+                    aria-controls={isDesktop ? undefined : panelId}
+                    className="min-w-0 flex-1 py-0.5 text-left"
+                  >
+                    <p className="flex flex-wrap items-center gap-2">
+                      <span className="font-option text-[15px] font-bold text-[var(--tx)]">
+                        {item.word}
                       </span>
+                      {item.pos && (
+                        <span className="rounded-md bg-[var(--sf2)] px-1.5 py-0.5 text-[11px] text-[var(--mu)]">
+                          {item.pos}
+                        </span>
+                      )}
+                      <StatusBadge status={stat.status} />
+                    </p>
+                    <p className="mt-1 truncate text-[13px] text-[var(--mu)]">{item.meaning}</p>
+                    <p className="mt-1.5 text-[11px] text-[var(--mu)]">
+                      {relativePast(stat.lastReviewed)}
+                      {stat.attempts > 0 &&
+                        ` · 練過 ${stat.attempts} 次 · 正確率 ${stat.accuracyRate}%`}
+                    </p>
+                  </button>
+                  <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
+                    {stat.wrongCount > 0 && (
+                      <span className="text-[11px] text-[var(--mu)]">錯 {stat.wrongCount} 次</span>
                     )}
-                    <StatusBadge status={stat.status} />
-                  </p>
-                  <p className="mt-1 truncate text-[13px] text-[var(--mu)]">{item.meaning}</p>
-                  <p className="mt-1.5 text-[11px] text-[var(--mu)]">
-                    {relativePast(stat.lastReviewed)}
-                    {stat.attempts > 0 &&
-                      ` · 練過 ${stat.attempts} 次 · 正確率 ${stat.accuracyRate}%`}
-                  </p>
-                </button>
-                <div className="flex shrink-0 flex-col items-end gap-1">
-                  {stat.wrongCount > 0 && (
-                    <span className="text-[11px] text-[var(--mu)]">錯 {stat.wrongCount} 次</span>
-                  )}
-                  <MasteryDots level={stat.level} className="text-sm" />
+                    <MasteryDots level={stat.level} className="text-sm" />
+                    <ChevronDown
+                      aria-hidden
+                      className={cn(
+                        'h-4 w-4 text-[var(--mu)] transition-transform duration-200 lg:hidden',
+                        isOpen && 'rotate-180'
+                      )}
+                    />
+                  </div>
                 </div>
+
+                {/* 手機：字義與例句就地展開在該字底下，不必捲到整份清單的最後面。 */}
+                {!isDesktop && isOpen && (
+                  <InlinePanel id={panelId}>
+                    <VocabDetail row={row} />
+                  </InlinePanel>
+                )}
               </div>
             )
           })}
 
           {/* 批次動作 */}
-          <div className="sticky bottom-20 z-10 flex items-center gap-2 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3 lg:bottom-4">
+          <div className="sticky bottom-[calc(var(--nav-h)+0.5rem)] z-10 flex items-center gap-2 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3 lg:bottom-4">
             <span className="flex-1 text-xs text-[var(--mu)]">
               {checked.size > 0 ? `已選 ${checked.size} 個字` : `共 ${visible.length} 個字`}
             </span>
@@ -222,9 +248,32 @@ export default function VocabReviewPage() {
           </div>
         </div>
 
-        {/* 預覽：手機也顯示（放在清單下方），桌機為右欄 */}
-        {selected && <PreviewPane row={selected} />}
+        {/* 桌機：右欄常駐預覽 */}
+        {isDesktop && selected && (
+          <aside className="space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5 lg:sticky lg:top-20">
+            <VocabDetail row={selected} />
+          </aside>
+        )}
       </div>
+    </div>
+  )
+}
+
+/** 就地展開的容器。與錯題本同一種行為：展開後把面板帶進視窗。 */
+function InlinePanel({ id, children }: { id: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      id={id}
+      className="animate-fade-in space-y-4 border-t border-[var(--ln)] px-4 py-4"
+    >
+      {children}
     </div>
   )
 }
@@ -308,7 +357,7 @@ function FilterChip({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        'min-h-[34px] rounded-full border px-3 text-xs font-medium transition-colors',
+        'min-h-[44px] rounded-full border px-3.5 text-xs font-medium transition-colors',
         active
           ? 'border-[var(--pr-ln)] bg-[var(--pr-sf)] font-bold text-[var(--pr)]'
           : 'border-[var(--ln)] text-[var(--mu)] hover:text-[var(--tx)]'
@@ -319,7 +368,8 @@ function FilterChip({
   )
 }
 
-function PreviewPane({ row }: { row: VocabRow }) {
+/** 單字詳情本體。手機接在該字底下、桌機放右欄，兩邊是同一段內容。 */
+function VocabDetail({ row }: { row: VocabRow }) {
   const { stat, item } = row
   const [history, setHistory] = useState<AnswerHistoryEntry[]>([])
 
@@ -328,7 +378,7 @@ function PreviewPane({ row }: { row: VocabRow }) {
   }, [stat.vocabId])
 
   return (
-    <aside className="space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5 lg:sticky lg:top-20">
+    <>
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
         <span className="font-semibold text-[var(--mu)]">{getChapterLabel(item.chapterId)}</span>
         <span className="flex items-center gap-1.5 text-[var(--mu)]">
@@ -338,8 +388,13 @@ function PreviewPane({ row }: { row: VocabRow }) {
 
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <h2 className="font-display text-[var(--tx)]">{item.word}</h2>
-          <p className="mt-1 text-sm font-bold text-[var(--pr)]">{item.meaning}</p>
+          {/*
+            44px 的 Display 是「該畫面唯一的主角」才有的待遇。桌機右欄成立，手機不
+            成立——就地展開時，這個字已經印在正上方那一列了，再用兩行 44px 複述一次
+            只是把例句擠出畫面。
+          */}
+          <h2 className="hidden font-display text-[var(--tx)] lg:block">{item.word}</h2>
+          <p className="text-sm font-bold text-[var(--pr)] lg:mt-1">{item.meaning}</p>
         </div>
         <button
           type="button"
@@ -409,7 +464,7 @@ function PreviewPane({ row }: { row: VocabRow }) {
           </Button>
         </Link>
       </div>
-    </aside>
+    </>
   )
 }
 

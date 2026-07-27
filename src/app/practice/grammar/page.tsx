@@ -404,7 +404,7 @@ function GrammarPracticePage() {
             文件流，因為右欄本來就是 sticky 的。
           */}
           {isQuestionAnswered && (
-            <div className="sticky bottom-16 z-30 -mx-4 mt-1 border-t border-[var(--ln)] bg-[var(--bg)] px-4 pb-3 pt-3 lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0">
+            <div className="sticky bottom-[var(--nav-h)] z-30 -mx-4 mt-1 border-t border-[var(--ln)] bg-[var(--bg)]/95 px-4 pb-3 pt-3 backdrop-blur-md lg:static lg:z-auto lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
               <Button variant="primary" onClick={handleNext}>
                 {currentIndex + 1 < questions.length ? '下一題' : '看本回結果'}
                 <span className="hidden text-xs opacity-70 lg:inline">SPACE</span>

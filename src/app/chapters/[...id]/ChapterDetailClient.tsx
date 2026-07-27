@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Sparkles, Zap } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles, Zap } from 'lucide-react'
 import type { Chapter, Formula, Question } from '../../../../scripts/build-content/types'
 import {
   getCategoryMeta,
@@ -21,7 +21,6 @@ import {
 import { Button } from '../../../components/ui/Button'
 import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { GraduationDots } from '../../../components/GraduationDots'
-import { cn } from '../../../lib/utils'
 
 interface ChapterDetailClientProps {
   id: string[] | string
@@ -119,7 +118,10 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
             </h1>
           </header>
 
-          {/* 秒殺公式：卡片化＋左側色條（設計 07/15） */}
+          {/*
+            秒殺公式。原本靠 3px 的左側色條標示，那是 DESIGN.md 明文禁止的裝飾色條；
+            改成整圈主色髮絲框，強調同樣做到，而且不必破例。
+          */}
           {formulas.length > 0 && (
             <section className="space-y-2.5">
               <h2 className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-[var(--pr)]">
@@ -128,7 +130,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
               {formulas.map((formula) => (
                 <div
                   key={formula.id}
-                  className="rounded-r-xl rounded-l-sm border border-l-[3px] border-[var(--ln)] border-l-[var(--pr)] bg-[var(--sf)] p-4"
+                  className="rounded-xl border border-[var(--pr-ln)] bg-[var(--sf)] p-4"
                 >
                   <h3 className="text-sm font-bold text-[var(--tx)]">{formula.title}</h3>
                   <MarkdownRenderer content={formula.body} className="mt-2 text-[13px]" />
@@ -150,25 +152,14 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
             <MarkdownRenderer content={chapter.teaching} />
           </section>
 
-          {/* 手機的主要動作放內文結尾 */}
-          <div className="flex flex-col gap-2 lg:hidden">
-            <Link href={practiceHref}>
-              <Button variant="primary">
-                <Sparkles className="h-4 w-4" /> 練這章 · {Math.min(5, questionCount)} 題
-              </Button>
-            </Link>
-            {nextChapter && (
-              <Link href={chapterHref(nextChapter.id)}>
-                <Button variant="outline" className="text-xs">
-                  下一章 · {stripOrderPrefix(nextChapter.title)} <ArrowRight className="h-3.5 w-3.5" />
-                </Button>
-              </Link>
-            )}
-          </div>
         </article>
 
-        {/* 右欄：該章數據與練習入口（設計 15） */}
-        <aside className="hidden flex-col gap-4 lg:sticky lg:top-20 lg:flex lg:self-start">
+        {/*
+          該章數據與練習入口。先前整欄是 hidden lg:flex——手機使用者看不到自己這章的
+          正確率，也看不到「你在這章的錯題」，那是通勤情境下最該看到的兩塊。手機改成
+          接在內文後面（讀完 → 看成績 → 開始練），並拿掉原本重複一份的手機專用按鈕。
+        */}
+        <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:self-start">
           <section className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
             <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章正確率</h2>
             {mastery ? (
@@ -183,8 +174,9 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
                           {mastery.accuracyRate}%
                         </p>
                         {isDone ? (
-                          <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-500">
-                            已完成 (≥80%)
+                          // 「已完成」是進度，不是答題判定——綠色在這裡會稀釋掉「答對」的反射。
+                          <span className="flex items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2 py-0.5 text-[11px] font-bold text-[var(--pr)]">
+                            <CheckCircle2 className="h-3 w-3" /> 已完成 (≥80%)
                           </span>
                         ) : (
                           <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
@@ -199,10 +191,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
                       </p>
                       <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
                         <div
-                          className={cn(
-                            'h-full rounded-full transition-all duration-300',
-                            isDone ? 'bg-emerald-500' : 'bg-[var(--pr)]'
-                          )}
+                          className="h-full rounded-full bg-[var(--pr)] transition-all duration-300"
                           style={{ width: `${mastery.accuracyRate}%` }}
                         />
                       </div>
@@ -214,14 +203,15 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
               <p className="mt-1 text-xs text-[var(--mu)]">還沒練過這一章</p>
             )}
             <Link href={practiceHref} className="mt-4 block">
-              <Button variant="primary" className="min-h-[44px] text-xs">
-                練這章 · {Math.min(5, questionCount)} 題
+              <Button variant="primary" className="text-sm lg:min-h-[44px] lg:text-xs">
+                <Sparkles className="h-4 w-4" /> 練這章 · {Math.min(5, questionCount)} 題
               </Button>
             </Link>
             {nextChapter && (
               <Link href={chapterHref(nextChapter.id)} className="mt-2 block">
-                <Button variant="outline" className="min-h-[40px] text-xs">
+                <Button variant="outline" className="text-xs lg:min-h-[40px]">
                   下一章 · {stripOrderPrefix(nextChapter.title)}
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </Button>
               </Link>
             )}
@@ -245,7 +235,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
               ))}
               <Link
                 href={`/practice/grammar?mode=wrong&ids=${encodeURIComponent(wrong.map((w) => w.question.id).join(','))}`}
-                className="block pt-1 text-xs font-semibold text-[var(--pr)] hover:opacity-80"
+                className="flex min-h-[44px] items-center text-xs font-semibold text-[var(--pr)] hover:opacity-80"
               >
                 複習這 {wrong.length} 題 →
               </Link>

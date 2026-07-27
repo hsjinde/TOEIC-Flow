@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Check, Flag, Plus } from 'lucide-react'
 import type { Question } from '../../scripts/build-content/types'
@@ -17,6 +17,8 @@ export interface MockAnswerRow {
   seconds: number
   /** 所屬 Part，模擬考題的 categoryId 全是 'mock'，分項表現只能靠這個 */
   part: string
+  /** Part 6 的題幹在題庫裡是「題目 16」這種佔位字串，檢討時要換成空格所在的那一句 */
+  displayStem?: string
 }
 
 interface MockReportModalProps {
@@ -47,6 +49,16 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
   wrongFiled,
 }) => {
   const [reviewIndex, setReviewIndex] = useState<number | null>(null)
+  const reviewRef = useRef<HTMLElement>(null)
+
+  /*
+   * 檢討區在題號一覽下面。手機上點了第 23 題卻停在原地，等於什麼都沒發生——
+   * 40 題的九宮格加上「最花時間的三題」把它推到了一整個螢幕之外。
+   */
+  useEffect(() => {
+    if (reviewIndex === null) return
+    reviewRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }, [reviewIndex])
 
   const correctCount = rows.filter((r) => r.isCorrect).length
   const wrongRows = rows.filter((r) => !r.isCorrect)
@@ -112,7 +124,8 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 手機兩欄。四張卡各佔一整列的話，光是這四個數字就要滑掉一整屏。 */}
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <div className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4">
           <p className="text-xs text-[var(--mu)]">得分</p>
           <p className="mt-1 text-2xl font-extrabold text-[var(--tx)]">
@@ -207,7 +220,9 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
                   <span className="shrink-0 font-mono text-[var(--mu)]">
                     {rows.indexOf(row) + 1}
                   </span>
-                  <span className="line-clamp-1 flex-1 text-[var(--mu)]">{row.question.stem}</span>
+                  <span className="line-clamp-1 flex-1 text-[var(--mu)]">
+                    {row.displayStem ?? row.question.stem}
+                  </span>
                   <span className="shrink-0 font-mono text-[var(--mu)]">
                     {Math.floor(row.seconds / 60)}:{String(row.seconds % 60).padStart(2, '0')}
                   </span>
@@ -220,8 +235,11 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
 
       {/* 逐題檢討 */}
       {reviewRow && (
-        <section className="animate-fade-in space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
-          <div className="flex items-center justify-between">
+        <section
+          ref={reviewRef}
+          className="animate-fade-in scroll-mt-4 space-y-4 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-sm font-bold text-[var(--tx)]">
               第 {(reviewIndex ?? 0) + 1} 題檢討
             </h2>
@@ -245,7 +263,9 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
             </div>
           </div>
 
-          <p className="font-stem text-[var(--tx)]">{reviewRow.question.stem}</p>
+          <p className="font-stem text-[var(--tx)]">
+            {reviewRow.displayStem ?? reviewRow.question.stem}
+          </p>
 
           <ul className="space-y-1.5">
             {reviewRow.question.blanks[0]?.options.map((opt) => {

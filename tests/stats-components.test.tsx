@@ -76,28 +76,43 @@ describe('PracticeCalendar', () => {
     expect(container.firstChild).toBeNull()
   })
 
+  const popupDay = {
+    date: '2026-07-27',
+    count: 10,
+    correctCount: 8,
+    sources: { grammar: 6, vocab: 4 },
+  }
+
   it('shows detailed popup on cell hover with accuracy and source breakdown', () => {
-    const customDays = [
-      {
-        date: '2026-07-27',
-        count: 10,
-        correctCount: 8,
-        sources: { grammar: 6, vocab: 4 },
-      },
-    ]
-    const { container } = render(<PracticeCalendar days={customDays} />)
-    const cell = container.querySelector('.cursor-pointer')!
-    expect(cell).toBeTruthy()
+    render(<PracticeCalendar days={[popupDay]} />)
+    const cell = screen.getByLabelText('7月27日 (一) 10 題')
 
     fireEvent.mouseEnter(cell)
 
     expect(screen.getByText('7月27日 (一)')).toBeTruthy()
     expect(screen.getByText('當日正確率')).toBeTruthy()
     expect(screen.getByText('80%')).toBeTruthy()
-    expect(screen.getByText('8 題')).toBeTruthy()
-    expect(screen.getByText('2 題')).toBeTruthy()
+    // 答對／答錯合併成一組數字：綠與紅只屬於答題判定，統計裡不該出現。
+    expect(screen.getByText('8 / 2 題')).toBeTruthy()
     expect(screen.getByText('文法練習')).toBeTruthy()
     expect(screen.getByText('單字測驗')).toBeTruthy()
+  })
+
+  it('opens the popup on tap and keeps it open until tapped again', () => {
+    // 手機沒有 hover。先前這份細節在觸控裝置上完全打不開。
+    render(<PracticeCalendar days={[popupDay]} />)
+    const cell = screen.getByLabelText('7月27日 (一) 10 題')
+
+    fireEvent.click(cell)
+    expect(cell.getAttribute('aria-expanded')).toBe('true')
+    expect(screen.getByText('當日正確率')).toBeTruthy()
+
+    // 滑出格子不該把點開的那張收掉
+    fireEvent.mouseLeave(cell.closest('.relative')!)
+    expect(screen.getByText('當日正確率')).toBeTruthy()
+
+    fireEvent.click(cell)
+    expect(screen.queryByText('當日正確率')).toBeNull()
   })
 })
 

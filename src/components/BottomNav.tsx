@@ -21,12 +21,14 @@ export const BottomNav: React.FC = () => {
   const pathname = usePathname()
 
   return (
+    // 底色與上框必須滿版：先前整條 nav 自己是 max-w-2xl，在平板上變成一條 672px 的
+    // 浮條，兩側直接看得到內容從它旁邊捲過去。寬度限制改到內層。
     <nav
       aria-label="主導航"
       data-chrome="nav"
-      className="fixed bottom-0 left-0 right-0 z-40 mx-auto max-w-md border-t border-[var(--ln)] bg-[var(--sf)] px-4 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] backdrop-blur-md md:max-w-2xl lg:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--ln)] bg-[var(--sf)] pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] backdrop-blur-md lg:hidden"
     >
-      <div className="flex items-center justify-around">
+      <div className="mx-auto flex max-w-md items-center justify-around px-4 md:max-w-2xl">
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon
           const isActive =
@@ -38,7 +40,9 @@ export const BottomNav: React.FC = () => {
               href={item.href}
               aria-current={isActive ? 'page' : undefined}
               className={cn(
-                'flex min-h-[44px] flex-col items-center justify-center gap-1 rounded-xl px-3 py-1 text-xs font-medium transition-all duration-200',
+                // DESIGN.md 的 nav-item 就是 44px；先前 min-h-44 再加 py-1 實際長成 48，
+                // 導航整條比 --nav-h 高 4px，所有靠它定位的 sticky 元件都被吃掉一截。
+                'flex h-11 flex-col items-center justify-center gap-0.5 rounded-xl px-3 text-xs font-medium transition-all duration-200',
                 isActive ? 'font-bold text-[var(--pr)]' : 'text-[var(--fa)] hover:text-[var(--tx)]'
               )}
             >
