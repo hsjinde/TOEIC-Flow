@@ -79,4 +79,35 @@ describe('storage controller', () => {
     expect(stats[0]?.totalAnswered).toBe(2)
     expect(stats[0]?.accuracyRate).toBe(50)
   })
+
+  it('preserves today completion state when syncUserDataFromD1 runs', async () => {
+    const { syncUserDataFromD1 } = await import('../src/lib/storage')
+    recordTaskCompletion('grammar')
+    expect(getDailyProgress().grammarCompleted).toBe(true)
+
+    // Mock fetch for /api/user/data returning D1 stats
+    globalThis.fetch = (async (url: string) => {
+      if (url === '/api/user/data') {
+        return {
+          ok: true,
+          json: async () => ({
+            stats: { streak_days: 3, last_practice_date: new Date().toISOString().split('T')[0] },
+            answerHistory: [],
+            vocabMastery: [],
+            wrongQuestions: [],
+          }),
+        } as any
+      }
+      return { ok: false } as any
+    }) as any
+
+    await syncUserDataFromD1()
+    expect(getDailyProgress().grammarCompleted).toBe(true)
+  })
+
+  it('infers completion state from today answer history', () => {
+    recordQuestionAnswer('q1', 'grammar/01', true, { source: 'grammar' })
+    const progress = getDailyProgress()
+    expect(progress.grammarCompleted).toBe(true)
+  })
 })

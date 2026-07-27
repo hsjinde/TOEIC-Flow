@@ -33,11 +33,26 @@ export function stripEmphasis(text: string): string {
 
 /** 把被標記的目標字換成填空底線；沒有標記時退回用字面比對。 */
 export function toClozeSentence(example: string, word: string, blank = '______'): string {
-  if (EMPHASIS_SPLIT.test(example)) {
-    EMPHASIS_SPLIT.lastIndex = 0
-    return example.replace(/\*{1,2}[^*]+\*{1,2}/, blank)
+  const parts = splitEmphasis(example)
+  const hasEmphasised = parts.some((p) => p.emphasised)
+
+  if (hasEmphasised) {
+    const cleanWord = word.toLowerCase().replace(/\(.*?\)/g, '').trim()
+    const wordTokens = cleanWord.split(/[\s\/\+\-]+/).filter((t) => t.length >= 2)
+
+    const matchIndex = parts.findIndex((p) => {
+      if (!p.emphasised) return false
+      const lowerP = p.text.toLowerCase()
+      return wordTokens.some((t) => lowerP.includes(t) || t.includes(lowerP))
+    })
+
+    const targetIdx = matchIndex !== -1 ? matchIndex : parts.findIndex((p) => p.emphasised)
+
+    return parts
+      .map((p, idx) => (idx === targetIdx ? blank : p.text))
+      .join('')
   }
-  EMPHASIS_SPLIT.lastIndex = 0
+
   const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   return example.replace(new RegExp(escaped, 'i'), blank)
 }

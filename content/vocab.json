@@ -1112,7 +1112,7 @@
     "word": "prior to that",
     "pos": "phr.",
     "meaning": "在那之前",
-    "example": "Prior to that, he had worked as a consultant.",
+    "example": "**Prior to that**, he had worked as a consultant.",
     "exampleZh": "在那之前，他曾擔任顧問。"
   },
   {
@@ -1121,7 +1121,7 @@
     "word": "at the time",
     "pos": "phr.",
     "meaning": "當時",
-    "example": "At the time, the company was still a small startup.",
+    "example": "**At the time**, the company was still a small startup.",
     "exampleZh": "當時這家公司還只是一間小新創。"
   },
   {
@@ -1517,7 +1517,7 @@
     "word": "bore",
     "pos": "及物動詞",
     "meaning": "使無聊",
-    "example": "boring/bored | The lecture was so **boring** that many students fell asleep.",
+    "example": "The lecture was so **boring** that many students fell asleep.",
     "exampleZh": "這堂課無聊到很多學生都睡著了。"
   },
   {
@@ -1526,7 +1526,7 @@
     "word": "tire",
     "pos": "及物動詞",
     "meaning": "使疲累",
-    "example": "tiring/tired | After a **tiring** day, she went straight to bed.",
+    "example": "After a **tiring** day, she went straight to bed.",
     "exampleZh": "忙了累人的一天後，她倒頭就睡。"
   },
   {
@@ -1535,7 +1535,7 @@
     "word": "amaze",
     "pos": "及物動詞",
     "meaning": "使驚奇",
-    "example": "amazing/amazed | We were **amazed** *at* the results of the survey.",
+    "example": "We were **amazed** at the results of the survey.",
     "exampleZh": "這份問卷的結果讓我們大為驚訝。"
   },
   {
@@ -1544,7 +1544,7 @@
     "word": "frustrate",
     "pos": "及物動詞",
     "meaning": "使沮喪",
-    "example": "frustrating/frustrated | The delay was extremely **frustrating** for the customers.",
+    "example": "The delay was extremely **frustrating** for the customers.",
     "exampleZh": "這次延誤讓顧客非常沮喪。"
   },
   {
@@ -1553,7 +1553,7 @@
     "word": "motivate",
     "pos": "及物動詞",
     "meaning": "激勵",
-    "example": "motivating/motivated | The bonus scheme is highly **motivating** for the sales team.",
+    "example": "The bonus scheme is highly **motivating** for the sales team.",
     "exampleZh": "這套獎金制度對業務團隊非常有激勵作用。"
   },
   {
@@ -1562,7 +1562,7 @@
     "word": "overwhelm",
     "pos": "及物動詞",
     "meaning": "使不知所措",
-    "example": "overwhelming/overwhelmed | She felt **overwhelmed** *by* the amount of work.",
+    "example": "She felt **overwhelmed** by the amount of work.",
     "exampleZh": "龐大的工作量讓她應接不暇。"
   },
   {
@@ -1571,7 +1571,7 @@
     "word": "fascinate",
     "pos": "及物動詞",
     "meaning": "使著迷",
-    "example": "fascinating/fascinated | The museum exhibit was truly **fascinating**.",
+    "example": "The museum exhibit was truly **fascinating**.",
     "exampleZh": "這個博物館的展覽真的很吸引人。"
   },
   {
@@ -1652,7 +1652,7 @@
     "word": "carry",
     "pos": "及物動詞",
     "meaning": "攜帶",
-    "example": "He entered **with** a folder **carrying** important documents.",
+    "example": "He entered with a folder **carrying** important documents.",
     "exampleZh": "他拿著一個裝有重要文件的資料夾走進來。"
   },
   {
@@ -1661,7 +1661,7 @@
     "word": "verify",
     "pos": "及物動詞",
     "meaning": "核實",
-    "example": "The invoice was approved **with** all figures **verified**.",
+    "example": "The invoice was approved with all figures **verified**.",
     "exampleZh": "這張發票在所有數字都經過核對後獲得核准。"
   },
   {
@@ -1670,7 +1670,7 @@
     "word": "attach",
     "pos": "及物動詞",
     "meaning": "附加",
-    "example": "She sent the email **with** a file **attached**.",
+    "example": "She sent the email with a file **attached**.",
     "exampleZh": "她寄出那封附有檔案的電子郵件。"
   },
   {
@@ -2237,7 +2237,7 @@
     "word": "candidate",
     "pos": "n.",
     "meaning": "候選人",
-    "example": "The candidate **whom** we interviewed impressed us.",
+    "example": "The **candidate** whom we interviewed impressed us.",
     "exampleZh": "我們面試過的那位人選讓我們印象深刻。"
   },
   {
@@ -2264,7 +2264,7 @@
     "word": "supervisor",
     "pos": "n.",
     "meaning": "主管",
-    "example": "The supervisor **whose** team performed best was promoted.",
+    "example": "The **supervisor** whose team performed best was promoted.",
     "exampleZh": "那位團隊表現最好的主管獲得升遷。"
   },
   {
@@ -2273,7 +2273,7 @@
     "word": "branch",
     "pos": "n.",
     "meaning": "分公司、分行",
-    "example": "This is the branch **where** the incident occurred.",
+    "example": "This is the **branch** where the incident occurred.",
     "exampleZh": "這就是事故發生的那間分公司。"
   },
   {
@@ -2282,7 +2282,7 @@
     "word": "occasion",
     "pos": "n.",
     "meaning": "場合、時機",
-    "example": "There was an occasion **when** the system failed.",
+    "example": "There was an **occasion** when the system failed.",
     "exampleZh": "曾經有一次系統故障。"
   },
   {
@@ -2291,7 +2291,7 @@
     "word": "invest in",
     "pos": "片語",
     "meaning": "投資於",
-    "example": "The fund **in which** we invested grew steadily.",
+    "example": "The fund in which we **invested** grew steadily.",
     "exampleZh": "我們投資的那檔基金穩定成長。"
   },
   {
@@ -2336,7 +2336,7 @@
     "word": "majority",
     "pos": "n.",
     "meaning": "多數",
-    "example": "The firm has 50 clients, **most of whom** renewed their contracts.",
+    "example": "The firm has 50 clients, **most** of whom renewed their contracts.",
     "exampleZh": "這家公司有 50 位客戶，其中多數都續約了。"
   },
   {
@@ -2993,7 +2993,7 @@
     "word": "if I'm not mistaken",
     "pos": "phr.",
     "meaning": "如果我沒記錯",
-    "example": "If I'm not mistaken, the deadline is Friday, **isn't** it?",
+    "example": "**If I'm not mistaken**, the deadline is Friday, isn't it?",
     "exampleZh": "如果我沒記錯，期限是週五，對吧？"
   },
   {
@@ -3002,7 +3002,7 @@
     "word": "as far as I know",
     "pos": "phr.",
     "meaning": "據我所知",
-    "example": "As far as I know, he's still on leave, **isn't** he?",
+    "example": "**As far as I know**, he's still on leave, isn't he?",
     "exampleZh": "就我所知，他還在休假，不是嗎？"
   },
   {
@@ -3029,7 +3029,7 @@
     "word": "presumably",
     "pos": "adv.",
     "meaning": "據推測",
-    "example": "Presumably, she'll be here on time, **won't** she?",
+    "example": "**Presumably**, she'll be here on time, won't she?",
     "exampleZh": "她應該會準時到，不是嗎？"
   },
   {
@@ -3038,7 +3038,7 @@
     "word": "allegedly",
     "pos": "adv.",
     "meaning": "據稱",
-    "example": "He allegedly missed the flight, **didn't** he?",
+    "example": "He **allegedly** missed the flight, didn't he?",
     "exampleZh": "據說他錯過了班機，不是嗎？"
   },
   {

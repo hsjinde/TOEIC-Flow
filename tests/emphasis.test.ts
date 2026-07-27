@@ -59,6 +59,18 @@ describe('toClozeSentence', () => {
     expect(toClozeSentence(sentence, 'itinerary')).toBe(toClozeSentence(sentence, 'itinerary'))
   })
 
+  it('selects the matching emphasis span when multiple emphasis spans exist', () => {
+    expect(
+      toClozeSentence('He entered **with** a folder **carrying** important documents.', 'carry')
+    ).toBe('He entered with a folder ______ important documents.')
+  })
+
+  it('correctly blanks allegedly in tag question sentence', () => {
+    expect(toClozeSentence("He **allegedly** missed the flight, didn't he?", 'allegedly')).toBe(
+      "He ______ missed the flight, didn't he?"
+    )
+  })
+
   it('produces a blank for every example that has one', () => {
     const withExample = vocab.filter((v) => v.example)
     const blanked = withExample.filter((v) => toClozeSentence(v.example, v.word).includes('______'))

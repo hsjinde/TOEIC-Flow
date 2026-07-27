@@ -48,14 +48,52 @@ function getTodayString(): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+function checkTodayCompletedTasks(history?: AnswerHistoryEntry[]): { grammar: boolean; vocab: boolean; reading: boolean } {
+  if (typeof window === 'undefined') return { grammar: false, vocab: false, reading: false }
+  try {
+    const entries: AnswerHistoryEntry[] = history ?? (
+      localStorage.getItem(STORAGE_KEY_HISTORY)
+        ? JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY)!)
+        : []
+    )
+
+    const todayStart = new Date()
+    todayStart.setHours(0, 0, 0, 0)
+    const todayMs = todayStart.getTime()
+
+    let grammar = false
+    let vocab = false
+    let reading = false
+
+    for (const entry of entries) {
+      if (entry.timestamp >= todayMs) {
+        if (entry.source === 'grammar') grammar = true
+        if (entry.source === 'vocab') vocab = true
+        if (entry.source === 'reading') reading = true
+      }
+    }
+    return { grammar, vocab, reading }
+  } catch {
+    return { grammar: false, vocab: false, reading: false }
+  }
+}
+
 export function getDailyProgress(): DailyProgress {
   if (typeof window === 'undefined') {
     return { date: getTodayString(), streak: 1, grammarCompleted: false, vocabCompleted: false, readingCompleted: false }
   }
   const raw = localStorage.getItem(STORAGE_KEY_PROGRESS)
   const today = getTodayString()
+  const historyFlags = checkTodayCompletedTasks()
+
   if (!raw) {
-    const initial: DailyProgress = { date: today, streak: 1, grammarCompleted: false, vocabCompleted: false, readingCompleted: false }
+    const initial: DailyProgress = {
+      date: today,
+      streak: 1,
+      grammarCompleted: historyFlags.grammar,
+      vocabCompleted: historyFlags.vocab,
+      readingCompleted: historyFlags.reading,
+    }
     localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(initial))
     return initial
   }
@@ -70,13 +108,28 @@ export function getDailyProgress(): DailyProgress {
       const isConsecutive = parsed.date === yStr && (parsed.grammarCompleted || parsed.vocabCompleted || parsed.readingCompleted)
       const nextStreak = isConsecutive ? parsed.streak + 1 : 1
 
-      const updated: DailyProgress = { date: today, streak: nextStreak, grammarCompleted: false, vocabCompleted: false, readingCompleted: false }
+      const updated: DailyProgress = {
+        date: today,
+        streak: nextStreak,
+        grammarCompleted: historyFlags.grammar,
+        vocabCompleted: historyFlags.vocab,
+        readingCompleted: historyFlags.reading,
+      }
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(updated))
       return updated
     }
+    parsed.grammarCompleted = parsed.grammarCompleted || historyFlags.grammar
+    parsed.vocabCompleted = parsed.vocabCompleted || historyFlags.vocab
+    parsed.readingCompleted = parsed.readingCompleted || historyFlags.reading
     return parsed
   } catch {
-    return { date: today, streak: 1, grammarCompleted: false, vocabCompleted: false, readingCompleted: false }
+    return {
+      date: today,
+      streak: 1,
+      grammarCompleted: historyFlags.grammar,
+      vocabCompleted: historyFlags.vocab,
+      readingCompleted: historyFlags.reading,
+    }
   }
 }
 
@@ -583,12 +636,16 @@ export async function syncUserDataFromD1(): Promise<void> {
     // 5. Sync Daily Progress / Stats
     if (data.stats && data.stats.streak_days) {
       const today = getTodayString()
+      const currentLocal = getDailyProgress()
+      const isTodayLocal = currentLocal.date === today
+      const historyFlags = checkTodayCompletedTasks()
+
       const progress: DailyProgress = {
         date: data.stats.last_practice_date || today,
         streak: data.stats.streak_days || 1,
-        grammarCompleted: false,
-        vocabCompleted: false,
-        readingCompleted: false,
+        grammarCompleted: (isTodayLocal && currentLocal.grammarCompleted) || historyFlags.grammar,
+        vocabCompleted: (isTodayLocal && currentLocal.vocabCompleted) || historyFlags.vocab,
+        readingCompleted: (isTodayLocal && currentLocal.readingCompleted) || historyFlags.reading,
       }
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
     }
