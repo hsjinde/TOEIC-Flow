@@ -438,6 +438,8 @@ export function getQuestionHistory(questionId: string): AnswerHistoryEntry[] {
 export interface CalendarDay {
   date: string
   count: number
+  correctCount?: number
+  sources?: Partial<Record<AnswerSource, number>>
 }
 
 /**
@@ -446,10 +448,19 @@ export interface CalendarDay {
  */
 export function getPracticeCalendar(days: number = 84): CalendarDay[] {
   const counts: Record<string, number> = {}
+  const correctCounts: Record<string, number> = {}
+  const sourceCounts: Record<string, Partial<Record<AnswerSource, number>>> = {}
+
   for (const entry of getAnswerHistory()) {
     const d = new Date(entry.timestamp)
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
     counts[key] = (counts[key] ?? 0) + 1
+    if (entry.isCorrect) {
+      correctCounts[key] = (correctCounts[key] ?? 0) + 1
+    }
+    const src: AnswerSource = entry.source ?? (entry.categoryId === 'vocab' ? 'vocab' : 'grammar')
+    if (!sourceCounts[key]) sourceCounts[key] = {}
+    sourceCounts[key]![src] = (sourceCounts[key]![src] ?? 0) + 1
   }
 
   const out: CalendarDay[] = []
@@ -458,7 +469,12 @@ export function getPracticeCalendar(days: number = 84): CalendarDay[] {
   cursor.setDate(cursor.getDate() - (days - 1))
   for (let i = 0; i < days; i++) {
     const key = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, '0')}-${String(cursor.getDate()).padStart(2, '0')}`
-    out.push({ date: key, count: counts[key] ?? 0 })
+    out.push({
+      date: key,
+      count: counts[key] ?? 0,
+      correctCount: correctCounts[key] ?? 0,
+      sources: sourceCounts[key] ?? {},
+    })
     cursor.setDate(cursor.getDate() + 1)
   }
   return out
