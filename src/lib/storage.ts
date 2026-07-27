@@ -477,6 +477,7 @@ export interface ChapterMastery {
   totalAnswered: number
   correctCount: number
   accuracyRate: number
+  uniqueAnsweredCount: number
 }
 
 /**
@@ -484,14 +485,15 @@ export interface ChapterMastery {
  * `grammar/02_.../09_不定詞#q5`，`#` 前面就是 chapterId（見 build-content/id.ts）。
  */
 export function getChapterMasteryMap(): Record<string, ChapterMastery> {
-  const map: Record<string, { total: number; correct: number }> = {}
+  const map: Record<string, { total: number; correct: number; questions: Set<string> }> = {}
   for (const entry of getAnswerHistory()) {
     const hashAt = entry.questionId.indexOf('#')
     if (hashAt <= 0) continue
     const chapterId = entry.questionId.slice(0, hashAt)
-    const bucket = map[chapterId] ?? { total: 0, correct: 0 }
+    const bucket = map[chapterId] ?? { total: 0, correct: 0, questions: new Set() }
     bucket.total += 1
     if (entry.isCorrect) bucket.correct += 1
+    bucket.questions.add(entry.questionId)
     map[chapterId] = bucket
   }
 
@@ -501,6 +503,7 @@ export function getChapterMasteryMap(): Record<string, ChapterMastery> {
       totalAnswered: v.total,
       correctCount: v.correct,
       accuracyRate: v.total > 0 ? Math.round((v.correct / v.total) * 100) : 0,
+      uniqueAnsweredCount: v.questions.size,
     }
   }
   return out

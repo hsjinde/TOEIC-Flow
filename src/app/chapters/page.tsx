@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown, ChevronRight, Zap } from 'lucide-react'
+import { CheckCircle2, ChevronDown, ChevronRight, Zap } from 'lucide-react'
 import {
   getCategories,
   getChapterNumber,
@@ -16,20 +16,30 @@ function chapterHref(id: string): string {
   return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
 }
 
-/** 分類掌握度＝該類所有章節的答題數加總後的正確率，不是章節百分比的平均。 */
-function categoryMastery(
+/** 分類完成率＝該類中正確率 >= 80% 的小章節數 / 該類總章節數。 */
+function categoryCompletion(
   category: CategoryMeta,
   masteryMap: Record<string, ChapterMastery>
-): { rate: number | null; answered: number } {
-  let total = 0
-  let correct = 0
+): { rate: number | null; completedCount: number; hasPracticed: boolean } {
+  let completedCount = 0
+  let hasPracticed = false
+
   for (const ch of category.chapters) {
     const m = masteryMap[ch.id]
-    if (!m) continue
-    total += m.totalAnswered
-    correct += m.correctCount
+    if (m && m.totalAnswered > 0) {
+      hasPracticed = true
+      if (m.accuracyRate >= 80) {
+        completedCount += 1
+      }
+    }
   }
-  return { rate: total > 0 ? Math.round((correct / total) * 100) : null, answered: total }
+
+  const total = category.chapters.length
+  return {
+    rate: hasPracticed && total > 0 ? Math.round((completedCount / total) * 100) : null,
+    completedCount,
+    hasPracticed,
+  }
 }
 
 export default function ChaptersPage() {
@@ -48,19 +58,25 @@ export default function ChaptersPage() {
   if (!categories) return <ChaptersSkeleton />
 
   const totalChapters = categories.reduce((a, c) => a + c.chapters.length, 0)
-  const overall = categories.reduce(
-    (acc, cat) => {
-      for (const ch of cat.chapters) {
-        const m = mastery[ch.id]
-        if (!m) continue
-        acc.total += m.totalAnswered
-        acc.correct += m.correctCount
+  let totalCompletedChapters = 0
+  let hasAnyPracticed = false
+
+  for (const cat of categories) {
+    for (const ch of cat.chapters) {
+      const m = mastery[ch.id]
+      if (m && m.totalAnswered > 0) {
+        hasAnyPracticed = true
+        if (m.accuracyRate >= 80) {
+          totalCompletedChapters += 1
+        }
       }
-      return acc
-    },
-    { total: 0, correct: 0 }
-  )
-  const overallRate = overall.total > 0 ? Math.round((overall.correct / overall.total) * 100) : null
+    }
+  }
+
+  const overallRate =
+    hasAnyPracticed && totalChapters > 0
+      ? Math.round((totalCompletedChapters / totalChapters) * 100)
+      : null
 
   const toggle = (id: string) =>
     setExpanded((prev) => {
@@ -76,14 +92,14 @@ export default function ChaptersPage() {
         <h1 className="text-xl font-bold text-[var(--tx)]">文法章節</h1>
         <p className="mt-0.5 text-xs text-[var(--mu)]">
           {categories.length} 大類 · {totalChapters} 章
-          {overallRate !== null && ` · 整體掌握度 ${overallRate}%`}
+          {overallRate !== null && ` · 整體完成率 ${overallRate}%`}
         </p>
       </div>
 
       <div className="space-y-2.5 lg:grid lg:grid-cols-2 lg:gap-3 lg:space-y-0">
         {categories.map((cat) => {
           const isOpen = expanded.has(cat.id)
-          const { rate } = categoryMastery(cat, mastery)
+          const { rate } = categoryCompletion(cat, mastery)
 
           return (
             <section
@@ -127,6 +143,8 @@ export default function ChaptersPage() {
                 <ul className="animate-fade-in border-t border-[var(--ln)]">
                   {cat.chapters.map((chap) => {
                     const m = mastery[chap.id]
+                    const isCompleted = Boolean(m && m.totalAnswered > 0 && m.accuracyRate >= 80)
+
                     return (
                       <li key={chap.id}>
                         <Link
@@ -145,18 +163,33 @@ export default function ChaptersPage() {
                                   aria-label="含秒殺公式"
                                 />
                               )}
+                              {isCompleted && (
+                                <CheckCircle2
+                                  className="h-3.5 w-3.5 shrink-0 text-emerald-500"
+                                  aria-label="已完成 (正確率 80% 以上)"
+                                />
+                              )}
                             </span>
                             <span className="mt-1 block h-1 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
                               <span
                                 className={cn(
                                   'block h-full rounded-full transition-all duration-300',
-                                  m ? 'bg-[var(--pr)]' : 'bg-transparent'
+                                  isCompleted
+                                    ? 'bg-emerald-500'
+                                    : m
+                                    ? 'bg-[var(--pr)]'
+                                    : 'bg-transparent'
                                 )}
                                 style={{ width: `${m?.accuracyRate ?? 0}%` }}
                               />
                             </span>
                           </span>
-                          <span className="w-10 shrink-0 text-right text-xs font-bold text-[var(--mu)]">
+                          <span
+                            className={cn(
+                              'w-10 shrink-0 text-right text-xs font-bold',
+                              isCompleted ? 'text-emerald-500' : 'text-[var(--mu)]'
+                            )}
+                          >
                             {m ? `${m.accuracyRate}%` : '—'}
                           </span>
                         </Link>

@@ -20,6 +20,7 @@ import {
 import { Button } from '../../../components/ui/Button'
 import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { GraduationDots } from '../../../components/GraduationDots'
+import { cn } from '../../../lib/utils'
 
 interface ChapterDetailClientProps {
   id: string[] | string
@@ -168,16 +169,26 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
         {/* 右欄：該章數據與練習入口（設計 15） */}
         <aside className="hidden flex-col gap-4 lg:sticky lg:top-20 lg:flex lg:self-start">
           <section className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
-            <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章掌握度</h2>
+            <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章正確率</h2>
             {mastery ? (
               <>
-                <p className="mt-1 text-2xl font-bold text-[var(--pr)]">{mastery.accuracyRate}%</p>
+                <div className="flex items-baseline justify-between">
+                  <p className="mt-1 text-2xl font-bold text-[var(--pr)]">{mastery.accuracyRate}%</p>
+                  {mastery.accuracyRate >= 80 && (
+                    <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold text-emerald-500">
+                      已完成 (≥80%)
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-[var(--mu)]">
                   近 {mastery.totalAnswered} 題 · {mastery.correctCount} 對
                 </p>
                 <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
                   <div
-                    className="h-full rounded-full bg-[var(--pr)] transition-all duration-300"
+                    className={cn(
+                      'h-full rounded-full transition-all duration-300',
+                      mastery.accuracyRate >= 80 ? 'bg-emerald-500' : 'bg-[var(--pr)]'
+                    )}
                     style={{ width: `${mastery.accuracyRate}%` }}
                   />
                 </div>
