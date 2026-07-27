@@ -1,21 +1,26 @@
 import { verifyPassword, signJwt } from '../../../src/lib/crypto'
 
-export async function onRequestOptions() {
+function getCorsHeaders(request: any) {
+  const origin = request?.headers?.get('origin') || request?.headers?.get('Origin') || 'http://localhost:3000'
+  return {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  }
+}
+
+export async function onRequestOptions(context: any) {
   return new Response(null, {
     status: 204,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
+    headers: getCorsHeaders(context.request),
   })
 }
 
 export async function onRequestPost(context: any) {
-  const corsHeaders = {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-  }
+  const origin = context.request?.headers?.get('origin') || '*'
+  const corsHeaders = getCorsHeaders(context.request)
 
   try {
     const { email, password } = await context.request.json()
@@ -58,10 +63,11 @@ export async function onRequestPost(context: any) {
 
     const headers = new Headers()
     headers.append('Content-Type', 'application/json')
-    headers.append('Access-Control-Allow-Origin', '*')
+    headers.append('Access-Control-Allow-Origin', origin)
+    headers.append('Access-Control-Allow-Credentials', 'true')
     headers.append(
       'Set-Cookie',
-      `toeic_session=${token}; HttpOnly; Secure; Path=/; SameSite=Lax; Max-Age=2592000`
+      `toeic_session=${token}; HttpOnly; Secure; Path=/; SameSite=None; Max-Age=2592000`
     )
 
     return new Response(
