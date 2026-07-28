@@ -1,4 +1,5 @@
 import { verifyJwt } from '../../../src/lib/crypto'
+import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
 
 export async function onRequestGet(context: any) {
   const cookieHeader = context.request.headers.get('Cookie') || ''
@@ -10,7 +11,13 @@ export async function onRequestGet(context: any) {
     })
   }
 
-  const secret = context.env.JWT_SECRET || 'toeic-flow-jwt-secret-2026'
+  const secret = getJwtSecret(context.env)
+  if (!secret) {
+    return new Response(JSON.stringify({ error: JWT_SECRET_ERROR_MESSAGE }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
   const payload = await verifyJwt<{ userId: string }>(match[1], secret)
   if (!payload) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {

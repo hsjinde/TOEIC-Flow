@@ -1,4 +1,5 @@
 import { verifyJwt } from '../../../src/lib/crypto'
+import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' }
 
@@ -13,7 +14,8 @@ async function authorize(
   const match = cookieHeader.match(/toeic_session=([^;]+)/)
   if (!match) return json({ error: '請先登入' }, 401)
 
-  const secret = context.env.JWT_SECRET || 'toeic-flow-jwt-secret-2026'
+  const secret = getJwtSecret(context.env)
+  if (!secret) return json({ error: JWT_SECRET_ERROR_MESSAGE }, 500)
   const payload = await verifyJwt<{ userId: string }>(match[1], secret)
   if (!payload) return json({ error: '登入已過期，請重新登入' }, 401)
 

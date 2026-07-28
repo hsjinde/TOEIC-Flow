@@ -5,6 +5,7 @@ import { onRequestGet as meHandler } from '../functions/api/auth/me'
 import { onRequestPost as logoutHandler } from '../functions/api/auth/logout'
 import { onRequestGet as userDataHandler } from '../functions/api/user/data'
 import { onRequestPost as userActionHandler } from '../functions/api/user/action'
+import { onRequestGet as profileGetHandler } from '../functions/api/user/profile'
 
 // Mock D1 Database
 function createMockD1() {
@@ -214,5 +215,86 @@ describe('Cloudflare Pages Functions Auth & User API', () => {
     const data = await dataRes.json()
     expect(data.wrongQuestions.length).toBe(0)
     expect(data.answerHistory.length).toBe(1)
+  })
+})
+
+describe('JWT_SECRET fail-closed behavior', () => {
+  // repo 是 public，絕對不能有硬編碼 fallback secret：production 忘記設定
+  // JWT_SECRET 時，所有需要簽發/驗證 JWT 的端點都必須直接回 500，而不是
+  // 用一個公開可見的字串簽出可偽造的 session。
+  let mockDb: any
+  let envWithSecret: any
+  let envMissingSecret: any
+
+  beforeEach(() => {
+    mockDb = createMockD1()
+    envWithSecret = { toeic_db: mockDb, JWT_SECRET: 'test-secret-key-12345' }
+    envMissingSecret = { toeic_db: mockDb }
+  })
+
+  it('register returns 500 and does not issue a session cookie when JWT_SECRET is missing', async () => {
+    const regReq = new Request('http://localhost/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'nosecret@example.com', password: 'password123', nickname: 'NoSecret' }),
+    })
+    const regRes = await registerHandler({ request: regReq, env: envMissingSecret })
+    expect(regRes.status).toBe(500)
+    expect(regRes.headers.get('Set-Cookie')).toBeNull()
+    const body = await regRes.json()
+    expect(body.error).toContain('JWT_SECRET')
+  })
+
+  it('login returns 500 and does not issue a session cookie when JWT_SECRET is missing', async () => {
+    // 先用有 secret 的 env 建立帳號，確保是「密碼正確、卡在簽發 token」這一步失敗。
+    const regReq = new Request('http://localhost/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'loginnosecret@example.com', password: 'password123', nickname: 'LoginNoSecret' }),
+    })
+    await registerHandler({ request: regReq, env: envWithSecret })
+
+    const loginReq = new Request('http://localhost/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'loginnosecret@example.com', password: 'password123' }),
+    })
+    const loginRes = await loginHandler({ request: loginReq, env: envMissingSecret })
+    expect(loginRes.status).toBe(500)
+    expect(loginRes.headers.get('Set-Cookie')).toBeNull()
+  })
+
+  it('me returns 500 instead of trusting a token when JWT_SECRET is missing', async () => {
+    const meReq = new Request('http://localhost/api/auth/me', {
+      headers: { Cookie: 'toeic_session=some.forged.token' },
+    })
+    const meRes = await meHandler({ request: meReq, env: envMissingSecret })
+    expect(meRes.status).toBe(500)
+  })
+
+  it('user/data returns 500 instead of trusting a token when JWT_SECRET is missing', async () => {
+    const dataReq = new Request('http://localhost/api/user/data', {
+      headers: { Cookie: 'toeic_session=some.forged.token' },
+    })
+    const dataRes = await userDataHandler({ request: dataReq, env: envMissingSecret })
+    expect(dataRes.status).toBe(500)
+  })
+
+  it('user/action returns 500 instead of trusting a token when JWT_SECRET is missing', async () => {
+    const actionReq = new Request('http://localhost/api/user/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Cookie: 'toeic_session=some.forged.token' },
+      body: JSON.stringify({ action: 'vocab_update', payload: { vocab_id: 'v_001', mastery_level: 3 } }),
+    })
+    const actionRes = await userActionHandler({ request: actionReq, env: envMissingSecret })
+    expect(actionRes.status).toBe(500)
+  })
+
+  it('user/profile returns 500 instead of trusting a token when JWT_SECRET is missing', async () => {
+    const profileReq = new Request('http://localhost/api/user/profile', {
+      headers: { Cookie: 'toeic_session=some.forged.token' },
+    })
+    const profileRes = await profileGetHandler({ request: profileReq, env: envMissingSecret })
+    expect(profileRes.status).toBe(500)
   })
 })

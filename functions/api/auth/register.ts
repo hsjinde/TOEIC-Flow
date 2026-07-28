@@ -1,4 +1,5 @@
 import { hashPassword, signJwt } from '../../../src/lib/crypto'
+import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
 
 export async function onRequestPost(context: any) {
   try {
@@ -38,7 +39,13 @@ export async function onRequestPost(context: any) {
       .bind(userId)
       .run()
 
-    const secret = context.env.JWT_SECRET || 'toeic-flow-jwt-secret-2026'
+    const secret = getJwtSecret(context.env)
+    if (!secret) {
+      return new Response(JSON.stringify({ error: JWT_SECRET_ERROR_MESSAGE }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
     const token = await signJwt({ userId, email, nickname }, secret)
 
     const headers = new Headers()
