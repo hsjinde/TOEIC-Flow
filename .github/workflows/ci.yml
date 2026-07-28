@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+# 同一條分支連推好幾次時，取消還在跑的舊 run。
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: 測試與建置
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 內容縮水檢查要拿 PR base 那版的 content/*.json 來比，淺 clone 拿不到。
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          # 跟 deploy.yml 對齊：pnpm 11 自己需要 Node >= 22.13（會 require
+          # node:sqlite），所以不能停在 package.json engines 寫的 20。
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          # 對齊產生 lockfile 的本機版本。package.json 沒有 packageManager 欄位，
+          # 這裡不指定版本 action 會直接失敗。
+          version: 11
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 執行測試
+        # *.real.test.ts 讀的是本機那份 Obsidian vault，runner 上沒有。
+        # SKIP_REAL_TESTS 會讓 vitest.config.ts 把它們加進 exclude。
+        run: pnpm test
+        env:
+          SKIP_REAL_TESTS: '1'
+
+      - name: 內容縮水檢查（對照 PR base）
+        # 只讀已 commit 的 content/*.json，不需要 vault，所以 CI 上跑得動。
+        # 這是唯一擋得住「有人直接刪掉題庫 JSON、沒跑 build:content」的一道。
+        #
+        # 覆寫出口（對應本機的 --allow-shrink / ALLOW_CONTENT_SHRINK=1）：在 PR 上掛
+        # allow-content-shrink 標籤就跳過。用標籤是因為它不需要額外的 action，而且
+        # 誰掛的、什麼時候掛的都留在 PR 記錄上。這個標籤要先在 repo 建立一次。
+        if: >-
+          github.event_name == 'pull_request' &&
+          !contains(github.event.pull_request.labels.*.name, 'allow-content-shrink')
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags origin "+refs/heads/$BASE:refs/remotes/origin/$BASE"
+          pnpm check:content --baseline "origin/$BASE"
+
+      - name: 建置（同時做型別檢查）
+        # tsconfig 是 noEmit + strict，型別錯誤會在這一步炸出來。
+        # 刻意不跑 build:content：題庫 JSON 是本機從 Obsidian 筆記產生後 commit
+        # 進版控的，runner 上沒有 vault 可讀。
+        run: pnpm build
+
+  content-hygiene:
+    name: 內容與程式碼混改提醒
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 檢查是否同時改動 content/*.json 與 src/**
+        # GitHub 的 run 步驟是 bash -e：git fetch/diff 一失敗整個 job 就紅了。
+        # 這是提醒不是門檻，所以連它自己壞掉都不該擋 PR。
+        continue-on-error: true
+        env:
+          BASE: ${{ github.base_ref }}
+        # 只留 workflow 註記（annotation）與 job summary，不裝任何額外 action，
+        # 也不會讓 PR 失敗——這是提醒，不是門檻。
+        run: |
+          git fetch --no-tags origin "+refs/heads/$BASE:refs/remotes/origin/$BASE"
+          changed=$(git diff --name-only "origin/$BASE...HEAD")
+          content=$(printf '%s\n' "$changed" | grep -E '^content/.*\.json$' || true)
+          src=$(printf '%s\n' "$changed" | grep -E '^src/' || true)
+
+          if [ -z "$content" ] || [ -z "$src" ]; then
+            echo "沒有混改：content/*.json 與 src/** 沒有同時出現在這個 PR。"
+            exit 0
+          fi
+
+          echo "::warning title=內容與程式碼混在同一個 PR::這個 PR 同時改動了題庫 content/*.json 與 src/** 的程式碼，建議拆成兩個 commit。題庫的巨量 diff 會把程式碼的改動蓋掉，也讓 revert 只能二選一。"
+          {
+            echo "### ⚠️ 內容與程式碼混在同一個 PR"
+            echo
+            echo "題庫的 diff 動輒上萬行，混在程式碼改動裡會讓 review 直接放棄看，"
+            echo "出事時也沒辦法只 revert 其中一邊。建議拆成兩個 commit。"
+            echo
+            echo "**改到的題庫檔：**"
+            printf '%s\n' "$content" | sed 's/^/- /'
+            echo
+            echo "**改到的程式碼（前 20 個）：**"
+            printf '%s\n' "$src" | head -20 | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"
