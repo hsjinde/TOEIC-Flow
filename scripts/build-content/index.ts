@@ -17,6 +17,7 @@ import {
   formatShrinkFailure,
   formatShrinkOverride,
   formatShrinkPassed,
+  hasFindings,
   isShrinkOverridden,
 } from './shrink-guard'
 import { readBaselineFromGit } from './baseline'
@@ -218,7 +219,7 @@ function main(): void {
   // 縮水護欄：跟 git HEAD 上已 commit 的題庫比。一定要在寫檔之前——寫下去之後才
   // 擋，工作目錄裡的題庫已經被蓋掉了，擋了也沒用。
   const check = checkContentShrink(readBaselineFromGit(BASELINE_REF), collectIds(bundle))
-  if (check.shrunk.length > 0) {
+  if (hasFindings(check)) {
     if (!isShrinkOverridden(process.argv.slice(2), process.env)) {
       console.error(formatShrinkFailure(check))
       process.exit(1)

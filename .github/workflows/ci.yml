@@ -46,7 +46,7 @@ jobs:
         env:
           SKIP_REAL_TESTS: '1'
 
-      - name: 內容縮水檢查（對照 PR base）
+      - name: 題庫護欄檢查（對照 PR base）
         # 只讀已 commit 的 content/*.json，不需要 vault，所以 CI 上跑得動。
         # 這是唯一擋得住「有人直接刪掉題庫 JSON、沒跑 build:content」的一道。
         #

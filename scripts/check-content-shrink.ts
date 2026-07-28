@@ -6,6 +6,7 @@ import {
   formatShrinkFailure,
   formatShrinkOverride,
   formatShrinkPassed,
+  hasFindings,
   hasNoBaselineAtAll,
   isShrinkOverridden,
   withMissingAsEmpty,
@@ -49,7 +50,7 @@ function main(): void {
     process.exit(1)
   }
 
-  if (check.shrunk.length === 0) {
+  if (!hasFindings(check)) {
     console.log(formatShrinkPassed(check, ref))
     return
   }
