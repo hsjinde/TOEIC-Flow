@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "build:content": "tsx scripts/build-content/index.ts",
     "check:content": "tsx scripts/check-content-shrink.ts",
+    "check:duplicates": "tsx scripts/check-duplicates.ts",
     "deploy": "pnpm run build:content && pnpm run build && npx wrangler pages deploy out --project-name=toeic"
   },
   "devDependencies": {
