@@ -11,6 +11,7 @@ pnpm test                   # vitest run (all tests)
 pnpm test:watch
 pnpm build:content          # parse Obsidian notes → content/*.json
 pnpm check:content          # 只比對已 commit 的 content/*.json，不需要 vault（CI 用這個）
+pnpm check:duplicates       # 查重：題幹相似度（決定退出碼）＋ 正解目標詞碰撞（僅供參考）
 pnpm deploy                 # build:content + build + wrangler pages deploy out --project-name=toeic
 ```
 

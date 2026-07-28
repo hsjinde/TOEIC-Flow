@@ -96,11 +96,17 @@ function main(): void {
   const report = checkDuplicates(refs, { stemThreshold: threshold })
   const text = formatDuplicateReport(report)
 
-  if (hasDuplicateFindings(report)) {
+  // 只有題幹相似才算「重複」。正解目標詞那一軸是提示性的：封閉詞類的章節本來就會
+  // 重複——複合關係代名詞只有五個字可考，時間連接詞也就那幾個——現況就有 65 組。
+  // 讓它決定退出碼的話，這支腳本在乾淨的題庫上也永遠是紅的，看的人只會學會忽略它。
+  if (report.stemFindings.length > 0) {
     console.error(text)
     process.exit(1)
   }
   console.log(text)
+  if (hasDuplicateFindings(report)) {
+    console.log('\n（上面的提示僅供寫題時參考，不影響退出碼。）')
+  }
 }
 
 main()

@@ -291,7 +291,12 @@ export function formatDuplicateReport(report: DuplicateReport, limit = 40): stri
     return `✓ 查重通過：${report.total} 題，沒有重複（題幹相似度門檻 ${report.stemThreshold}）`
   }
 
-  const lines: string[] = [`✗ 查重發現問題（共 ${report.total} 題）`]
+  // 標題只反映題幹那一軸——正解目標詞重複是提示，不是「查重沒過」。兩者混在同一個
+  // ✗ 底下的話，訊息會跟退出碼講不同的話。
+  const lines: string[] =
+    report.stemFindings.length > 0
+      ? [`✗ 查重發現問題（共 ${report.total} 題）`]
+      : [`✓ 題幹查重通過：${report.total} 題，沒有重複（相似度門檻 ${report.stemThreshold}）`]
 
   if (report.stemFindings.length > 0) {
     lines.push('', `題幹過於相似（${report.stemFindings.length} 組）：`)
@@ -309,7 +314,7 @@ export function formatDuplicateReport(report: DuplicateReport, limit = 40): stri
   }
 
   if (report.answerFindings.length > 0) {
-    lines.push('', `正解目標詞重複（${report.answerFindings.length} 組）：`)
+    lines.push('', `（提示）正解目標詞重複（${report.answerFindings.length} 組）：`)
     for (const finding of report.answerFindings.slice(0, limit)) {
       lines.push(
         `  [${SCOPE_LABEL[finding.scope]}] ${finding.answer} ×${finding.ids.length}  ${finding.key}`,

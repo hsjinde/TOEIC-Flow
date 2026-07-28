@@ -10340,11 +10340,11 @@
           },
           {
             "key": "C",
-            "text": "has been laboring"
+            "text": "has been working"
           },
           {
             "key": "D",
-            "text": "had labored"
+            "text": "had worked"
           }
         ],
         "answer": "C"
@@ -10352,7 +10352,7 @@
     ],
     "explanation": {
       "title": "現在完成進行式（強調尚未結束）",
-      "analysis": "`since early this morning` 加上「仍未完成」的語意，強調動作**持續進行且尚未結束** ➔ 用現在完成進行式 **has been laboring**(C)。(A) 是現在簡單式；(B) 是過去式；(D) 是過去完成式，皆無法表達持續至今的過程。",
+      "analysis": "`since early this morning` 加上「仍未完成」的語意，強調動作**持續進行且尚未結束** ➔ 用現在完成進行式 **has been working**(C)。(A) works 是現在簡單式；(B) worked 是過去式，會把工作講成已結束；(D) had worked 是過去完成式，時間軸不對。",
       "grammarPoint": "對應「1. 現在完成進行式」：強調過程的持續，與強調結果的現在完成式不同。",
       "similarNote": "同樣搭配 `since`，`has finished`（強調完成）與 `has been working`（強調還在做）語意不同。句中若出現 still / not yet，就是選完成進行式的信號。"
     }
@@ -14872,7 +14872,7 @@
           },
           {
             "key": "B",
-            "text": "cutting"
+            "text": "cuts"
           },
           {
             "key": "C",
@@ -14880,7 +14880,7 @@
           },
           {
             "key": "D",
-            "text": "cuts"
+            "text": "being cut"
           }
         ],
         "answer": "C"
@@ -14888,7 +14888,7 @@
     ],
     "explanation": {
       "title": "不定詞作主詞補語",
-      "analysis": "be 動詞後面用不定詞當**主詞補語**，說明 `objective`（目標）的內容 ➔ **to cut**(C)。(A) 是原形；(D) 是現在式，皆不能當補語；(B) cutting 在此語意上不如不定詞自然，因為目標指向未來要達成的事。",
+      "analysis": "be 動詞後面用不定詞當**主詞補語**，說明 `objective`（目標）的內容 ➔ **to cut**(C)。(A) cut 是原形動詞、(B) cuts 是現在式，兩者都不能單獨當補語；(D) being cut 是被動動名詞，語意變成「目標是被削減」，主詞與動作的關係不合。",
       "grammarPoint": "對應「1. 不定詞的三種功能」A. 作名詞（補語）：`Our goal is to improve customer satisfaction.`",
       "similarNote": "`goal / objective / aim / plan / purpose is to V` 是商務英文的固定句型，補語一律用不定詞而非動名詞。"
     }
@@ -22557,26 +22557,26 @@
     "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
     "categoryId": "04_特殊動詞用法",
     "number": 14,
-    "stem": "Visitors can watch the entire bottling line ___ from the observation deck on the second floor.",
+    "stem": "During the open house, visitors watched the entire bottling line ___ for two hours without a single stoppage.",
     "blanks": [
       {
         "label": null,
         "options": [
           {
             "key": "A",
-            "text": "operate"
+            "text": "run"
           },
           {
             "key": "B",
-            "text": "operated"
+            "text": "ran"
           },
           {
             "key": "C",
-            "text": "to operate"
+            "text": "to run"
           },
           {
             "key": "D",
-            "text": "operates"
+            "text": "runs"
           }
         ],
         "answer": "A"
@@ -22584,9 +22584,9 @@
     ],
     "explanation": {
       "title": "感官動詞 watch + 受詞 + 原形動詞",
-      "analysis": "`watch` 後面接受詞再接**原形動詞**，表示看到整條產線運作的完整過程 ➔ **operate**(A)。(B) 是過去分詞，語意變成產線被操作（但句中沒有行為者且語意重點在運轉）；(C) 是不定詞；(D) 是現在式。",
+      "analysis": "`watch` 後面接受詞再接**原形動詞**，且 `for two hours without a single stoppage` 表示看完了整段運轉過程 ➔ **run**(A)。(B) ran 是過去式，感官動詞的受詞補語不會用過去式；(C) to run 只出現在被動語態；(D) runs 是第三人稱單數現在式。",
       "grammarPoint": "對應「2. 感官動詞後的受詞補語」：原形動詞表示完整看到整個動作。",
-      "similarNote": "`operate` 兼具及物與不及物用法。這裡沒有受詞，是不及物用法（運轉），所以用主動的原形動詞。"
+      "similarNote": "`run` 在這裡是不及物用法（機器運轉）。感官動詞的受詞補語只有三種可能：原形 V、V-ing、p.p.，過去式與現在式一律不對。"
     }
   },
   {
@@ -34219,7 +34219,7 @@
     "chapterId": "grammar/06_其他多益必考進階題型/02_倒裝句",
     "categoryId": "06_其他多益必考進階題型",
     "number": 7,
-    "stem": "Not only ___ the new terminal reduce average waiting time, but it also increased passenger capacity.",
+    "stem": "Not only ___ the new terminal reduce average waiting time, but it also increases passenger capacity.",
     "blanks": [
       {
         "label": null,
@@ -35008,27 +35008,27 @@
         "options": [
           {
             "key": "A",
-            "text": "is"
+            "text": "are"
           },
           {
             "key": "B",
-            "text": "has been"
+            "text": "is"
           },
           {
             "key": "C",
-            "text": "have been"
+            "text": "was"
           },
           {
             "key": "D",
-            "text": "was"
+            "text": "has been"
           }
         ],
-        "answer": "C"
+        "answer": "A"
       }
     ],
     "explanation": {
       "title": "倒裝句中的主詞在後面",
-      "analysis": "句子是倒裝結構，真正的主詞是後面的複數 `the three supplier quotations` ➔ 動詞用複數 **have been**(C)。(A)、(B)、(D) 都是單數形。",
+      "analysis": "句子是倒裝結構，真正的主詞是後面的複數 `the three supplier quotations` ➔ 動詞用複數 **are**(A)。(B) is、(C) was、(D) has been 都是單數形，被句首的單數名詞 `the appendix` 誤導才會選到。",
       "grammarPoint": "對應「2. 多益陷阱：找出真正的主詞」：主詞不一定在動詞前面。",
       "similarNote": "以 `Attached is/are…`, `Enclosed is/are…`, `Included is/are…` 開頭的商務書信句都是倒裝，動詞要看後面的名詞。"
     }
@@ -40747,7 +40747,7 @@
     "chapterId": "grammar/06_其他多益必考進階題型/13_商業書信慣用語與正式用語替換",
     "categoryId": "06_其他多益必考進階題型",
     "number": 8,
-    "stem": "Please be ______ that the parking garage will be closed for repairs next week.",
+    "stem": "Please be ______ that all reimbursement claims must reach the finance office by the tenth of each month.",
     "blanks": [
       {
         "label": null,

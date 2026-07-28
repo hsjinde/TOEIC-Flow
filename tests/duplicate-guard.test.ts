@@ -213,6 +213,19 @@ describe('report helpers', () => {
     expect(formatDuplicateReport(report)).toContain('沒有重複')
   })
 
+  it('keeps the headline green when only the answer axis has findings', () => {
+    const report = checkDuplicates([
+      q({ id: 'a#q1', stem: 'The board approved the ___ without further discussion.', answerTexts: ['proposal'] }),
+      q({ id: 'a#q2', stem: 'Two suppliers withdrew their ___ before the deadline.', answerTexts: ['proposal'] }),
+    ])
+    expect(report.stemFindings).toEqual([])
+    expect(report.answerFindings).toHaveLength(1)
+    const text = formatDuplicateReport(report)
+    expect(text).toContain('✓ 題幹查重通過')
+    expect(text).toContain('（提示）正解目標詞重複')
+    expect(text).not.toContain('✗')
+  })
+
   it('formats both axes with ids so the offending questions can be found', () => {
     const report = checkDuplicates([
       q({ id: 'a#q1', stem: 'The ___ was approved by the board.', answerTexts: ['proposal'] }),
