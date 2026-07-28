@@ -10,7 +10,10 @@ const EXPLAIN_DIR = join(NOTES_DIR, '詳解')
 
 // 下限：目前筆記的實際文法詳解檔數／條目數。低於這個數字代表資料縮水，不是筆記變動——直接 fail。
 const FLOOR_FILES = 69
-const FLOOR_TOTAL_ENTRIES = 745
+const FLOOR_TOTAL_ENTRIES = 1035
+
+/** 每個詳解檔的條目數，與題目檔的每章題數一對一。 */
+const ENTRIES_PER_FILE = 15
 
 function eachGrammarExplanation(fn: (label: string, md: string) => void): void {
   const categories = readdirSync(EXPLAIN_DIR, { withFileTypes: true }).filter(
@@ -25,13 +28,16 @@ function eachGrammarExplanation(fn: (label: string, md: string) => void): void {
 }
 
 describe.skipIf(!VAULT_AVAILABLE)('parseAnswers against every real explanation file', () => {
-  it('finds 5 (original) or 15 (expansion) entries in each file', () => {
+  it(`finds exactly ${ENTRIES_PER_FILE} entries in every file`, () => {
     const bad: string[] = []
     eachGrammarExplanation((label, md) => {
       const count = parseAnswers(md).length
-      if (count !== 5 && count !== 15) bad.push(`${label}: ${count} entries`)
+      if (count !== ENTRIES_PER_FILE) bad.push(`${label}: ${count} entries`)
     })
-    expect(bad, `explanation files without 5 or 15 entries:\n${bad.join('\n')}`).toEqual([])
+    expect(
+      bad,
+      `explanation files without ${ENTRIES_PER_FILE} entries:\n${bad.join('\n')}`,
+    ).toEqual([])
   })
 
   it(`covers at least ${FLOOR_FILES} grammar explanation files and ${FLOOR_TOTAL_ENTRIES} entries total (floor — a drop below this means explanations shrank, likely by accident)`, () => {

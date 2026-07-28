@@ -10,7 +10,10 @@ const GRAMMAR_DIR = join(NOTES_DIR, '文法')
 
 // 下限：目前筆記的實際章節數／題數。低於這個數字代表題庫縮水，而不是筆記變動——直接 fail。
 const FLOOR_CHAPTERS = 69
-const FLOOR_TOTAL_QUESTIONS = 745
+const FLOOR_TOTAL_QUESTIONS = 1035
+
+/** 每章的題數。全部 69 章都已補齊到這個數字，所以是等號而不是範圍。 */
+const QUESTIONS_PER_CHAPTER = 15
 
 function eachChapter(fn: (chapterId: string, categoryId: string, md: string) => void): void {
   for (const category of readdirSync(GRAMMAR_DIR, { withFileTypes: true }).filter((d) => d.isDirectory())) {
@@ -22,14 +25,17 @@ function eachChapter(fn: (chapterId: string, categoryId: string, md: string) => 
 }
 
 describe.skipIf(!VAULT_AVAILABLE)('parseQuestions against every real chapter', () => {
-  it('finds either 5 (original) or 15 (expansion) questions in each chapter', () => {
+  it(`finds exactly ${QUESTIONS_PER_CHAPTER} questions in every chapter`, () => {
     const results: { chapter: string; count: number }[] = []
     eachChapter((chapterId, categoryId, md) => {
       results.push({ chapter: chapterId, count: parseQuestions(md, chapterId, categoryId).length })
     })
 
-    const bad = results.filter((r) => r.count !== 5 && r.count !== 15)
-    expect(bad, `chapters without 5 or 15 questions: ${JSON.stringify(bad, null, 2)}`).toEqual([])
+    const bad = results.filter((r) => r.count !== QUESTIONS_PER_CHAPTER)
+    expect(
+      bad,
+      `chapters without ${QUESTIONS_PER_CHAPTER} questions: ${JSON.stringify(bad, null, 2)}`,
+    ).toEqual([])
   })
 
   it('gives every blank at least two options', () => {
