@@ -11,10 +11,21 @@ import { parseChapter } from './parse-chapter'
 import { mergeQuestions, mergeGroupedQuestions, type Issue } from './merge'
 import { chapterIdFromPath } from './id'
 import { formatReport, hasBlockingIssues, type BuildStats } from './report'
+import {
+  checkContentShrink,
+  collectIds,
+  formatShrinkFailure,
+  formatShrinkOverride,
+  formatShrinkPassed,
+  isShrinkOverridden,
+} from './shrink-guard'
+import { readBaselineFromGit } from './baseline'
 import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } from './types'
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
 const OUT_DIR = join(process.cwd(), 'content')
+/** 縮水護欄的比較基準：已 commit 的題庫。 */
+const BASELINE_REF = 'HEAD'
 
 export interface ContentBundle {
   chapters: Chapter[]
@@ -202,6 +213,19 @@ function main(): void {
   if (hasBlockingIssues(bundle.issues)) {
     console.error('\nbuild 失敗：請先修正上列錯誤。')
     process.exit(1)
+  }
+
+  // 縮水護欄：跟 git HEAD 上已 commit 的題庫比。一定要在寫檔之前——寫下去之後才
+  // 擋，工作目錄裡的題庫已經被蓋掉了，擋了也沒用。
+  const check = checkContentShrink(readBaselineFromGit(BASELINE_REF), collectIds(bundle))
+  if (check.shrunk.length > 0) {
+    if (!isShrinkOverridden(process.argv.slice(2), process.env)) {
+      console.error(formatShrinkFailure(check))
+      process.exit(1)
+    }
+    console.log(formatShrinkOverride(check))
+  } else {
+    console.log(formatShrinkPassed(check, BASELINE_REF))
   }
 
   mkdirSync(OUT_DIR, { recursive: true })
