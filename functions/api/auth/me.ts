@@ -1,4 +1,5 @@
 import { verifyJwt } from '../../../src/lib/crypto'
+import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
 
 function getCorsHeaders(request: any) {
   const origin = request?.headers?.get('origin') || '*'
@@ -29,7 +30,13 @@ export async function onRequestGet(context: any) {
     })
   }
 
-  const secret = context.env.JWT_SECRET || 'toeic-flow-jwt-secret-2026'
+  const secret = getJwtSecret(context.env)
+  if (!secret) {
+    return new Response(JSON.stringify({ error: JWT_SECRET_ERROR_MESSAGE }), {
+      status: 500,
+      headers: corsHeaders,
+    })
+  }
   const payload = await verifyJwt<{ userId: string; email: string; nickname: string }>(match[1], secret)
 
   if (!payload) {
