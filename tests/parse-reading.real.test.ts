@@ -3,9 +3,15 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { parseReading } from '../scripts/build-content/parse-reading'
 import { parseAnswers } from '../scripts/build-content/parse-answers'
+import { NOTES_DIR, VAULT_AVAILABLE, VAULT_SKIP_REASON } from './support/vault'
 
-const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
+if (!VAULT_AVAILABLE) console.warn(`[parse-reading.real.test.ts] ${VAULT_SKIP_REASON}`)
+
 const READING_DIR = join(NOTES_DIR, '閱讀理解')
+
+// 下限：目前筆記的實際閱讀檔數／題數。低於這個數字代表資料縮水，不是筆記變動——直接 fail。
+const FLOOR_FILES = 24
+const FLOOR_TOTAL_QUESTIONS = 208
 
 const KINDS: Record<string, 'single' | 'paragraph' | 'article'> = {
   '01_單句填空題': 'single',
@@ -23,13 +29,7 @@ function eachFile(fn: (kindDir: string, file: string, chapterId: string, md: str
   }
 }
 
-describe('parseReading against real notes', () => {
-  it('covers all 24 reading files', () => {
-    const files: string[] = []
-    eachFile((_, __, chapterId) => files.push(chapterId))
-    expect(files).toHaveLength(24)
-  })
-
+describe.skipIf(!VAULT_AVAILABLE)('parseReading against real notes', () => {
   it('yields questions from every file, including single-sentence ones', () => {
     const empty: string[] = []
     eachFile((kindDir, _, chapterId, md) => {
@@ -39,6 +39,44 @@ describe('parseReading against real notes', () => {
       if (total === 0) empty.push(chapterId)
     })
     expect(empty, `reading files with no questions: ${empty.join(', ')}`).toEqual([])
+  })
+
+  it(`covers at least ${FLOOR_FILES} reading files and ${FLOOR_TOTAL_QUESTIONS} questions total (floor — a drop below this means the reading bank shrank, likely by accident)`, () => {
+    let fileCount = 0
+    let total = 0
+    eachFile((kindDir, _, chapterId, md) => {
+      const kind = KINDS[kindDir]
+      if (!kind) return
+      fileCount += 1
+      total += parseReading(md, chapterId, kind).reduce((n, p) => n + p.questions.length, 0)
+    })
+
+    expect(
+      fileCount,
+      `閱讀檔案數縮水，疑似誤刪：目前只找到 ${fileCount} 個檔案，門檻是 ${FLOOR_FILES} 個`,
+    ).toBeGreaterThanOrEqual(FLOOR_FILES)
+    expect(
+      total,
+      `閱讀題數縮水，疑似誤刪：目前只解析出 ${total} 題，門檻是 ${FLOOR_TOTAL_QUESTIONS} 題`,
+    ).toBeGreaterThanOrEqual(FLOOR_TOTAL_QUESTIONS)
+  })
+
+  it('reports the exact file/question count (informative — not a red light when notes legitimately grow)', () => {
+    let fileCount = 0
+    let total = 0
+    eachFile((kindDir, _, chapterId, md) => {
+      const kind = KINDS[kindDir]
+      if (!kind) return
+      fileCount += 1
+      total += parseReading(md, chapterId, kind).reduce((n, p) => n + p.questions.length, 0)
+    })
+
+    if (fileCount !== FLOOR_FILES || total !== FLOOR_TOTAL_QUESTIONS) {
+      console.warn(
+        `[parse-reading.real.test.ts] 檔案數/題數已從 ${FLOOR_FILES}/${FLOOR_TOTAL_QUESTIONS} ` +
+          `變為 ${fileCount}/${total}。若是筆記合法新增，請更新這個檔案裡的 FLOOR_FILES / FLOOR_TOTAL_QUESTIONS。`,
+      )
+    }
   })
 
   it('gives every question at least two options', () => {

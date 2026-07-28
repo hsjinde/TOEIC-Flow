@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, relative } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { parseQuestions } from './parse-questions'
 import { parseVocab } from './parse-vocab'
 import { parseFormulas } from './parse-formulas'
@@ -14,6 +15,18 @@ import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } 
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
 const OUT_DIR = join(process.cwd(), 'content')
+
+export interface ContentBundle {
+  chapters: Chapter[]
+  grammar: Question[]
+  vocab: VocabItem[]
+  formulas: Formula[]
+  reading: ReadingPassage[]
+  mockExams: MockExam[]
+  issues: Issue[]
+  stats: BuildStats
+}
+
 /** 例句中文翻譯的側車檔（筆記裡沒有這份資料），key 是單字 id。 */
 const EXAMPLE_ZH_PATH = join(process.cwd(), 'data', 'vocab-example-zh.json')
 
@@ -85,7 +98,13 @@ function attachExampleZh(vocab: VocabItem[], issues: Issue[]): void {
   }
 }
 
-function main(): void {
+/**
+ * Parse the whole vault into a content bundle, without touching disk output.
+ * Pure function of `notesDir` — used both by the CLI build below and by the
+ * consistency real-tests, which run it against the same vault the committed
+ * `content/*.json` is supposed to reflect and diff the two.
+ */
+export function buildContent(notesDir: string): ContentBundle {
   const issues: Issue[] = []
   const chapterList: Chapter[] = []
   const grammar: Question[] = []
@@ -95,11 +114,11 @@ function main(): void {
   const mockExams: MockExam[] = []
 
   // --- grammar chapters ---
-  const grammarDir = join(NOTES_DIR, '文法')
+  const grammarDir = join(notesDir, '文法')
   for (const category of subDirs(grammarDir)) {
     for (const file of mdFiles(join(grammarDir, category))) {
       const notePath = join(grammarDir, category, file)
-      const chapterId = chapterIdFromPath(relative(NOTES_DIR, notePath))
+      const chapterId = chapterIdFromPath(relative(notesDir, notePath))
       const md = readFileSync(notePath, 'utf8')
 
       const order = Number(/^(\d+)/.exec(file)?.[1] ?? 0)
@@ -107,7 +126,7 @@ function main(): void {
       vocab.push(...parseVocab(md, chapterId))
       formulas.push(...parseFormulas(md, chapterId))
 
-      const answers = readAnswers(join(NOTES_DIR, '詳解', category, file), chapterId, issues)
+      const answers = readAnswers(join(notesDir, '詳解', category, file), chapterId, issues)
       const merged = mergeQuestions(parseQuestions(md, chapterId, category), answers, chapterId)
       grammar.push(...merged.questions)
       issues.push(...merged.issues)
@@ -115,7 +134,7 @@ function main(): void {
   }
 
   // --- reading ---
-  const readingDir = join(NOTES_DIR, '閱讀理解')
+  const readingDir = join(notesDir, '閱讀理解')
   for (const kindDir of subDirs(readingDir)) {
     const kind = READING_KINDS[kindDir]
     if (!kind) {
@@ -124,9 +143,9 @@ function main(): void {
     }
     for (const file of mdFiles(join(readingDir, kindDir))) {
       const notePath = join(readingDir, kindDir, file)
-      const chapterId = chapterIdFromPath(relative(NOTES_DIR, notePath))
+      const chapterId = chapterIdFromPath(relative(notesDir, notePath))
       const passages = parseReading(readFileSync(notePath, 'utf8'), chapterId, kind)
-      const answers = readAnswers(join(NOTES_DIR, '詳解', '閱讀理解', kindDir, file), chapterId, issues)
+      const answers = readAnswers(join(notesDir, '詳解', '閱讀理解', kindDir, file), chapterId, issues)
 
       // One merge for the whole file: its questions are numbered 1..N across
       // every passage and share a single explanation file.
@@ -137,13 +156,13 @@ function main(): void {
   }
 
   // --- mock exams ---
-  const mockDir = join(NOTES_DIR, '模擬考試')
+  const mockDir = join(notesDir, '模擬考試')
   for (const file of mdFiles(mockDir)) {
     const notePath = join(mockDir, file)
-    const chapterId = chapterIdFromPath(relative(NOTES_DIR, notePath))
+    const chapterId = chapterIdFromPath(relative(notesDir, notePath))
     const title = file.replace(/\.md$/, '')
     const exam = parseMockExam(readFileSync(notePath, 'utf8'), chapterId, title)
-    const answers = readAnswers(join(NOTES_DIR, '詳解', '模擬考試', file), chapterId, issues)
+    const answers = readAnswers(join(notesDir, '詳解', '模擬考試', file), chapterId, issues)
 
     // Same rule as reading: numbering runs across parts, so merge the whole paper.
     const merged = mergeGroupedQuestions(exam.sections, answers, chapterId)
@@ -172,9 +191,15 @@ function main(): void {
     ),
   }
 
-  console.log(formatReport(stats, issues))
+  return { chapters: chapterList, grammar, vocab, formulas, reading, mockExams, issues, stats }
+}
 
-  if (hasBlockingIssues(issues)) {
+function main(): void {
+  const bundle = buildContent(NOTES_DIR)
+
+  console.log(formatReport(bundle.stats, bundle.issues))
+
+  if (hasBlockingIssues(bundle.issues)) {
     console.error('\nbuild 失敗：請先修正上列錯誤。')
     process.exit(1)
   }
@@ -183,14 +208,20 @@ function main(): void {
   const write = (name: string, data: unknown) =>
     writeFileSync(join(OUT_DIR, name), `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 
-  write('chapters.json', chapterList)
-  write('grammar.json', grammar)
-  write('vocab.json', vocab)
-  write('formulas.json', formulas)
-  write('reading.json', reading)
-  write('mock-exams.json', mockExams)
+  write('chapters.json', bundle.chapters)
+  write('grammar.json', bundle.grammar)
+  write('vocab.json', bundle.vocab)
+  write('formulas.json', bundle.formulas)
+  write('reading.json', bundle.reading)
+  write('mock-exams.json', bundle.mockExams)
 
   console.log(`\n已輸出至 ${OUT_DIR}`)
 }
 
-main()
+// Only run the CLI build when this file is executed directly (`tsx
+// scripts/build-content/index.ts`), not when `buildContent` is imported
+// elsewhere (e.g. the content-consistency real test) — importing it must
+// never have the side effect of writing content/*.json or exiting the process.
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+  main()
+}
