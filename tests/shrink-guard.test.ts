@@ -6,6 +6,7 @@ import {
   formatShrinkFailure,
   formatShrinkOverride,
   formatShrinkPassed,
+  hasFindings,
   hasNoBaselineAtAll,
   isShrinkOverridden,
   withMissingAsEmpty,
@@ -125,7 +126,7 @@ describe('checkContentShrink', () => {
   })
 
   it('counts ids that vanished even when the total grew', () => {
-    // 換掉一半的題目：總數不變，所以不算縮水。
+    // 換掉一半的題目：總數不變，所以不算縮水（改由 churned 接手）。
     const check = checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 100, 101) }))
     expect(check.shrunk).toEqual([])
   })
@@ -141,6 +142,47 @@ describe('checkContentShrink', () => {
       contentIds({ grammar: ids('g', 1), vocab: ids('v', 1), chapters: ids('c', 1) }),
     )
     expect(check.shrunk.map((s) => s.category).sort()).toEqual(['chapters', 'grammar', 'vocab'])
+  })
+})
+
+/**
+ * 改名／搬移筆記會讓 id 整批換掉但總數不變——純看數量的護欄看不到，而那正是
+ * 讓使用者錯題本與 SRS 記錄孤兒化的情形。實測整段 git 歷史，正常的變更（含題庫
+ * 擴充 4-5 倍）汰換率都是 0.0%，只有那次事故是 58–81%。
+ */
+describe('checkContentShrink：id 汰換', () => {
+  it('flags a category whose ids were replaced wholesale while the count held', () => {
+    const check = checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 100, 101) }))
+
+    expect(check.shrunk).toEqual([])
+    expect(check.churned.map((c) => c.category)).toEqual(['grammar'])
+    expect(check.churned[0]?.churnPercent).toBeCloseTo(100, 5)
+    expect(check.churned[0]?.missingIds).toHaveLength(100)
+  })
+
+  it('tolerates the churn of renumbering a few questions inside one chapter', () => {
+    // 100 題裡有 5 題換了 id（章節中間插題會讓後面重新編號）。
+    const renumbered = [...ids('g', 95), ...ids('g', 5, 101)]
+    const check = checkContentShrink(contentIds(), contentIds({ grammar: renumbered }))
+    expect(check.churned).toEqual([])
+  })
+
+  it('blocks once churn passes the threshold', () => {
+    const renumbered = [...ids('g', 89), ...ids('g', 11, 101)]
+    const check = checkContentShrink(contentIds(), contentIds({ grammar: renumbered }))
+    expect(check.churned.map((c) => c.category)).toEqual(['grammar'])
+  })
+
+  it('does not report a shrunk category twice', () => {
+    // 縮水那條訊息已經列出消失的 id，再報一次 churn 只是雜訊。
+    const check = checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 20) }))
+    expect(check.shrunk.map((s) => s.category)).toEqual(['grammar'])
+    expect(check.churned).toEqual([])
+  })
+
+  it('ignores pure growth, which never changes an existing id', () => {
+    const check = checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 745) }))
+    expect(check.churned).toEqual([])
   })
 })
 
@@ -171,6 +213,20 @@ describe('formatShrinkFailure', () => {
     expect(formatShrinkFailure(check)).toContain('--allow-shrink')
   })
 
+  it('explains id churn separately, pointing at the orphaned user data', () => {
+    const churn = checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 100, 101) }))
+    const output = formatShrinkFailure(churn)
+
+    expect(output).toContain('id 大量更動')
+    expect(output).toContain('文法題：100 個 id 消失（100.0%），總數 100 → 100')
+    expect(output).toContain('g1')
+    // 孤兒化的是 D1 裡的錯題本／SRS 記錄，訊息要講清楚代價。
+    expect(output).toContain('錯題本')
+    // 閱讀／模擬考是整份檔案 1..N 連號，中間插題會讓後面全部重編——這時候去找
+    // 一個根本不存在的「改名」會白忙，所以兩種成因都要講。
+    expect(output).toContain('重新編號')
+  })
+
   it('mentions categories that had no baseline to compare against', () => {
     const noBase = checkContentShrink({ ...contentIds(), grammar: undefined }, contentIds())
     expect(formatShrinkFailure(noBase)).toContain('沒有基準')
@@ -182,13 +238,23 @@ describe('formatShrinkPassed', () => {
   it('says what it compared against', () => {
     const check = checkContentShrink(contentIds(), contentIds())
     expect(formatShrinkPassed(check, 'HEAD')).toContain('HEAD')
-    expect(formatShrinkPassed(check, 'HEAD')).toContain('內容縮水檢查通過')
+    expect(formatShrinkPassed(check, 'HEAD')).toContain('內容護欄檢查通過')
   })
 
   it('still mentions categories with no baseline', () => {
     const check = checkContentShrink({ ...contentIds(), vocab: undefined }, contentIds())
     expect(formatShrinkPassed(check, 'HEAD')).toContain('沒有基準')
     expect(formatShrinkPassed(check, 'HEAD')).toContain('單字')
+  })
+})
+
+describe('hasFindings', () => {
+  it('is true for shrinkage, for churn, and false for a clean build', () => {
+    expect(hasFindings(checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 20) })))).toBe(true)
+    expect(
+      hasFindings(checkContentShrink(contentIds(), contentIds({ grammar: ids('g', 100, 101) }))),
+    ).toBe(true)
+    expect(hasFindings(checkContentShrink(contentIds(), contentIds()))).toBe(false)
   })
 })
 
@@ -227,7 +293,7 @@ describe('formatShrinkOverride', () => {
 
   it('shouts the numbers it is letting through, not just that it was skipped', () => {
     const output = formatShrinkOverride(check)
-    expect(output).toContain('已略過內容縮水檢查')
+    expect(output).toContain('已略過內容護欄檢查')
     expect(output).toContain('文法題：100 → 20（少了 80，-80.0%）')
   })
 })
