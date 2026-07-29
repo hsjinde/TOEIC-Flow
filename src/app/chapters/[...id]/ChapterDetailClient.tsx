@@ -13,9 +13,10 @@ import {
   stripOrderPrefix,
 } from '../../../lib/content'
 import {
+  getChapterAchievements,
   getChapterMasteryMap,
   getWrongQuestionList,
-  isChapterCompleted,
+  isChapterAchieved,
   type ChapterMastery,
 } from '../../../lib/storage'
 import { Button } from '../../../components/ui/Button'
@@ -31,6 +32,7 @@ interface ChapterView {
   formulas: Formula[]
   questionCount: number
   mastery: ChapterMastery | null
+  achieved: boolean
   wrong: { question: Question; failCount: number; consecutiveCorrect: number }[]
   siblings: Chapter[]
   categoryTitle: string
@@ -68,6 +70,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
       formulas: getFormulasByChapter(chapter.id),
       questionCount: chapterQuestions.length,
       mastery: getChapterMasteryMap()[chapter.id] ?? null,
+      achieved: isChapterAchieved(chapter.id, getChapterAchievements()),
       wrong,
       siblings: category?.chapters ?? [],
       categoryTitle: category?.title ?? stripOrderPrefix(chapter.categoryId),
@@ -87,7 +90,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
 
   if (!view) return <ChapterSkeleton />
 
-  const { chapter, formulas, mastery, wrong, siblings, categoryTitle, questionCount } = view
+  const { chapter, formulas, mastery, achieved, wrong, siblings, categoryTitle, questionCount } = view
   const position = siblings.findIndex((c) => c.id === chapter.id)
   const nextChapter = position >= 0 ? siblings[position + 1] : undefined
   const practiceHref = `/practice/grammar?chapter=${encodeURIComponent(chapter.id)}`
@@ -164,40 +167,30 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
             <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章正確率</h2>
             {mastery ? (
               <>
-                {(() => {
-                  const uniqueDone = mastery.uniqueAnsweredCount ?? 0
-                  const isDone = isChapterCompleted(mastery, questionCount)
-                  return (
-                    <>
-                      <div className="flex items-baseline justify-between gap-2">
-                        <p className="mt-1 text-2xl font-bold text-[var(--pr)]">
-                          {mastery.accuracyRate}%
-                        </p>
-                        {isDone ? (
-                          // 「已完成」是進度，不是答題判定——綠色在這裡會稀釋掉「答對」的反射。
-                          <span className="flex items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2 py-0.5 text-[11px] font-bold text-[var(--pr)]">
-                            <CheckCircle2 className="h-3 w-3" /> 已完成 (≥80%)
-                          </span>
-                        ) : (
-                          <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
-                            {uniqueDone < questionCount
-                              ? `進行中 (${uniqueDone}/${questionCount}題)`
-                              : '未達標 (<80%)'}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-[var(--mu)]">
-                        已答 {uniqueDone} / {questionCount} 題 · 作答 {mastery.totalAnswered} 題對 {mastery.correctCount} 題
-                      </p>
-                      <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
-                        <div
-                          className="h-full rounded-full bg-[var(--pr)] transition-all duration-300"
-                          style={{ width: `${mastery.accuracyRate}%` }}
-                        />
-                      </div>
-                    </>
-                  )
-                })()}
+                <div className="flex items-baseline justify-between gap-2">
+                  <p className="mt-1 text-2xl font-bold text-[var(--pr)]">
+                    {mastery.accuracyRate}%
+                  </p>
+                  {achieved ? (
+                    // 「已完成」是進度，不是答題判定——綠色在這裡會稀釋掉「答對」的反射。
+                    <span className="flex items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2 py-0.5 text-[11px] font-bold text-[var(--pr)]">
+                      <CheckCircle2 className="h-3 w-3" /> 已完成 (單輪≥80%)
+                    </span>
+                  ) : (
+                    <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
+                      練這章單輪答對 ≥80% 即完成
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-[var(--mu)]">
+                  已答 {mastery.uniqueAnsweredCount} / {questionCount} 題 · 作答 {mastery.totalAnswered} 題對 {mastery.correctCount} 題
+                </p>
+                <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
+                  <div
+                    className="h-full rounded-full bg-[var(--pr)] transition-all duration-300"
+                    style={{ width: `${mastery.accuracyRate}%` }}
+                  />
+                </div>
               </>
             ) : (
               <p className="mt-1 text-xs text-[var(--mu)]">還沒練過這一章</p>

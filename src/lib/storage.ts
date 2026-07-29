@@ -767,16 +767,6 @@ export function getChapterMasteryMap(): Record<string, ChapterMastery> {
   return out
 }
 
-/** 判定小章節是否完成：必須答過該章節所有的題目，且正確率 >= 80% */
-export function isChapterCompleted(
-  mastery: ChapterMastery | null | undefined,
-  totalQuestionsInChapter: number
-): boolean {
-  if (!mastery || totalQuestionsInChapter <= 0) return false
-  const uniqueDone = mastery.uniqueAnsweredCount ?? 0
-  return uniqueDone >= totalQuestionsInChapter && mastery.accuracyRate >= 80
-}
-
 /** chapterId -> 首次達標的時間戳（epoch ms）。 */
 export function getChapterAchievements(): Record<string, number> {
   if (typeof window === 'undefined') return {}
