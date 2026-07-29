@@ -10,7 +10,7 @@ const GRAMMAR_DIR = join(NOTES_DIR, '文法')
 
 // 下限：目前筆記的實際章節數／單字數。低於這個數字代表資料縮水，不是筆記變動——直接 fail。
 const FLOOR_CHAPTERS = 69
-const FLOOR_TOTAL_VOCAB = 1316
+const FLOOR_TOTAL_VOCAB = 1380
 
 describe.skipIf(!VAULT_AVAILABLE)('parseVocab against real notes', () => {
   it('extracts 13 items from 01_名詞與代名詞', () => {
