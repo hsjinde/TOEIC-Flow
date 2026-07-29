@@ -50,6 +50,7 @@ const STORAGE_KEY_VOCAB = 'toeic_vocab_mastery'
 const STORAGE_KEY_HISTORY = 'toeic_answer_history'
 const STORAGE_KEY_PROFILE = 'toeic_user_profile'
 const STORAGE_KEY_MOCK = 'toeic_mock_results'
+const STORAGE_KEY_CHAPTER_ACHIEVEMENTS = 'toeic_chapter_achievements'
 
 function getTodayString(): string {
   const d = new Date()
@@ -774,6 +775,56 @@ export function isChapterCompleted(
   if (!mastery || totalQuestionsInChapter <= 0) return false
   const uniqueDone = mastery.uniqueAnsweredCount ?? 0
   return uniqueDone >= totalQuestionsInChapter && mastery.accuracyRate >= 80
+}
+
+/** chapterId -> 首次達標的時間戳（epoch ms）。 */
+export function getChapterAchievements(): Record<string, number> {
+  if (typeof window === 'undefined') return {}
+  const raw = localStorage.getItem(STORAGE_KEY_CHAPTER_ACHIEVEMENTS)
+  if (!raw) return {}
+  try {
+    return JSON.parse(raw)
+  } catch {
+    return {}
+  }
+}
+
+export function isChapterAchieved(
+  chapterId: string,
+  achievements?: Record<string, number>
+): boolean {
+  const map = achievements ?? getChapterAchievements()
+  return !!map[chapterId]
+}
+
+/**
+ * 練這章回合結束時呼叫。單輪正確率 ≥80% 才標記達標；一旦達標就永久保留，
+ * 之後就算某輪正確率掉到 80% 以下也不會被收回或重算時間戳。
+ */
+export function recordChapterPracticeRound(
+  chapterId: string,
+  correctCount: number,
+  totalCount: number
+): void {
+  if (typeof window === 'undefined' || totalCount <= 0) return
+  if (isChapterAchieved(chapterId)) return
+
+  const accuracy = Math.round((correctCount / totalCount) * 100)
+  if (accuracy < 80) return
+
+  const map = getChapterAchievements()
+  map[chapterId] = Date.now()
+  localStorage.setItem(STORAGE_KEY_CHAPTER_ACHIEVEMENTS, JSON.stringify(map))
+  notifyStorageUpdate()
+
+  fetch('/api/user/action', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'chapter_achievement',
+      payload: { chapterId },
+    }),
+  }).catch(() => {})
 }
 
 // --- Wrong Question Queries ---
