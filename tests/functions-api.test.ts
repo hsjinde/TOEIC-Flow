@@ -14,6 +14,7 @@ function createMockD1() {
   const vocabTable = new Map<string, any>()
   const wrongTable = new Map<string, any>()
   const historyTable: any[] = []
+  const chapterAchievementsTable = new Map<string, any>()
 
   return {
     prepare(query: string) {
@@ -68,6 +69,13 @@ function createMockD1() {
           } else if (query.includes('INSERT INTO user_answer_history')) {
             const [id, user_id, question_id, category_id, is_correct] = bindings
             historyTable.push({ id, user_id, question_id, category_id, is_correct, created_at: new Date().toISOString() })
+          } else if (query.includes('INSERT INTO user_chapter_achievements')) {
+            const [user_id, chapter_id] = bindings
+            const key = `${user_id}:${chapter_id}`
+            // ON CONFLICT DO NOTHING：已存在就不覆寫，保留最早的達標時間。
+            if (!chapterAchievementsTable.has(key)) {
+              chapterAchievementsTable.set(key, { user_id, chapter_id, achieved_at: new Date().toISOString() })
+            }
           }
           return { success: true }
         },
@@ -83,6 +91,10 @@ function createMockD1() {
           }
           if (query.includes('user_answer_history')) {
             const results = historyTable.filter(r => r.user_id === userId)
+            return { results }
+          }
+          if (query.includes('user_chapter_achievements')) {
+            const results = Array.from(chapterAchievementsTable.values()).filter(r => r.user_id === userId)
             return { results }
           }
           return { results: [] }
@@ -215,6 +227,41 @@ describe('Cloudflare Pages Functions Auth & User API', () => {
     const data = await dataRes.json()
     expect(data.wrongQuestions.length).toBe(0)
     expect(data.answerHistory.length).toBe(1)
+  })
+
+  it('records a chapter achievement once and keeps the earliest timestamp on repeat calls', async () => {
+    const regReq = new Request('http://localhost/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: 'achieve@example.com', password: 'password123', nickname: 'Achiever' }),
+    })
+    const regRes = await registerHandler({ request: regReq, env })
+    const cookieValue = regRes.headers.get('Set-Cookie')?.match(/toeic_session=([^;]+)/)?.[1] || ''
+
+    const actionReq1 = new Request('http://localhost/api/user/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Cookie: `toeic_session=${cookieValue}` },
+      body: JSON.stringify({ action: 'chapter_achievement', payload: { chapterId: 'grammar/01_x/01_y' } }),
+    })
+    const actionRes1 = await userActionHandler({ request: actionReq1, env })
+    expect(actionRes1.status).toBe(200)
+
+    // 重複呼叫（例如離線後補同步）不該產生第二筆記錄。
+    const actionReq2 = new Request('http://localhost/api/user/action', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Cookie: `toeic_session=${cookieValue}` },
+      body: JSON.stringify({ action: 'chapter_achievement', payload: { chapterId: 'grammar/01_x/01_y' } }),
+    })
+    const actionRes2 = await userActionHandler({ request: actionReq2, env })
+    expect(actionRes2.status).toBe(200)
+
+    const dataReq = new Request('http://localhost/api/user/data', {
+      headers: { Cookie: `toeic_session=${cookieValue}` },
+    })
+    const dataRes = await userDataHandler({ request: dataReq, env })
+    const data = await dataRes.json()
+    expect(data.chapterAchievements).toHaveLength(1)
+    expect(data.chapterAchievements[0].chapter_id).toBe('grammar/01_x/01_y')
   })
 })
 
