@@ -205,4 +205,79 @@ describe('storage controller', () => {
     expect(merged['grammar/local-only']).toBe(localAchievedAt)
     expect(merged['grammar/remote-only']).toBeGreaterThan(0)
   })
+
+  it('keeps the earlier timestamp when syncing chapter achievements from D1 with conflict', async () => {
+    const { syncUserDataFromD1, getChapterAchievements, recordChapterPracticeRound } = await import('../src/lib/storage')
+
+    // Set up a local achievement for 'grammar/conflict-chapter' at a recent time
+    recordChapterPracticeRound('grammar/conflict-chapter', 5, 5)
+    const localTimestamp = getChapterAchievements()['grammar/conflict-chapter']!
+    expect(localTimestamp).toBeGreaterThan(0)
+
+    // D1 returns the same chapter achieved at an earlier time
+    const earlierTime = new Date(Date.now() - 30 * 86400000) // 30 days ago
+    const earlierDateStr = earlierTime.toISOString().replace('T', ' ').slice(0, 19)
+
+    globalThis.fetch = (async (url: string) => {
+      if (url === '/api/user/data') {
+        return {
+          ok: true,
+          json: async () => ({
+            stats: { streak_days: 1 },
+            answerHistory: [],
+            vocabMastery: [],
+            wrongQuestions: [],
+            chapterAchievements: [
+              { chapter_id: 'grammar/conflict-chapter', achieved_at: earlierDateStr },
+            ],
+          }),
+        } as any
+      }
+      return { ok: true, json: async () => ({}) } as any
+    }) as any
+
+    await syncUserDataFromD1()
+
+    const merged = getChapterAchievements()
+    const mergedTimestamp = merged['grammar/conflict-chapter']!
+    // Should keep the earlier timestamp from D1, not the newer local one
+    expect(mergedTimestamp).toBeLessThan(localTimestamp)
+    expect(Math.abs(mergedTimestamp - earlierTime.getTime())).toBeLessThan(1000)
+  })
+
+  it('keeps local timestamp when it is earlier than remote achievement', async () => {
+    const { syncUserDataFromD1, getChapterAchievements } = await import('../src/lib/storage')
+
+    // Set up a local achievement at an earlier time by directly writing to localStorage
+    const earlierLocal = new Date(Date.now() - 60 * 86400000).getTime() // 60 days ago
+    localStorage.setItem('toeic_chapter_achievements', JSON.stringify({ 'grammar/earlier-local': earlierLocal }))
+
+    // D1 returns the same chapter achieved more recently
+    const laterTime = new Date(Date.now() - 10 * 86400000) // 10 days ago
+    const laterDateStr = laterTime.toISOString().replace('T', ' ').slice(0, 19)
+
+    globalThis.fetch = (async (url: string) => {
+      if (url === '/api/user/data') {
+        return {
+          ok: true,
+          json: async () => ({
+            stats: { streak_days: 1 },
+            answerHistory: [],
+            vocabMastery: [],
+            wrongQuestions: [],
+            chapterAchievements: [
+              { chapter_id: 'grammar/earlier-local', achieved_at: laterDateStr },
+            ],
+          }),
+        } as any
+      }
+      return { ok: true, json: async () => ({}) } as any
+    }) as any
+
+    await syncUserDataFromD1()
+
+    const merged = getChapterAchievements()
+    // Should keep the earlier local timestamp, not the newer remote one
+    expect(merged['grammar/earlier-local']!).toBe(earlierLocal)
+  })
 })

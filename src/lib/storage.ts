@@ -1046,10 +1046,13 @@ export async function syncUserDataFromD1(): Promise<void> {
     if (Array.isArray(data.chapterAchievements)) {
       const merged = getChapterAchievements()
       for (const item of data.chapterAchievements) {
-        const remote = parseDbTimestamp(item.achieved_at) || Date.now()
-        merged[item.chapter_id] = merged[item.chapter_id]
-          ? Math.min(merged[item.chapter_id], remote)
-          : remote
+        const remote = parseDbTimestamp(item.achieved_at)
+        const local = merged[item.chapter_id]
+        // Prefer a real parsed timestamp on either side over Date.now().
+        // Only use Date.now() when neither side has one.
+        merged[item.chapter_id] = remote
+          ? (local ? Math.min(local, remote) : remote)
+          : (local ?? Date.now())
       }
       localStorage.setItem(STORAGE_KEY_CHAPTER_ACHIEVEMENTS, JSON.stringify(merged))
     }
