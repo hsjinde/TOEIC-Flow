@@ -9,3 +9,4 @@ Plan: docs/superpowers/plans/2026-07-29-chapter-completion.md
 - Task 4: complete (commits e7cd182..a567a9c, review clean)
   - Note: content-consistency.real.test.ts fails on this machine (user's Obsidian vault has drifted, 1380 vs 1316 committed vocab items) — confirmed unrelated to this plan's diff, pre-existing environmental issue, not a regression from any task.
 - Task 5: complete (commits 856e8d2..13c7ddf, review clean)
+- Task 6: complete (commits e4d19f1..c77497e, review clean; isChapterCompleted fully removed, zero remaining code references confirmed)
