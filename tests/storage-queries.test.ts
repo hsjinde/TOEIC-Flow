@@ -143,6 +143,20 @@ describe('practice calendar', () => {
     expect(days[days.length - 2]?.count).toBe(0)
   })
 
+  it('tracks correct counts per source so vocab and grammar accuracy stay separate', () => {
+    recordQuestionAnswer('g1', '01_語態與時態', true, { source: 'grammar' })
+    recordQuestionAnswer('g2', '01_語態與時態', false, { source: 'grammar' })
+    recordQuestionAnswer('v1', 'vocab', true, { source: 'vocab' })
+    recordQuestionAnswer('v2', 'vocab', true, { source: 'vocab' })
+    recordQuestionAnswer('v3', 'vocab', false, { source: 'vocab' })
+
+    const today = getPracticeCalendar(1)[0]!
+    expect(today.sources?.grammar).toBe(2)
+    expect(today.sourceCorrect?.grammar).toBe(1)
+    expect(today.sources?.vocab).toBe(3)
+    expect(today.sourceCorrect?.vocab).toBe(2)
+  })
+
   it('counts distinct practice days', () => {
     seedHistory([
       { questionId: Q1, isCorrect: true, daysAgo: 0 },

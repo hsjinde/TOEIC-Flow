@@ -81,21 +81,23 @@ describe('PracticeCalendar', () => {
     count: 10,
     correctCount: 8,
     sources: { grammar: 6, vocab: 4 },
+    sourceCorrect: { grammar: 5, vocab: 3 },
   }
 
-  it('shows detailed popup on cell hover with accuracy and source breakdown', () => {
+  it('shows detailed popup on cell hover with per-source accuracy so vocab and grammar never blend', () => {
     render(<PracticeCalendar days={[popupDay]} />)
     const cell = screen.getByLabelText('7月27日 (一) 10 題')
 
     fireEvent.mouseEnter(cell)
 
     expect(screen.getByText('7月27日 (一)')).toBeTruthy()
-    expect(screen.getByText('當日正確率')).toBeTruthy()
-    expect(screen.getByText('80%')).toBeTruthy()
     // 答對／答錯合併成一組數字：綠與紅只屬於答題判定，統計裡不該出現。
     expect(screen.getByText('8 / 2 題')).toBeTruthy()
+    // 文法與單字的正確率不可混算成一個數字，各自分開列出。
     expect(screen.getByText('文法練習')).toBeTruthy()
+    expect(screen.getByText('6 題 · 83%')).toBeTruthy()
     expect(screen.getByText('單字測驗')).toBeTruthy()
+    expect(screen.getByText('4 題 · 75%')).toBeTruthy()
   })
 
   it('opens the popup on tap and keeps it open until tapped again', () => {
@@ -105,14 +107,14 @@ describe('PracticeCalendar', () => {
 
     fireEvent.click(cell)
     expect(cell.getAttribute('aria-expanded')).toBe('true')
-    expect(screen.getByText('當日正確率')).toBeTruthy()
+    expect(screen.getByText('8 / 2 題')).toBeTruthy()
 
     // 滑出格子不該把點開的那張收掉
     fireEvent.mouseLeave(cell.closest('.relative')!)
-    expect(screen.getByText('當日正確率')).toBeTruthy()
+    expect(screen.getByText('8 / 2 題')).toBeTruthy()
 
     fireEvent.click(cell)
-    expect(screen.queryByText('當日正確率')).toBeNull()
+    expect(screen.queryByText('8 / 2 題')).toBeNull()
   })
 })
 

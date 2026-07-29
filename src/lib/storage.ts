@@ -675,6 +675,8 @@ export interface CalendarDay {
   count: number
   correctCount?: number
   sources?: Partial<Record<AnswerSource, number>>
+  /** 各來源各自的答對數；單字與文法的正確率不可用 correctCount 混算，要各自除以 sources[src]。 */
+  sourceCorrect?: Partial<Record<AnswerSource, number>>
 }
 
 /**
@@ -685,17 +687,20 @@ export function getPracticeCalendar(days: number = 84): CalendarDay[] {
   const counts: Record<string, number> = {}
   const correctCounts: Record<string, number> = {}
   const sourceCounts: Record<string, Partial<Record<AnswerSource, number>>> = {}
+  const sourceCorrectCounts: Record<string, Partial<Record<AnswerSource, number>>> = {}
 
   for (const entry of getDeduplicatedAnswerHistory()) {
     const d = new Date(entry.timestamp)
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
     counts[key] = (counts[key] ?? 0) + 1
-    if (entry.isCorrect) {
-      correctCounts[key] = (correctCounts[key] ?? 0) + 1
-    }
     const src: AnswerSource = entry.source ?? (entry.categoryId === 'vocab' ? 'vocab' : 'grammar')
     if (!sourceCounts[key]) sourceCounts[key] = {}
     sourceCounts[key]![src] = (sourceCounts[key]![src] ?? 0) + 1
+    if (entry.isCorrect) {
+      correctCounts[key] = (correctCounts[key] ?? 0) + 1
+      if (!sourceCorrectCounts[key]) sourceCorrectCounts[key] = {}
+      sourceCorrectCounts[key]![src] = (sourceCorrectCounts[key]![src] ?? 0) + 1
+    }
   }
 
   const out: CalendarDay[] = []
@@ -709,6 +714,7 @@ export function getPracticeCalendar(days: number = 84): CalendarDay[] {
       count: counts[key] ?? 0,
       correctCount: correctCounts[key] ?? 0,
       sources: sourceCounts[key] ?? {},
+      sourceCorrect: sourceCorrectCounts[key] ?? {},
     })
     cursor.setDate(cursor.getDate() + 1)
   }

@@ -185,7 +185,6 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
             const count = day.count
             const correct = day.correctCount ?? 0
             const wrong = count - correct
-            const accuracy = count > 0 ? Math.round((correct / count) * 100) : 0
             const sources = day.sources
               ? (Object.entries(day.sources) as [AnswerSource, number][]).filter(([, cnt]) => cnt > 0)
               : []
@@ -201,10 +200,6 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
 
                 {count > 0 ? (
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[11px]">
-                      <span className="text-[var(--mu)]">當日正確率</span>
-                      <span className="font-bold text-[var(--tx)]">{accuracy}%</span>
-                    </div>
                     {/*
                       綠與紅只屬於「這一題你答對了」那一刻。統計裡的答對／答錯是數字，
                       不是判定——用文字標籤區分，顏色留給答題頁。
@@ -217,16 +212,23 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
                     </div>
                     {sources.length > 0 && (
                       <div className="border-t border-[var(--ln)] pt-1.5 space-y-1">
-                        <span className="text-[10px] font-medium text-[var(--mu)]">答題類別</span>
+                        {/* 單字與文法的正確率意義不同，不可混算成一個數字——各類別各自的正確率分開列。 */}
+                        <span className="text-[10px] font-medium text-[var(--mu)]">答題類別 · 正確率</span>
                         <div className="flex flex-col gap-1">
-                          {sources.map(([src, cnt]) => (
-                            <div key={src} className="flex items-center justify-between text-[11px]">
-                              <span className="text-[var(--mu)]">
-                                {ANSWER_SOURCE_LABELS[src] || src}
-                              </span>
-                              <span className="font-semibold text-[var(--tx)]">{cnt} 題</span>
-                            </div>
-                          ))}
+                          {sources.map(([src, cnt]) => {
+                            const srcCorrect = day.sourceCorrect?.[src] ?? 0
+                            const srcAccuracy = cnt > 0 ? Math.round((srcCorrect / cnt) * 100) : 0
+                            return (
+                              <div key={src} className="flex items-center justify-between text-[11px]">
+                                <span className="text-[var(--mu)]">
+                                  {ANSWER_SOURCE_LABELS[src] || src}
+                                </span>
+                                <span className="font-semibold text-[var(--tx)]">
+                                  {cnt} 題 · {srcAccuracy}%
+                                </span>
+                              </div>
+                            )
+                          })}
                         </div>
                       </div>
                     )}
