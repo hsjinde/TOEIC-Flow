@@ -15,6 +15,7 @@ import {
 } from '../../../lib/content'
 import {
   getWrongQuestionsMap,
+  recordChapterPracticeRound,
   recordQuestionAnswer,
   recordTaskCompletion,
   type AnswerSource,
@@ -33,6 +34,8 @@ interface Session {
   /** 只有每日任務模式才記「今日文法已完成」 */
   countsAsDailyTask: boolean
   title: string
+  /** 只有從章節頁「練這章」進入的專屬回合才有值，用來判定章節達標。 */
+  chapterId?: string
 }
 
 function buildSession(params: URLSearchParams): Session {
@@ -53,6 +56,7 @@ function buildSession(params: URLSearchParams): Session {
       countsAsDailyTask: false,
       // 副標已經是章名，標題再放一次會變成同一行講兩遍。
       title: '章節練習',
+      chapterId: chapter,
     }
   }
   if (category) {
@@ -119,9 +123,13 @@ function GrammarPracticePage() {
       setShowExplanation(false)
     } else {
       if (session?.countsAsDailyTask) recordTaskCompletion('grammar')
+      if (session?.chapterId) {
+        const correctInRound = results.filter(Boolean).length
+        recordChapterPracticeRound(session.chapterId, correctInRound, questions.length)
+      }
       setIsFinished(true)
     }
-  }, [currentIndex, questions.length, session])
+  }, [currentIndex, questions.length, session, results])
 
   const handleSelectOption = useCallback(
     (blankIndex: number, optionKey: string) => {
