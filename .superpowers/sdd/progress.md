@@ -10,3 +10,9 @@ Plan: docs/superpowers/plans/2026-07-29-chapter-completion.md
   - Note: content-consistency.real.test.ts fails on this machine (user's Obsidian vault has drifted, 1380 vs 1316 committed vocab items) — confirmed unrelated to this plan's diff, pre-existing environmental issue, not a regression from any task.
 - Task 5: complete (commits 856e8d2..13c7ddf, review clean)
 - Task 6: complete (commits e4d19f1..c77497e, review clean; isChapterCompleted fully removed, zero remaining code references confirmed)
+- Task 7: complete (manual browser verification, no code changes)
+  - 未達標流程：練這章 2/5=40% → 詳情頁顯示「練這章單輪答對 ≥80% 即完成」，列表頁無勾號、分類/整體完成率 0%
+  - 達標流程：同章再練一輪 5/5=100% → 詳情頁「已完成 (單輪≥80%)」、累積正確率 67%（未達 80%，證明徽章綁的是單輪不是累積）；列表頁出現勾號，分類完成率 7%、整體 1%
+  - 永久保留：同章第三輪 0/5=0% → 累積正確率掉到 60%，徽章仍是「已完成 (單輪≥80%)」，未被收回
+  - D1 同步：登出、clear localStorage 模擬換裝置、重新登入 → 章節詳情頁的達標徽章、累積正確率、錯題清單全部透過 syncUserDataFromD1 正確還原
+  - 清理：還原了 build:content 產生的 content/vocab.json 漂移（使用者本機 Obsidian vault 比 committed content 多，跟本計畫無關，未 commit）；.dev.vars / .claude/launch.json / .wrangler 皆已在 .gitignore 內，未進 git status；本機 wrangler dev server 已停止
