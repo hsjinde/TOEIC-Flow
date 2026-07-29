@@ -275,6 +275,26 @@ describe('same-day duplicate attempt deduplication', () => {
     })
   })
 
+  it('excludes vocab practice from category stats', () => {
+    seedHistory([
+      { questionId: Q1, isCorrect: true, daysAgo: 0 },
+      { questionId: Q2, isCorrect: false, daysAgo: 0 },
+    ])
+    const raw = JSON.parse(localStorage.getItem('toeic_answer_history') ?? '[]')
+    raw.push({
+      questionId: 'v-information',
+      categoryId: 'vocab',
+      isCorrect: false,
+      timestamp: Date.now(),
+    })
+    localStorage.setItem('toeic_answer_history', JSON.stringify(raw))
+
+    const catStats = getCategoryStats()
+    expect(catStats.find((s) => s.categoryId === 'vocab')).toBeUndefined()
+    const cat = catStats.find((s) => s.categoryId === '03_動狀詞_非謂語動詞')
+    expect(cat?.totalAnswered).toBe(2)
+  })
+
   it('counts attempts on different days separately', () => {
     seedHistory([
       { questionId: Q1, isCorrect: false, daysAgo: 0 },

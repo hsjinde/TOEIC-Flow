@@ -626,12 +626,14 @@ export interface CategoryStat {
   accuracyRate: number
 }
 
+/** 只算六大文法分類；單字正確率是另一套指標，見 getVocabStats()，兩者不可混算。 */
 export function getCategoryStats(): CategoryStat[] {
   if (typeof window === 'undefined') return []
   const history = getDeduplicatedAnswerHistory()
 
   const statsMap: Record<string, { total: number; correct: number }> = {}
   for (const entry of history) {
+    if (entry.categoryId === 'vocab') continue
     if (!statsMap[entry.categoryId]) {
       statsMap[entry.categoryId] = { total: 0, correct: 0 }
     }
