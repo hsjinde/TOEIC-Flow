@@ -11502,6 +11502,582 @@
     "exampleZh": "這家連鎖飯店以皇家主題行銷自己。"
   },
   {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-acquire",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "acquire",
+    "pos": "v.",
+    "meaning": "併購、收購；獲得",
+    "example": "The tech giant plans to *acquire* the smaller start-up to expand its market share.",
+    "exampleZh": "科技巨頭計劃收購這家較小的初創公司，以擴大其市場份額。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-merge",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "merge",
+    "pos": "v.",
+    "meaning": "合併、融合",
+    "example": "The two logistics companies agreed to *merge* their operations next month.",
+    "exampleZh": "這兩家物流公司同意下個月合併業務。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-strategy",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "strategy",
+    "pos": "n.",
+    "meaning": "策略、戰略",
+    "example": "The marketing team developed a new *strategy* to attract younger consumers.",
+    "exampleZh": "行銷團隊制定了新策略來吸引年輕消費者。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-dominate",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "dominate",
+    "pos": "v.",
+    "meaning": "支配、主導、在…中佔主要地位",
+    "example": "Their brand continues to *dominate* the domestic electronics market.",
+    "exampleZh": "他們的品牌繼續主導國內電子產品市場。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-venture",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "venture",
+    "pos": "n.",
+    "meaning": "投機活動、冒險事業（常指合資企業）",
+    "example": "The joint *venture* between the two automakers proved to be highly profitable.",
+    "exampleZh": "這兩家汽車製造商之間的合資企業被證明獲利豐厚。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-capitalize",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "capitalize",
+    "pos": "v.",
+    "meaning": "利用、從中獲利 (常搭配 capitalize on)",
+    "example": "We should *capitalize* on the current market trends to launch our new product.",
+    "exampleZh": "我們應該利用當前的市場趨勢推出我們的新產品。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-recruit",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "recruit",
+    "pos": "v.",
+    "meaning": "/ n. 招聘、招募；新成員",
+    "example": "The agency was hired to *recruit* top-tier executives for the firm.",
+    "exampleZh": "該機構被聘來為公司招聘頂級高階主管。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-compensation",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "compensation",
+    "pos": "n.",
+    "meaning": "補償、賠償；報酬、薪資",
+    "example": "The company offers competitive *compensation* and excellent benefits.",
+    "exampleZh": "該公司提供具競爭力的薪資與優厚福利。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-evaluate",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "evaluate",
+    "pos": "v.",
+    "meaning": "評估、評價",
+    "example": "Managers will *evaluate* employees' performance during the annual review.",
+    "exampleZh": "主管將在年度考核中評估員工的表現。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-resign",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "resign",
+    "pos": "v.",
+    "meaning": "辭職",
+    "example": "The vice president decided to *resign* to pursue personal interests.",
+    "exampleZh": "副總裁決定辭職以追求個人興趣。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-pension",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "pension",
+    "pos": "n.",
+    "meaning": "退休金、養老金",
+    "example": "Retired employees receive a monthly *pension* from the government scheme.",
+    "exampleZh": "退休員工每月從政府計畫中領取退休金。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-prioritize",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "prioritize",
+    "pos": "v.",
+    "meaning": "確定優先順序、優先考慮",
+    "example": "With so many projects, it is essential to *prioritize* your tasks daily.",
+    "exampleZh": "面對這麼多專案，每天安排任務的優先順序至關重要。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-implement",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "implement",
+    "pos": "v.",
+    "meaning": "實施、執行、貫徹",
+    "example": "The office will *implement* a new security protocol starting next Monday.",
+    "exampleZh": "辦公室將從下週一開始實施新的安保協定。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-procedure",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "procedure",
+    "pos": "n.",
+    "meaning": "程序、步驟、手續",
+    "example": "Please follow the standard operating *procedure* for handling customer complaints.",
+    "exampleZh": "處理客戶投訴請遵循標準作業程序。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-protocol",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "protocol",
+    "pos": "n.",
+    "meaning": "協議、草案；禮儀、規矩",
+    "example": "The IT department updated the safety *protocol* for remote access.",
+    "exampleZh": "IT 部門更新了遠端存取的安全協定。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-retrieve",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "retrieve",
+    "pos": "v.",
+    "meaning": "檢索、找回、取回",
+    "example": "The database allows users to *retrieve* archived client information quickly.",
+    "exampleZh": "該資料庫允許使用者快速檢索存檔的客戶資訊。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-supervise",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "supervise",
+    "pos": "v.",
+    "meaning": "監督、管理、指導",
+    "example": "The supervisor will *supervise* the training of the new interns.",
+    "exampleZh": "主管將監督新實習生的培訓。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-confidential",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "confidential",
+    "pos": "adj.",
+    "meaning": "機密的、保密的",
+    "example": "These financial records are strictly *confidential* and must be locked.",
+    "exampleZh": "這些財務記錄屬於嚴格機密，必須鎖好。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-consensus",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "consensus",
+    "pos": "n.",
+    "meaning": "共識、一致同意",
+    "example": "The board reached a *consensus* on the proposed expansion plan.",
+    "exampleZh": "董事會就擬議的擴張計劃達成了共識。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-collaborate",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "collaborate",
+    "pos": "v.",
+    "meaning": "合作、協作 (常搭配 collaborate with)",
+    "example": "Our research department will *collaborate* with an external agency.",
+    "exampleZh": "我們的研究部門將與外部機構合作。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-presentation",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "presentation",
+    "pos": "n.",
+    "meaning": "簡報、演講；呈現",
+    "example": "He gave an impressive *presentation* on the quarterly sales performance.",
+    "exampleZh": "他就季度銷售業績做了精彩的簡報。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-minutes",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "minutes",
+    "pos": "n.",
+    "meaning": "(pl.) 會議紀錄",
+    "example": "The secretary is responsible for taking the *minutes* during board meetings.",
+    "exampleZh": "秘書負責在董事會會議期間製作會議記錄。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-unanimous",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "unanimous",
+    "pos": "adj.",
+    "meaning": "全體一致的、無異議的",
+    "example": "The decision to elect the new CEO was *unanimous* among the directors.",
+    "exampleZh": "選出新任 CEO 的決定獲得董事們一致同意。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-transaction",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "transaction",
+    "pos": "n.",
+    "meaning": "交易、買賣；辦理商務",
+    "example": "The online banking system processes millions of transactions daily.",
+    "exampleZh": "網路銀行系統每天處理數百萬筆交易。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-revenue",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "revenue",
+    "pos": "n.",
+    "meaning": "收入、收益、歲入",
+    "example": "The company reported a 15% increase in total *revenue* this fiscal year.",
+    "exampleZh": "該公司報告本財年總收入增加了 15%。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-deficit",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "deficit",
+    "pos": "n.",
+    "meaning": "赤字、虧損、不足額",
+    "example": "The budget *deficit* must be reduced by cutting unnecessary expenditures.",
+    "exampleZh": "必須透過削減不必要的開支來減少預算赤字。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-asset",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "asset",
+    "pos": "n.",
+    "meaning": "資產、財產、有價值的東西",
+    "example": "Her strong communication skills are a valuable *asset* to the sales team.",
+    "exampleZh": "她出色的溝通能力是銷售團隊的寶貴資產。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-interest",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "interest",
+    "pos": "n.",
+    "meaning": "利息、利率；興趣、利益",
+    "example": "The central bank decided to lower *interest* rates to stimulate spending.",
+    "exampleZh": "中央銀行決定調降利率以刺激消費。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-inflation",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "inflation",
+    "pos": "n.",
+    "meaning": "通貨膨脹",
+    "example": "High *inflation* can reduce the purchasing power of consumers.",
+    "exampleZh": "高通貨膨脹會降低消費者的購買力。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-inventory",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "inventory",
+    "pos": "n.",
+    "meaning": "存貨、庫存；盤點",
+    "example": "The store will close early on Wednesday for its quarterly *inventory* check.",
+    "exampleZh": "該店家將在週三提早關門進行季度庫存盤點。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-requisition",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "requisition",
+    "pos": "n.",
+    "meaning": "/ v. 徵用、申請、正式要求；申請單",
+    "example": "You need to submit a purchase *requisition* form for new office chairs.",
+    "exampleZh": "你需要為新的辦公椅提交採購申請單。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-vendor",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "vendor",
+    "pos": "n.",
+    "meaning": "供應商、賣主、小販",
+    "example": "We source our office stationery from a reliable local *vendor*.",
+    "exampleZh": "我們的辦公文具採購自一家可靠的本地供應商。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-bulk",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "bulk",
+    "pos": "adj.",
+    "meaning": "/ n. 大宗的、大批的；主體、大部分 (常搭配 in bulk 批發)",
+    "example": "Buying office supplies in *bulk* can save the company a lot of money.",
+    "exampleZh": "大批採購辦公用品可以為公司節省大量資金。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-deplete",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "deplete",
+    "pos": "v.",
+    "meaning": "消耗、用盡、使枯竭",
+    "example": "Increased demand during the holidays has depleted our warehouse stocks.",
+    "exampleZh": "假期期間增加的需求消耗了我們的倉庫庫存。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-campaign",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "campaign",
+    "pos": "n.",
+    "meaning": "/ v. 活動、宣傳活動（商業、政治或軍事）",
+    "example": "The holiday advertising *campaign* significantly boosted winter sales.",
+    "exampleZh": "節日廣告宣傳活動大幅提升了冬季銷量。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-demographic",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "demographic",
+    "pos": "n.",
+    "meaning": "/ adj. 人口統計數據、特定年齡層群體；人口統計的",
+    "example": "Our primary target *demographic* consists of tech-savvy young professionals.",
+    "exampleZh": "我們的主要目標客群包含精通科技的年輕專業人士。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-launch",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "launch",
+    "pos": "v.",
+    "meaning": "/ n. 發表、啟動、開辦、發射；新品發表會",
+    "example": "The company is preparing to *launch* its latest software version next month.",
+    "exampleZh": "該公司正準備下個月推出其最新軟體版本。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-segment",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "segment",
+    "pos": "n.",
+    "meaning": "/ v. 部分、市場區隔、切片",
+    "example": "We must *segment* the market to tailor our advertising messages effectively.",
+    "exampleZh": "我們必須區隔市場，以有效量身定制廣告訊息。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-discount",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "discount",
+    "pos": "n.",
+    "meaning": "/ v. 折扣；打折",
+    "example": "A 10% *discount* is offered to customers who subscribe to our newsletter.",
+    "exampleZh": "訂閱我們電子報的客戶可享有 10% 的折扣。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-penetrate",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "penetrate",
+    "pos": "v.",
+    "meaning": "滲透、打入（市場）",
+    "example": "It is difficult for new brands to *penetrate* the highly competitive market.",
+    "exampleZh": "新品牌很難打入競爭激烈的市場。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-publicity",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "publicity",
+    "pos": "n.",
+    "meaning": "宣傳、名聲、公眾注意",
+    "example": "The charity event generated a lot of positive *publicity* for the sponsor.",
+    "exampleZh": "該慈善活動為贊助商帶來了許多積極的宣傳效果。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-brochure",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "brochure",
+    "pos": "n.",
+    "meaning": "宣傳手冊、小冊子",
+    "example": "We distributed the product *brochure* to all potential buyers at the expo.",
+    "exampleZh": "我們在博覽會上將產品宣傳冊分發給所有潛在買家。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-competitor",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "competitor",
+    "pos": "n.",
+    "meaning": "競爭對手、競爭者",
+    "example": "Our main *competitor* lowered their prices, prompting us to adjust ours.",
+    "exampleZh": "我們的主要競爭對手降低了價格，促使我們也調整價格。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-defect",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "defect",
+    "pos": "n.",
+    "meaning": "/ v. 缺點、瑕疵；逃跑、叛逃",
+    "example": "Any product with a manufacturing *defect* will be replaced free of charge.",
+    "exampleZh": "任何有製造瑕疵的產品都將予以免費更換。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-optimize",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "optimize",
+    "pos": "v.",
+    "meaning": "優化、使完善",
+    "example": "We need to *optimize* our assembly line process to reduce waste.",
+    "exampleZh": "我們需要優化裝配線流程以減少浪費。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-specification",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "specification",
+    "pos": "n.",
+    "meaning": "規格、詳細說明、明細單",
+    "example": "The engineers designed the product according to the client's specifications.",
+    "exampleZh": "工程師根據客戶的規格要求設計了產品。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-yield",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "yield",
+    "pos": "n.",
+    "meaning": "/ v. 產量、收益；生產、屈服",
+    "example": "The agricultural sector expected a higher crop *yield* due to favorable weather.",
+    "exampleZh": "由於氣候適宜，農業部門預計農作物產量將會更高。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-standard",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "standard",
+    "pos": "n.",
+    "meaning": "/ adj. 標準、基準；標準的",
+    "example": "Our plant maintains high safety standards to prevent workplace accidents.",
+    "exampleZh": "我們的工廠保持高安全標準，以防止職場事故。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-automated",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "automated",
+    "pos": "adj.",
+    "meaning": "自動化的",
+    "example": "The factory uses an *automated* packaging system to speed up operations.",
+    "exampleZh": "該工廠使用自動化包裝系統來加快作業。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-raw-material",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "raw material",
+    "pos": "n.",
+    "meaning": "原材料",
+    "example": "Surges in *raw material* costs have affected our profit margins.",
+    "exampleZh": "原材料成本的上漲影響了我們的利潤率。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-accommodate",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "accommodate",
+    "pos": "v.",
+    "meaning": "容納、提供住宿；迎合、適應",
+    "example": "The conference venue can *accommodate* up to five hundred attendees.",
+    "exampleZh": "會議場地最多可容納五百名與會者。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-commute",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "commute",
+    "pos": "v.",
+    "meaning": "/ n. 通勤；通勤路程",
+    "example": "Many employees *commute* to work from the suburbs using the subway.",
+    "exampleZh": "許多員工乘坐地鐵從郊區通勤上班。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-transit",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "transit",
+    "pos": "n.",
+    "meaning": "/ v. 過境、轉運、運輸",
+    "example": "The goods were damaged in *transit* and had to be sent back to the vendor.",
+    "exampleZh": "貨物在運輸途中受損，必須退回給供應商。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-customs",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "customs",
+    "pos": "n.",
+    "meaning": "海關、關稅",
+    "example": "All international travelers must pass through *customs* upon arrival.",
+    "exampleZh": "所有國際旅客抵達時都必須通過海關。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-reservation",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "reservation",
+    "pos": "n.",
+    "meaning": "預訂、預約",
+    "example": "I would like to make a dinner *reservation* for a party of six.",
+    "exampleZh": "我想預訂六個人的晚餐座位。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-shuttle",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "shuttle",
+    "pos": "n.",
+    "meaning": "/ v. 接駁車、班車；往返運送",
+    "example": "The hotel offers a complimentary *shuttle* service to and from the airport.",
+    "exampleZh": "飯店提供往返機場的免費接駁車服務。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-boarding",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "boarding",
+    "pos": "n.",
+    "meaning": "/ adj. 登機、登船",
+    "example": "*Boarding* will begin approximately thirty minutes prior to departure.",
+    "exampleZh": "登機將在起飛前約三十分鐘開始。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-destination",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "destination",
+    "pos": "n.",
+    "meaning": "目的地、終點",
+    "example": "Paris remains one of the most popular tourist destinations in Europe.",
+    "exampleZh": "巴黎仍然是歐洲最受歡迎的旅遊目的地之一。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-warranty",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "warranty",
+    "pos": "n.",
+    "meaning": "保證書、保固合約",
+    "example": "The *warranty* covers parts and labor but does not cover accidental damage.",
+    "exampleZh": "保固涵蓋零件和工時，但不涵蓋意外損壞。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-comply",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "comply",
+    "pos": "v.",
+    "meaning": "遵守、符合、服從 (常搭配 comply with)",
+    "example": "All staff must *comply* with the company safety regulations.",
+    "exampleZh": "所有員工都必須遵守公司安全規定。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-litigation",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "litigation",
+    "pos": "n.",
+    "meaning": "訴訟、打官司",
+    "example": "The two firms settled their trademark dispute to avoid costly *litigation*.",
+    "exampleZh": "這兩家公司解決了商標糾紛，以避免昂貴的訴訟。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-complaint",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "complaint",
+    "pos": "n.",
+    "meaning": "抱怨、控訴、申訴",
+    "example": "The customer relations department resolved the *complaint* efficiently.",
+    "exampleZh": "客服部門高效地解決了這起申訴。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-patent",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "patent",
+    "pos": "n.",
+    "meaning": "/ v. 專利；取得專利",
+    "example": "The R&D team filed a *patent* application for their newly developed engine.",
+    "exampleZh": "研發團隊為其新開發的引擎提交了專利申請。"
+  },
+  {
+    "id": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析#v-resolution",
+    "chapterId": "grammar/06_其他多益必考進階題型/11_易混淆詞彙辨析",
+    "word": "resolution",
+    "pos": "n.",
+    "meaning": "解決、決議、決心",
+    "example": "We hope to reach a speedy *resolution* to this contract dispute.",
+    "exampleZh": "我們希望這起合約糾紛能迅速得到解決。"
+  },
+  {
     "id": "grammar/06_其他多益必考進階題型/12_數字時間金額表達慣用語#v-exact",
     "chapterId": "grammar/06_其他多益必考進階題型/12_數字時間金額表達慣用語",
     "word": "exact",
