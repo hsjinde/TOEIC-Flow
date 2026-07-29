@@ -52,6 +52,11 @@ export function getFormulas(): Formula[] {
   return formulas
 }
 
+export function getRandomFormulas(count: number = 10): Formula[] {
+  const shuffled = [...formulas].sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
+}
+
 // --- Lookups ---
 
 /**

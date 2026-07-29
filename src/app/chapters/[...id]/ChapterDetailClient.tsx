@@ -127,9 +127,17 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
           */}
           {formulas.length > 0 && (
             <section className="space-y-2.5">
-              <h2 className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-[var(--pr)]">
-                <Zap className="h-3.5 w-3.5" /> 秒殺公式
-              </h2>
+              <div className="flex items-center justify-between gap-2">
+                <h2 className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-[var(--pr)]">
+                  <Zap className="h-3.5 w-3.5" /> 秒殺公式
+                </h2>
+                <Link
+                  href={`/practice/formulas?chapter=${encodeURIComponent(chapter.id)}`}
+                  className="text-[11px] font-semibold text-[var(--pr)] hover:opacity-80"
+                >
+                  閃卡模式 →
+                </Link>
+              </div>
               {formulas.map((formula) => (
                 <div
                   key={formula.id}

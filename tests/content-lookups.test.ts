@@ -7,11 +7,13 @@ import {
   getChapterById,
   getChapterLabel,
   getChapterNumber,
+  getFormulas,
   getFormulasByChapter,
   getGrammarQuestionsByCategory,
   getGrammarQuestionsByChapter,
   getQuestionById,
   getQuestionsByIds,
+  getRandomFormulas,
   getVocabByChapter,
   stripOrderPrefix,
 } from '../src/lib/content'
@@ -131,6 +133,19 @@ describe('wrong-question ids stay resolvable', () => {
         for (const q of s.questions) expect(q.id).toContain('#')
       }
     }
+  })
+})
+
+describe('random formula draws', () => {
+  it('draws the requested number of distinct formulas', () => {
+    const drawn = getRandomFormulas(15)
+    expect(drawn).toHaveLength(15)
+    expect(new Set(drawn.map((f) => f.id)).size).toBe(15)
+  })
+
+  it('caps the draw at however many formulas actually exist', () => {
+    const total = getFormulas().length
+    expect(getRandomFormulas(total + 100)).toHaveLength(total)
   })
 })
 
