@@ -38,7 +38,7 @@ interface Session {
   chapterId?: string
 }
 
-function buildSession(params: URLSearchParams): Session {
+export function buildSession(params: URLSearchParams): Session {
   const mode = params.get('mode')
   const ids = params.get('ids')
   const category = params.get('category')

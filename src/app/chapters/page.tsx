@@ -38,6 +38,8 @@ function categoryCompletion(
     }
     if (isChapterAchieved(ch.id, achievements)) {
       completedCount += 1
+      // 已達標的章節定義上就是練過的——即使該章的作答歷史因筆數上限已從 mastery 消失。
+      hasPracticed = true
     }
   }
 
@@ -78,6 +80,8 @@ export default function ChaptersPage() {
       }
       if (isChapterAchieved(ch.id, achievements)) {
         totalCompletedChapters += 1
+        // 已達標的章節定義上就是練過的——即使該章的作答歷史因筆數上限已從 mastery 消失。
+        hasAnyPracticed = true
       }
     }
   }

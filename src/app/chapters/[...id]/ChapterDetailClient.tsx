@@ -165,23 +165,28 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
         <aside className="flex flex-col gap-4 lg:sticky lg:top-20 lg:self-start">
           <section className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
             <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">本章正確率</h2>
-            {mastery ? (
+            <div className="flex items-baseline justify-between gap-2">
+              {mastery ? (
+                <p className="mt-1 text-2xl font-bold text-[var(--pr)]">
+                  {mastery.accuracyRate}%
+                </p>
+              ) : (
+                <p className="mt-1 text-xs text-[var(--mu)]">還沒練過這一章</p>
+              )}
+              {achieved ? (
+                // 「已完成」是進度，不是答題判定——綠色在這裡會稀釋掉「答對」的反射。
+                // achieved 來自 localStorage 的獨立紀錄，不隨 mastery（受歷史筆數上限影響）一起消失。
+                <span className="flex items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2 py-0.5 text-[11px] font-bold text-[var(--pr)]">
+                  <CheckCircle2 className="h-3 w-3" /> 已完成 (單輪≥80%)
+                </span>
+              ) : (
+                <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
+                  練這章單輪答對 ≥80% 即完成
+                </span>
+              )}
+            </div>
+            {mastery && (
               <>
-                <div className="flex items-baseline justify-between gap-2">
-                  <p className="mt-1 text-2xl font-bold text-[var(--pr)]">
-                    {mastery.accuracyRate}%
-                  </p>
-                  {achieved ? (
-                    // 「已完成」是進度，不是答題判定——綠色在這裡會稀釋掉「答對」的反射。
-                    <span className="flex items-center gap-1 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2 py-0.5 text-[11px] font-bold text-[var(--pr)]">
-                      <CheckCircle2 className="h-3 w-3" /> 已完成 (單輪≥80%)
-                    </span>
-                  ) : (
-                    <span className="rounded-full bg-[var(--sf2)] px-2 py-0.5 text-[11px] text-[var(--mu)]">
-                      練這章單輪答對 ≥80% 即完成
-                    </span>
-                  )}
-                </div>
                 <p className="text-xs text-[var(--mu)]">
                   已答 {mastery.uniqueAnsweredCount} / {questionCount} 題 · 作答 {mastery.totalAnswered} 題對 {mastery.correctCount} 題
                 </p>
@@ -192,8 +197,6 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
                   />
                 </div>
               </>
-            ) : (
-              <p className="mt-1 text-xs text-[var(--mu)]">還沒練過這一章</p>
             )}
             <Link href={practiceHref} className="mt-4 block">
               <Button variant="primary" className="text-sm lg:min-h-[44px] lg:text-xs">
