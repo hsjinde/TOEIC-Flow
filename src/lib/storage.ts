@@ -1041,6 +1041,18 @@ export async function syncUserDataFromD1(): Promise<void> {
       localStorage.setItem(STORAGE_KEY_PROGRESS, JSON.stringify(progress))
       notifyStorageUpdate()
     }
+
+    // 6. Sync Chapter Achievements（合併，不是覆蓋——任何一端已達標的都要保留）
+    if (Array.isArray(data.chapterAchievements)) {
+      const merged = getChapterAchievements()
+      for (const item of data.chapterAchievements) {
+        const remote = parseDbTimestamp(item.achieved_at) || Date.now()
+        merged[item.chapter_id] = merged[item.chapter_id]
+          ? Math.min(merged[item.chapter_id], remote)
+          : remote
+      }
+      localStorage.setItem(STORAGE_KEY_CHAPTER_ACHIEVEMENTS, JSON.stringify(merged))
+    }
   } catch (e) {
     console.error('Error syncing user data from D1:', e)
   }

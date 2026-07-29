@@ -172,4 +172,37 @@ describe('storage controller', () => {
     // 一登入就把今天的單字任務標成完成，正是這次要修的 bug。
     expect(getDailyProgress().vocabCompleted).toBe(false)
   })
+
+  it('merges chapter achievements from D1 instead of overwriting local ones', async () => {
+    const { syncUserDataFromD1, getChapterAchievements, recordChapterPracticeRound } = await import('../src/lib/storage')
+
+    globalThis.fetch = (async (url: string) => {
+      if (url === '/api/user/data') {
+        return {
+          ok: true,
+          json: async () => ({
+            stats: { streak_days: 1 },
+            answerHistory: [],
+            vocabMastery: [],
+            wrongQuestions: [],
+            chapterAchievements: [
+              { chapter_id: 'grammar/remote-only', achieved_at: '2026-01-01 00:00:00' },
+            ],
+          }),
+        } as any
+      }
+      return { ok: true, json: async () => ({}) } as any
+    }) as any
+
+    // 本機已經有一個達標記錄，D1 的回應完全不知道它（例如卡在離線同步之間）。
+    recordChapterPracticeRound('grammar/local-only', 5, 5)
+    const localAchievedAt = getChapterAchievements()['grammar/local-only']
+    expect(localAchievedAt).toBeGreaterThan(0)
+
+    await syncUserDataFromD1()
+
+    const merged = getChapterAchievements()
+    expect(merged['grammar/local-only']).toBe(localAchievedAt)
+    expect(merged['grammar/remote-only']).toBeGreaterThan(0)
+  })
 })
