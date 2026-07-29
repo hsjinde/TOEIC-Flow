@@ -4,6 +4,7 @@ import {
   MAX_VOCAB_LEVEL,
   bumpVocabMastery,
   fileWrongQuestions,
+  getChapterAchievements,
   getChapterMasteryMap,
   getPracticeCalendar,
   getPracticedDayCount,
@@ -12,6 +13,8 @@ import {
   getSrsIntervalLabel,
   getWrongQuestionList,
   getWrongQuestionsMap,
+  isChapterAchieved,
+  recordChapterPracticeRound,
   recordQuestionAnswer,
   removeWrongQuestions,
   saveMockResult,
@@ -321,6 +324,38 @@ describe('same-day duplicate attempt deduplication', () => {
     const catStats = getCategoryStats()
     const cat = catStats.find((s) => s.categoryId === '03_動狀詞_非謂語動詞')
     expect(cat?.totalAnswered).toBe(2)
+  })
+})
+
+describe('chapter achievements', () => {
+  beforeEach(() => localStorage.clear())
+
+  it('marks a chapter achieved when a round scores 80% or higher', () => {
+    expect(isChapterAchieved(CHAPTER)).toBe(false)
+    recordChapterPracticeRound(CHAPTER, 4, 5) // 80%
+    expect(isChapterAchieved(CHAPTER)).toBe(true)
+  })
+
+  it('does not mark a chapter achieved when a round scores below 80%', () => {
+    recordChapterPracticeRound(CHAPTER, 3, 5) // 60%
+    expect(isChapterAchieved(CHAPTER)).toBe(false)
+  })
+
+  it('keeps the achievement after a later round scores below 80%', () => {
+    recordChapterPracticeRound(CHAPTER, 5, 5) // 100%
+    expect(isChapterAchieved(CHAPTER)).toBe(true)
+
+    recordChapterPracticeRound(CHAPTER, 1, 5) // 20%
+    expect(isChapterAchieved(CHAPTER)).toBe(true)
+  })
+
+  it('ignores rounds with no questions', () => {
+    recordChapterPracticeRound(CHAPTER, 0, 0)
+    expect(isChapterAchieved(CHAPTER)).toBe(false)
+  })
+
+  it('returns an empty map when nothing has been achieved yet', () => {
+    expect(getChapterAchievements()).toEqual({})
   })
 })
 

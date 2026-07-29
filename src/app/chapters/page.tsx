@@ -11,8 +11,9 @@ import {
   type CategoryMeta,
 } from '../../lib/content'
 import {
+  getChapterAchievements,
   getChapterMasteryMap,
-  isChapterCompleted,
+  isChapterAchieved,
   type ChapterMastery,
 } from '../../lib/storage'
 import { cn } from '../../lib/utils'
@@ -21,22 +22,24 @@ function chapterHref(id: string): string {
   return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
 }
 
-/** 分類完成率＝該類中全章答完且正確率 >= 80% 的小章節數 / 該類總章節數。 */
+/** 分類完成率＝該類中單輪正確率達標（≥80%）過的小章節數 / 該類總章節數。 */
 function categoryCompletion(
   category: CategoryMeta,
-  masteryMap: Record<string, ChapterMastery>
+  masteryMap: Record<string, ChapterMastery>,
+  achievements: Record<string, number>
 ): { rate: number | null; completedCount: number; hasPracticed: boolean } {
   let completedCount = 0
   let hasPracticed = false
 
   for (const ch of category.chapters) {
     const m = masteryMap[ch.id]
-    const qCount = getGrammarQuestionsByChapter(ch.id).length
     if (m && (m.uniqueAnsweredCount ?? 0) > 0) {
       hasPracticed = true
-      if (isChapterCompleted(m, qCount)) {
-        completedCount += 1
-      }
+    }
+    if (isChapterAchieved(ch.id, achievements)) {
+      completedCount += 1
+      // 已達標的章節定義上就是練過的——即使該章的作答歷史因筆數上限已從 mastery 消失。
+      hasPracticed = true
     }
   }
 
@@ -51,12 +54,14 @@ function categoryCompletion(
 export default function ChaptersPage() {
   const [categories, setCategories] = useState<CategoryMeta[] | null>(null)
   const [mastery, setMastery] = useState<Record<string, ChapterMastery>>({})
+  const [achievements, setAchievements] = useState<Record<string, number>>({})
   const [expanded, setExpanded] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     const cats = getCategories()
     setCategories(cats)
     setMastery(getChapterMasteryMap())
+    setAchievements(getChapterAchievements())
     // 預設展開第一類，讓兩層結構一眼看得出來。
     if (cats[0]) setExpanded(new Set([cats[0].id]))
   }, [])
@@ -70,12 +75,13 @@ export default function ChaptersPage() {
   for (const cat of categories) {
     for (const ch of cat.chapters) {
       const m = mastery[ch.id]
-      const qCount = getGrammarQuestionsByChapter(ch.id).length
       if (m && (m.uniqueAnsweredCount ?? 0) > 0) {
         hasAnyPracticed = true
-        if (isChapterCompleted(m, qCount)) {
-          totalCompletedChapters += 1
-        }
+      }
+      if (isChapterAchieved(ch.id, achievements)) {
+        totalCompletedChapters += 1
+        // 已達標的章節定義上就是練過的——即使該章的作答歷史因筆數上限已從 mastery 消失。
+        hasAnyPracticed = true
       }
     }
   }
@@ -106,7 +112,7 @@ export default function ChaptersPage() {
       <div className="space-y-2.5 lg:grid lg:grid-cols-2 lg:gap-3 lg:space-y-0">
         {categories.map((cat) => {
           const isOpen = expanded.has(cat.id)
-          const { rate } = categoryCompletion(cat, mastery)
+          const { rate } = categoryCompletion(cat, mastery, achievements)
 
           return (
             <section
@@ -152,7 +158,7 @@ export default function ChaptersPage() {
                     const m = mastery[chap.id]
                     const chapQCount = getGrammarQuestionsByChapter(chap.id).length
                     const uniqueDone = m?.uniqueAnsweredCount ?? 0
-                    const isCompleted = isChapterCompleted(m, chapQCount)
+                    const isAchieved = isChapterAchieved(chap.id, achievements)
 
                     return (
                       <li key={chap.id}>
@@ -172,11 +178,11 @@ export default function ChaptersPage() {
                                   aria-label="含秒殺公式"
                                 />
                               )}
-                              {isCompleted && (
+                              {isAchieved && (
                                 // 完成是進度，用主色；綠色專屬於「這一題答對了」。
                                 <CheckCircle2
                                   className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]"
-                                  aria-label="已完成 (全章答完且正確率 80% 以上)"
+                                  aria-label="已完成 (練這章單輪正確率 80% 以上)"
                                 />
                               )}
                             </span>
@@ -194,7 +200,7 @@ export default function ChaptersPage() {
                             <span
                               className={cn(
                                 'block text-xs font-bold',
-                                isCompleted ? 'text-[var(--pr)]' : 'text-[var(--mu)]'
+                                isAchieved ? 'text-[var(--pr)]' : 'text-[var(--mu)]'
                               )}
                             >
                               {m ? `${m.accuracyRate}%` : '—'}

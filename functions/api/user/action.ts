@@ -219,6 +219,32 @@ export async function onRequestPost(context: any) {
       })
     }
 
+    if (act === 'chapter_achievement') {
+      const chapterId = data.chapter_id || data.chapterId
+
+      if (!chapterId) {
+        return new Response(JSON.stringify({ error: 'Missing chapter_id' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+
+      // ON CONFLICT DO NOTHING：一旦達標就永久保留最早的達標時間，重複呼叫不會覆寫。
+      await db
+        .prepare(
+          `INSERT INTO user_chapter_achievements (user_id, chapter_id, achieved_at)
+           VALUES (?, ?, CURRENT_TIMESTAMP)
+           ON CONFLICT(user_id, chapter_id) DO NOTHING`
+        )
+        .bind(userId, chapterId)
+        .run()
+
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
     return new Response(JSON.stringify({ error: `Unknown action: ${act}` }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
