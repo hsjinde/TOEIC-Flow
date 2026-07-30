@@ -13,6 +13,7 @@ import {
   getQuestionsByIds,
   getRandomGrammarQuestions,
 } from '../../../lib/content'
+import { getPathStageById, getStageQuestions } from '../../../lib/learning-path'
 import {
   getWrongQuestionsMap,
   recordChapterPracticeRound,
@@ -27,6 +28,9 @@ import { GraduationDots } from '../../../components/GraduationDots'
 import { cn } from '../../../lib/utils'
 
 const DEFAULT_COUNT = 5
+
+/** 學習路徑一站的綜合測驗題數，比單章 5 題多——整站混合抽才驗收得出來。 */
+const STAGE_COUNT = 10
 
 interface Session {
   questions: Question[]
@@ -43,10 +47,24 @@ export function buildSession(params: URLSearchParams): Session {
   const ids = params.get('ids')
   const category = params.get('category')
   const chapter = params.get('chapter')
+  const stage = params.get('stage')
 
   if (mode === 'wrong' && ids) {
     const list = getQuestionsByIds(ids.split(',').filter(Boolean))
     return { questions: list, source: 'wrong', countsAsDailyTask: false, title: '錯題專攻' }
+  }
+  // 學習路徑的整站驗收：跨章混合抽，所以刻意不帶 chapterId——章節達標只認
+  // 「練這章」那種單章回合，混合回合算進去會讓某一章憑一兩題就標成完成。
+  if (stage) {
+    const pathStage = getPathStageById(stage)
+    if (pathStage) {
+      return {
+        questions: getStageQuestions(stage, STAGE_COUNT),
+        source: 'grammar',
+        countsAsDailyTask: false,
+        title: `路徑驗收 · ${pathStage.title}`,
+      }
+    }
   }
   if (chapter) {
     const pool = getGrammarQuestionsByChapter(chapter)

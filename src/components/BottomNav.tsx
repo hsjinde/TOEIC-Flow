@@ -10,9 +10,15 @@ import { cn } from '../lib/utils'
  * 設計 01 的手機底部 tab 是四格：今日／練習／統計／我的。
  * 錯題本刻意不放 tab，改由首頁的錯題卡進入。
  */
-const NAV_ITEMS = [
+const NAV_ITEMS: {
+  label: string
+  href: string
+  icon: typeof Calendar
+  /** 除了 href 之外也算這一格的路徑前綴（學習路徑是從章節頁進去的，屬於「練習」） */
+  alsoMatch?: string[]
+}[] = [
   { label: '今日', href: '/', icon: Calendar },
-  { label: '練習', href: '/chapters', icon: Layers },
+  { label: '練習', href: '/chapters', icon: Layers, alsoMatch: ['/path'] },
   { label: '統計', href: '/stats', icon: BarChart2 },
   { label: '我的', href: '/profile', icon: User },
 ]
@@ -32,7 +38,9 @@ export const BottomNav: React.FC = () => {
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon
           const isActive =
-            pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+            pathname === item.href ||
+            (item.href !== '/' && pathname.startsWith(item.href)) ||
+            (item.alsoMatch?.some((prefix) => pathname.startsWith(prefix)) ?? false)
 
           return (
             <Link

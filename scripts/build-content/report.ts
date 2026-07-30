@@ -9,6 +9,8 @@ export interface BuildStats {
   formulas: number
   /** 手寫的章節速查卡張數（data/formula-cards.json） */
   formulaCards: number
+  /** 已排進學習路徑的章節數（data/learning-path.json） */
+  pathChapters: number
   readingPassages: number
   readingQuestions: number
   mockExams: number
@@ -27,6 +29,7 @@ export function formatReport(stats: BuildStats, issues: Issue[]): string {
   lines.push(`單字：${stats.vocab}（${stats.vocabExampleZh} 筆有例句中文）`)
   lines.push(`秒殺公式：${stats.formulas}`)
   lines.push(`章節速查卡：${stats.formulaCards} / ${stats.chapters} 章`)
+  lines.push(`學習路徑：${stats.pathChapters} / ${stats.chapters} 章已排入`)
   lines.push(`閱讀篇章：${stats.readingPassages}（${stats.readingQuestions} 題）`)
   lines.push(`模擬考：${stats.mockExams}（${stats.mockQuestions} 題）`)
   lines.push('')

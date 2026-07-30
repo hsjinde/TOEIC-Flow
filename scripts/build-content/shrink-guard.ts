@@ -19,11 +19,15 @@ import type { BuildStats } from './report'
 /**
  * 要盯的類別，直接綁在 BuildStats 上，數量口徑就不會跟 build report 走鐘。
  *
- * 排掉的兩個都不是 `content/*.json` 的類別，護欄無從比較：`vocabExampleZh` 是單字
- * 裡「有翻譯」的子集，`formulaCards` 的來源是手寫的 `data/formula-cards.json`。
- * 那兩份側車檔在 git 裡本來就看得見增減，不需要護欄擋。
+ * 排掉的三個都不是 `content/*.json` 的類別，護欄無從比較：`vocabExampleZh` 是單字
+ * 裡「有翻譯」的子集，`formulaCards` 與 `pathChapters` 的來源是手寫的
+ * `data/formula-cards.json` 與 `data/learning-path.json`。那些側車檔在 git 裡本來就
+ * 看得見增減，不需要護欄擋。
  */
-export type ContentCategory = Exclude<keyof BuildStats, 'vocabExampleZh' | 'formulaCards'>
+export type ContentCategory = Exclude<
+  keyof BuildStats,
+  'vocabExampleZh' | 'formulaCards' | 'pathChapters'
+>
 
 export const CATEGORY_LABELS: Record<ContentCategory, string> = {
   chapters: '章節',

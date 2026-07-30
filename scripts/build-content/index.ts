@@ -21,7 +21,8 @@ import {
   isShrinkOverridden,
 } from './shrink-guard'
 import { readBaselineFromGit } from './baseline'
-import { FormulaCardSchema } from './types'
+import { z } from 'zod'
+import { FormulaCardSchema, PathStageSchema } from './types'
 import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } from './types'
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
@@ -45,6 +46,9 @@ const EXAMPLE_ZH_PATH = join(process.cwd(), 'data', 'vocab-example-zh.json')
 
 /** 章節速查卡的側車檔（同樣不在筆記裡，整張手寫），key 是 chapter id。 */
 const FORMULA_CARDS_PATH = join(process.cwd(), 'data', 'formula-cards.json')
+
+/** 學習路徑的側車檔（手寫的建議順序），每一站列的是 chapter id。 */
+const LEARNING_PATH_PATH = join(process.cwd(), 'data', 'learning-path.json')
 
 const READING_KINDS: Record<string, 'single' | 'paragraph' | 'article'> = {
   '01_單句填空題': 'single',
@@ -182,6 +186,89 @@ function checkFormulaCards(chapters: Chapter[], issues: Issue[]): number {
 }
 
 /**
+ * 讀學習路徑側車檔，回傳被排進路徑的章節數。
+ *
+ * 路徑本身不進 bundle（前端直接 import `data/learning-path.json`），這裡做的是
+ * 跟 checkFormulaCards 同一件事：形狀跑掉、章節重複、id 對不到章節就報錯級 issue
+ * 擋 build。多一條速查卡沒有的檢查——**章節漏排**只記警告：路徑是手寫的，新增筆記
+ * 的當下還沒排進去很正常，但要在 build report 上看得到，否則新章節會從路徑上憑空
+ * 消失，而路徑頁的「全部 N 章」正是使用者用來確認自己沒漏學的數字。
+ */
+function checkLearningPath(chapters: Chapter[], issues: Issue[]): number {
+  if (!existsSync(LEARNING_PATH_PATH)) return 0
+
+  let raw: unknown
+  try {
+    raw = JSON.parse(readFileSync(LEARNING_PATH_PATH, 'utf8'))
+  } catch (e) {
+    issues.push({
+      level: 'error',
+      questionId: 'learning-path',
+      message: `${LEARNING_PATH_PATH} 不是合法 JSON：${(e as Error).message}`,
+    })
+    return 0
+  }
+
+  const parsed = z.array(PathStageSchema).safeParse(raw)
+  if (!parsed.success) {
+    issues.push({
+      level: 'error',
+      questionId: 'learning-path',
+      message: `學習路徑形狀不合 schema：${parsed.error.issues
+        .slice(0, 3)
+        .map((i) => `${i.path.join('.')} ${i.message}`)
+        .join('；')}`,
+    })
+    return 0
+  }
+
+  const chapterIds = new Set(chapters.map((c) => c.id))
+  const placed = new Set<string>()
+  const orphans: string[] = []
+  const duplicates: string[] = []
+
+  for (const stage of parsed.data) {
+    for (const id of stage.chapterIds) {
+      if (placed.has(id)) duplicates.push(`${stage.id}:${id}`)
+      else placed.add(id)
+      if (!chapterIds.has(id)) orphans.push(`${stage.id}:${id}`)
+    }
+  }
+
+  if (duplicates.length > 0) {
+    issues.push({
+      level: 'error',
+      questionId: 'learning-path',
+      message: `${duplicates.length} 個章節在路徑上出現不只一次：${duplicates
+        .slice(0, 5)
+        .join('、')}${duplicates.length > 5 ? ' …' : ''}`,
+    })
+  }
+  if (orphans.length > 0) {
+    issues.push({
+      level: 'error',
+      questionId: 'learning-path',
+      message: `${orphans.length} 個路徑章節對不到任何章節（筆記可能改名）：${orphans
+        .slice(0, 5)
+        .join('、')}${orphans.length > 5 ? ' …' : ''}`,
+    })
+  }
+
+  const unplaced = [...chapterIds].filter((id) => !placed.has(id))
+  if (unplaced.length > 0) {
+    issues.push({
+      level: 'warn',
+      questionId: 'learning-path',
+      message: `${unplaced.length} 個章節還沒排進學習路徑：${unplaced
+        .slice(0, 5)
+        .join('、')}${unplaced.length > 5 ? ' …' : ''}`,
+    })
+  }
+
+  return [...placed].filter((id) => chapterIds.has(id)).length
+}
+
+/**
  * Parse the whole vault into a content bundle, without touching disk output.
  * Pure function of `notesDir` — used both by the CLI build below and by the
  * consistency real-tests, which run it against the same vault the committed
@@ -259,6 +346,7 @@ export function buildContent(notesDir: string): ContentBundle {
 
   attachExampleZh(vocab, issues)
   const formulaCards = checkFormulaCards(chapterList, issues)
+  const pathChapters = checkLearningPath(chapterList, issues)
 
   const stats: BuildStats = {
     chapters: chapterList.length,
@@ -267,6 +355,7 @@ export function buildContent(notesDir: string): ContentBundle {
     vocabExampleZh: vocab.filter((v) => v.exampleZh).length,
     formulas: formulas.length,
     formulaCards,
+    pathChapters,
     readingPassages: reading.length,
     readingQuestions: reading.reduce((n, p) => n + p.questions.length, 0),
     mockExams: mockExams.length,
