@@ -63,24 +63,17 @@ describe('秒殺公式閃卡', () => {
     expect(screen.getByText(items[0]!.title)).toBeTruthy()
   })
 
-  it('flips the card to reveal the technique, then advances on 下一條', () => {
+  it('advances to the next formula on 下一條', () => {
     const chapter = chapters.find((c) => chapterFormulasOf(c.id).length > 1)!
     const items = chapterFormulasOf(chapter.id)
     mocks.search = `chapter=${encodeURIComponent(chapter.id)}`
 
     render(<Page />)
 
-    expect(screen.getByText('點卡片看解法')).toBeTruthy()
-    fireEvent.click(screen.getByLabelText('翻面看解法'))
-    expect(screen.queryByText('點卡片看解法')).toBeNull()
-    expect(screen.getByLabelText('翻回標題')).toBeTruthy()
-
     fireEvent.click(screen.getByRole('button', { name: /下一條/ }))
     expect(
       screen.getByText(`${getChapterLabel(chapter.id)} 秒殺公式 2 / ${items.length}`)
     ).toBeTruthy()
-    // 換卡要回到標題面，不能直接洩題。
-    expect(screen.getByText('點卡片看解法')).toBeTruthy()
     expect(screen.getByText(items[1]!.title)).toBeTruthy()
   })
 

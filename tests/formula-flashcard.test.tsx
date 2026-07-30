@@ -1,13 +1,13 @@
 // @vitest-environment happy-dom
 import { describe, it, expect } from 'vitest'
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import type { Formula } from '../scripts/build-content/types'
 import { FormulaFlashcard } from '../src/components/FormulaFlashcard'
 import { getChapterLabel } from '../src/lib/content'
 
-// title 與 body 刻意不共用字串——用來判斷「翻面前找不到」的關鍵字如果剛好也
-// 出現在標題裡，斷言會因為找到標題而誤判通過，測不出真正的翻面行為。
+// title 與 body 刻意不共用字串——查 body 的關鍵字如果剛好也出現在標題裡，
+// 斷言會因為找到標題而誤判通過，測不出 body 真的被印出來。
 const WITH_TITLE: Formula = {
   id: 'grammar/01_八大詞性與句型結構/01_名詞與代名詞#f1',
   chapterId: 'grammar/01_八大詞性與句型結構/01_名詞與代名詞',
@@ -27,24 +27,21 @@ const WITHOUT_TITLE: Formula = {
 }
 
 describe('FormulaFlashcard', () => {
-  it('shows the chapter tag and hides the technique behind a flip when a title exists', () => {
+  it('shows the chapter tag, the title and the technique together — no flip to reveal', () => {
     render(<FormulaFlashcard formula={WITH_TITLE} />)
 
     expect(screen.getByText(getChapterLabel(WITH_TITLE.chapterId))).toBeTruthy()
     expect(screen.getByText(WITH_TITLE.title)).toBeTruthy()
-    expect(screen.getByText('點卡片看解法')).toBeTruthy()
-    expect(screen.queryByText(/直接刪掉/)).toBeNull()
-
-    fireEvent.click(screen.getByLabelText('翻面看解法'))
     expect(screen.getByText(/直接刪掉/)).toBeTruthy()
+    // 卡片本身不再是按鈕，翻面提示也一併消失。
+    expect(screen.queryByRole('button')).toBeNull()
     expect(screen.queryByText('點卡片看解法')).toBeNull()
   })
 
-  it('skips the flip prompt and shows the technique immediately when the note has no distinct title', () => {
+  it('renders only the technique when the note has no distinct title', () => {
     render(<FormulaFlashcard formula={WITHOUT_TITLE} />)
 
-    expect(screen.queryByText('點卡片看解法')).toBeNull()
-    expect(screen.queryByRole('button', { name: /翻面看解法/ })).toBeNull()
     expect(screen.getByText(/連接詞 \+ 完整句/)).toBeTruthy()
+    expect(screen.queryByRole('heading')).toBeNull()
   })
 })
