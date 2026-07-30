@@ -4,6 +4,8 @@ import readingData from '../../content/reading.json'
 import mockData from '../../content/mock-exams.json'
 import chaptersData from '../../content/chapters.json'
 import formulasData from '../../content/formulas.json'
+// 速查卡不是 vault 解析出來的，是手寫的側車檔，所以來源在 data/ 而不是 content/。
+import formulaCardsData from '../../data/formula-cards.json'
 import type {
   Question,
   VocabItem,
@@ -11,6 +13,7 @@ import type {
   MockExam,
   Chapter,
   Formula,
+  FormulaCard,
 } from '../../scripts/build-content/types'
 import { resolveStem } from './stem'
 
@@ -20,6 +23,15 @@ const reading = (readingData as unknown) as ReadingPassage[]
 const mocks = (mockData as unknown) as MockExam[]
 const chapters = (chaptersData as unknown) as Chapter[]
 const formulas = (formulasData as unknown) as Formula[]
+const formulaCards = (formulaCardsData as unknown) as Record<string, FormulaCard>
+
+/**
+ * 章節開頭的速查卡，沒寫的章節回 null（絕大多數章節目前都是）。
+ * 形狀與 chapterId 一致性由 build:content 的 checkFormulaCards 擋。
+ */
+export function getFormulaCard(chapterId: string): FormulaCard | null {
+  return formulaCards[chapterId] ?? null
+}
 
 export function getRandomGrammarQuestions(count: number = 5): Question[] {
   const shuffled = [...grammar].sort(() => 0.5 - Math.random())

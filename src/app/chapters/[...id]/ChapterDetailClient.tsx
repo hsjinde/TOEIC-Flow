@@ -3,10 +3,16 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, CheckCircle2, Sparkles, Zap } from 'lucide-react'
-import type { Chapter, Formula, Question } from '../../../../scripts/build-content/types'
+import type {
+  Chapter,
+  Formula,
+  FormulaCard as FormulaCardData,
+  Question,
+} from '../../../../scripts/build-content/types'
 import {
   getCategoryMeta,
   getChapterById,
+  getFormulaCard,
   getFormulasByChapter,
   getChapterNumber,
   getGrammarQuestionsByChapter,
@@ -20,6 +26,7 @@ import {
   type ChapterMastery,
 } from '../../../lib/storage'
 import { Button } from '../../../components/ui/Button'
+import { FormulaCard } from '../../../components/FormulaCard'
 import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { GraduationDots } from '../../../components/GraduationDots'
 
@@ -29,6 +36,7 @@ interface ChapterDetailClientProps {
 
 interface ChapterView {
   chapter: Chapter
+  card: FormulaCardData | null
   formulas: Formula[]
   questionCount: number
   mastery: ChapterMastery | null
@@ -67,6 +75,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
 
     setView({
       chapter,
+      card: getFormulaCard(chapter.id),
       formulas: getFormulasByChapter(chapter.id),
       questionCount: chapterQuestions.length,
       mastery: getChapterMasteryMap()[chapter.id] ?? null,
@@ -90,7 +99,8 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
 
   if (!view) return <ChapterSkeleton />
 
-  const { chapter, formulas, mastery, achieved, wrong, siblings, categoryTitle, questionCount } = view
+  const { chapter, card, formulas, mastery, achieved, wrong, siblings, categoryTitle, questionCount } =
+    view
   const position = siblings.findIndex((c) => c.id === chapter.id)
   const nextChapter = position >= 0 ? siblings[position + 1] : undefined
   const practiceHref = `/practice/grammar?chapter=${encodeURIComponent(chapter.id)}`
@@ -120,6 +130,12 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
               {stripOrderPrefix(chapter.title)}
             </h1>
           </header>
+
+          {/*
+            速查卡排在秒殺公式之前：它是整章的骨架（一個判斷點 + 一張總表），
+            下面那些逐條技巧是掛在骨架上的細節。只有手寫過卡的章節才有。
+          */}
+          {card && <FormulaCard card={card} />}
 
           {/*
             秒殺公式。原本靠 3px 的左側色條標示，那是 DESIGN.md 明文禁止的裝飾色條；

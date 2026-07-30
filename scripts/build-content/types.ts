@@ -118,6 +118,75 @@ export const MockExamSchema = z.object({
 })
 export type MockExam = z.infer<typeof MockExamSchema>
 
+/**
+ * 章節開頭那張「決策樹 + 用法總表」速查卡。
+ *
+ * 這是唯一不從 vault 來的結構化內容：筆記裡的秒殺公式是逐條散裝的技巧
+ * （04_使役動詞 那五條都沒有 make/have/get/let/help × 主動/被動 的總表），
+ * 所以整張卡是手寫的，放在 `data/formula-cards.json`，比照
+ * `data/vocab-example-zh.json` 的側車檔作法，key 是 chapter id。
+ *
+ * 兩條分支刻意用「位置」而不是欄位決定強調：branches[0] 吃主色、branches[1]
+ * 走灰階外框。DESIGN-PROMPT.md 把綠/紅保留給作答回饋，總表不能拿紅色當
+ * 「被動」的識別色——那會跟同一頁的答錯回饋撞在一起。
+ */
+const CardBranchSchema = z.object({
+  label: z.string().min(1),
+  labelEn: z.string().default(''),
+})
+
+const CardCellSchema = z.object({
+  /** 句型的敘述部分，如 `make O` */
+  pattern: z.string().min(1),
+  /** 要被標成 badge 的關鍵形式，如 `RV`、`p.p.`、`to-RV` */
+  token: z.string().min(1),
+  /** 例句，不含中文 */
+  example: z.string().default(''),
+})
+
+const CardRowSchema = z.object({
+  /** 列首的動詞，如 `make` */
+  head: z.string().min(1),
+  /** 列首動詞的中文語意，如「強迫」 */
+  gloss: z.string().default(''),
+  /**
+   * 對應 decision.branches 的兩欄，順序一致。一欄是陣列而不是單一句型，因為同一
+   * 邊常常有兩種合法形式——`have O RV` 與 `have O V-ing` 都是主動，後者是這章
+   * 秒殺公式第 2 條在教的東西，總表只印一種就會跟下面的公式互相矛盾。
+   */
+  cells: z.tuple([z.array(CardCellSchema).min(1), z.array(CardCellSchema).min(1)]),
+  /** 該列兩欄共用一個例句時填這裡，cells 的 example 就留空 */
+  sharedExample: z.string().default(''),
+})
+
+const CardNoteSchema = z.object({
+  title: z.string().min(1),
+  lines: z.array(z.string().min(1)).min(1),
+})
+
+export const FormulaCardSchema = z.object({
+  chapterId: z.string().min(1),
+  title: z.string().min(1),
+  titleEn: z.string().default(''),
+  decision: z.object({
+    question: z.string().min(1),
+    questionEn: z.string().default(''),
+    branches: z.tuple([CardBranchSchema, CardBranchSchema]),
+  }),
+  table: z.object({
+    title: z.string().min(1),
+    titleEn: z.string().default(''),
+    /**
+     * 列首那一欄的名稱。視覺上不印（欄位識別靠內容本身），但 sr-only 的 <th> 要用
+     * 它——列首放的東西每章不同（動詞、時間、連接詞），寫死「動詞」對讀屏軟體是錯的。
+     */
+    rowHeader: z.string().min(1).default('項目'),
+    rows: z.array(CardRowSchema).min(1),
+  }),
+  notes: z.array(CardNoteSchema).default([]),
+})
+export type FormulaCard = z.infer<typeof FormulaCardSchema>
+
 export const ContentBundleSchema = z.object({
   buildAt: z.string(),
   chapters: z.array(ChapterSchema),

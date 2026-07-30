@@ -21,6 +21,7 @@ import {
   isShrinkOverridden,
 } from './shrink-guard'
 import { readBaselineFromGit } from './baseline'
+import { FormulaCardSchema } from './types'
 import type { Question, VocabItem, Formula, ReadingPassage, MockExam, Chapter } from './types'
 
 const NOTES_DIR = process.env.NOTES_DIR ?? 'D:\\my-note\\個人學習\\多益'
@@ -41,6 +42,9 @@ export interface ContentBundle {
 
 /** 例句中文翻譯的側車檔（筆記裡沒有這份資料），key 是單字 id。 */
 const EXAMPLE_ZH_PATH = join(process.cwd(), 'data', 'vocab-example-zh.json')
+
+/** 章節速查卡的側車檔（同樣不在筆記裡，整張手寫），key 是 chapter id。 */
+const FORMULA_CARDS_PATH = join(process.cwd(), 'data', 'formula-cards.json')
 
 const READING_KINDS: Record<string, 'single' | 'paragraph' | 'article'> = {
   '01_單句填空題': 'single',
@@ -108,6 +112,73 @@ function attachExampleZh(vocab: VocabItem[], issues: Issue[]): void {
         .join('、')}${orphans.length > 5 ? ' …' : ''}`,
     })
   }
+}
+
+/**
+ * 讀速查卡側車檔，回傳有效卡片數，並把對不上章節的 key 記成警告。
+ *
+ * 卡片不進 bundle（前端直接 import `data/formula-cards.json`），這裡只做兩件
+ * 解析器該做的吵事：形狀跑掉就報錯級 issue 擋 build，key 對不到任何章節就報
+ * 警告——那正是筆記改名的症狀，和 attachExampleZh 的孤兒檢查同一個道理。
+ */
+function checkFormulaCards(chapters: Chapter[], issues: Issue[]): number {
+  if (!existsSync(FORMULA_CARDS_PATH)) return 0
+
+  let table: Record<string, unknown>
+  try {
+    table = JSON.parse(readFileSync(FORMULA_CARDS_PATH, 'utf8'))
+  } catch (e) {
+    issues.push({
+      level: 'error',
+      questionId: 'formula-cards',
+      message: `${FORMULA_CARDS_PATH} 不是合法 JSON：${(e as Error).message}`,
+    })
+    return 0
+  }
+
+  const chapterIds = new Set(chapters.map((c) => c.id))
+  const orphans: string[] = []
+  let valid = 0
+
+  for (const [key, raw] of Object.entries(table)) {
+    const parsed = FormulaCardSchema.safeParse(raw)
+    if (!parsed.success) {
+      issues.push({
+        level: 'error',
+        questionId: `formula-card:${key}`,
+        message: `速查卡形狀不合 schema：${parsed.error.issues
+          .slice(0, 3)
+          .map((i) => `${i.path.join('.')} ${i.message}`)
+          .join('；')}`,
+      })
+      continue
+    }
+    if (parsed.data.chapterId !== key) {
+      issues.push({
+        level: 'error',
+        questionId: `formula-card:${key}`,
+        message: `速查卡的 chapterId（${parsed.data.chapterId}）與它的 key 不一致`,
+      })
+      continue
+    }
+    if (!chapterIds.has(key)) {
+      orphans.push(key)
+      continue
+    }
+    valid += 1
+  }
+
+  if (orphans.length > 0) {
+    issues.push({
+      level: 'warn',
+      questionId: 'formula-cards',
+      message: `${orphans.length} 張速查卡對不到任何章節（筆記可能改名）：${orphans
+        .slice(0, 5)
+        .join('、')}${orphans.length > 5 ? ' …' : ''}`,
+    })
+  }
+
+  return valid
 }
 
 /**
@@ -187,6 +258,7 @@ export function buildContent(notesDir: string): ContentBundle {
   }
 
   attachExampleZh(vocab, issues)
+  const formulaCards = checkFormulaCards(chapterList, issues)
 
   const stats: BuildStats = {
     chapters: chapterList.length,
@@ -194,6 +266,7 @@ export function buildContent(notesDir: string): ContentBundle {
     vocab: vocab.length,
     vocabExampleZh: vocab.filter((v) => v.exampleZh).length,
     formulas: formulas.length,
+    formulaCards,
     readingPassages: reading.length,
     readingQuestions: reading.reduce((n, p) => n + p.questions.length, 0),
     mockExams: mockExams.length,

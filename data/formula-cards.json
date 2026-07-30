@@ -1,0 +1,1518 @@
+{
+  "grammar/04_特殊動詞用法/01_使役動詞": {
+    "chapterId": "grammar/04_特殊動詞用法/01_使役動詞",
+    "title": "使役動詞用法決策樹",
+    "titleEn": "Decision Tree: Causative Verb Usage",
+    "decision": {
+      "question": "O 與 V 的關係",
+      "questionEn": "Relationship Between Object & Verb",
+      "branches": [
+        {
+          "label": "主動：受詞執行動作",
+          "labelEn": "Active: O Performs Action"
+        },
+        {
+          "label": "被動：受詞接受動作",
+          "labelEn": "Passive: Action Acts Upon O"
+        }
+      ]
+    },
+    "table": {
+      "title": "使役動詞用法總表",
+      "titleEn": "Master Table of Causative Verb Usage",
+      "rowHeader": "動詞",
+      "rows": [
+        {
+          "head": "make",
+          "gloss": "強迫",
+          "cells": [
+            [
+              {
+                "pattern": "make O",
+                "token": "RV",
+                "example": "make him clean"
+              }
+            ],
+            [
+              {
+                "pattern": "make O",
+                "token": "p.p.",
+                "example": "make himself known"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "have",
+          "gloss": "指派",
+          "cells": [
+            [
+              {
+                "pattern": "have O",
+                "token": "RV",
+                "example": "have them finish"
+              },
+              {
+                "pattern": "have O",
+                "token": "V-ing",
+                "example": "had everyone complaining"
+              }
+            ],
+            [
+              {
+                "pattern": "have O",
+                "token": "p.p.",
+                "example": "have the report sent"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "get",
+          "gloss": "說服",
+          "cells": [
+            [
+              {
+                "pattern": "get O",
+                "token": "to-RV",
+                "example": "get him to go"
+              }
+            ],
+            [
+              {
+                "pattern": "get O",
+                "token": "p.p.",
+                "example": "get the work done"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "let",
+          "gloss": "允許",
+          "cells": [
+            [
+              {
+                "pattern": "let O",
+                "token": "RV",
+                "example": "let her study"
+              }
+            ],
+            [
+              {
+                "pattern": "let O",
+                "token": "be p.p.",
+                "example": "let the light be turned off"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "help",
+          "gloss": "協助",
+          "cells": [
+            [
+              {
+                "pattern": "help O",
+                "token": "(to-)RV",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "help O",
+                "token": "(to) be p.p.",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "help it (to) be understood"
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：被動語態要補回 to",
+        "lines": [
+          "make / help 改被動 → be made to RV、be helped to RV",
+          "have / let 沒有這種被動式，看到 was had to、was let to 直接刪",
+          "替代寫法：be required to（代 have）、be allowed to（代 let）"
+        ]
+      },
+      {
+        "title": "補充 2：want 與 need",
+        "lines": [
+          "want / need + to-RV（主動）",
+          "事物 + want / need + V-ing ＝ 被動，等於 to be p.p.",
+          "The report needs revising = needs to be revised"
+        ]
+      },
+      {
+        "title": "補充 3：感官動詞",
+        "lines": [
+          "see / hear / watch / notice + O + RV（看到全程）",
+          "＋ O + V-ing（看到正在進行）",
+          "＋ O + p.p.（受詞是被動）"
+        ]
+      }
+    ]
+  },
+  "grammar/02_動詞時態與語態/09_時態與條件句搭配辨識": {
+    "chapterId": "grammar/02_動詞時態與語態/09_時態與條件句搭配辨識",
+    "title": "真實條件句時態決策樹",
+    "titleEn": "Decision Tree: Real Conditionals",
+    "decision": {
+      "question": "句子的兩半各用什麼時態",
+      "questionEn": "Which Tense Goes in Each Half",
+      "branches": [
+        {
+          "label": "副子句：絕不用 will",
+          "labelEn": "Subordinate Clause: Never will"
+        },
+        {
+          "label": "主句：可以用 will",
+          "labelEn": "Main Clause: will Allowed"
+        }
+      ]
+    },
+    "table": {
+      "title": "真實條件句時態總表",
+      "titleEn": "Master Table of Real Conditionals",
+      "rowHeader": "條件句類型",
+      "rows": [
+        {
+          "head": "零條件",
+          "gloss": "恆常事實",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "現在式"
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "現在式"
+              }
+            ]
+          ],
+          "sharedExample": "If the sensor detects smoke, the alarm sounds."
+        },
+        {
+          "head": "第一類",
+          "gloss": "可能發生",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "現在式"
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "will + RV"
+              }
+            ]
+          ],
+          "sharedExample": "If we approve it today, production will start Monday."
+        },
+        {
+          "head": "祈使句",
+          "gloss": "要求動作",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "現在式"
+              }
+            ],
+            [
+              {
+                "pattern": "V",
+                "token": "原形開頭"
+              }
+            ]
+          ],
+          "sharedExample": "If you need assistance, contact the front desk."
+        },
+        {
+          "head": "unless",
+          "gloss": "除非",
+          "cells": [
+            [
+              {
+                "pattern": "Unless S",
+                "token": "現在式（肯定）"
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "will + RV"
+              }
+            ]
+          ],
+          "sharedExample": "Unless the invoice arrives today, we will delay payment."
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：真實還是假設，先看主句",
+        "lines": [
+          "主句是 will / can / may / must → 真實條件句",
+          "主句是 would / could / might → 假設語氣，副子句時態要往後退一格",
+          "混搭陷阱：現在式副子句 + would 主句、過去式副子句 + will 主句，兩種都錯"
+        ]
+      },
+      {
+        "title": "補充 2：if 的同義連接詞",
+        "lines": [
+          "provided (that) / providing / on condition that / so long as ＝ if，語氣更正式，時態規則完全相同",
+          "unless ＝ if...not，本身已含否定，子句裡不可再加 not",
+          "in case 不是 if：語意是「以防萬一」，強調預先防範而非條件成立"
+        ]
+      },
+      {
+        "title": "補充 3：只有 only if 要倒裝",
+        "lines": [
+          "Only if 放句首 → 主句助動詞提前（Only if the budget is approved will the team expand.）",
+          "only if 出現在句中則不倒裝",
+          "政策類篇章常搭 eligible / entitled / applicable / valid，描述符合條件才享有的權利"
+        ]
+      }
+    ]
+  },
+  "grammar/03_動狀詞_非謂語動詞/08_不定詞動名詞意義差異動詞": {
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/08_不定詞動名詞意義差異動詞",
+    "title": "to V 與 V-ing 語意差異決策樹",
+    "titleEn": "Decision Tree: Infinitive vs. Gerund",
+    "decision": {
+      "question": "語意指向未來還是已發生",
+      "questionEn": "Does the Meaning Point Forward or Back",
+      "branches": [
+        {
+          "label": "to V：還沒做、要去做",
+          "labelEn": "to V: Not Yet Done"
+        },
+        {
+          "label": "V-ing：已做過、進行中",
+          "labelEn": "V-ing: Already Done or Ongoing"
+        }
+      ]
+    },
+    "table": {
+      "title": "語意差異動詞總表",
+      "titleEn": "Master Table of Meaning-Shift Verbs",
+      "rowHeader": "動詞",
+      "rows": [
+        {
+          "head": "remember",
+          "gloss": "記得",
+          "cells": [
+            [
+              {
+                "pattern": "remember",
+                "token": "to V",
+                "example": "remember to lock the lab"
+              }
+            ],
+            [
+              {
+                "pattern": "remember",
+                "token": "V-ing",
+                "example": "remember locking the lab"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "forget",
+          "gloss": "忘記",
+          "cells": [
+            [
+              {
+                "pattern": "forget",
+                "token": "to V",
+                "example": "forget to submit the form"
+              }
+            ],
+            [
+              {
+                "pattern": "forget",
+                "token": "V-ing",
+                "example": "forget submitting the form"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "stop",
+          "gloss": "停止",
+          "cells": [
+            [
+              {
+                "pattern": "stop",
+                "token": "to V",
+                "example": "stop to take a call"
+              }
+            ],
+            [
+              {
+                "pattern": "stop",
+                "token": "V-ing",
+                "example": "stop taking calls"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "try",
+          "gloss": "嘗試",
+          "cells": [
+            [
+              {
+                "pattern": "try",
+                "token": "to V",
+                "example": "try to meet the deadline"
+              }
+            ],
+            [
+              {
+                "pattern": "try",
+                "token": "V-ing",
+                "example": "try restarting the router"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "go on",
+          "gloss": "繼續",
+          "cells": [
+            [
+              {
+                "pattern": "go on",
+                "token": "to V",
+                "example": "go on to discuss the budget"
+              }
+            ],
+            [
+              {
+                "pattern": "go on",
+                "token": "V-ing",
+                "example": "go on working overtime"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "regret",
+          "gloss": "遺憾",
+          "cells": [
+            [
+              {
+                "pattern": "regret",
+                "token": "to V",
+                "example": "regret to inform you"
+              }
+            ],
+            [
+              {
+                "pattern": "regret",
+                "token": "V-ing",
+                "example": "regret sending the email"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：只接 V-ing，不必判斷語意",
+        "lines": [
+          "quit、finish、avoid、mind、enjoy 一律接 V-ing",
+          "can't help + V-ing，但 can't help but + 原形動詞",
+          "refrain from / abstain from + V-ing；can't afford 則固定接 to V"
+        ]
+      },
+      {
+        "title": "補充 2：used to 的關鍵是有沒有 be",
+        "lines": [
+          "used to + 原形動詞 ＝ 過去曾經（句中沒有 be 動詞）",
+          "be used to + V-ing ＝ 習慣於（有 is / are / was / were）",
+          "get used to + V-ing 強調逐漸適應，常搭 gradually、over time"
+        ]
+      },
+      {
+        "title": "補充 3：三個反直覺的點",
+        "lines": [
+          "regret to inform / regret to say 是商業書信固定用語，看到 regret 不要直覺選 V-ing",
+          "stop 兩種都對，但 stop V-ing 在多益出現頻率遠高於 stop to V",
+          "deserve + V-ing 帶被動語意：deserves addressing ＝ deserves to be addressed"
+        ]
+      }
+    ]
+  },
+  "grammar/03_動狀詞_非謂語動詞/11_不定詞完成式與被動式": {
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/11_不定詞完成式與被動式",
+    "title": "不定詞四種型態決策樹",
+    "titleEn": "Decision Tree: Four Infinitive Forms",
+    "decision": {
+      "question": "先判主動被動，再判時間先後",
+      "questionEn": "Voice First, Then Time",
+      "branches": [
+        {
+          "label": "主動：邏輯主詞做動作",
+          "labelEn": "Active: Subject Acts"
+        },
+        {
+          "label": "被動：邏輯主詞被做",
+          "labelEn": "Passive: Subject Is Acted Upon"
+        }
+      ]
+    },
+    "table": {
+      "title": "不定詞型態總表",
+      "titleEn": "Master Table of Infinitive Forms",
+      "rowHeader": "時間關係",
+      "rows": [
+        {
+          "head": "同時",
+          "gloss": "與主要動詞同時",
+          "cells": [
+            [
+              {
+                "pattern": "seems",
+                "token": "to V",
+                "example": "seems to understand the terms"
+              }
+            ],
+            [
+              {
+                "pattern": "needs",
+                "token": "to be p.p.",
+                "example": "needs to be reviewed"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "更早",
+          "gloss": "早於主要動詞",
+          "cells": [
+            [
+              {
+                "pattern": "claims",
+                "token": "to have p.p.",
+                "example": "claims to have paid the invoice"
+              }
+            ],
+            [
+              {
+                "pattern": "is said",
+                "token": "to have been p.p.",
+                "example": "is said to have been approved"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：觸發完成式不定詞的動詞",
+        "lines": [
+          "claim / seem / appear / report + to have p.p.",
+          "be said / be believed / be thought + to have p.p.",
+          "共通點：用現在的立場陳述一件已經發生的事"
+        ]
+      },
+      {
+        "title": "補充 2：常考的兩組修飾語",
+        "lines": [
+          "glad / pleased / proud / sorry + to have p.p.（對已發生的事有感覺）",
+          "動作與情緒同時發生時，用簡單式 to V",
+          "the first / last / only + 名詞 + to have p.p.，常考句尾修飾語"
+        ]
+      },
+      {
+        "title": "補充 3：四種型態都在選項時",
+        "lines": [
+          "第一步找邏輯主詞是不是受詞角色 → 決定主動或被動",
+          "第二步看動作是否早於主要動詞 → 決定簡單式或完成式",
+          "兩步缺一不可；四個選項字尾一致（都是 p.p.）時考的就是這兩層"
+        ]
+      },
+      {
+        "title": "補充 4：慣用例外",
+        "lines": [
+          "ready / eager / anxious + to V 維持主動，即使語意帶被動",
+          "ready to sign 指「合約準備好被簽」，仍不寫成 to be signed",
+          "need / want / require 也可用主動 V-ing 表被動（needs revising）"
+        ]
+      }
+    ]
+  },
+  "grammar/04_特殊動詞用法/02_感官動詞": {
+    "chapterId": "grammar/04_特殊動詞用法/02_感官動詞",
+    "title": "感官動詞用法決策樹",
+    "titleEn": "Decision Tree: Perception Verb Usage",
+    "decision": {
+      "question": "受詞是做動作還是被做",
+      "questionEn": "Does the Object Act or Get Acted Upon",
+      "branches": [
+        {
+          "label": "主動：受詞執行動作",
+          "labelEn": "Active: O Performs Action"
+        },
+        {
+          "label": "被動：受詞接受動作",
+          "labelEn": "Passive: Action Acts Upon O"
+        }
+      ]
+    },
+    "table": {
+      "title": "感官動詞用法總表",
+      "titleEn": "Master Table of Perception Verb Usage",
+      "rowHeader": "動詞",
+      "rows": [
+        {
+          "head": "see",
+          "gloss": "看見",
+          "cells": [
+            [
+              {
+                "pattern": "see O",
+                "token": "RV",
+                "example": "saw him leave"
+              },
+              {
+                "pattern": "see O",
+                "token": "V-ing",
+                "example": "saw him leaving"
+              }
+            ],
+            [
+              {
+                "pattern": "see O",
+                "token": "p.p.",
+                "example": "saw the door closed"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "hear",
+          "gloss": "聽見",
+          "cells": [
+            [
+              {
+                "pattern": "hear O",
+                "token": "RV",
+                "example": "heard her speak"
+              },
+              {
+                "pattern": "hear O",
+                "token": "V-ing",
+                "example": "heard her speaking"
+              }
+            ],
+            [
+              {
+                "pattern": "hear O",
+                "token": "p.p.",
+                "example": "heard his name called"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "watch",
+          "gloss": "注視",
+          "cells": [
+            [
+              {
+                "pattern": "watch O",
+                "token": "RV",
+                "example": "watched them load"
+              },
+              {
+                "pattern": "watch O",
+                "token": "V-ing",
+                "example": "watched them loading"
+              }
+            ],
+            [
+              {
+                "pattern": "watch O",
+                "token": "p.p.",
+                "example": "watched the crate opened"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "notice",
+          "gloss": "注意到",
+          "cells": [
+            [
+              {
+                "pattern": "notice O",
+                "token": "RV",
+                "example": "noticed him hesitate"
+              },
+              {
+                "pattern": "notice O",
+                "token": "V-ing",
+                "example": "noticed him hesitating"
+              }
+            ],
+            [
+              {
+                "pattern": "notice O",
+                "token": "p.p.",
+                "example": "noticed the seal broken"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：RV 與 V-ing 差在哪",
+        "lines": [
+          "RV 表「看／聽到動作的全程」，動作已完成",
+          "V-ing 表「看／聽到動作正在進行」，只看到片段",
+          "watch 強調持續觀察，偏好搭 V-ing；look at 只是看一眼，較少接受詞補語"
+        ]
+      },
+      {
+        "title": "補充 2：被動化要補回 to",
+        "lines": [
+          "was seen to V、was heard to V、was made to V",
+          "唯一不補 to 的情況：主動句補語本來就是 V-ing",
+          "find / consider / believe 的被動接形容詞或 p.p.，不是 to V，別跟這組搞混"
+        ]
+      },
+      {
+        "title": "補充 3：兩個雙重身分",
+        "lines": [
+          "feel 也能當連綴動詞接形容詞（feel confident），看後面是動詞還是形容詞",
+          "notice 也能直接接 that 子句（noticed that he left），此時要用完整子句",
+          "沒有受詞、感官動詞直接接 that 子句時，不可用不定詞或分詞"
+        ]
+      },
+      {
+        "title": "補充 4：四選項時的刪除順序",
+        "lines": [
+          "先判受詞與動詞是不是被動關係 → 是就選 p.p.",
+          "不是的話再判語意完成或進行 → 選 RV 或 V-ing",
+          "先看語意再套公式，不要看到被動就無腦選 to V"
+        ]
+      }
+    ]
+  },
+  "grammar/04_特殊動詞用法/05_連綴動詞": {
+    "chapterId": "grammar/04_特殊動詞用法/05_連綴動詞",
+    "title": "連綴動詞補語決策樹",
+    "titleEn": "Decision Tree: Linking Verb Complements",
+    "decision": {
+      "question": "補語描述主詞還是動作方式",
+      "questionEn": "Does the Complement Describe the Subject or the Action",
+      "branches": [
+        {
+          "label": "連綴動詞：接形容詞",
+          "labelEn": "Linking Verb: plus Adjective"
+        },
+        {
+          "label": "一般動詞：接副詞",
+          "labelEn": "Ordinary Verb: plus Adverb"
+        }
+      ]
+    },
+    "table": {
+      "title": "雙重身分動詞總表",
+      "titleEn": "Master Table of Dual-Role Verbs",
+      "rowHeader": "動詞",
+      "rows": [
+        {
+          "head": "look",
+          "gloss": "看起來／看",
+          "cells": [
+            [
+              {
+                "pattern": "look",
+                "token": "adj",
+                "example": "looks promising"
+              }
+            ],
+            [
+              {
+                "pattern": "look at O",
+                "token": "adv",
+                "example": "looked at it carefully"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "sound",
+          "gloss": "聽起來／鳴響",
+          "cells": [
+            [
+              {
+                "pattern": "sound",
+                "token": "adj",
+                "example": "sounds reasonable"
+              }
+            ],
+            [
+              {
+                "pattern": "sound O",
+                "token": "adv",
+                "example": "sounded the alarm loudly"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "grow",
+          "gloss": "變得／成長",
+          "cells": [
+            [
+              {
+                "pattern": "grow",
+                "token": "adj",
+                "example": "grew complicated"
+              }
+            ],
+            [
+              {
+                "pattern": "grow",
+                "token": "adv",
+                "example": "grew rapidly"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "turn",
+          "gloss": "變成／轉向",
+          "cells": [
+            [
+              {
+                "pattern": "turn",
+                "token": "adj",
+                "example": "turned profitable"
+              }
+            ],
+            [
+              {
+                "pattern": "turn",
+                "token": "adv",
+                "example": "turned sharply"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "prove",
+          "gloss": "證明是／證實",
+          "cells": [
+            [
+              {
+                "pattern": "prove",
+                "token": "adj",
+                "example": "proved effective"
+              }
+            ],
+            [
+              {
+                "pattern": "prove O",
+                "token": "adv",
+                "example": "proved it conclusively"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：三組口訣",
+        "lines": [
+          "五感類：seem / appear / look / sound / feel",
+          "變化類：become / turn / grow / go",
+          "維持證明類：remain / stay / keep / prove"
+        ]
+      },
+      {
+        "title": "補充 2：-ly 結尾的形容詞陷阱",
+        "lines": [
+          "timely、costly、orderly、friendly、likely 都是形容詞",
+          "看到 -ly 不要直覺當副詞刪掉，它們可以直接接在連綴動詞後面",
+          "選項是「原形 / -ly / 形容詞 / 名詞」時，先確認動詞是不是連綴動詞"
+        ]
+      },
+      {
+        "title": "補充 3：兩個結構細節",
+        "lines": [
+          "連綴動詞 + 形容詞 + 介系詞片語是固定結構，片語只是修飾語，不會把答案變成副詞",
+          "become 後面不能加 to be（become popular，不是 become to be popular）",
+          "prove / turn out 可接形容詞或 to be + 形容詞，兩種都對"
+        ]
+      },
+      {
+        "title": "補充 4：remain / keep 的補語",
+        "lines": [
+          "remain unchanged、stay unaffected：p.p. 在此當形容詞，仍選形容詞形式",
+          "keep 常接現在分詞（keep running）或形容詞（keep quiet），依語意判斷",
+          "對比記憶：grow rapidly（副詞）vs. grow complicated（形容詞）"
+        ]
+      }
+    ]
+  },
+  "grammar/04_特殊動詞用法/06_雙受詞動詞": {
+    "chapterId": "grammar/04_特殊動詞用法/06_雙受詞動詞",
+    "title": "雙受詞動詞改寫決策樹",
+    "titleEn": "Decision Tree: Dative Alternation",
+    "decision": {
+      "question": "改寫時要配哪一個介系詞",
+      "questionEn": "Which Preposition Does the Rewrite Take",
+      "branches": [
+        {
+          "label": "雙受詞語序：V + 人 + 物",
+          "labelEn": "Double Object: V + IO + DO"
+        },
+        {
+          "label": "介系詞改寫：V + 物 + 介 + 人",
+          "labelEn": "Rewrite: V + DO + Prep + IO"
+        }
+      ]
+    },
+    "table": {
+      "title": "授予動詞介系詞總表",
+      "titleEn": "Master Table of Dative Verbs",
+      "rowHeader": "改寫用的介系詞",
+      "rows": [
+        {
+          "head": "to",
+          "gloss": "東西交到人手上",
+          "cells": [
+            [
+              {
+                "pattern": "send / give / show",
+                "token": "IO + DO"
+              }
+            ],
+            [
+              {
+                "pattern": "send DO",
+                "token": "to IO"
+              }
+            ]
+          ],
+          "sharedExample": "sent the client an invoice = sent an invoice to the client"
+        },
+        {
+          "head": "for",
+          "gloss": "替某人做",
+          "cells": [
+            [
+              {
+                "pattern": "buy / make / find",
+                "token": "IO + DO"
+              }
+            ],
+            [
+              {
+                "pattern": "buy DO",
+                "token": "for IO"
+              }
+            ]
+          ],
+          "sharedExample": "bought her a ticket = bought a ticket for her"
+        },
+        {
+          "head": "of",
+          "gloss": "ask 專用",
+          "cells": [
+            [
+              {
+                "pattern": "ask",
+                "token": "IO + DO"
+              }
+            ],
+            [
+              {
+                "pattern": "ask DO",
+                "token": "of IO"
+              }
+            ]
+          ],
+          "sharedExample": "asked him a favor = asked a favor of him"
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：不可雙受詞黑名單",
+        "lines": [
+          "explain / describe / suggest / announce / introduce / mention / report / recommend / propose",
+          "這些字一律「V + 物 + to + 人」，不能直接接人",
+          "explain me the rule 是錯的，要寫 explain the rule to me"
+        ]
+      },
+      {
+        "title": "補充 2：沒有改寫形式的三個",
+        "lines": [
+          "cost / charge / owe 接雙受詞，但沒有對應的介系詞改寫",
+          "看到選項在這三個字後面接 to / for 加物件，可直接刪去",
+          "The delay cost us two weeks.（不能改寫成 cost two weeks to us）"
+        ]
+      },
+      {
+        "title": "補充 3：被動與代名詞語序",
+        "lines": [
+          "授予動詞的被動，人或物都能當主詞（was sent the invoice / was sent to the client）",
+          "直接受詞是 it / them 時傾向改寫成「V + it + to 人」，gave me it 不自然",
+          "explain 這類動詞被動時，人絕對不能當主詞"
+        ]
+      },
+      {
+        "title": "補充 4：商業情境高頻字",
+        "lines": [
+          "present / grant / issue / allocate / assign 常互相替換作誘答，看語境選「頒發」還是「分配」",
+          "reimburse 接的物通常是費用類（expenses, costs, fees），接事件名詞要配 for",
+          "guarantee / extend 在財務契約情境常接雙受詞表「保證給予」"
+        ]
+      }
+    ]
+  },
+  "grammar/05_子句與假設語氣/04_假設語氣": {
+    "chapterId": "grammar/05_子句與假設語氣/04_假設語氣",
+    "title": "假設語氣時態決策樹",
+    "titleEn": "Decision Tree: Unreal Conditionals",
+    "decision": {
+      "question": "與哪個時間的事實相反",
+      "questionEn": "Which Time Is the Fact Contrary To",
+      "branches": [
+        {
+          "label": "if 子句：往後退一格",
+          "labelEn": "If-Clause: Back-Shifted"
+        },
+        {
+          "label": "主句：would / could / might",
+          "labelEn": "Main Clause: Modal"
+        }
+      ]
+    },
+    "table": {
+      "title": "假設語氣時態總表",
+      "titleEn": "Master Table of Unreal Conditionals",
+      "rowHeader": "與何時的事實相反",
+      "rows": [
+        {
+          "head": "現在",
+          "gloss": "與現在事實相反",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "過去式"
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "would + RV"
+              }
+            ]
+          ],
+          "sharedExample": "If we had more time, we would revise the proposal."
+        },
+        {
+          "head": "過去",
+          "gloss": "與過去事實相反",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "had + p.p."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "would have + p.p."
+              }
+            ]
+          ],
+          "sharedExample": "If they had ordered earlier, the parts would have arrived."
+        },
+        {
+          "head": "混合",
+          "gloss": "過去因、現在果",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "had + p.p."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "would + RV"
+              }
+            ]
+          ],
+          "sharedExample": "If he had studied medicine, he would be a doctor now."
+        },
+        {
+          "head": "未來",
+          "gloss": "發生機率極低",
+          "cells": [
+            [
+              {
+                "pattern": "If S",
+                "token": "were to V"
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "would + RV"
+              }
+            ]
+          ],
+          "sharedExample": "If the board were to reject it, we would revise the terms."
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：be 動詞一律用 were",
+        "lines": [
+          "不分人稱：If I were、If he were、If the result were",
+          "多益考的是正式書面英文，was 在假設語氣裡不是安全解",
+          "as if / as though 接假設語氣時同理（talks as if he were the manager）"
+        ]
+      },
+      {
+        "title": "補充 2：I wish 與 if only",
+        "lines": [
+          "時態同樣往後退一格：I wish I had more time（與現在相反）",
+          "I wish I had known about the sale（與過去相反）",
+          "if only 語氣比 I wish 更強，句型與 if 子句相同，通常單獨成句"
+        ]
+      },
+      {
+        "title": "補充 3：同家族的虛擬語氣",
+        "lines": [
+          "suggest / insist / demand / require / recommend 後的 that 子句用原形動詞",
+          "不受主詞人稱與時態影響：It is essential that the report be accurate.",
+          "否定是 not + 原形動詞，不可加 don't / doesn't"
+        ]
+      },
+      {
+        "title": "補充 4：怎麼跟真實條件句分開",
+        "lines": [
+          "先看主句助動詞：would / could / might → 假設；will / can / may → 真實",
+          "再回頭檢查 if 子句時態有沒有跟著退一格",
+          "現在式子句 + would 主句、過去式子句 + will 主句，都是常見誘答"
+        ]
+      }
+    ]
+  },
+  "grammar/05_子句與假設語氣/06_關係代名詞省略非限定用法": {
+    "chapterId": "grammar/05_子句與假設語氣/06_關係代名詞省略非限定用法",
+    "title": "關係子句限定與非限定決策樹",
+    "titleEn": "Decision Tree: Restrictive vs. Non-restrictive",
+    "decision": {
+      "question": "關代前面有沒有逗號",
+      "questionEn": "Is There a Comma Before the Relative Pronoun",
+      "branches": [
+        {
+          "label": "限定用法：沒有逗號",
+          "labelEn": "Restrictive: No Comma"
+        },
+        {
+          "label": "非限定用法：有逗號",
+          "labelEn": "Non-restrictive: With Comma"
+        }
+      ]
+    },
+    "table": {
+      "title": "關係代名詞總表",
+      "titleEn": "Master Table of Relative Pronouns",
+      "rowHeader": "關係代名詞",
+      "rows": [
+        {
+          "head": "who",
+          "gloss": "人、主格",
+          "cells": [
+            [
+              {
+                "pattern": "who",
+                "token": "可換 that"
+              }
+            ],
+            [
+              {
+                "pattern": ", who",
+                "token": "不可換 that"
+              }
+            ]
+          ],
+          "sharedExample": "the engineer who fixed it / the engineer, who joined in May,"
+        },
+        {
+          "head": "whom",
+          "gloss": "人、受格",
+          "cells": [
+            [
+              {
+                "pattern": "whom",
+                "token": "可省略"
+              }
+            ],
+            [
+              {
+                "pattern": ", whom",
+                "token": "不可省略"
+              }
+            ]
+          ],
+          "sharedExample": "the client (whom) we met / the client, whom we met last week,"
+        },
+        {
+          "head": "which",
+          "gloss": "物",
+          "cells": [
+            [
+              {
+                "pattern": "which",
+                "token": "可換 that"
+              }
+            ],
+            [
+              {
+                "pattern": ", which",
+                "token": "不可換 that"
+              }
+            ]
+          ],
+          "sharedExample": "the report which arrived / the report, which arrived today,"
+        },
+        {
+          "head": "whose",
+          "gloss": "所有格",
+          "cells": [
+            [
+              {
+                "pattern": "whose + N",
+                "token": "不可省略"
+              }
+            ],
+            [
+              {
+                "pattern": ", whose + N",
+                "token": "不可省略"
+              }
+            ]
+          ],
+          "sharedExample": "the vendor whose bid won the contract"
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：看到逗號先刪 that",
+        "lines": [
+          "that 完全不能用於非限定子句，選項有逗號就先刪含 that 的",
+          "介系詞黏在關代前面時也只能用 which / whom（at which，不能 at that）",
+          "of that、in that 當關代用在多益都是錯誤選項"
+        ]
+      },
+      {
+        "title": "補充 2：能不能省略，看空格後面",
+        "lines": [
+          "空格後主詞動詞都齊全 → 受格關代，可以省略",
+          "空格後直接是動詞（沒有主詞）→ 主格，任何情況都不能省略",
+          "介系詞在關代前面時同樣不能省略"
+        ]
+      },
+      {
+        "title": "補充 3：數量詞只配非限定",
+        "lines": [
+          "all / most / none / some + of which（物）／ of whom（人）",
+          "前面一定有逗號，先行詞是前面提過的全體",
+          "The company hired ten interns, most of whom graduated this year."
+        ]
+      },
+      {
+        "title": "補充 4：減化子句的條件",
+        "lines": [
+          "只有「關代 + be 動詞」的組合能省略成分詞：the employees (who are) working",
+          "不是任何受格關代都能這樣減化",
+          "雙逗號夾住一段時，動詞要配句子最外層的主詞，不是插入子句裡的名詞"
+        ]
+      }
+    ]
+  },
+  "grammar/05_子句與假設語氣/10_假設語氣倒裝省略if": {
+    "chapterId": "grammar/05_子句與假設語氣/10_假設語氣倒裝省略if",
+    "title": "假設語氣倒裝決策樹",
+    "titleEn": "Decision Tree: Inverted Conditionals",
+    "decision": {
+      "question": "主句長什麼樣子",
+      "questionEn": "What Does the Main Clause Look Like",
+      "branches": [
+        {
+          "label": "主句線索",
+          "labelEn": "Clue in the Main Clause"
+        },
+        {
+          "label": "句首要選的倒裝詞",
+          "labelEn": "Word That Leads the Inversion"
+        }
+      ]
+    },
+    "table": {
+      "title": "倒裝開頭字總表",
+      "titleEn": "Master Table of Inversion Triggers",
+      "rowHeader": "倒裝開頭字",
+      "rows": [
+        {
+          "head": "Had",
+          "gloss": "與過去相反",
+          "cells": [
+            [
+              {
+                "pattern": "S",
+                "token": "would have + p.p."
+              }
+            ],
+            [
+              {
+                "pattern": "Had S",
+                "token": "p.p."
+              }
+            ]
+          ],
+          "sharedExample": "Had the team intervened, the incident would have been avoided."
+        },
+        {
+          "head": "Were",
+          "gloss": "與現在相反",
+          "cells": [
+            [
+              {
+                "pattern": "S",
+                "token": "would + RV"
+              }
+            ],
+            [
+              {
+                "pattern": "Were S",
+                "token": "adj / to V"
+              }
+            ]
+          ],
+          "sharedExample": "Were the results inconclusive, the study would be extended."
+        },
+        {
+          "head": "Should",
+          "gloss": "萬一",
+          "cells": [
+            [
+              {
+                "pattern": "S",
+                "token": "祈使句 / will"
+              }
+            ],
+            [
+              {
+                "pattern": "Should S",
+                "token": "RV"
+              }
+            ]
+          ],
+          "sharedExample": "Should you have any questions, please contact us."
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：倒裝與 if 不可並存",
+        "lines": [
+          "選項同時出現 if 又要求倒裝語序，一定是錯的",
+          "Should 開頭的倒裝句不能換成 whether，兩者結構功能完全不同",
+          "Were 用於所有人稱；Had / Should 不隨人稱變化"
+        ]
+      },
+      {
+        "title": "補充 2：否定放在主詞之後",
+        "lines": [
+          "Had + S + not + p.p.（Had the team not intervened, ...）",
+          "不是 Had not the team intervened",
+          "not 的位置在主詞之後、動詞之前"
+        ]
+      },
+      {
+        "title": "補充 3：三個同義的「要不是」",
+        "lines": [
+          "Had it not been for ＝ Without ＝ But for",
+          "Had it not been for 是完整子句，後面可接完整句子",
+          "Without / But for 只接名詞片語"
+        ]
+      },
+      {
+        "title": "補充 4：文體線索",
+        "lines": [
+          "合約條款、人資公告、財務備忘錄偏好用 Should / Had 倒裝取代 if",
+          "Should 倒裝的後半句常以 please + V 或 be sure to + V 收尾",
+          "倒裝句仍保有「與事實相反」或「機率低」的語氣，不同於 unless 的真實條件"
+        ]
+      }
+    ]
+  },
+  "grammar/06_其他多益必考進階題型/01_比較級與最高級": {
+    "chapterId": "grammar/06_其他多益必考進階題型/01_比較級與最高級",
+    "title": "比較級與最高級決策樹",
+    "titleEn": "Decision Tree: Comparative vs. Superlative",
+    "decision": {
+      "question": "比兩者還是三者以上",
+      "questionEn": "Two Items or Three and More",
+      "branches": [
+        {
+          "label": "比較級：兩者相比",
+          "labelEn": "Comparative: Two Items"
+        },
+        {
+          "label": "最高級：三者以上",
+          "labelEn": "Superlative: Three or More"
+        }
+      ]
+    },
+    "table": {
+      "title": "比較級最高級總表",
+      "titleEn": "Master Table of Comparison Forms",
+      "rowHeader": "形容詞類型",
+      "rows": [
+        {
+          "head": "short adj",
+          "gloss": "單音節",
+          "cells": [
+            [
+              {
+                "pattern": "adj",
+                "token": "-er + than",
+                "example": "cheaper than the previous model"
+              }
+            ],
+            [
+              {
+                "pattern": "the adj",
+                "token": "-est",
+                "example": "the cheapest option available"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "long adj",
+          "gloss": "兩音節以上",
+          "cells": [
+            [
+              {
+                "pattern": "more",
+                "token": "adj + than",
+                "example": "more efficient than expected"
+              }
+            ],
+            [
+              {
+                "pattern": "the most",
+                "token": "adj",
+                "example": "the most efficient plan"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "less",
+          "gloss": "遞減語意",
+          "cells": [
+            [
+              {
+                "pattern": "less",
+                "token": "adj + than",
+                "example": "less effective than the previous one"
+              }
+            ],
+            [
+              {
+                "pattern": "the least",
+                "token": "adj",
+                "example": "the least expensive supplier"
+              }
+            ]
+          ]
+        },
+        {
+          "head": "than any",
+          "gloss": "間接最高級",
+          "cells": [
+            [
+              {
+                "pattern": "-er than any other",
+                "token": "單數 N",
+                "example": "sells better than any other product"
+              }
+            ],
+            [
+              {
+                "pattern": "one of the -est",
+                "token": "複數 N",
+                "example": "one of the most experienced managers"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：不可重複比較",
+        "lines": [
+          "more easier 是錯的：長形容詞用 more、短形容詞加 -er，兩者不可同時出現",
+          "選項出現 more 加 -er 的組合可直接刪",
+          "the second / third + 最高級 也要加 the（the second largest market）"
+        ]
+      },
+      {
+        "title": "補充 2：名詞單複數就是考點",
+        "lines": [
+          "than any other + 單數名詞（than any other product，不是 products）",
+          "one of the + 最高級 + 複數名詞（one of the most experienced managers）",
+          "兩個句型都在間接表達最高級，錯的通常是名詞的數"
+        ]
+      },
+      {
+        "title": "補充 3：less 與 least 的方向",
+        "lines": [
+          "less / least 是「越來越少、最少」，容易跟 more / most 看反",
+          "less effective 是「較沒效果」，不是「較有效」",
+          "先讀懂句意是遞增還是遞減，再選字"
+        ]
+      }
+    ]
+  }
+}
