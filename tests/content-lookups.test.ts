@@ -7,13 +7,14 @@ import {
   getChapterById,
   getChapterLabel,
   getChapterNumber,
-  getFormulas,
+  getChapters,
   getFormulasByChapter,
   getGrammarQuestionsByCategory,
   getGrammarQuestionsByChapter,
   getQuestionById,
   getQuestionsByIds,
-  getRandomFormulas,
+  getFormulaCards,
+  getRandomFormulaCards,
   getVocabByChapter,
   stripOrderPrefix,
 } from '../src/lib/content'
@@ -136,16 +137,27 @@ describe('wrong-question ids stay resolvable', () => {
   })
 })
 
-describe('random formula draws', () => {
-  it('draws the requested number of distinct formulas', () => {
-    const drawn = getRandomFormulas(15)
-    expect(drawn).toHaveLength(15)
-    expect(new Set(drawn.map((f) => f.id)).size).toBe(15)
+describe('random formula card draws', () => {
+  it('draws distinct cards, never more than exist', () => {
+    const total = getFormulaCards().length
+    const drawn = getRandomFormulaCards(total)
+    expect(drawn).toHaveLength(total)
+    expect(new Set(drawn.map((c) => c.chapterId)).size).toBe(total)
   })
 
-  it('caps the draw at however many formulas actually exist', () => {
-    const total = getFormulas().length
-    expect(getRandomFormulas(total + 100)).toHaveLength(total)
+  it('caps the draw at however many cards actually exist', () => {
+    const total = getFormulaCards().length
+    expect(getRandomFormulaCards(total + 100)).toHaveLength(total)
+  })
+
+  // 速查卡模式是照章節順序發的，隨機模式才洗牌——getFormulaCards() 的順序要跟
+  // chapters.json 一致，不是 data/formula-cards.json 的 key 順序。
+  it('lists cards in chapter order', () => {
+    const cards = getFormulaCards()
+    const order = getChapters().map((c) => c.id)
+    const positions = cards.map((c) => order.indexOf(c.chapterId))
+    expect(positions.every((p) => p >= 0)).toBe(true)
+    expect([...positions].sort((a, b) => a - b)).toEqual(positions)
   })
 })
 

@@ -134,8 +134,24 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
           {/*
             速查卡排在秒殺公式之前：它是整章的骨架（一個判斷點 + 一張總表），
             下面那些逐條技巧是掛在骨架上的細節。只有手寫過卡的章節才有。
+
+            /practice/formulas 現在發的是速查卡而不是逐條公式，所以那個入口跟著搬
+            到這裡、並且只在有卡時出現——留在秒殺公式的標題列會讓另外 58 章點進去
+            看到一個空的一輪。
           */}
-          {card && <FormulaCard card={card} />}
+          {card && (
+            <div className="space-y-1.5">
+              <FormulaCard card={card} />
+              <div className="text-right">
+                <Link
+                  href={`/practice/formulas?chapter=${encodeURIComponent(chapter.id)}`}
+                  className="text-[11px] font-semibold text-[var(--pr)] hover:opacity-80"
+                >
+                  單獨看這張卡 →
+                </Link>
+              </div>
+            </div>
+          )}
 
           {/*
             秒殺公式。原本靠 3px 的左側色條標示，那是 DESIGN.md 明文禁止的裝飾色條；
@@ -143,17 +159,9 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
           */}
           {formulas.length > 0 && (
             <section className="space-y-2.5">
-              <div className="flex items-center justify-between gap-2">
-                <h2 className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-[var(--pr)]">
-                  <Zap className="h-3.5 w-3.5" /> 秒殺公式
-                </h2>
-                <Link
-                  href={`/practice/formulas?chapter=${encodeURIComponent(chapter.id)}`}
-                  className="text-[11px] font-semibold text-[var(--pr)] hover:opacity-80"
-                >
-                  閃卡模式 →
-                </Link>
-              </div>
+              <h2 className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-[var(--pr)]">
+                <Zap className="h-3.5 w-3.5" /> 秒殺公式
+              </h2>
               {formulas.map((formula) => (
                 <div
                   key={formula.id}

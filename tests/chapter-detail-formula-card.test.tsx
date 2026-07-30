@@ -68,6 +68,24 @@ describe('文法章節頁的速查卡', () => {
     expect(screen.getByText('秒殺公式')).toBeTruthy()
   })
 
+  // /practice/formulas 現在發的是速查卡，所以沒有卡的章節不能留那個入口——留著就是
+  // 一個點進去看到「這一章還沒有速查卡」的連結。
+  it('only links to /practice/formulas from chapters that actually have a card', () => {
+    const hrefsOf = (container: HTMLElement) =>
+      Array.from(container.querySelectorAll('a[href^="/practice/formulas"]')).map((a) =>
+        a.getAttribute('href'),
+      )
+
+    const withCard = renderChapter(WITH_CARD)
+    expect(hrefsOf(withCard.container)).toEqual([
+      `/practice/formulas?chapter=${encodeURIComponent(WITH_CARD)}`,
+    ])
+    withCard.unmount()
+
+    const withoutCard = renderChapter(WITHOUT_CARD)
+    expect(hrefsOf(withoutCard.container)).toEqual([])
+  })
+
   it('reaches every card in data/formula-cards.json through its chapter page', () => {
     for (const key of Object.keys(cards as Record<string, unknown>)) {
       const card = getFormulaCard(key)

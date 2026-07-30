@@ -17,7 +17,7 @@ import {
   type CategoryStat,
   type DailyProgress,
 } from '../lib/storage'
-import { getCategoryLabel, getFormulas, getVocabById } from '../lib/content'
+import { getCategoryLabel, getFormulaCards, getVocabById } from '../lib/content'
 import { estimateToeicScore } from '../lib/toeicScore'
 import { ProgressRing } from '../components/ui/ProgressRing'
 import { DailyTaskCard } from '../components/DailyTaskCard'
@@ -72,7 +72,7 @@ interface HomeSnapshot {
   totalCorrect: number
   reminderTime: string
   reminderEnabled: boolean
-  formulaCount: number
+  formulaCardCount: number
 }
 
 function buildSnapshot(): HomeSnapshot {
@@ -104,7 +104,7 @@ function buildSnapshot(): HomeSnapshot {
     totalCorrect: stats.reduce((a, c) => a + c.correctCount, 0),
     reminderTime: profile.reminderTime,
     reminderEnabled: profile.reminderEnabled,
-    formulaCount: getFormulas().length,
+    formulaCardCount: getFormulaCards().length,
   }
 }
 
@@ -294,7 +294,7 @@ export default function HomePage() {
           )}
 
           {/*
-            秒殺公式閃卡不綁三項每日任務，通勤情境是「隨時想刷就刷」，所以跟錯題本／
+            章節速查卡不綁三項每日任務，通勤情境是「隨時想刷就刷」，所以跟錯題本／
             單字複習本一樣是常駐入口卡，不放進下面「全部完成後」才出現的加練區。
           */}
           <Link
@@ -304,15 +304,15 @@ export default function HomePage() {
             <div className="min-w-0 flex-1 overflow-hidden">
               <div className="flex items-center gap-2 min-w-0">
                 <h3 className="flex items-center gap-1.5 text-[15px] font-semibold text-[var(--tx)] shrink-0">
-                  <Zap className="h-3.5 w-3.5 text-[var(--pr)]" /> 秒殺公式閃卡
+                  <Zap className="h-3.5 w-3.5 text-[var(--pr)]" /> 章節速查卡
                 </h3>
               </div>
               <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
-                {snap.formulaCount} 條解題技巧 · 通勤也能刷，一張卡一個重點
+                {snap.formulaCardCount} 張決策樹＋用法總表 · 一章一張，通勤也能刷
               </p>
             </div>
             <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
-              開始閃卡
+              開始刷卡
             </span>
           </Link>
 

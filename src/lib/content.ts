@@ -33,6 +33,16 @@ export function getFormulaCard(chapterId: string): FormulaCard | null {
   return formulaCards[chapterId] ?? null
 }
 
+/** 章節順序（chapters.json 的順序）而不是 JSON 的 key 順序，速查卡模式才不會亂跳。 */
+export function getFormulaCards(): FormulaCard[] {
+  return chapters.map((c) => formulaCards[c.id]).filter((card): card is FormulaCard => !!card)
+}
+
+export function getRandomFormulaCards(count: number = 10): FormulaCard[] {
+  const shuffled = [...getFormulaCards()].sort(() => 0.5 - Math.random())
+  return shuffled.slice(0, count)
+}
+
 export function getRandomGrammarQuestions(count: number = 5): Question[] {
   const shuffled = [...grammar].sort(() => 0.5 - Math.random())
   return shuffled.slice(0, count)
@@ -62,11 +72,6 @@ export function getVocabItems(): VocabItem[] {
 
 export function getFormulas(): Formula[] {
   return formulas
-}
-
-export function getRandomFormulas(count: number = 10): Formula[] {
-  const shuffled = [...formulas].sort(() => 0.5 - Math.random())
-  return shuffled.slice(0, count)
 }
 
 // --- Lookups ---

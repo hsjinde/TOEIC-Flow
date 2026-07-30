@@ -4,23 +4,27 @@ import { Suspense, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
-import type { Formula } from '../../../../scripts/build-content/types'
+import type { FormulaCard as FormulaCardData } from '../../../../scripts/build-content/types'
 import {
   getChapterById,
   getChapterLabel,
-  getFormulasByChapter,
-  getRandomFormulas,
+  getFormulaCard,
+  getRandomFormulaCards,
+  getFormulaCards,
   stripOrderPrefix,
 } from '../../../lib/content'
-import { FormulaFlashcard } from '../../../components/FormulaFlashcard'
+import { FormulaCard } from '../../../components/FormulaCard'
 import { Button } from '../../../components/ui/Button'
 import { cn } from '../../../lib/utils'
 
-/** 30 秒一輪的通勤節奏：20 條約 10 分鐘，刷完可以再刷一輪，不強制停在固定張數。 */
+/**
+ * 一輪的張數上限。速查卡目前只有 11 張，所以隨機模式實際上就是整套洗牌後全發；
+ * 留這個上限是為了將來卡片變多時，通勤一輪仍然停在可以刷完的長度。
+ */
 const SESSION_SIZE = 20
 
-interface FormulaSession {
-  items: Formula[]
+interface CardSession {
+  items: FormulaCardData[]
   title: string
   /** 從章節頁進來的返回鍵要回得去那一章，不是首頁。 */
   backHref: string
@@ -31,39 +35,39 @@ function chapterHref(id: string): string {
   return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
 }
 
-function buildSession(params: URLSearchParams): FormulaSession {
+function buildSession(params: URLSearchParams): CardSession {
   const chapterId = params.get('chapter')
 
   if (chapterId) {
     const chapter = getChapterById(chapterId)
-    const items = [...getFormulasByChapter(chapterId)].sort((a, b) => a.number - b.number)
+    const card = getFormulaCard(chapterId)
     return {
-      items,
-      title: `${chapter ? getChapterLabel(chapterId) : '秒殺公式'} 秒殺公式`,
+      items: card ? [card] : [],
+      title: `${chapter ? getChapterLabel(chapterId) : '章節'} 速查卡`,
       backHref: chapterHref(chapterId),
       backLabel: chapter ? stripOrderPrefix(chapter.title) : '章節內容',
     }
   }
 
   return {
-    items: getRandomFormulas(SESSION_SIZE),
-    title: '秒殺公式閃卡',
+    items: getRandomFormulaCards(SESSION_SIZE),
+    title: '章節速查卡',
     backHref: '/',
     backLabel: '今日任務',
   }
 }
 
-export default function FormulaFlashcardPageWrapper() {
+export default function FormulaCardPageWrapper() {
   return (
-    <Suspense fallback={<FormulaSkeleton />}>
-      <FormulaFlashcardPage />
+    <Suspense fallback={<FormulaCardSkeleton />}>
+      <FormulaCardPage />
     </Suspense>
   )
 }
 
-function FormulaFlashcardPage() {
+function FormulaCardPage() {
   const searchParams = useSearchParams()
-  const [session, setSession] = useState<FormulaSession | null>(null)
+  const [session, setSession] = useState<CardSession | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
 
@@ -111,16 +115,25 @@ function FormulaFlashcardPage() {
     return () => window.removeEventListener('keydown', onKey)
   }, [session, total, isFinished, advance, goBack])
 
-  if (!session) return <FormulaSkeleton />
+  if (!session) return <FormulaCardSkeleton />
 
   if (total === 0) {
+    // 69 章裡只有少數幾章寫了速查卡，所以「這一章沒有」是常態而不是錯誤，
+    // 出口要指回整套隨機模式，不是把使用者留在死路上。
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
-        <h2 className="text-base font-bold text-[var(--tx)]">這裡還沒有秒殺公式</h2>
-        <p className="text-xs text-[var(--mu)]">換一章，或從首頁隨機刷一輪。</p>
-        <Link href={session.backHref} className="w-full max-w-[240px] pt-1">
-          <Button variant="primary">返回{session.backLabel}</Button>
-        </Link>
+        <h2 className="text-base font-bold text-[var(--tx)]">這一章還沒有速查卡</h2>
+        <p className="text-xs text-[var(--mu)]">
+          目前有 {getFormulaCards().length} 章寫了速查卡，可以直接刷整套。
+        </p>
+        <div className="flex w-full max-w-[240px] flex-col gap-2 pt-1">
+          <Link href="/practice/formulas" className="w-full">
+            <Button variant="primary">刷整套速查卡</Button>
+          </Link>
+          <Link href={session.backHref} className="w-full">
+            <Button variant="outline">返回{session.backLabel}</Button>
+          </Link>
+        </div>
       </div>
     )
   }
@@ -134,7 +147,7 @@ function FormulaFlashcardPage() {
         </div>
         <div className="space-y-1">
           <h2 className="text-lg font-bold text-[var(--tx)]">{session.title}刷完了</h2>
-          <p className="text-sm text-[var(--mu)]">共 {total} 條</p>
+          <p className="text-sm text-[var(--mu)]">共 {total} 張</p>
         </div>
         <div className="flex w-full max-w-[280px] flex-col gap-2 pt-1">
           <Button variant="primary" onClick={reload}>
@@ -164,9 +177,9 @@ function FormulaFlashcardPage() {
       </div>
 
       <div className="flex items-center gap-1.5">
-        {items.map((_, i) => (
+        {items.map((item, i) => (
           <span
-            key={i}
+            key={item.chapterId}
             aria-hidden
             className={cn(
               'h-1.5 flex-1 rounded-full transition-colors duration-200',
@@ -181,14 +194,22 @@ function FormulaFlashcardPage() {
       </div>
 
       <div className="mx-auto flex w-full max-w-xl flex-1 flex-col gap-4">
-        <FormulaFlashcard formula={currentItem} />
+        <FormulaCard card={currentItem} />
+
+        {/* 速查卡不是「猜完就過」的閃卡，看完想細讀就進該章——所以留一個回章節的出口。 */}
+        <Link
+          href={chapterHref(currentItem.chapterId)}
+          className="text-center text-[11px] font-semibold text-[var(--pr)] hover:opacity-80"
+        >
+          看 {getChapterLabel(currentItem.chapterId)} 完整章節 →
+        </Link>
 
         <div className="grid grid-cols-2 gap-2">
           <Button variant="outline" onClick={goBack} disabled={currentIndex === 0}>
-            <ArrowLeft className="h-4 w-4" /> 上一條
+            <ArrowLeft className="h-4 w-4" /> 上一張
           </Button>
           <Button variant="primary" onClick={advance}>
-            下一條 <ArrowRight className="h-4 w-4" />
+            下一張 <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>
@@ -196,12 +217,12 @@ function FormulaFlashcardPage() {
   )
 }
 
-function FormulaSkeleton() {
+function FormulaCardSkeleton() {
   return (
     <div className="flex animate-pulse flex-col gap-4">
       <div className="h-9 w-full rounded-md bg-[var(--sf2)]" />
       <div className="h-1.5 w-full rounded-full bg-[var(--sf2)]" />
-      <div className="h-[264px] rounded-2xl bg-[var(--sf2)]" />
+      <div className="h-[420px] rounded-2xl bg-[var(--sf2)]" />
     </div>
   )
 }
