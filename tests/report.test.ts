@@ -7,6 +7,8 @@ const stats: BuildStats = {
   vocab: 352,
   vocabExampleZh: 352,
   formulas: 145,
+  formulaCards: 3,
+  pathChapters: 29,
   readingPassages: 8,
   readingQuestions: 46,
   mockExams: 2,
@@ -20,6 +22,8 @@ describe('formatReport', () => {
     expect(output).toContain('文法題：145')
     expect(output).toContain('單字：352（352 筆有例句中文）')
     expect(output).toContain('秒殺公式：145')
+    expect(output).toContain('章節速查卡：3 / 29 章')
+    expect(output).toContain('學習路徑：29 / 29 章已排入')
     expect(output).toContain('閱讀篇章：8')
     expect(output).toContain('模擬考：2')
   })

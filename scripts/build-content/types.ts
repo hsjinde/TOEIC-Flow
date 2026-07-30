@@ -187,6 +187,32 @@ export const FormulaCardSchema = z.object({
 })
 export type FormulaCard = z.infer<typeof FormulaCardSchema>
 
+/**
+ * 學習路徑的一站。跟速查卡一樣是手寫側車檔（data/learning-path.json），不是從
+ * vault 解析出來的——它的價值就在於「刻意不照筆記章節順序」。
+ */
+export const PathStageSchema = z.object({
+  id: z.string().min(1),
+  order: z.number().int().positive(),
+  title: z.string().min(1),
+  /** 一行講完這一站在解什麼題 */
+  subtitle: z.string().min(1),
+  /** 學完這一站你會做到什麼 */
+  goal: z.string().min(1),
+  /** 為什麼排在這個位置——路徑圖的重點就是順序的理由 */
+  why: z.string().min(1),
+  /** 建議學習順序，不是章節編號順序 */
+  chapterIds: z.array(z.string().min(1)).min(1),
+  /** 這一站之後值得順手做的非文法練習 */
+  extraPractice: z
+    .object({
+      label: z.string().min(1),
+      href: z.string().min(1),
+    })
+    .optional(),
+})
+export type PathStage = z.infer<typeof PathStageSchema>
+
 export const ContentBundleSchema = z.object({
   buildAt: z.string(),
   chapters: z.array(ChapterSchema),

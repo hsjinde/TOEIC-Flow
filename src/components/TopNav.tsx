@@ -13,6 +13,7 @@ import { cn } from '../lib/utils'
 const LINKS = [
   { label: '今日', href: '/' },
   { label: '練習', href: '/chapters' },
+  { label: '學習路徑', href: '/path' },
   { label: '統計', href: '/stats' },
   { label: '錯題本', href: '/wrong-questions' },
   { label: '單字本', href: '/vocab-review' },
