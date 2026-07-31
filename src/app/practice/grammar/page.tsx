@@ -16,6 +16,7 @@ import {
   stripOrderPrefix,
 } from '../../../lib/content'
 import { getPathStageById, getStageQuestions } from '../../../lib/learning-path'
+import { resolveOrigin, chapterHref } from '../../../lib/origin'
 import {
   getWrongQuestionsMap,
   recordChapterPracticeRound,
@@ -53,11 +54,8 @@ interface Session {
 
 const HOME_EXIT = { backHref: '/', backLabel: '今日任務' }
 
-function chapterHref(id: string): string {
-  return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
-}
-
-export function buildSession(params: URLSearchParams): Session {
+/** 原本的分支邏輯。題目來源、source、countsAsDailyTask 全部由它決定。 */
+function buildBaseSession(params: URLSearchParams): Session {
   const mode = params.get('mode')
   const ids = params.get('ids')
   const category = params.get('category')
@@ -120,6 +118,16 @@ export function buildSession(params: URLSearchParams): Session {
     title: '文法練習',
     ...HOME_EXIT,
   }
+}
+
+/**
+ * 出口覆寫層。base 決定「練什麼」，from 決定「練完回哪」——
+ * 兩者不可以合成一個 if 鏈，見 lib/origin.ts 的註解。
+ */
+export function buildSession(params: URLSearchParams): Session {
+  const base = buildBaseSession(params)
+  const origin = resolveOrigin(params, { backHref: base.backHref, backLabel: base.backLabel })
+  return { ...base, ...origin }
 }
 
 export default function GrammarPracticePageWrapper() {
