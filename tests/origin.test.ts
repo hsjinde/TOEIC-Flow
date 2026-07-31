@@ -49,6 +49,15 @@ describe('resolveOrigin', () => {
     const params = new URLSearchParams({ from: 'chapter', chapter: 'grammar/不存在/不存在' })
     expect(resolveOrigin(params, FALLBACK)).toEqual(FALLBACK)
   })
+
+  it('原型鏈上的屬性（如 __proto__、constructor 等）應該退回 fallback，不能被誤認為是合法來源', () => {
+    const prototypeKeys = ['__proto__', 'constructor', 'toString', 'hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString']
+
+    for (const key of prototypeKeys) {
+      const result = resolveOrigin(new URLSearchParams({ from: key }), FALLBACK)
+      expect(result).toEqual(FALLBACK)
+    }
+  })
 })
 
 describe('chapterHref', () => {

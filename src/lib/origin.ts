@@ -10,15 +10,18 @@ export interface Origin {
  *
  * 一定要走白名單、不能直接把 `from` 當 href 用——那等於開放重導向，任何人都能
  * 造一條 /practice/grammar?from=https://… 的連結，讓使用者練完被送到站外。
+ *
+ * Map 的查找不會碰到原型鏈，可以安全地應對來自 URL query string
+ * 的不可信輸入（如 __proto__、constructor 等）。
  */
-const STATIC_ORIGINS: Record<string, Origin> = {
-  home: { backHref: '/', backLabel: '今日任務' },
-  practice: { backHref: '/practice', backLabel: '練習中心' },
-  stats: { backHref: '/stats', backLabel: '統計' },
-  'vocab-review': { backHref: '/vocab-review', backLabel: '單字複習本' },
-  'wrong-questions': { backHref: '/wrong-questions', backLabel: '錯題本' },
-  path: { backHref: '/path', backLabel: '學習路徑' },
-}
+const STATIC_ORIGINS = new Map<string, Origin>([
+  ['home', { backHref: '/', backLabel: '今日任務' }],
+  ['practice', { backHref: '/practice', backLabel: '練習中心' }],
+  ['stats', { backHref: '/stats', backLabel: '統計' }],
+  ['vocab-review', { backHref: '/vocab-review', backLabel: '單字複習本' }],
+  ['wrong-questions', { backHref: '/wrong-questions', backLabel: '錯題本' }],
+  ['path', { backHref: '/path', backLabel: '學習路徑' }],
+])
 
 /** 章節 id 形如 `grammar/01_甲/02_乙`，斜線是路徑分隔，只能逐段編碼。 */
 export function chapterHref(id: string): string {
@@ -49,5 +52,5 @@ export function resolveOrigin(params: URLSearchParams, fallback: Origin): Origin
     return { backHref: chapterHref(chapterId), backLabel: stripOrderPrefix(chapter.title) }
   }
 
-  return STATIC_ORIGINS[from] ?? fallback
+  return STATIC_ORIGINS.get(from) ?? fallback
 }
