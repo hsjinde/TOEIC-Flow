@@ -348,6 +348,8 @@ function MockExamPage() {
         previousCorrect={report.previousCorrect}
         onFileWrongQuestions={handleFileWrong}
         wrongFiled={wrongFiled}
+        backHref={origin.backHref}
+        backLabel={origin.backLabel}
       />
     )
   }
