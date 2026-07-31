@@ -44,43 +44,69 @@ migration 並灌入一組中期進度（280 筆作答歷程、92 筆錯題、140
 五個就地換卡的畫面（速查卡、單字、文法、閱讀、模擬考）也都有 `useScrollToTopOnChange`。
 章節詳情頁的速查卡入口以 `card &&` 正確閘控，不會連到空的一輪。
 
-### 缺陷 N1：從練習中心進入的回合，返回會被丟到首頁
+### 缺陷 N1：從非首頁進入的回合，返回會被丟到首頁
 
-首頁與練習中心用**完全相同、不帶參數的 URL** 連向同四個練習頁，而這些頁的 `backHref` 寫死 `/`：
+把 9 條路由的對外練習連結全掃了一遍，得到完整的來源圖：
 
-```
-首頁      → /practice/grammar → 練完返回 → /          ✅
-練習中心  → /practice/grammar → 練完返回 → /          ❌ 應為 /practice
-```
+| 來源頁 | 連向 | 現況返回 | 應為 |
+|---|---|---|---|
+| `/`（首頁） | `/practice/{grammar,vocab,reading,formulas}`、`?category=` | `/` | `/` ✅ |
+| **`/practice`** | `/practice/{grammar,vocab,reading,formulas,mock}`（**同一條無參數 URL**） | `/` | `/practice` ❌ |
+| **`/stats`** | `/practice/grammar`、`/practice/vocab?mode=weak` | `/` | `/stats` ❌ |
+| **`/vocab-review`** | `/practice/vocab?ids=…` | `/vocab-review` ✅ | — |
+| `/wrong-questions` | `/practice/grammar?mode=wrong&ids=…` | `/wrong-questions` ✅ | — |
+| `/path` | `/practice/grammar?stage=…` | `/path` ✅ | — |
+| `/chapters/[detail]` | `?chapter=…` | 該章 ✅ | — |
+| **`/chapters/[detail]`** | `?mode=wrong&ids=…`（重練這章的錯題） | `/wrong-questions` | 該章 ❌ |
+| `/chapters`（列表）、`/profile` | 無 | — | — |
+| TopNav（桌機） | `/practice/mock` | `/` | `/practice` ❌ |
 
-受影響：`/practice/grammar`、`/practice/vocab`、`/practice/reading`、`/practice/formulas`、
-`/practice/mock`（開始前的「先回今日任務」與作答中的返回連結皆為 `/`）。
-
+核心是首頁與練習中心用**完全相同、不帶參數的 URL** 連向同四個練習頁，而這些頁的 `backHref` 寫死 `/`。
 這與 CLAUDE.md 已載明的規則相牴觸——「練習回合的返回鍵指向這一回合是從哪裡開始的」「寫死 `/` 會讓
-從章節頁進來練五題的人一練完就被丟出閱讀脈絡」。同一個缺陷，只是發生在練習中心這條路徑上；而 CLAUDE.md
+從章節頁進來練五題的人一練完就被丟出閱讀脈絡」。同一個缺陷，發生在練習中心這條路徑上；而 CLAUDE.md
 又規定練習中心是全站功能的唯一目錄，所以這是**最常走的一條路**。
 
-### 設計：`from` 參數
+`/practice/mock` 是特例：**首頁根本沒有連到它**（手機只從練習中心進、桌機只從 TopNav 進）。
+所以它不需要參數，把預設值直接從 `/` 改成 `/practice` 即可。
 
-在 `buildSession()` 既有的參數分支後面補一個 `from` 分支。
+各頁的實作現況並不一致，這也是缺陷擴散的原因：
+
+- `/practice/grammar`：`buildSession()` 純函式，機制完整
+- `/practice/vocab`：自有的 HOME／BOOK 兩段出口
+- `/practice/formulas`：自有的 chapter 判斷
+- `/practice/reading`、`/practice/mock`：**各有三處寫死 `href="/"`，完全沒有參數機制**
+
+### 設計：`from` 參數 ＋ 共用的 `resolveOrigin()`
+
+**`from` 不可以是 `buildSession()` 的分支。** 現有分支中，**只有最後那個無參數的預設分支是
+`countsAsDailyTask: true`**（`chapter`/`stage`/`mode`/`category` 全為 `false`）。任何以 `from` 為
+key 的提前 return 都會攔在預設分支之前，於是 `/practice/grammar?from=practice` 就不再算今日任務——
+而練習中心正是 CLAUDE.md 指定列出三項每日任務的那一頁，等於讓最常走的路徑無聲地停止計數。
+
+正確做法：`from` 是**套在建好的 session 之上的覆寫層**，只換 `backHref`／`backLabel`，
+絕不碰 `questions`、`source`、`countsAsDailyTask`。
+
+抽一個共用純函式到 `src/lib/`，讓五個練習頁共用（reading 與 mock 目前完全沒有機制，靠這個補上）：
 
 ```
-ORIGINS = {
-  practice: { href: '/practice', label: '練習中心' },
-  home:     { href: '/',         label: '今日任務' },
-}
+resolveOrigin(params, fallback) → { backHref, backLabel }
 ```
 
-- **白名單映射，不可直接把 `from` 當 href 用**——那會變成開放重導向。查不到的值一律退回預設。
-- **優先序放在最後**：`chapter`/`stage`/`mode` 同時決定了題目來源與脈絡，比 `from` 更明確，必須先判。
-- **不帶 `from` 時維持 `/`**，向後相容，既有連結與書籤不壞。
-- 練習中心的四個入口連結改帶 `?from=practice`；首頁維持不帶（預設就是 `/`），減少無謂改動。
-- `SummaryModal` 吃同一組 `backHref`/`backLabel`，不需另外處理。
+- **白名單映射，不可直接把 `from` 當 href 用**——那會變成開放重導向。查不到的值一律退回 `fallback`。
+- 靜態白名單：`practice` → 練習中心、`home` → 今日任務、`stats` → 統計、
+  `vocab-review` → 單字複習本、`wrong-questions` → 錯題本、`path` → 學習路徑。
+- 一個動態情形：`from=chapter` 時用同一組 params 裡既有的 `chapter` 值經 `chapterHref()` 解析，
+  這樣章節頁的「重練這章的錯題」才回得去該章而不是錯題本；`chapter` 缺漏或查無此章時退回 `fallback`。
+- **來源優先於推論**：`from` 解析成功就覆寫，不論 `buildSession()` 推得的出口是什麼。理由是
+  `chapter`/`stage`/`mode` 決定的是**題目來源**，出口只是它們順帶給的預設值；使用者實際從哪一頁點進來
+  是更強的事實。
+- **不帶 `from` 時行為完全不變**，向後相容，既有連結與書籤不壞。
+- 需要加參數的入口：`/practice` 的五個、`/stats` 的兩個。首頁維持不帶（預設就是 `/`）。
+- `SummaryModal` 吃同一組 `backHref`／`backLabel`，不需另外處理。
 
 選這個做法而不是 `history.back()` 或 `document.referrer`：結算頁要顯示「返回**練習中心**」這個
 **標籤**，瀏覽器歷史給不了；而且靜態匯出 + client routing 下 referrer 不可靠，重新整理與深連結會壞掉。
-`from` 走的是與 `chapter`/`stage`/`mode` 完全相同的機制（URLSearchParams → `buildSession` 純函式），
-可以直接用既有的 vitest 覆蓋。
+`from` 走的是與 `chapter`／`stage`／`mode` 相同的機制（URLSearchParams → 純函式），可直接用 vitest 覆蓋。
 
 ---
 
@@ -162,8 +188,12 @@ ORIGINS = {
 
 ## 四、測試
 
-- **純函式**（vitest）：`buildSession()` 的 `from` 分支——白名單命中、未知值退回預設、
-  與 `chapter`/`stage`/`mode` 的優先序、不帶 `from` 時維持 `/`；清單分頁切片；`/vocab-review` 預設頁籤選擇。
+- **純函式**（vitest）：`resolveOrigin()`——白名單命中、未知值退回 fallback、`from=chapter` 的動態解析、
+  `chapter` 缺漏時退回、不帶 `from` 時行為不變。
+- **迴歸測試（必要，這是本次最容易改壞的地方）**：`/practice/grammar?from=practice` 必須仍然
+  `countsAsDailyTask === true`；`?chapter=…&from=practice` 的 `questions`／`source`／`countsAsDailyTask`
+  與不帶 `from` 時完全一致，只有 `backHref`／`backLabel` 不同。
+- 其餘純函式：清單分頁切片、`/vocab-review` 預設頁籤選擇。
 - **版型回歸**：本次的 iframe 探針整理成 `scripts/audit-layout.mjs` 可重跑，改動後拿本 spec 記錄的數字對照。
 - **真機**：`env(safe-area-inset-bottom)` 與網址列收合需實機確認，自動化測不到。
 
