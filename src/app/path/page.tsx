@@ -62,7 +62,7 @@ export default function LearningPathPage() {
         <p className="mt-1 text-xs leading-relaxed text-[var(--mu)]">
           {stages.length} 站 · {progress.totalCount} 章 · {totalQuestions} 題
         </p>
-        <p className="mt-2 text-xs leading-relaxed text-[var(--mu)]">
+        <p className="mt-2 text-xs leading-relaxed text-[var(--mu)] max-w-[var(--measure)]">
           這條路徑<span className="font-semibold text-[var(--tx)]">不照文法章節的編號順序</span>。
           筆記是按主題歸檔的，方便查；這裡是按「先學會什麼、後面才學得動」重排的，方便學。
           每一站都寫了它為什麼排在這個位置。

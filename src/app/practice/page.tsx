@@ -122,7 +122,7 @@ export default function PracticeHubPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-xl font-bold text-[var(--tx)]">練習</h1>
-        <p className="mt-0.5 text-xs text-[var(--mu)]">
+        <p className="mt-0.5 text-xs text-[var(--mu)] max-w-[var(--measure)]">
           所有練習與複習的入口都在這一頁
           {remainingTasks > 0 && ` · 今天還有 ${remainingTasks} 項任務`}
         </p>
@@ -227,7 +227,7 @@ function Section({
         <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">{title}</h2>
         {hint && <span className="truncate text-[11px] text-[var(--fa)]">{hint}</span>}
       </div>
-      <div className="grid gap-2.5 lg:grid-cols-2">{children}</div>
+      <div className="grid gap-2.5 md:grid-cols-2">{children}</div>
     </section>
   )
 }
