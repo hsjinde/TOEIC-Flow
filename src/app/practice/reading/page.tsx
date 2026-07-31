@@ -1,11 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import type { ReadingPassage } from '../../../../scripts/build-content/types'
 import { getRandomReadingPassages } from '../../../lib/content'
 import { recordTaskCompletion } from '../../../lib/storage'
+import { resolveOrigin } from '../../../lib/origin'
 import { ReadingPassageView } from '../../../components/ReadingPassageView'
 import { SummaryModal } from '../../../components/SummaryModal'
 import { Button } from '../../../components/ui/Button'
@@ -16,7 +18,21 @@ const KIND_LABELS: Record<ReadingPassage['kind'], string> = {
   article: '文章閱讀',
 }
 
-export default function ReadingPracticePage() {
+export default function ReadingPracticePageWrapper() {
+  return (
+    <Suspense fallback={<ReadingSkeleton />}>
+      <ReadingPracticePage />
+    </Suspense>
+  )
+}
+
+function ReadingPracticePage() {
+  const searchParams = useSearchParams()
+  // 閱讀沒有 chapter/stage/mode 之類的來源參數，出口完全由 from 決定，預設今日任務。
+  const origin = resolveOrigin(
+    new URLSearchParams(searchParams.toString()),
+    { backHref: '/', backLabel: '今日任務' }
+  )
   const [passage, setPassage] = useState<ReadingPassage | null>(null)
   // 「還沒抽」與「抽不到」是兩個狀態。共用 passage === null 的話，題庫空了就會是一片
   // 永遠在跳動的骨架屏，使用者不知道發生什麼事。
@@ -40,8 +56,8 @@ export default function ReadingPracticePage() {
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
         <h2 className="text-base font-bold text-[var(--tx)]">目前沒有可練的閱讀題</h2>
         <p className="text-xs text-[var(--mu)]">閱讀題庫是空的，重新建置題庫後再回來。</p>
-        <Link href="/" className="w-full max-w-[240px] pt-1">
-          <Button variant="primary">回到今日任務</Button>
+        <Link href={origin.backHref} className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">回到{origin.backLabel}</Button>
         </Link>
       </div>
     )
@@ -53,6 +69,8 @@ export default function ReadingPracticePage() {
         correctCount={result.correct}
         totalCount={result.total}
         title="閱讀任務完成"
+        backHref={origin.backHref}
+        backLabel={origin.backLabel}
       />
     )
   }
@@ -62,8 +80,8 @@ export default function ReadingPracticePage() {
       <div className="flex items-center justify-between">
         <div className="flex min-w-0 items-center gap-2">
           <Link
-            href="/"
-            aria-label="返回今日任務"
+            href={origin.backHref}
+            aria-label={`返回${origin.backLabel}`}
             className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
           >
             <ArrowLeft className="h-5 w-5" />
