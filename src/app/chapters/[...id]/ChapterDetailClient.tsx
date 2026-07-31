@@ -111,7 +111,7 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
         <Link
           href="/chapters"
           aria-label="回到章節列表"
-          className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)]"
+          className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>
