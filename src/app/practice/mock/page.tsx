@@ -16,6 +16,7 @@ import { estimateToeicScore } from '../../../lib/toeicScore'
 import { Button } from '../../../components/ui/Button'
 import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { MockReportModal, type MockAnswerRow } from '../../../components/MockReportModal'
+import { useScrollToTopOnChange } from '../../../lib/scroll'
 import { cn } from '../../../lib/utils'
 
 /** 每題配 45 秒，40 題約 30 分鐘，接近 Part 5/6 的實際節奏。 */
@@ -214,6 +215,9 @@ export default function MockExamPage() {
   useEffect(() => {
     if (started && !report) questionEnterRef.current = Date.now()
   }, [started, currentIndex, report])
+
+  // 閱讀題的文章可以很長，跳題（含答題卡直接跳）之後不回到頂端就會落在上一題的段落中間。
+  useScrollToTopOnChange(`${currentIndex}|${started}|${!!report}`)
 
   // 每次狀態變動就寫回暫存，讓中斷後回來能接續。
   useEffect(() => {

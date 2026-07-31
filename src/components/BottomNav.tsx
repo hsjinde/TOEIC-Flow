@@ -8,17 +8,26 @@ import { cn } from '../lib/utils'
 
 /**
  * 設計 01 的手機底部 tab 是四格：今日／練習／統計／我的。
- * 錯題本刻意不放 tab，改由首頁的錯題卡進入。
+ *
+ * 「練習」指向練習中心（/practice）而不是章節列表：章節只是練習方式之一，先前把
+ * 這一格指過去，等於整個 App 只有章節有 tab，模擬考、錯題本、單字複習本、速查卡、
+ * 學習路徑全都只能從首頁上「有東西才出現」的卡片進入——沒有錯題的人根本不知道有
+ * 錯題本，沒把三項任務做完的人也永遠看不到模擬考。
  */
 const NAV_ITEMS: {
   label: string
   href: string
   icon: typeof Calendar
-  /** 除了 href 之外也算這一格的路徑前綴（學習路徑是從章節頁進去的，屬於「練習」） */
+  /** 除了 href 之外也算這一格的路徑前綴（練習中心底下的各個功能都算「練習」） */
   alsoMatch?: string[]
 }[] = [
   { label: '今日', href: '/', icon: Calendar },
-  { label: '練習', href: '/chapters', icon: Layers, alsoMatch: ['/path'] },
+  {
+    label: '練習',
+    href: '/practice',
+    icon: Layers,
+    alsoMatch: ['/chapters', '/path', '/wrong-questions', '/vocab-review'],
+  },
   { label: '統計', href: '/stats', icon: BarChart2 },
   { label: '我的', href: '/profile', icon: User },
 ]

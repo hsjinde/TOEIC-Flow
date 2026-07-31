@@ -47,6 +47,40 @@ describe('buildSession chapterId wiring', () => {
   })
 })
 
+// 每一回合都要記得自己是從哪裡開始的：返回鍵與結算頁都讀 backHref。
+// 先前兩處都寫死 '/'，從章節頁按「練這章」的人練完就被丟回今日任務，
+// 原本在讀的那一章不見了——那正是「被跳轉不知道去哪」的來源。
+describe('buildSession 出口', () => {
+  const questions = grammarData as unknown as Question[]
+  const chapterId = questions[0]!.chapterId
+  const categoryId = questions[0]!.categoryId
+
+  it('sends a 練這章 round back to that chapter', () => {
+    const session = buildSession(new URLSearchParams({ chapter: chapterId }))
+    expect(session.backHref).toBe(
+      `/chapters/${chapterId.split('/').map(encodeURIComponent).join('/')}`
+    )
+  })
+
+  it('sends a 錯題專攻 round back to 錯題本', () => {
+    const ids = questions.slice(0, 2).map((q) => q.id)
+    const session = buildSession(new URLSearchParams({ mode: 'wrong', ids: ids.join(',') }))
+    expect(session.backHref).toBe('/wrong-questions')
+    expect(session.backLabel).toBe('錯題本')
+  })
+
+  it('sends a 路徑驗收 round back to 學習路徑', () => {
+    const session = buildSession(new URLSearchParams({ stage: getPathStages()[0]!.id }))
+    expect(session.backHref).toBe('/path')
+    expect(session.backLabel).toBe('學習路徑')
+  })
+
+  it('sends the daily and 弱項加練 rounds back to 今日任務', () => {
+    expect(buildSession(new URLSearchParams()).backHref).toBe('/')
+    expect(buildSession(new URLSearchParams({ category: categoryId })).backHref).toBe('/')
+  })
+})
+
 describe('buildSession 學習路徑 stage', () => {
   const stage = getPathStages()[0]!
 

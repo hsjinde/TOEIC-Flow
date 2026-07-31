@@ -9,19 +9,29 @@ import { useAuth } from '../context/AuthContext'
 import { ThemeToggle } from './ThemeToggle'
 import { cn } from '../lib/utils'
 
-/** 設計 11–18：桌機以頂部導航取代底部 tab，1024px 以上才出現。 */
-const LINKS = [
+/**
+ * 設計 11–18：桌機以頂部導航取代底部 tab，1024px 以上才出現。
+ *
+ * 順序刻意跟手機底部 tab 的心智模型一致：今日 → 練習（中心）→ 練習中心裡最常回訪的
+ * 幾個目的地 → 統計。第二格是 /practice 而不是 /chapters，這樣兩種裝置上「練習」
+ * 這個字指向同一個地方。
+ */
+const LINKS: { label: string; href: string; exact?: boolean }[] = [
   { label: '今日', href: '/' },
-  { label: '練習', href: '/chapters' },
+  // 練習中心底下還有 /practice/mock 等子路由，所以它只能精準匹配，
+  // 否則考試中「練習」與「模擬考」會同時亮起來。
+  { label: '練習', href: '/practice', exact: true },
+  { label: '章節', href: '/chapters' },
   { label: '學習路徑', href: '/path' },
-  { label: '統計', href: '/stats' },
   { label: '錯題本', href: '/wrong-questions' },
   { label: '單字本', href: '/vocab-review' },
   { label: '模擬考', href: '/practice/mock' },
+  { label: '統計', href: '/stats' },
 ]
 
-function isActive(pathname: string, href: string): boolean {
-  return href === '/' ? pathname === '/' : pathname.startsWith(href)
+function isActive(pathname: string, href: string, exact?: boolean): boolean {
+  if (href === '/' || exact) return pathname === href
+  return pathname.startsWith(href)
 }
 
 export function TopNav() {
@@ -35,22 +45,23 @@ export function TopNav() {
       data-chrome="nav"
       className="hidden lg:block sticky top-0 z-40 w-full border-b border-[var(--ln)] bg-[var(--sf)]"
     >
-      <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center gap-8 px-6">
-        <Link href="/" className="flex items-center gap-2 text-sm font-bold text-[var(--tx)] hover:opacity-80">
+      {/* 連結多了一格（練習中心），縮排距與內距讓整列在 1180px 內仍然放得下、不換行。 */}
+      <div className="mx-auto flex h-14 w-full max-w-[1180px] items-center gap-5 px-6">
+        <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-bold text-[var(--tx)] hover:opacity-80">
           <Image src="/logo.png?v=2" alt="TOEIC Flow" width={26} height={26} className="rounded-lg object-cover" />
           <span>每日多益</span>
         </Link>
 
-        <nav className="flex items-center gap-1" aria-label="主導航">
+        <nav className="flex items-center gap-0.5" aria-label="主導航">
           {LINKS.map((link) => {
-            const active = isActive(pathname, link.href)
+            const active = isActive(pathname, link.href, link.exact)
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'rounded-lg px-3 py-1.5 text-[13px] font-medium transition-colors',
+                  'whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[13px] font-medium transition-colors',
                   active
                     ? 'bg-[var(--pr-sf)] text-[var(--pr)] font-bold'
                     : 'text-[var(--mu)] hover:text-[var(--tx)] hover:bg-[var(--sf2)]'

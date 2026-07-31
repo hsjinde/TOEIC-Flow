@@ -17,6 +17,7 @@ import {
   type ChapterMastery,
 } from '../../lib/storage'
 import { getPathProgress, pathChapterTitle, type PathProgress } from '../../lib/learning-path'
+import { EntryCard } from '../../components/EntryCard'
 import { cn } from '../../lib/utils'
 
 function chapterHref(id: string): string {
@@ -118,27 +119,20 @@ export default function ChaptersPage() {
         這一頁是按主題歸檔的（方便查），不是按學習難度排的（方便學）。不知道從哪
         章開始的人在這裡就會卡住，所以把學習路徑的入口放在清單之前。
       */}
-      <Link
+      <EntryCard
         href="/path"
-        className="flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-[var(--pr-ln)] bg-[var(--pr-sf)] p-3.5 transition-colors hover:border-[var(--pr)] sm:p-4"
-      >
-        <div className="min-w-0 flex-1 overflow-hidden">
-          <div className="flex items-center gap-1.5">
-            <ListChecks className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]" />
-            <h2 className="text-[15px] font-semibold text-[var(--tx)]">學習路徑</h2>
-          </div>
-          <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
-            {pathProgress?.next
-              ? `目前在第 ${pathProgress.next.stage.order} 站 · ${pathProgress.next.stage.title}，下一章是${pathChapterTitle(pathProgress.next.chapterId)}。`
-              : pathProgress
-                ? `${pathProgress.totalCount} 章全部達標，去模擬考驗收。`
-                : '不知道先學哪一章？不照章節編號的十站建議順序，跨大類重排過。'}
-          </p>
-        </div>
-        <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
-          看順序
-        </span>
-      </Link>
+        title="學習路徑"
+        icon={<ListChecks className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]" />}
+        action="看順序"
+        emphasis
+        description={
+          pathProgress?.next
+            ? `目前在第 ${pathProgress.next.stage.order} 站 · ${pathProgress.next.stage.title}，下一章是${pathChapterTitle(pathProgress.next.chapterId)}。`
+            : pathProgress
+              ? `${pathProgress.totalCount} 章全部達標，去模擬考驗收。`
+              : '不知道先學哪一章？不照章節編號的十站建議順序，跨大類重排過。'
+        }
+      />
 
       <div className="space-y-2.5 lg:grid lg:grid-cols-2 lg:gap-3 lg:space-y-0">
         {categories.map((cat) => {

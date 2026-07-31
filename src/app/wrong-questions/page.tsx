@@ -292,9 +292,14 @@ function PageHeader({ count }: { count: number }) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
+        {/*
+          返回鍵指向練習中心而不是首頁：底部 tab 上這一頁亮的是「練習」，返回鍵把人
+          送去「今日」就跟導航自己說的話矛盾了。從首頁的錯題卡進來的人按瀏覽器上一頁
+          一樣回得去首頁。
+        */}
         <Link
-          href="/"
-          aria-label="返回今日任務"
+          href="/practice"
+          aria-label="返回練習中心"
           className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
         >
           <ArrowLeft className="h-5 w-5" />

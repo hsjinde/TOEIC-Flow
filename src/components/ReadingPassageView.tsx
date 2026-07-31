@@ -8,6 +8,7 @@ import { resolveStem } from '../lib/stem'
 import { Button } from './ui/Button'
 import { ExplanationCard } from './ExplanationCard'
 import { GlossaryText } from './GlossaryText'
+import { useScrollToTopOnChange } from '../lib/scroll'
 import { cn } from '../lib/utils'
 
 interface ReadingPassageViewProps {
@@ -56,6 +57,9 @@ export const ReadingPassageView: React.FC<ReadingPassageViewProps> = ({ passage,
       onComplete(correctCount)
     }
   }, [currentQIndex, passage.questions.length, onComplete, correctCount])
+
+  // 詳解展開後「下一題」在很下面，換題與切頁籤都要把新內容帶回視窗頂端。
+  useScrollToTopOnChange(`${currentQIndex}|${activeTab}`)
 
   // 設計 13：鍵盤 1–4 選答、空白鍵下一題。
   useEffect(() => {
