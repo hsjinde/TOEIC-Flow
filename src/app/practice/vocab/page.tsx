@@ -17,6 +17,7 @@ import {
   recordTaskCompletion,
   updateVocabMastery,
 } from '../../../lib/storage'
+import { resolveOrigin } from '../../../lib/origin'
 import { VocabFlashcard } from '../../../components/VocabFlashcard'
 import { VocabQuiz } from '../../../components/VocabQuiz'
 import { Button } from '../../../components/ui/Button'
@@ -44,7 +45,7 @@ const BOOK: Pick<VocabSession, 'backHref' | 'backLabel'> = {
   backLabel: '單字複習本',
 }
 
-function buildSession(params: URLSearchParams): VocabSession {
+function buildBaseSession(params: URLSearchParams): VocabSession {
   const ids = params.get('ids')
   const mode = params.get('mode')
 
@@ -65,6 +66,13 @@ function buildSession(params: URLSearchParams): VocabSession {
   }
 
   return { items: getRandomVocabItems(SESSION_SIZE), title: '單字複習', ...HOME }
+}
+
+/** 出口覆寫層：base 決定練哪些字，from 決定練完回哪。 */
+export function buildSession(params: URLSearchParams): VocabSession {
+  const base = buildBaseSession(params)
+  const origin = resolveOrigin(params, { backHref: base.backHref, backLabel: base.backLabel })
+  return { ...base, ...origin }
 }
 
 export default function VocabPracticePageWrapper() {
