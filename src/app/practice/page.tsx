@@ -27,21 +27,21 @@ const DAILY_TASKS = [
     key: 'vocab' as const,
     title: '單字複習',
     subtitle: '10 個 · 約 4 分鐘',
-    href: '/practice/vocab',
+    href: '/practice/vocab?from=practice',
     icon: <BookOpen className="h-5 w-5" />,
   },
   {
     key: 'grammar' as const,
     title: '文法練習',
     subtitle: '5 題 · 約 6 分鐘',
-    href: '/practice/grammar',
+    href: '/practice/grammar?from=practice',
     icon: <Sparkles className="h-5 w-5" />,
   },
   {
     key: 'reading' as const,
     title: '閱讀理解',
     subtitle: '1 篇 · 約 5 分鐘',
-    href: '/practice/reading',
+    href: '/practice/reading?from=practice',
     icon: <FileText className="h-5 w-5" />,
   },
 ]
@@ -185,7 +185,7 @@ export default function PracticeHubPage() {
           action={snap.weakVocabCount > 0 ? '開始複習' : '看看'}
         />
         <EntryCard
-          href="/practice/formulas"
+          href="/practice/formulas?from=practice"
           title="章節速查卡"
           icon={<Zap className="h-3.5 w-3.5 text-[var(--pr)]" />}
           badge={`${snap.formulaCardCount} 張`}

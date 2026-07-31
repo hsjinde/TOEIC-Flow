@@ -262,7 +262,9 @@ export default function ChapterDetailClient({ id }: ChapterDetailClientProps) {
                 </div>
               ))}
               <Link
-                href={`/practice/grammar?mode=wrong&ids=${encodeURIComponent(wrong.map((w) => w.question.id).join(','))}`}
+                href={`/practice/grammar?mode=wrong&ids=${encodeURIComponent(
+                  wrong.map((w) => w.question.id).join(',')
+                )}&from=chapter&chapter=${encodeURIComponent(chapter.id)}`}
                 className="flex min-h-[44px] items-center text-xs font-semibold text-[var(--pr)] hover:opacity-80"
               >
                 複習這 {wrong.length} 題 →

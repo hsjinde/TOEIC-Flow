@@ -266,6 +266,7 @@ export default function StatsPage() {
               stats={snap.stats}
               wrongCountByCategory={snap.wrongCountByCategory}
               chapterCountByCategory={snap.chapterCountByCategory}
+              from="stats"
             />
           </section>
         </div>
@@ -278,7 +279,7 @@ export default function StatsPage() {
             目前已答 {snap.totalAnswered} 題 · 雷達圖需要每類至少 {MIN_PER_CATEGORY} 題
           </p>
           <div className="flex flex-col sm:flex-row gap-2.5 w-full max-w-[360px] pt-2">
-            <Link href="/practice/grammar" className="flex-1">
+            <Link href="/practice/grammar?from=stats" className="flex-1">
               <Button variant="primary" className="w-full">開始文法練習</Button>
             </Link>
             <Button
@@ -326,7 +327,7 @@ export default function StatsPage() {
             ))}
           </ul>
           <div className="flex flex-col gap-2 pt-1 sm:flex-row">
-            <Link href="/practice/vocab?mode=weak" className="flex-1">
+            <Link href="/practice/vocab?mode=weak&from=stats" className="flex-1">
               <Button variant="primary" className="min-h-[42px] text-xs">
                 特別複習這些字
               </Button>
