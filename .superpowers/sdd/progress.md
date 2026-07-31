@@ -32,3 +32,6 @@ Plan: docs/superpowers/plans/2026-07-31-navigation-and-responsive.md
 - Task 2: complete (commit 68aac65, review clean, no fix round)
 - Task 3: complete (commit 4a6bb39, review clean, no fix round)
   - 順帶紀錄（範圍外，留給最終審查）：src/app/chapters/page.tsx 與 ChapterDetailClient.tsx 各自仍有本地重複的 chapterHref 定義，可考慮一併收斂到 lib/origin。
+- Task 4: complete (commits 90a245d..79ce6d3, review clean after 1 補完 round)
+  - 計畫範圍缺口（已補）：MockReportModal.tsx 結算畫面的「返回今日任務」寫死 /，計畫只列了 mock/page.tsx 的三處。已改成吃 backHref/backLabel props（預設值對齊 SummaryModal），由 mock/page.tsx 傳入 origin。
+  - Minor（留給最終審查）：reading/mock 的 origin 直接在元件 body 解析，沒有像 grammar/vocab/formulas 那樣可單測的純函式，因此無頁面層測試覆蓋。
