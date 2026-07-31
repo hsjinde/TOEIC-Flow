@@ -349,7 +349,7 @@ export default function HomePage() {
               <h2 className="text-sm font-bold text-[var(--tx)]">練習日曆</h2>
               <span className="text-[11px] text-[var(--mu)]">{snap.practicedDays} 天</span>
             </div>
-            <PracticeCalendar days={snap.calendar.slice(-42)} />
+            <PracticeCalendar days={snap.calendar.slice(-42)} cellSize={22} />
           </section>
 
           <section className="rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-5">
