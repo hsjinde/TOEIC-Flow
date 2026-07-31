@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { BookOpen, FileText, Flame, Sparkles, Zap } from 'lucide-react'
+import { BookOpen, ChevronRight, FileText, Flame, Sparkles, Zap } from 'lucide-react'
 import {
   getCategoryStats,
   getDailyProgress,
@@ -24,6 +24,7 @@ import { DailyTaskCard } from '../components/DailyTaskCard'
 import { PracticeCalendar } from '../components/PracticeCalendar'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { Button } from '../components/ui/Button'
+import { EntryCard } from '../components/EntryCard'
 import { GraduationDots } from '../components/GraduationDots'
 
 /** 設計 01：15 分鐘 ≒ 單字 10 個＋文法 5 題＋閱讀 1 篇。 */
@@ -242,78 +243,64 @@ export default function HomePage() {
 
           {/* 設計 01：錯題本入口卡 */}
           {snap.wrongCount > 0 && (
-            <Link
+            <EntryCard
               href="/wrong-questions"
-              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3.5 sm:p-4 transition-colors hover:border-[var(--pr-ln)] overflow-hidden"
-            >
-              <div className="min-w-0 flex-1 overflow-hidden">
-                <div className="flex items-center gap-2 min-w-0">
-                  <h3 className="text-[15px] font-semibold text-[var(--tx)] shrink-0">錯題本</h3>
-                  <span className="text-xs font-bold text-[var(--pr)] truncate">
-                    {snap.wrongCount} 題待複習
-                  </span>
-                </div>
-                <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
+              title="錯題本"
+              badge={`${snap.wrongCount} 題待複習`}
+              action="開始複習"
+              description={
+                <>
                   {snap.wrongPreview
                     .map((p) => `${getCategoryLabel(p.categoryId)} ${p.count}`)
                     .join(' · ')}
                   {' · 連續答對 2 次'}
-                  <GraduationDots consecutiveCorrect={2} className="ml-1 inline-block align-middle text-[11px]" />
+                  <GraduationDots
+                    consecutiveCorrect={2}
+                    className="ml-1 inline-block align-middle text-[11px]"
+                  />
                   {' 畢業'}
-                </p>
-              </div>
-              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
-                開始複習
-              </span>
-            </Link>
+                </>
+              }
+            />
           )}
 
           {/* 常錯／到期的單字，跟錯題本同一種入口卡 */}
           {snap.weakVocabCount > 0 && (
-            <Link
+            <EntryCard
               href="/vocab-review"
-              className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3.5 sm:p-4 transition-colors hover:border-[var(--pr-ln)] overflow-hidden"
-            >
-              <div className="min-w-0 flex-1 overflow-hidden">
-                <div className="flex items-center gap-2 min-w-0">
-                  <h3 className="text-[15px] font-semibold text-[var(--tx)] shrink-0">單字複習本</h3>
-                  <span className="text-xs font-bold text-[var(--pr)] truncate">
-                    {snap.weakVocabCount} 個字要加強
-                  </span>
-                </div>
-                <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
-                  {snap.weakVocabPreview.length > 0
-                    ? `${snap.weakVocabPreview.join(' · ')}${snap.weakVocabCount > snap.weakVocabPreview.length ? ' …' : ''}`
-                    : '常錯與該複習的字都收在這裡'}
-                </p>
-              </div>
-              <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
-                開始複習
-              </span>
-            </Link>
+              title="單字複習本"
+              badge={`${snap.weakVocabCount} 個字要加強`}
+              action="開始複習"
+              description={
+                snap.weakVocabPreview.length > 0
+                  ? `${snap.weakVocabPreview.join(' · ')}${snap.weakVocabCount > snap.weakVocabPreview.length ? ' …' : ''}`
+                  : '常錯與該複習的字都收在這裡'
+              }
+            />
           )}
 
           {/*
             章節速查卡不綁三項每日任務，通勤情境是「隨時想刷就刷」，所以跟錯題本／
             單字複習本一樣是常駐入口卡，不放進下面「全部完成後」才出現的加練區。
           */}
-          <Link
+          <EntryCard
             href="/practice/formulas"
-            className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3.5 sm:p-4 transition-colors hover:border-[var(--pr-ln)] overflow-hidden"
+            title="章節速查卡"
+            icon={<Zap className="h-3.5 w-3.5 text-[var(--pr)]" />}
+            action="開始刷卡"
+            description={`${snap.formulaCardCount} 張決策樹＋用法總表 · 一章一張，通勤也能刷`}
+          />
+
+          {/*
+            首頁只放「今天要做的事」，其餘功能一律收在練習中心。沒有這條連結的話，
+            那些依條件才出現的卡片（錯題本、弱點單字、模擬考）不出現時，使用者會以為
+            這個 App 就只有三項任務。
+          */}
+          <Link
+            href="/practice"
+            className="flex min-h-[44px] items-center justify-center gap-1 rounded-2xl border border-dashed border-[var(--ln)] px-4 text-xs font-semibold text-[var(--mu)] transition-colors hover:border-[var(--pr-ln)] hover:text-[var(--pr)]"
           >
-            <div className="min-w-0 flex-1 overflow-hidden">
-              <div className="flex items-center gap-2 min-w-0">
-                <h3 className="flex items-center gap-1.5 text-[15px] font-semibold text-[var(--tx)] shrink-0">
-                  <Zap className="h-3.5 w-3.5 text-[var(--pr)]" /> 章節速查卡
-                </h3>
-              </div>
-              <p className="mt-1 line-clamp-2 overflow-hidden break-words text-xs leading-relaxed text-[var(--mu)]">
-                {snap.formulaCardCount} 張決策樹＋用法總表 · 一章一張，通勤也能刷
-              </p>
-            </div>
-            <span className="shrink-0 rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-2.5 py-1.5 text-xs font-bold text-[var(--pr)] sm:px-3">
-              開始刷卡
-            </span>
+            看全部練習方式 · 模擬考、章節、學習路徑 <ChevronRight className="h-3.5 w-3.5" />
           </Link>
 
           {/* 設計 01：全部完成後低調的加練入口 */}

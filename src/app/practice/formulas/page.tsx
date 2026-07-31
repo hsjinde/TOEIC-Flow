@@ -15,6 +15,7 @@ import {
 } from '../../../lib/content'
 import { FormulaCard } from '../../../components/FormulaCard'
 import { Button } from '../../../components/ui/Button'
+import { useScrollToTopOnChange } from '../../../lib/scroll'
 import { cn } from '../../../lib/utils'
 
 /**
@@ -96,6 +97,10 @@ function FormulaCardPage() {
   const goBack = useCallback(() => {
     setCurrentIndex((prev) => Math.max(0, prev - 1))
   }, [])
+
+  // 速查卡是全站最長的一張卡（決策樹＋用法總表），「下一張」按鈕在卡的最下面。
+  // 不重置捲動位置的話，按下去之後看到的是新卡的表格中段，而不是它的標題。
+  useScrollToTopOnChange(`${currentIndex}|${isFinished}`)
 
   // 通勤單手操作：方向鍵／空白鍵直接前後翻，不必每次都點準按鈕。
   useEffect(() => {

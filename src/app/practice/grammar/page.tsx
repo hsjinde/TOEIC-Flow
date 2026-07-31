@@ -7,11 +7,13 @@ import { ArrowLeft, Check, ChevronDown, ChevronUp, X } from 'lucide-react'
 import type { Question } from '../../../../scripts/build-content/types'
 import {
   getCategoryLabel,
+  getChapterById,
   getChapterLabel,
   getGrammarQuestionsByCategory,
   getGrammarQuestionsByChapter,
   getQuestionsByIds,
   getRandomGrammarQuestions,
+  stripOrderPrefix,
 } from '../../../lib/content'
 import { getPathStageById, getStageQuestions } from '../../../lib/learning-path'
 import {
@@ -25,6 +27,7 @@ import { Button } from '../../../components/ui/Button'
 import { ExplanationCard } from '../../../components/ExplanationCard'
 import { SummaryModal } from '../../../components/SummaryModal'
 import { GraduationDots } from '../../../components/GraduationDots'
+import { useScrollToTopOnChange } from '../../../lib/scroll'
 import { cn } from '../../../lib/utils'
 
 const DEFAULT_COUNT = 5
@@ -40,6 +43,18 @@ interface Session {
   title: string
   /** 只有從章節頁「練這章」進入的專屬回合才有值，用來判定章節達標。 */
   chapterId?: string
+  /**
+   * 這一回合是從哪裡開始的。返回鍵與結算頁都用它——先前兩處都寫死回首頁，
+   * 從章節頁按「練這章」練完五題後會被丟到今日任務，原本在讀的那一章不見了。
+   */
+  backHref: string
+  backLabel: string
+}
+
+const HOME_EXIT = { backHref: '/', backLabel: '今日任務' }
+
+function chapterHref(id: string): string {
+  return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
 }
 
 export function buildSession(params: URLSearchParams): Session {
@@ -51,7 +66,14 @@ export function buildSession(params: URLSearchParams): Session {
 
   if (mode === 'wrong' && ids) {
     const list = getQuestionsByIds(ids.split(',').filter(Boolean))
-    return { questions: list, source: 'wrong', countsAsDailyTask: false, title: '錯題專攻' }
+    return {
+      questions: list,
+      source: 'wrong',
+      countsAsDailyTask: false,
+      title: '錯題專攻',
+      backHref: '/wrong-questions',
+      backLabel: '錯題本',
+    }
   }
   // 學習路徑的整站驗收：跨章混合抽，所以刻意不帶 chapterId——章節達標只認
   // 「練這章」那種單章回合，混合回合算進去會讓某一章憑一兩題就標成完成。
@@ -63,11 +85,14 @@ export function buildSession(params: URLSearchParams): Session {
         source: 'grammar',
         countsAsDailyTask: false,
         title: `路徑驗收 · ${pathStage.title}`,
+        backHref: '/path',
+        backLabel: '學習路徑',
       }
     }
   }
   if (chapter) {
     const pool = getGrammarQuestionsByChapter(chapter)
+    const meta = getChapterById(chapter)
     return {
       questions: [...pool].sort(() => 0.5 - Math.random()).slice(0, DEFAULT_COUNT),
       source: 'grammar',
@@ -75,6 +100,8 @@ export function buildSession(params: URLSearchParams): Session {
       // 副標已經是章名，標題再放一次會變成同一行講兩遍。
       title: '章節練習',
       chapterId: chapter,
+      backHref: chapterHref(chapter),
+      backLabel: meta ? stripOrderPrefix(meta.title) : '章節內容',
     }
   }
   if (category) {
@@ -83,6 +110,7 @@ export function buildSession(params: URLSearchParams): Session {
       source: 'grammar',
       countsAsDailyTask: false,
       title: `弱項加練 · ${getCategoryLabel(category)}`,
+      ...HOME_EXIT,
     }
   }
   return {
@@ -90,6 +118,7 @@ export function buildSession(params: URLSearchParams): Session {
     source: 'grammar',
     countsAsDailyTask: true,
     title: '文法練習',
+    ...HOME_EXIT,
   }
 }
 
@@ -113,11 +142,22 @@ function GrammarPracticePage() {
   const [justFiled, setJustFiled] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
 
-  useEffect(() => {
+  /** 抽一組新題並把整回合歸零。掛載時跑一次，結算頁的「再練一輪」也用它。 */
+  const start = useCallback(() => {
     const built = buildSession(new URLSearchParams(searchParams.toString()))
     setSession(built)
     setResults(new Array(built.questions.length).fill(null))
+    setCurrentIndex(0)
+    setSelectedAnswers({})
+    setShowExplanation(false)
+    setCorrectCount(0)
+    setJustFiled(false)
+    setIsFinished(false)
   }, [searchParams])
+
+  useEffect(() => {
+    start()
+  }, [start])
 
   const questions = session?.questions ?? []
   const currentQ = questions[currentIndex]
@@ -132,6 +172,10 @@ function GrammarPracticePage() {
       ? 'correct'
       : 'wrong'
   }, [currentQ, isQuestionAnswered, selectedAnswers])
+
+  // 詳解展開後整頁可以很長，「下一題」釘在拇指區——按下去若不回到頂端，
+  // 下一題的題幹就落在視窗上方看不見的地方。
+  useScrollToTopOnChange(`${currentIndex}|${isFinished}`)
 
   const handleNext = useCallback(() => {
     setJustFiled(false)
@@ -212,8 +256,8 @@ function GrammarPracticePage() {
       <div className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
         <h2 className="text-base font-bold text-[var(--tx)]">這組沒有可練的題目</h2>
         <p className="text-xs text-[var(--mu)]">題目可能已從題庫移除，換一組再試。</p>
-        <Link href="/" className="w-full max-w-[240px] pt-1">
-          <Button variant="primary">回到今日任務</Button>
+        <Link href={session.backHref} className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">返回{session.backLabel}</Button>
         </Link>
       </div>
     )
@@ -225,6 +269,9 @@ function GrammarPracticePage() {
         correctCount={correctCount}
         totalCount={questions.length}
         title={`${session.title}完成`}
+        backHref={session.backHref}
+        backLabel={session.backLabel}
+        onRetry={start}
       />
     )
   }
@@ -240,8 +287,9 @@ function GrammarPracticePage() {
       <div className="flex items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2">
           <Link
-            href="/"
-            aria-label="返回今日任務"
+            href={session.backHref}
+            aria-label={`返回${session.backLabel}`}
+            title={`返回${session.backLabel}`}
             className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)]"
           >
             <ArrowLeft className="h-5 w-5" />

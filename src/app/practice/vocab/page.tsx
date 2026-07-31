@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { ArrowLeft, Check } from 'lucide-react'
+import { ArrowLeft, Check, RotateCcw } from 'lucide-react'
 import type { VocabItem } from '../../../../scripts/build-content/types'
 import {
   getRandomVocabItems,
@@ -20,6 +20,7 @@ import {
 import { VocabFlashcard } from '../../../components/VocabFlashcard'
 import { VocabQuiz } from '../../../components/VocabQuiz'
 import { Button } from '../../../components/ui/Button'
+import { useScrollToTopOnChange } from '../../../lib/scroll'
 import { cn } from '../../../lib/utils'
 
 const SESSION_SIZE = 10
@@ -83,7 +84,8 @@ function VocabPracticePage() {
   const [mode, setMode] = useState<Mode>('flip')
   const [isFinished, setIsFinished] = useState(false)
 
-  useEffect(() => {
+  /** 抽一組新的字並把回合歸零；掛載時跑一次，結算頁的「再練一輪」也用它。 */
+  const start = useCallback(() => {
     const built = buildSession(new URLSearchParams(searchParams.toString()))
     setSession(built)
     setCurrentIndex(0)
@@ -99,6 +101,10 @@ function VocabPracticePage() {
         .slice(0, 60)
     )
   }, [searchParams])
+
+  useEffect(() => {
+    start()
+  }, [start])
 
   const vocabList = session?.items ?? []
   const total = vocabList.length
@@ -122,6 +128,10 @@ function VocabPracticePage() {
     },
     [currentItem, advance]
   )
+
+  // 四選一作答後解析卡會展開，「下一張」被推到畫面外；按下去之後如果不回到頂端，
+  // 新的一張題面就落在視窗上方看不見的地方。翻卡模式切換也一樣要重置。
+  useScrollToTopOnChange(`${currentIndex}|${mode}|${isFinished}`)
 
   const handleQuizAnswer = useCallback(
     (isCorrect: boolean) => {
@@ -162,9 +172,15 @@ function VocabPracticePage() {
             {total} 個字 · 其中 {mastered} 個已達熟悉
           </p>
         </div>
-        <Link href={session.backHref} className="w-full max-w-[280px] pt-1">
-          <Button variant="primary">返回{session.backLabel}</Button>
-        </Link>
+        <div className="flex w-full max-w-[280px] flex-col gap-2 pt-1">
+          {/* 練完最常見的下一步是再來一輪，不是離開。 */}
+          <Button variant="primary" onClick={start}>
+            <RotateCcw className="h-4 w-4" /> 再練一輪
+          </Button>
+          <Link href={session.backHref}>
+            <Button variant="outline">返回{session.backLabel}</Button>
+          </Link>
+        </div>
       </div>
     )
   }

@@ -290,9 +290,10 @@ function PageHeader({
   return (
     <div className="flex flex-wrap items-center justify-between gap-2">
       <div className="flex items-center gap-2">
+        {/* 與錯題本同一條規則：返回鍵指向底部 tab 上正在亮著的那一格（練習中心）。 */}
         <Link
-          href="/"
-          aria-label="返回今日任務"
+          href="/practice"
+          aria-label="返回練習中心"
           className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
         >
           <ArrowLeft className="h-5 w-5" />

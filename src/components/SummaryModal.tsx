@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Check } from 'lucide-react'
+import { Check, RotateCcw } from 'lucide-react'
 import { Button } from './ui/Button'
 
 interface SummaryModalProps {
@@ -9,6 +9,14 @@ interface SummaryModalProps {
   title?: string
   /** 有錯題時給一個直接去複習的入口 */
   wrongCount?: number
+  /**
+   * 回到「開始這一回合的地方」。預設今日任務，但從章節頁或學習路徑進來的回合要回得去
+   * 原本那一頁——練完五題被丟回首頁，等於每次練習都把使用者從閱讀脈絡裡踢出來。
+   */
+  backHref?: string
+  backLabel?: string
+  /** 有值就顯示「再練一輪」，就地重抽，不必先回上一頁再點一次。 */
+  onRetry?: () => void
 }
 
 /**
@@ -19,6 +27,9 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
   totalCount,
   title = '文法練習完成',
   wrongCount,
+  backHref = '/',
+  backLabel = '今日任務',
+  onRetry,
 }) => {
   const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0
   const missed = wrongCount ?? totalCount - correctCount
@@ -37,9 +48,24 @@ export const SummaryModal: React.FC<SummaryModalProps> = ({
       </div>
 
       <div className="flex w-full max-w-[280px] flex-col gap-2 pt-1">
-        <Link href="/">
-          <Button variant="primary">返回今日任務</Button>
-        </Link>
+        {/*
+          主要動作是「繼續往下」而不是「離開」：練完一輪最常見的下一步是再練一輪，
+          其次才是回原本那一頁。沒有 onRetry 的流程（例如閱讀）維持返回為主要動作。
+        */}
+        {onRetry ? (
+          <>
+            <Button variant="primary" onClick={onRetry}>
+              <RotateCcw className="h-4 w-4" /> 再練一輪
+            </Button>
+            <Link href={backHref}>
+              <Button variant="outline">返回{backLabel}</Button>
+            </Link>
+          </>
+        ) : (
+          <Link href={backHref}>
+            <Button variant="primary">返回{backLabel}</Button>
+          </Link>
+        )}
         {missed > 0 && (
           <Link href="/wrong-questions">
             <Button variant="outline" className="text-xs">
