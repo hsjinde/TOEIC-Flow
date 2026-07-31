@@ -72,145 +72,182 @@ export default function LearningPathPage() {
       {/* 下一步：整條路徑上第一個還沒達標的章節 */}
       <NextStepCard progress={progress} overallRate={overallRate} />
 
-      <ol className="flex flex-col">
-        {progress.stages.map((sp, index) => {
-          const { stage } = sp
-          const isOpen = expanded.has(stage.id)
-          const isCurrent = stage.id === progress.currentStageId && progress.next !== null
-          const isDone = sp.nextChapterId === null
-          const isLast = index === progress.stages.length - 1
-          const questionCount = questionCounts[stage.id] ?? 0
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:items-start">
+        {/*
+          左欄索引。top-20 對齊 TopNav 的 57px 高度。
+          刻意不是「兩欄並排卡片」：路徑有先後順序，左右交錯閱讀會破壞它；
+          索引 ＋ 內容既填滿了寬度又保住順序。
+        */}
+        <nav aria-label="學習路徑索引" className="hidden lg:sticky lg:top-20 lg:block">
+          <ol className="flex flex-col gap-0.5 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-2">
+            {progress.stages.map((sp) => {
+              const done = sp.nextChapterId === null
+              const current = sp.stage.id === progress.currentStageId && progress.next !== null
+              return (
+                <li key={sp.stage.id}>
+                  <a
+                    href={`#stage-${sp.stage.id}`}
+                    aria-current={current ? 'step' : undefined}
+                    className={cn(
+                      'flex min-h-11 items-center gap-2.5 rounded-xl px-2.5 text-xs transition-colors',
+                      current
+                        ? 'bg-[var(--pr-sf)] font-bold text-[var(--pr)]'
+                        : 'text-[var(--mu)] hover:bg-[var(--sf2)] hover:text-[var(--tx)]'
+                    )}
+                  >
+                    <span className="w-5 shrink-0 text-right tabular-nums">{sp.stage.order}</span>
+                    <span className="min-w-0 flex-1 truncate">{sp.stage.title}</span>
+                    {/* 完成狀態只用主色，不用綠色——綠色專屬於答題對錯回饋 */}
+                    <span className="shrink-0 tabular-nums text-[11px] text-[var(--fa)]">
+                      {done ? '✓' : `${sp.achievedCount}/${sp.totalCount}`}
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
+          </ol>
+        </nav>
 
-          return (
-            <li key={stage.id} className="relative pl-10 sm:pl-12">
-              {/* 站點編號與連接線 */}
-              <span
-                aria-hidden
-                className={cn(
-                  'absolute left-0 top-3 flex h-7 w-7 items-center justify-center rounded-full border text-[11px] font-bold transition-colors sm:h-8 sm:w-8 sm:text-xs',
-                  isDone
-                    ? 'border-[var(--pr)] bg-[var(--pr)] text-[var(--pr-tx)]'
-                    : isCurrent
-                      ? 'border-[var(--pr)] bg-[var(--pr-sf)] text-[var(--pr)]'
-                      : 'border-[var(--ln)] bg-[var(--sf)] text-[var(--mu)]'
-                )}
-              >
-                {stage.order}
-              </span>
-              {!isLast && (
+        <ol className="flex flex-col">
+          {progress.stages.map((sp, index) => {
+            const { stage } = sp
+            const isOpen = expanded.has(stage.id)
+            const isCurrent = stage.id === progress.currentStageId && progress.next !== null
+            const isDone = sp.nextChapterId === null
+            const isLast = index === progress.stages.length - 1
+            const questionCount = questionCounts[stage.id] ?? 0
+
+            return (
+              <li key={stage.id} id={`stage-${stage.id}`} className="relative pl-10 sm:pl-12">
+                {/* 站點編號與連接線 */}
                 <span
                   aria-hidden
                   className={cn(
-                    'absolute left-[13px] top-11 bottom-0 w-px sm:left-4 sm:top-12',
-                    isDone ? 'bg-[var(--pr)]' : 'bg-[var(--ln)]'
+                    'absolute left-0 top-3 flex h-7 w-7 items-center justify-center rounded-full border text-[11px] font-bold transition-colors sm:h-8 sm:w-8 sm:text-xs',
+                    isDone
+                      ? 'border-[var(--pr)] bg-[var(--pr)] text-[var(--pr-tx)]'
+                      : isCurrent
+                        ? 'border-[var(--pr)] bg-[var(--pr-sf)] text-[var(--pr)]'
+                        : 'border-[var(--ln)] bg-[var(--sf)] text-[var(--mu)]'
                   )}
-                />
-              )}
-
-              <section
-                className={cn(
-                  'mb-3 overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
-                  isCurrent ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
-                )}
-              >
-                <button
-                  type="button"
-                  onClick={() => toggle(stage.id)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center gap-3 p-4 text-left transition-colors hover:bg-[var(--sf2)]"
                 >
-                  <span className="min-w-0 flex-1">
-                    <span className="flex items-center gap-1.5">
-                      <span className="truncate text-sm font-semibold text-[var(--tx)]">
-                        {stage.title}
-                      </span>
-                      {isDone && (
-                        // 完成是進度，用主色；綠色專屬於「這一題答對了」。
-                        <CheckCircle2
-                          className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]"
-                          aria-label="這一站已完成"
-                        />
-                      )}
-                      {isCurrent && (
-                        <span className="shrink-0 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-1.5 py-px text-[10px] font-bold text-[var(--pr)]">
-                          目前
-                        </span>
-                      )}
-                    </span>
-                    <span className="mt-0.5 block truncate text-[11px] text-[var(--mu)]">
-                      {stage.subtitle}
-                    </span>
-                    <span className="mt-1.5 block text-[11px] text-[var(--mu)]">
-                      {sp.totalCount} 章 · {questionCount} 題
-                      {sp.hasPracticed ? ` · ${sp.achievedCount}/${sp.totalCount} 完成` : ' · 尚未開始'}
-                    </span>
-                  </span>
-
-                  {sp.hasPracticed && (
-                    <span className="w-14 shrink-0 sm:w-16">
-                      <span className="block h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
-                        <span
-                          className="block h-full rounded-full bg-[var(--pr)] transition-all duration-300"
-                          style={{ width: `${sp.rate}%` }}
-                        />
-                      </span>
-                    </span>
-                  )}
-                  {isOpen ? (
-                    <ChevronDown className="h-4 w-4 shrink-0 text-[var(--mu)]" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 shrink-0 text-[var(--mu)]" />
-                  )}
-                </button>
-
-                {isOpen && (
-                  <div className="animate-fade-in border-t border-[var(--ln)]">
-                    <div className="space-y-2.5 px-4 py-3.5">
-                      <p className="text-xs leading-relaxed text-[var(--tx)]">
-                        <span className="font-semibold">學完會做到：</span>
-                        {stage.goal}
-                      </p>
-                      <p className="text-xs leading-relaxed text-[var(--mu)]">
-                        <span className="font-semibold text-[var(--fa)]">為什麼排在這裡：</span>
-                        {stage.why}
-                      </p>
-                    </div>
-
-                    <ul className="border-t border-[var(--ln)]">
-                      {stage.chapterIds.map((chapterId, chapterIndex) => (
-                        <ChapterRow
-                          key={chapterId}
-                          chapterId={chapterId}
-                          step={chapterIndex + 1}
-                          isNext={chapterId === progress.next?.chapterId}
-                          isAchieved={isChapterAchieved(chapterId, achievements)}
-                        />
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap items-center gap-2 border-t border-[var(--ln)] px-4 py-3">
-                      <Link
-                        href={`/practice/grammar?stage=${encodeURIComponent(stage.id)}`}
-                        className="flex min-h-[44px] items-center rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)] transition-colors hover:border-[var(--pr)]"
-                      >
-                        這一站綜合測驗 {STAGE_QUIZ_COUNT} 題
-                      </Link>
-                      {stage.extraPractice && (
-                        <Link
-                          href={stage.extraPractice.href}
-                          className="flex min-h-[44px] items-center px-1 text-xs font-semibold text-[var(--pr)] hover:opacity-80"
-                        >
-                          {stage.extraPractice.label} →
-                        </Link>
-                      )}
-                    </div>
-                  </div>
+                  {stage.order}
+                </span>
+                {!isLast && (
+                  <span
+                    aria-hidden
+                    className={cn(
+                      'absolute left-[13px] top-11 bottom-0 w-px sm:left-4 sm:top-12',
+                      isDone ? 'bg-[var(--pr)]' : 'bg-[var(--ln)]'
+                    )}
+                  />
                 )}
-              </section>
-            </li>
-          )
-        })}
-      </ol>
+
+                <section
+                  className={cn(
+                    'mb-3 overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
+                    isCurrent ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
+                  )}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggle(stage.id)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center gap-3 p-4 text-left transition-colors hover:bg-[var(--sf2)]"
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="flex items-center gap-1.5">
+                        <span className="truncate text-sm font-semibold text-[var(--tx)]">
+                          {stage.title}
+                        </span>
+                        {isDone && (
+                          // 完成是進度，用主色；綠色專屬於「這一題答對了」。
+                          <CheckCircle2
+                            className="h-3.5 w-3.5 shrink-0 text-[var(--pr)]"
+                            aria-label="這一站已完成"
+                          />
+                        )}
+                        {isCurrent && (
+                          <span className="shrink-0 rounded-full border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-1.5 py-px text-[10px] font-bold text-[var(--pr)]">
+                            目前
+                          </span>
+                        )}
+                      </span>
+                      <span className="mt-0.5 block truncate text-[11px] text-[var(--mu)]">
+                        {stage.subtitle}
+                      </span>
+                      <span className="mt-1.5 block text-[11px] text-[var(--mu)]">
+                        {sp.totalCount} 章 · {questionCount} 題
+                        {sp.hasPracticed ? ` · ${sp.achievedCount}/${sp.totalCount} 完成` : ' · 尚未開始'}
+                      </span>
+                    </span>
+
+                    {sp.hasPracticed && (
+                      <span className="w-14 shrink-0 sm:w-16">
+                        <span className="block h-1.5 w-full overflow-hidden rounded-full bg-[var(--sf2)]">
+                          <span
+                            className="block h-full rounded-full bg-[var(--pr)] transition-all duration-300"
+                            style={{ width: `${sp.rate}%` }}
+                          />
+                        </span>
+                      </span>
+                    )}
+                    {isOpen ? (
+                      <ChevronDown className="h-4 w-4 shrink-0 text-[var(--mu)]" />
+                    ) : (
+                      <ChevronRight className="h-4 w-4 shrink-0 text-[var(--mu)]" />
+                    )}
+                  </button>
+
+                  {isOpen && (
+                    <div className="animate-fade-in border-t border-[var(--ln)]">
+                      <div className="space-y-2.5 px-4 py-3.5">
+                        <p className="text-xs leading-relaxed text-[var(--tx)]">
+                          <span className="font-semibold">學完會做到：</span>
+                          {stage.goal}
+                        </p>
+                        <p className="text-xs leading-relaxed text-[var(--mu)]">
+                          <span className="font-semibold text-[var(--fa)]">為什麼排在這裡：</span>
+                          {stage.why}
+                        </p>
+                      </div>
+
+                      <ul className="border-t border-[var(--ln)]">
+                        {stage.chapterIds.map((chapterId, chapterIndex) => (
+                          <ChapterRow
+                            key={chapterId}
+                            chapterId={chapterId}
+                            step={chapterIndex + 1}
+                            isNext={chapterId === progress.next?.chapterId}
+                            isAchieved={isChapterAchieved(chapterId, achievements)}
+                          />
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap items-center gap-2 border-t border-[var(--ln)] px-4 py-3">
+                        <Link
+                          href={`/practice/grammar?stage=${encodeURIComponent(stage.id)}`}
+                          className="flex min-h-[44px] items-center rounded-lg border border-[var(--pr-ln)] bg-[var(--pr-sf)] px-3 py-1.5 text-xs font-bold text-[var(--pr)] transition-colors hover:border-[var(--pr)]"
+                        >
+                          這一站綜合測驗 {STAGE_QUIZ_COUNT} 題
+                        </Link>
+                        {stage.extraPractice && (
+                          <Link
+                            href={stage.extraPractice.href}
+                            className="flex min-h-[44px] items-center px-1 text-xs font-semibold text-[var(--pr)] hover:opacity-80"
+                          >
+                            {stage.extraPractice.label} →
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </section>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
 
       <p className="px-1 pb-2 text-[11px] leading-relaxed text-[var(--fa)]">
         章節在路徑上的順序跟
