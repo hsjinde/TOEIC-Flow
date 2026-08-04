@@ -1514,5 +1514,1128 @@
         ]
       }
     ]
+  },
+  "grammar/01_八大詞性與句型結構/12_疑問詞與間接問句": {
+    "chapterId": "grammar/01_八大詞性與句型結構/12_疑問詞與間接問句",
+    "title": "間接問句語序決策樹",
+    "titleEn": "Decision Tree: Indirect Question Word Order",
+    "decision": {
+      "question": "wh- 子句是獨立問句還是句子的一部分",
+      "questionEn": "Standalone Question or Embedded Clause?",
+      "branches": [
+        {
+          "label": "直接問句：疑問詞 + 助動詞 + 主詞",
+          "labelEn": "Direct: Wh- + Aux + S"
+        },
+        {
+          "label": "間接問句：疑問詞 + 主詞 + 動詞",
+          "labelEn": "Indirect: Wh- + S + V"
+        }
+      ]
+    },
+    "table": {
+      "title": "疑問詞語序總表",
+      "titleEn": "Master Table of Wh- Word Order",
+      "rowHeader": "疑問詞",
+      "rows": [
+        {
+          "head": "what",
+          "gloss": "什麼（開放）",
+          "cells": [
+            [
+              {
+                "pattern": "What",
+                "token": "did + S + V",
+                "example": "What did the memo say?"
+              }
+            ],
+            [
+              {
+                "pattern": "what",
+                "token": "S + V",
+                "example": "Explain what the memo said."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "which",
+          "gloss": "哪一個（有限選項）",
+          "cells": [
+            [
+              {
+                "pattern": "Which + N",
+                "token": "did + S + V",
+                "example": "Which vendor did they pick?"
+              }
+            ],
+            [
+              {
+                "pattern": "which + N",
+                "token": "S + V",
+                "example": "State which vendor they picked."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "whose",
+          "gloss": "誰的",
+          "cells": [
+            [
+              {
+                "pattern": "Whose + N",
+                "token": "did + S + V",
+                "example": "Whose report did you review?"
+              }
+            ],
+            [
+              {
+                "pattern": "whose + N",
+                "token": "S + V",
+                "example": "I forget whose report you reviewed."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "how",
+          "gloss": "如何／多麼",
+          "cells": [
+            [
+              {
+                "pattern": "How + adj/adv",
+                "token": "is + S",
+                "example": "How soon is the shipment due?"
+              }
+            ],
+            [
+              {
+                "pattern": "how + adj/adv",
+                "token": "S + is",
+                "example": "Confirm how soon the shipment is due."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "when",
+          "gloss": "何時",
+          "cells": [
+            [
+              {
+                "pattern": "When",
+                "token": "will + S + V",
+                "example": "When will the audit begin?"
+              }
+            ],
+            [
+              {
+                "pattern": "when",
+                "token": "S + will + V",
+                "example": "Ask when the audit will begin."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "whether",
+          "gloss": "是否",
+          "cells": [
+            [
+              {
+                "pattern": "Yes／No 問句",
+                "token": "did + S + V",
+                "example": "Did HR approve the leave?"
+              }
+            ],
+            [
+              {
+                "pattern": "whether (or not)",
+                "token": "S + V",
+                "example": "Ask whether HR approved the leave."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：whether 不能換成 if 的三個位置",
+        "lines": [
+          "介系詞後只能用 whether：depends on whether we proceed",
+          "當主詞放句首只能用 whether：Whether we proceed is unclear.",
+          "whether or not 緊貼在一起時只能用 whether",
+          "只有在一般動詞的受詞位置，if 與 whether 才可互換"
+        ]
+      },
+      {
+        "title": "補充 2：疑問詞本身當主詞時，直接問句也不倒裝",
+        "lines": [
+          "Who signed the form?（不是 Who did sign）",
+          "What caused the delay?（疑問詞就是主詞，沒有可以提前的助動詞）",
+          "這是唯一不適用上表語序對照的情形"
+        ]
+      },
+      {
+        "title": "補充 3：wh- 子句當主詞，動詞一律單數",
+        "lines": [
+          "整個 wh- 子句視為單一概念：What matters most is the deadline.",
+          "虛主詞句型：It is unclear who signed the contract.",
+          "常見的形容詞是 unclear / uncertain / unknown"
+        ]
+      },
+      {
+        "title": "補充 4：選字與精簡寫法",
+        "lines": [
+          "主詞角色選 who，動詞或介系詞的受詞且語域正式選 whom",
+          "有限選項用 which，開放式用 what；whose 後面一定接名詞",
+          "how soon（多快）／how often（多頻繁）／how long（多久）依語意選",
+          "主詞與主句相同、語意是「該做什麼」時可省成 wh- + to V"
+        ]
+      }
+    ]
+  },
+  "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞": {
+    "chapterId": "grammar/03_動狀詞_非謂語動詞/04_情緒動詞與分詞",
+    "title": "情緒動詞分詞方向決策樹",
+    "titleEn": "Decision Tree: -ing vs p.p. for Emotion Verbs",
+    "decision": {
+      "question": "這個字在描述誰",
+      "questionEn": "Who Is Being Described?",
+      "branches": [
+        {
+          "label": "令人…：描述引發感受的人事物",
+          "labelEn": "Causes the Feeling: -ing"
+        },
+        {
+          "label": "感到…：描述有感受的人",
+          "labelEn": "Feels It: p.p."
+        }
+      ]
+    },
+    "table": {
+      "title": "高頻情緒動詞分詞總表",
+      "titleEn": "Master Table of High-Frequency Emotion Verbs",
+      "rowHeader": "情緒動詞",
+      "rows": [
+        {
+          "head": "interest",
+          "gloss": "使感興趣",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "interesting",
+                "example": "The proposal is interesting."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "interested in",
+                "example": "Buyers are interested in it."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "excite",
+          "gloss": "使興奮",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "exciting",
+                "example": "The launch was exciting."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "excited about",
+                "example": "Staff are excited about the launch."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "satisfy",
+          "gloss": "使滿意",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "satisfying",
+                "example": "The result is satisfying."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "satisfied with",
+                "example": "Clients are satisfied with the result."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "confuse",
+          "gloss": "使困惑",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "confusing",
+                "example": "The policy is confusing."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "confused about",
+                "example": "New hires are confused about it."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "frustrate",
+          "gloss": "使受挫",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "frustrating",
+                "example": "The delay was frustrating."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "frustrated with",
+                "example": "Riders are frustrated with the delay."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "bore",
+          "gloss": "使無聊",
+          "cells": [
+            [
+              {
+                "pattern": "be",
+                "token": "boring",
+                "example": "The seminar was boring."
+              }
+            ],
+            [
+              {
+                "pattern": "be",
+                "token": "bored with",
+                "example": "Attendees were bored with it."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：主詞是「事」時仍用 V-ing",
+        "lines": [
+          "it / this / that 代替一件事，且那件事本身具有該特性 → 選 V-ing",
+          "The news is shocking.（消息令人震驚，不是消息「感到」震驚）",
+          "不要被「主詞感覺起來像人」的句意誤導"
+        ]
+      },
+      {
+        "title": "補充 2：情緒 p.p. 的固定介系詞",
+        "lines": [
+          "be interested in／be satisfied with／be worried about",
+          "be confused about／be excited about／be disappointed with",
+          "介系詞選錯整句就錯，要跟分詞一起記"
+        ]
+      },
+      {
+        "title": "補充 3：兩個選項都在時的最快判斷",
+        "lines": [
+          "先看主詞是「人」還是「物」，比死記個別動詞快",
+          "人 → p.p.；物、事、消息、報告 → V-ing",
+          "主詞補語位置最常同時給出這一組誘答"
+        ]
+      },
+      {
+        "title": "補充 4：不受本規則管的固定句型",
+        "lines": [
+          "be pleased to V（很高興做…）的 pleased 是形容詞，後面接不定詞",
+          "be surprised to V／be disappointed to V 同理",
+          "這類句型不再判斷 V-ing 或 p.p."
+        ]
+      }
+    ]
+  },
+  "grammar/06_其他多益必考進階題型/10_否定副詞倒裝": {
+    "chapterId": "grammar/06_其他多益必考進階題型/10_否定副詞倒裝",
+    "title": "否定副詞倒裝決策樹",
+    "titleEn": "Decision Tree: Negative Adverb Inversion",
+    "decision": {
+      "question": "否定副詞放在句首還是句中",
+      "questionEn": "Where Does the Negative Adverb Sit?",
+      "branches": [
+        {
+          "label": "句首：主詞動詞要倒裝",
+          "labelEn": "Front Position: Invert"
+        },
+        {
+          "label": "句中：維持正常語序",
+          "labelEn": "Mid Position: No Inversion"
+        }
+      ]
+    },
+    "table": {
+      "title": "否定副詞倒裝總表",
+      "titleEn": "Master Table of Negative Adverb Inversion",
+      "rowHeader": "否定副詞",
+      "rows": [
+        {
+          "head": "Never",
+          "gloss": "從不",
+          "cells": [
+            [
+              {
+                "pattern": "Never",
+                "token": "has + S + p.p.",
+                "example": "Never has the firm missed a deadline."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "has never + p.p.",
+                "example": "The firm has never missed a deadline."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "Seldom",
+          "gloss": "很少",
+          "cells": [
+            [
+              {
+                "pattern": "Seldom",
+                "token": "does + S + V",
+                "example": "Seldom does the board meet twice."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "seldom + V",
+                "example": "The board seldom meets twice."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "Not until",
+          "gloss": "直到…才",
+          "cells": [
+            [
+              {
+                "pattern": "Not until + 子句",
+                "token": "did + S + V",
+                "example": "Not until the audit ended did we release it."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "did not + V + until",
+                "example": "We did not release it until the audit ended."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "Hardly",
+          "gloss": "一…就，搭 when",
+          "cells": [
+            [
+              {
+                "pattern": "Hardly",
+                "token": "had + S + p.p.",
+                "example": "Hardly had we begun when the power failed."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "had hardly + p.p.",
+                "example": "We had hardly begun when the power failed."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "No sooner",
+          "gloss": "一…就，搭 than",
+          "cells": [
+            [
+              {
+                "pattern": "No sooner",
+                "token": "had + S + p.p.",
+                "example": "No sooner had he left than it rained."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "had no sooner + p.p.",
+                "example": "He had no sooner left than it rained."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "No longer",
+          "gloss": "不再",
+          "cells": [
+            [
+              {
+                "pattern": "No longer",
+                "token": "does + S + V",
+                "example": "No longer does the firm rely on paper."
+              }
+            ],
+            [
+              {
+                "pattern": "S",
+                "token": "no longer + V",
+                "example": "The firm no longer relies on paper."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：Little 與 A little 差一個字就差一個語序",
+        "lines": [
+          "Little（幾乎不）是半否定，句首要倒裝：Little did she expect the recall.",
+          "A little（一點點）是肯定量詞，不倒裝：A little rain fell overnight.",
+          "Few／A few 同理，先看有沒有 a 再決定要不要倒裝"
+        ]
+      },
+      {
+        "title": "補充 2：搭配詞是固定的，換掉就是陷阱",
+        "lines": [
+          "Hardly／Scarcely／Barely 只搭 when（或 before）",
+          "No sooner 只搭 than，選項互換即為誘答",
+          "時態也固定：主句 had + p.p.，when／than 子句用過去簡單式"
+        ]
+      },
+      {
+        "title": "補充 3：倒裝後動詞的形式",
+        "lines": [
+          "助動詞提前後動詞回原形：Little did he know（不是 knew）",
+          "句中沒有助動詞就補 do／does／did",
+          "not a single + 單數名詞 + 單數動詞：Not a single complaint was filed."
+        ]
+      },
+      {
+        "title": "補充 4：容易誤判的兩件事",
+        "lines": [
+          "By no means／At no time／Nowhere 是完全否定，rarely／seldom 是部分否定",
+          "閱讀時看到句首否定副詞、動詞在主詞前，那是正確語序不是錯字",
+          "Such + be + S + that 也要倒裝：Such was the impact that prices fell."
+        ]
+      }
+    ]
+  },
+  "grammar/02_動詞時態與語態/06_過去完成式與時間副詞子句": {
+    "chapterId": "grammar/02_動詞時態與語態/06_過去完成式與時間副詞子句",
+    "title": "過去完成式與時間子句決策樹",
+    "titleEn": "Decision Tree: Past Perfect & Time Clauses",
+    "decision": {
+      "question": "兩個過去動作，誰先發生",
+      "questionEn": "Which Past Action Came First?",
+      "branches": [
+        {
+          "label": "先發生的那一半",
+          "labelEn": "The Earlier Half"
+        },
+        {
+          "label": "後發生的那一半",
+          "labelEn": "The Later Half"
+        }
+      ]
+    },
+    "table": {
+      "title": "時間連接詞時態分工總表",
+      "titleEn": "Master Table of Time Conjunctions",
+      "rowHeader": "連接詞",
+      "rows": [
+        {
+          "head": "by the time",
+          "gloss": "等到…時",
+          "cells": [
+            [
+              {
+                "pattern": "主句",
+                "token": "had + p.p.",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "by the time 子句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "By the time I called, the team had left."
+        },
+        {
+          "head": "before",
+          "gloss": "在…之前",
+          "cells": [
+            [
+              {
+                "pattern": "主句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "before 子句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "He submitted the form before the office closed."
+        },
+        {
+          "head": "after",
+          "gloss": "在…之後",
+          "cells": [
+            [
+              {
+                "pattern": "after 子句",
+                "token": "過去簡單式",
+                "example": ""
+              },
+              {
+                "pattern": "after 子句",
+                "token": "had + p.p.",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "主句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "After the audit (had) ended, we released the report."
+        },
+        {
+          "head": "no sooner",
+          "gloss": "一…就",
+          "cells": [
+            [
+              {
+                "pattern": "No sooner + 倒裝",
+                "token": "had + p.p.",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "than 子句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "No sooner had she arrived than the meeting began."
+        },
+        {
+          "head": "hardly",
+          "gloss": "一…就",
+          "cells": [
+            [
+              {
+                "pattern": "Hardly + 倒裝",
+                "token": "had + p.p.",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "when 子句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "Hardly had we signed when the terms changed."
+        },
+        {
+          "head": "once",
+          "gloss": "一旦…就",
+          "cells": [
+            [
+              {
+                "pattern": "once 子句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ],
+            [
+              {
+                "pattern": "主句",
+                "token": "過去簡單式",
+                "example": ""
+              }
+            ]
+          ],
+          "sharedExample": "Once the contract expired, we renegotiated."
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：過去完成式不能單獨存在",
+        "lines": [
+          "句中必須有另一個過去動作或明確的過去時間點當參照",
+          "只有一個過去動作時，用簡單過去式就好",
+          "已經用過去完成式建立「更早」之後，後續結果改回簡單過去式"
+        ]
+      },
+      {
+        "title": "補充 2：by the time 與 by 不可互換",
+        "lines": [
+          "by the time 後面接完整子句（主詞＋動詞）",
+          "by 後面接時間點或名詞：by 2020、by the deadline",
+          "by the time + 現在式時主句改用未來完成式，那屬於未來式的範圍"
+        ]
+      },
+      {
+        "title": "補充 3：固定搭配與倒裝觸發詞",
+        "lines": [
+          "no sooner 只能接 than，hardly／scarcely 只能接 when 或 before",
+          "兩者置於句首時，前半句一律部分倒裝",
+          "Not until、Rarely、Never 置於句首同樣要倒裝"
+        ]
+      },
+      {
+        "title": "補充 4：容易漏字與誤判的地方",
+        "lines": [
+          "被動要寫 had been + p.p.，最常漏掉 been",
+          "already／never／twice 是過去完成式的強烈語意線索",
+          "once 作連接詞接子句（≈ as soon as），作副詞則是「曾經、一度」"
+        ]
+      }
+    ]
+  },
+  "grammar/01_八大詞性與句型結構/09_轉承連接副詞": {
+    "chapterId": "grammar/01_八大詞性與句型結構/09_轉承連接副詞",
+    "title": "轉承副詞與連接詞決策樹",
+    "titleEn": "Decision Tree: Transitions vs Conjunctions",
+    "decision": {
+      "question": "空格前面的標點是什麼",
+      "questionEn": "What Punctuation Precedes the Blank?",
+      "branches": [
+        {
+          "label": "轉承副詞：前面要分號或句號",
+          "labelEn": "Transition: Needs ; or ."
+        },
+        {
+          "label": "連接詞：前面用逗號就好",
+          "labelEn": "Conjunction: Comma Is Enough"
+        }
+      ]
+    },
+    "table": {
+      "title": "邏輯關係對照總表",
+      "titleEn": "Master Table by Logical Relation",
+      "rowHeader": "邏輯關係",
+      "rows": [
+        {
+          "head": "轉折",
+          "gloss": "但是、然而",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "however,",
+                "example": "The plan is bold; however, it is costly."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "but",
+                "example": "The plan is bold, but it is costly."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "因果",
+          "gloss": "因此、所以",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "therefore,",
+                "example": "Costs rose; therefore, we cut hours."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "so",
+                "example": "Costs rose, so we cut hours."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "遞進",
+          "gloss": "此外、而且",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "moreover,",
+                "example": "It is cheap; moreover, it ships fast."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "and",
+                "example": "It is cheap, and it ships fast."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "對比",
+          "gloss": "相反地",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "in contrast,",
+                "example": "Sales fell; in contrast, costs rose."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "whereas",
+                "example": "Sales fell, whereas costs rose."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "讓步",
+          "gloss": "儘管如此",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "nevertheless,",
+                "example": "It rained; nevertheless, we shipped."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "even though",
+                "example": "We shipped, even though it rained."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "替代",
+          "gloss": "而是、取而代之",
+          "cells": [
+            [
+              {
+                "pattern": "; ／ .",
+                "token": "instead,",
+                "example": "We did not fly; instead, we drove."
+              }
+            ],
+            [
+              {
+                "pattern": ",",
+                "token": "but rather",
+                "example": "We did not fly, but rather drove."
+              }
+            ]
+          ],
+          "sharedExample": ""
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：Comma Splice 是最常考的錯誤",
+        "lines": [
+          "轉承副詞前面只有逗號，該選項通常就是錯的",
+          "錯：The plan is bold, however, it is costly.",
+          "對：改成分號、句號，或換成連接詞 but"
+        ]
+      },
+      {
+        "title": "補充 2：轉承副詞也可以當插入語",
+        "lines": [
+          "S, however, V… 插在同一子句的主詞與動詞之間",
+          "此時它不連接兩個子句，純粹是語氣詞，逗號成對出現",
+          "這是「逗號＋轉承副詞」唯一正確的情形"
+        ]
+      },
+      {
+        "title": "補充 3：同一格內的近義詞怎麼選",
+        "lines": [
+          "moreover／furthermore／in addition 語意可互換，furthermore 較正式",
+          "likewise／similarly 前後句必須同方向，對比關係不能用",
+          "in fact／indeed 是加強語氣不是轉折；as such 是更書面的 therefore"
+        ]
+      },
+      {
+        "title": "補充 4：Part 6 的選詞順序",
+        "lines": [
+          "先判斷邏輯關係（轉折／因果／遞進／舉例／相似），縮小範圍再比語域",
+          "namely／that is to say 用於對前面提到的名詞做具體說明",
+          "meanwhile 表兩件事同時發生，不是轉折"
+        ]
+      }
+    ]
+  },
+  "grammar/01_八大詞性與句型結構/07_冠詞與數量詞": {
+    "chapterId": "grammar/01_八大詞性與句型結構/07_冠詞與數量詞",
+    "title": "數量詞可數不可數決策樹",
+    "titleEn": "Decision Tree: Quantifiers by Countability",
+    "decision": {
+      "question": "後面那個名詞可數還是不可數",
+      "questionEn": "Is the Following Noun Countable?",
+      "branches": [
+        {
+          "label": "可數名詞：用複數形",
+          "labelEn": "Countable: Plural Noun"
+        },
+        {
+          "label": "不可數名詞：用單數形",
+          "labelEn": "Uncountable: Singular Noun"
+        }
+      ]
+    },
+    "table": {
+      "title": "數量詞對照總表",
+      "titleEn": "Master Table of Quantifiers",
+      "rowHeader": "語意",
+      "rows": [
+        {
+          "head": "很多",
+          "gloss": "大量",
+          "cells": [
+            [
+              {
+                "pattern": "many",
+                "token": "複數 N",
+                "example": "many applicants"
+              }
+            ],
+            [
+              {
+                "pattern": "much",
+                "token": "不可數 N",
+                "example": "much equipment"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "太多",
+          "gloss": "過多",
+          "cells": [
+            [
+              {
+                "pattern": "too many",
+                "token": "複數 N",
+                "example": "too many revisions"
+              }
+            ],
+            [
+              {
+                "pattern": "too much",
+                "token": "不可數 N",
+                "example": "too much overtime"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "一些",
+          "gloss": "有一點，正面",
+          "cells": [
+            [
+              {
+                "pattern": "a few",
+                "token": "複數 N",
+                "example": "a few options left"
+              }
+            ],
+            [
+              {
+                "pattern": "a little",
+                "token": "不可數 N",
+                "example": "a little time left"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "幾乎沒有",
+          "gloss": "負面",
+          "cells": [
+            [
+              {
+                "pattern": "few",
+                "token": "複數 N",
+                "example": "few options left"
+              }
+            ],
+            [
+              {
+                "pattern": "little",
+                "token": "不可數 N",
+                "example": "little time left"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "比較少",
+          "gloss": "較少的",
+          "cells": [
+            [
+              {
+                "pattern": "fewer",
+                "token": "複數 N",
+                "example": "fewer defects"
+              }
+            ],
+            [
+              {
+                "pattern": "less",
+                "token": "不可數 N",
+                "example": "less waste"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        },
+        {
+          "head": "數量",
+          "gloss": "…的數量",
+          "cells": [
+            [
+              {
+                "pattern": "a number of",
+                "token": "複數 N",
+                "example": "a number of orders"
+              }
+            ],
+            [
+              {
+                "pattern": "a large amount of",
+                "token": "不可數 N",
+                "example": "a large amount of cash"
+              }
+            ]
+          ],
+          "sharedExample": ""
+        }
+      ]
+    },
+    "notes": [
+      {
+        "title": "補充 1：有沒有 a，語意完全相反",
+        "lines": [
+          "a few／a little（有一些）是正面：We still have a little time.",
+          "few／little（幾乎沒有）是負面：We have little time left.",
+          "選項同時給出兩種時，先讀句意判斷正負再決定"
+        ]
+      },
+      {
+        "title": "補充 2：most 與 most of",
+        "lines": [
+          "most + 名詞＝大部分的…：most employees",
+          "most of + the／所有格 + 名詞＝…之中的大部分：most of the employees",
+          "of 後面沒有限定詞就是錯的，all／some／none 同理"
+        ]
+      },
+      {
+        "title": "補充 3：all 與 whole 結構不同",
+        "lines": [
+          "all + the + 複數／不可數名詞：all the students",
+          "the whole + 單數名詞：the whole class",
+          "another + 數字 + 複數名詞是固定用法：another three days"
+        ]
+      },
+      {
+        "title": "補充 4：零冠詞與 the 的專有名詞",
+        "lines": [
+          "公司名、人名、街道名前多半不加冠詞",
+          "國名含 United／Republic 要加 the：the United States",
+          "不可數名詞泛指時不加 a/an，也不加 -s"
+        ]
+      }
+    ]
   }
 }
