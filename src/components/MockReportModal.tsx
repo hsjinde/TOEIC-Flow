@@ -30,6 +30,12 @@ interface MockReportModalProps {
   previousCorrect: number | null
   onFileWrongQuestions: () => void
   wrongFiled: boolean
+  /**
+   * 回到「開始這一場考試的地方」。預設今日任務，但從練習中心進來的考試要回得去
+   * 原本那一頁——交卷後被丟回首頁，等於每次考試都把使用者從閱讀脈絡裡踢出來。
+   */
+  backHref?: string
+  backLabel?: string
 }
 
 function formatDuration(seconds: number): string {
@@ -47,6 +53,8 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
   previousCorrect,
   onFileWrongQuestions,
   wrongFiled,
+  backHref = '/',
+  backLabel = '今日任務',
 }) => {
   const [reviewIndex, setReviewIndex] = useState<number | null>(null)
   const reviewRef = useRef<HTMLElement>(null)
@@ -302,8 +310,8 @@ export const MockReportModal: React.FC<MockReportModalProps> = ({
       )}
 
       <div className="flex flex-col gap-2 sm:flex-row">
-        <Link href="/" className="flex-1">
-          <Button variant="outline">返回今日任務</Button>
+        <Link href={backHref} className="flex-1">
+          <Button variant="outline">返回{backLabel}</Button>
         </Link>
         <Link href="/stats" className="flex-1">
           <Button variant="primary">看更新後的統計</Button>

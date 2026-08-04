@@ -13,6 +13,7 @@ import {
   getFormulaCards,
   stripOrderPrefix,
 } from '../../../lib/content'
+import { resolveOrigin, chapterHref } from '../../../lib/origin'
 import { FormulaCard } from '../../../components/FormulaCard'
 import { Button } from '../../../components/ui/Button'
 import { useScrollToTopOnChange } from '../../../lib/scroll'
@@ -32,11 +33,7 @@ interface CardSession {
   backLabel: string
 }
 
-function chapterHref(id: string): string {
-  return `/chapters/${id.split('/').map(encodeURIComponent).join('/')}`
-}
-
-function buildSession(params: URLSearchParams): CardSession {
+function buildBaseSession(params: URLSearchParams): CardSession {
   const chapterId = params.get('chapter')
 
   if (chapterId) {
@@ -56,6 +53,13 @@ function buildSession(params: URLSearchParams): CardSession {
     backHref: '/',
     backLabel: '今日任務',
   }
+}
+
+/** 出口覆寫層：base 決定發哪幾張卡，from 決定看完回哪。 */
+export function buildSession(params: URLSearchParams): CardSession {
+  const base = buildBaseSession(params)
+  const origin = resolveOrigin(params, { backHref: base.backHref, backLabel: base.backLabel })
+  return { ...base, ...origin }
 }
 
 export default function FormulaCardPageWrapper() {

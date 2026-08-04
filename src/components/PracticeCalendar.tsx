@@ -4,6 +4,12 @@ import { cn } from '../lib/utils'
 
 interface PracticeCalendarProps {
   days: CalendarDay[]
+  /**
+   * 熱區格邊長。首頁只放 42 天（8 欄），286px 的容器裡 13px 只用掉一半寬度，
+   * 所以放大到 22px；/stats 放 84 天（14 欄），13px 已經佔掉 91%，沒有空間。
+   * 44px 的觸控標準在這裡物理上做不到：42 格 × 44px = 1848px，放不進 375px 的螢幕。
+   */
+  cellSize?: 13 | 22
 }
 
 const WEEKDAY_LABELS = ['一', '', '三', '', '五', '', '日']
@@ -45,9 +51,12 @@ interface HoverInfo {
  * 近 N 週的練習熱區。以週一為每欄起點；傳入天數不是 7 的倍數時前面補空白格，
  * 否則星期會對不齊。
  */
-export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
+export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days, cellSize = 13 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null)
+
+  const cell = { height: `${cellSize}px`, width: `${cellSize}px` }
+  const labelStyle = { height: `${cellSize}px` }
 
   // 點出來的浮卡要有出口：點空白處或 Esc 都關得掉。
   useEffect(() => {
@@ -127,7 +136,8 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
               key={i}
               // 9px 是 type ramp 的唯一例外：軸標籤要對齊 13px 的熱力圖格子行高，
               // 物理上放不下 11px。字級破例，但顏色不破例——用 --mu 保住 4.5:1。
-              className="flex h-[13px] items-center text-[9px] leading-none text-[var(--mu)]"
+              className="flex items-center text-[9px] leading-none text-[var(--mu)]"
+              style={labelStyle}
             >
               {label}
             </span>
@@ -137,7 +147,7 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
         {weeks.map((week, wi) => (
           <div key={wi} className="flex flex-none flex-col gap-[3px]">
             {week.map((day, di) => {
-              if (!day) return <span key={di} className="h-[13px] w-[13px]" />
+              if (!day) return <span key={di} style={cell} />
               const style = LEVEL_STYLE[levelOf(day.count)]!
               const isOpen = hoverInfo?.pinned && hoverInfo.day.date === day.date
               return (
@@ -149,10 +159,10 @@ export const PracticeCalendar: React.FC<PracticeCalendarProps> = ({ days }) => {
                   aria-label={`${formatDateZh(day.date)} ${day.count} 題`}
                   aria-expanded={isOpen}
                   className={cn(
-                    'h-[13px] w-[13px] rounded-[3px] border transition-colors duration-150',
+                    'rounded-[3px] border transition-colors duration-150',
                     isOpen && 'ring-2 ring-[var(--pr)]'
                   )}
-                  style={style}
+                  style={{ ...style, ...cell }}
                   onClick={(e) =>
                     isOpen ? setHoverInfo(null) : showTooltip(e, day, true)
                   }

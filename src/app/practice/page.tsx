@@ -27,21 +27,21 @@ const DAILY_TASKS = [
     key: 'vocab' as const,
     title: '單字複習',
     subtitle: '10 個 · 約 4 分鐘',
-    href: '/practice/vocab',
+    href: '/practice/vocab?from=practice',
     icon: <BookOpen className="h-5 w-5" />,
   },
   {
     key: 'grammar' as const,
     title: '文法練習',
     subtitle: '5 題 · 約 6 分鐘',
-    href: '/practice/grammar',
+    href: '/practice/grammar?from=practice',
     icon: <Sparkles className="h-5 w-5" />,
   },
   {
     key: 'reading' as const,
     title: '閱讀理解',
     subtitle: '1 篇 · 約 5 分鐘',
-    href: '/practice/reading',
+    href: '/practice/reading?from=practice',
     icon: <FileText className="h-5 w-5" />,
   },
 ]
@@ -122,7 +122,7 @@ export default function PracticeHubPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-xl font-bold text-[var(--tx)]">練習</h1>
-        <p className="mt-0.5 text-xs text-[var(--mu)]">
+        <p className="mt-0.5 text-xs text-[var(--mu)] max-w-[var(--measure)]">
           所有練習與複習的入口都在這一頁
           {remainingTasks > 0 && ` · 今天還有 ${remainingTasks} 項任務`}
         </p>
@@ -185,7 +185,7 @@ export default function PracticeHubPage() {
           action={snap.weakVocabCount > 0 ? '開始複習' : '看看'}
         />
         <EntryCard
-          href="/practice/formulas"
+          href="/practice/formulas?from=practice"
           title="章節速查卡"
           icon={<Zap className="h-3.5 w-3.5 text-[var(--pr)]" />}
           badge={`${snap.formulaCardCount} 張`}
@@ -227,7 +227,7 @@ function Section({
         <h2 className="text-xs font-bold tracking-wider text-[var(--fa)]">{title}</h2>
         {hint && <span className="truncate text-[11px] text-[var(--fa)]">{hint}</span>}
       </div>
-      <div className="grid gap-2.5 lg:grid-cols-2">{children}</div>
+      <div className="grid gap-2.5 md:grid-cols-2">{children}</div>
     </section>
   )
 }

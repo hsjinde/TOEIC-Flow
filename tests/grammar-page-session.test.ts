@@ -104,3 +104,57 @@ describe('buildSession 學習路徑 stage', () => {
     expect(session.countsAsDailyTask).toBe(true)
   })
 })
+
+describe('buildSession 的 from 覆寫層', () => {
+  const q = grammarData as unknown as Question[]
+  const chapterId = q[0]!.chapterId
+  const categoryId = q[0]!.categoryId
+
+  it('沒帶 from 時預設回合仍回今日任務', () => {
+    const s = buildSession(new URLSearchParams())
+    expect(s.backHref).toBe('/')
+    expect(s.backLabel).toBe('今日任務')
+  })
+
+  it('from=practice 讓預設回合改回練習中心', () => {
+    const s = buildSession(new URLSearchParams({ from: 'practice' }))
+    expect(s.backHref).toBe('/practice')
+    expect(s.backLabel).toBe('練習中心')
+  })
+
+  // 這是本次最容易改壞的地方：唯一 countsAsDailyTask:true 的是無參數的預設分支，
+  // 而練習中心正是規定要列出三項每日任務的那一頁。from 絕不能攔在它前面。
+  it('from=practice 仍然算今日任務', () => {
+    const s = buildSession(new URLSearchParams({ from: 'practice' }))
+    expect(s.countsAsDailyTask).toBe(true)
+  })
+
+  it('from 只換出口，不動題目來源與計數', () => {
+    const plain = buildSession(new URLSearchParams({ chapter: chapterId }))
+    const withFrom = buildSession(new URLSearchParams({ chapter: chapterId, from: 'practice' }))
+    expect(withFrom.source).toBe(plain.source)
+    expect(withFrom.countsAsDailyTask).toBe(plain.countsAsDailyTask)
+    expect(withFrom.chapterId).toBe(plain.chapterId)
+    expect(withFrom.questions.length).toBe(plain.questions.length)
+    expect(withFrom.backHref).toBe('/practice')
+  })
+
+  it('from=stats 讓弱項加練回統計而不是首頁', () => {
+    const s = buildSession(new URLSearchParams({ category: categoryId, from: 'stats' }))
+    expect(s.backHref).toBe('/stats')
+    expect(s.countsAsDailyTask).toBe(false)
+  })
+
+  // 章節頁的「重練這章的錯題」：題目來自 ids，但使用者是從該章進來的。
+  it('from=chapter 讓錯題回合回該章而不是錯題本', () => {
+    const ids = q.slice(0, 3).map((x) => x.id).join(',')
+    const s = buildSession(new URLSearchParams({ mode: 'wrong', ids, from: 'chapter', chapter: chapterId }))
+    expect(s.backHref).toBe(`/chapters/${chapterId.split('/').map(encodeURIComponent).join('/')}`)
+    expect(s.source).toBe('wrong')
+  })
+
+  it('未知的 from 退回該分支原本的出口', () => {
+    const s = buildSession(new URLSearchParams({ stage: 'stage-01', from: 'evil' }))
+    expect(s.backHref).toBe('/path')
+  })
+})

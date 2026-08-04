@@ -10,6 +10,8 @@ interface WeaknessCardsProps {
   wrongCountByCategory?: Record<string, number>
   chapterCountByCategory?: Record<string, number>
   limit?: number
+  /** 這張卡是在哪一頁上顯示的——決定使用者練完要回哪。見 lib/origin.ts。 */
+  from: string
 }
 
 /**
@@ -21,6 +23,7 @@ export const WeaknessCards: React.FC<WeaknessCardsProps> = ({
   wrongCountByCategory = {},
   chapterCountByCategory = {},
   limit,
+  from,
 }) => {
   if (stats.length === 0) {
     return (
@@ -49,7 +52,7 @@ export const WeaknessCards: React.FC<WeaknessCardsProps> = ({
         return (
           <Link
             key={item.categoryId}
-            href={`/practice/grammar?category=${encodeURIComponent(item.categoryId)}`}
+            href={`/practice/grammar?category=${encodeURIComponent(item.categoryId)}&from=${from}`}
             className="block rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-4 transition-colors hover:border-[var(--pr-ln)]"
           >
             <div className="flex items-center justify-between gap-3">

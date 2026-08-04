@@ -22,10 +22,13 @@ import { speakWord } from '../../lib/speech'
 import { useIsDesktop } from '../../lib/useIsDesktop'
 import { cn } from '../../lib/utils'
 
+import { PAGE_SIZE, takePage } from '../../lib/paging'
+
 /** 一鍵複習抓幾個字，跟每日單字任務同一個量。 */
 const SESSION_SIZE = 10
 
 const ALL = '__all__'
+const DUE = 'due'
 const STATUS_ORDER: VocabStatus[] = ['leech', 'due', 'learning', 'mastered']
 
 interface VocabRow {
@@ -53,9 +56,16 @@ function relativeDue(stat: VocabStat): string {
 export default function VocabReviewPage() {
   const isDesktop = useIsDesktop()
   const [rows, setRows] = useState<VocabRow[] | null>(null)
-  const [filter, setFilter] = useState<string>(ALL)
+  // 預設落在「待複習」而不是「全部」：全部有 140 筆、頁高 18000px 以上，
+  // 而使用者打開這一頁的目的九成是「今天該複習哪些」。
+  const [filter, setFilter] = useState<string>(DUE)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [checked, setChecked] = useState<Set<string>>(new Set())
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    setPage(1)
+  }, [filter])
 
   const reload = useCallback(() => {
     // 改過筆記檔名的舊紀錄會查不到字，直接略過——複習本沒有「移除」動作可以給。
@@ -158,78 +168,90 @@ export default function VocabReviewPage() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
         {/* 清單 */}
         <div className="space-y-2.5">
-          {visible.map((row) => {
-            const { stat, item } = row
-            const isSelected = selected?.stat.vocabId === stat.vocabId
-            const isOpen = openRow?.stat.vocabId === stat.vocabId
-            const panelId = `vocab-detail-${encodeURIComponent(stat.vocabId)}`
-            return (
-              <div
-                key={stat.vocabId}
-                className={cn(
-                  'overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
-                  isSelected ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
-                )}
-              >
-                <div className="flex items-start gap-1 p-4">
-                  <label className="-m-1.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center">
-                    <input
-                      type="checkbox"
-                      aria-label={`選取 ${item.word}`}
-                      checked={checked.has(stat.vocabId)}
-                      onChange={() => toggleCheck(stat.vocabId)}
-                      className="h-4 w-4 accent-[var(--pr)]"
-                    />
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedId(isOpen && !isDesktop ? null : stat.vocabId)}
-                    aria-expanded={isDesktop ? undefined : isOpen}
-                    aria-controls={isDesktop ? undefined : panelId}
-                    className="min-w-0 flex-1 py-0.5 text-left"
-                  >
-                    <p className="flex flex-wrap items-center gap-2">
-                      <span className="font-option text-[15px] font-bold text-[var(--tx)]">
-                        {item.word}
-                      </span>
-                      {item.pos && (
-                        <span className="rounded-md bg-[var(--sf2)] px-1.5 py-0.5 text-[11px] text-[var(--mu)]">
-                          {item.pos}
+          <div className="space-y-2.5 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 xl:grid-cols-3">
+            {takePage(visible, page).map((row) => {
+              const { stat, item } = row
+              const isSelected = selected?.stat.vocabId === stat.vocabId
+              const isOpen = openRow?.stat.vocabId === stat.vocabId
+              const panelId = `vocab-detail-${encodeURIComponent(stat.vocabId)}`
+              return (
+                <div
+                  key={stat.vocabId}
+                  className={cn(
+                    'overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
+                    isSelected ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
+                  )}
+                >
+                  <div className="flex items-start gap-1 p-4">
+                    <label className="-m-1.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center">
+                      <input
+                        type="checkbox"
+                        aria-label={`選取 ${item.word}`}
+                        checked={checked.has(stat.vocabId)}
+                        onChange={() => toggleCheck(stat.vocabId)}
+                        className="h-4 w-4 accent-[var(--pr)]"
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(isOpen && !isDesktop ? null : stat.vocabId)}
+                      aria-expanded={isDesktop ? undefined : isOpen}
+                      aria-controls={isDesktop ? undefined : panelId}
+                      className="min-w-0 flex-1 py-0.5 text-left"
+                    >
+                      <p className="flex flex-wrap items-center gap-2">
+                        <span className="font-option text-[15px] font-bold text-[var(--tx)]">
+                          {item.word}
                         </span>
+                        {item.pos && (
+                          <span className="rounded-md bg-[var(--sf2)] px-1.5 py-0.5 text-[11px] text-[var(--mu)]">
+                            {item.pos}
+                          </span>
+                        )}
+                        <StatusBadge status={stat.status} />
+                      </p>
+                      <p className="mt-1 truncate text-[13px] text-[var(--mu)]">{item.meaning}</p>
+                      <p className="mt-1.5 text-[11px] text-[var(--mu)]">
+                        {relativePast(stat.lastReviewed)}
+                        {stat.attempts > 0 &&
+                          ` · 練過 ${stat.attempts} 次 · 正確率 ${stat.accuracyRate}%`}
+                      </p>
+                    </button>
+                    <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
+                      {stat.wrongCount > 0 && (
+                        <span className="text-[11px] text-[var(--mu)]">錯 {stat.wrongCount} 次</span>
                       )}
-                      <StatusBadge status={stat.status} />
-                    </p>
-                    <p className="mt-1 truncate text-[13px] text-[var(--mu)]">{item.meaning}</p>
-                    <p className="mt-1.5 text-[11px] text-[var(--mu)]">
-                      {relativePast(stat.lastReviewed)}
-                      {stat.attempts > 0 &&
-                        ` · 練過 ${stat.attempts} 次 · 正確率 ${stat.accuracyRate}%`}
-                    </p>
-                  </button>
-                  <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
-                    {stat.wrongCount > 0 && (
-                      <span className="text-[11px] text-[var(--mu)]">錯 {stat.wrongCount} 次</span>
-                    )}
-                    <MasteryDots level={stat.level} className="text-sm" />
-                    <ChevronDown
-                      aria-hidden
-                      className={cn(
-                        'h-4 w-4 text-[var(--mu)] transition-transform duration-200 lg:hidden',
-                        isOpen && 'rotate-180'
-                      )}
-                    />
+                      <MasteryDots level={stat.level} className="text-sm" />
+                      <ChevronDown
+                        aria-hidden
+                        className={cn(
+                          'h-4 w-4 text-[var(--mu)] transition-transform duration-200 lg:hidden',
+                          isOpen && 'rotate-180'
+                        )}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* 手機：字義與例句就地展開在該字底下，不必捲到整份清單的最後面。 */}
-                {!isDesktop && isOpen && (
-                  <InlinePanel id={panelId}>
-                    <VocabDetail row={row} />
-                  </InlinePanel>
-                )}
-              </div>
-            )
-          })}
+                  {/* 手機：字義與例句就地展開在該字底下，不必捲到整份清單的最後面。 */}
+                  {!isDesktop && isOpen && (
+                    <InlinePanel id={panelId}>
+                      <VocabDetail row={row} />
+                    </InlinePanel>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+          {takePage(visible, page).length < visible.length && (
+            <button
+              type="button"
+              onClick={() => setPage((p) => p + 1)}
+              className="min-h-11 w-full rounded-2xl border border-[var(--ln)] text-xs font-semibold text-[var(--mu)] hover:bg-[var(--sf2)]"
+            >
+              顯示更多（還有 {visible.length - takePage(visible, page).length} 筆）
+            </button>
+          )}
 
           {/* 批次動作 */}
           <div className="sticky bottom-[calc(var(--nav-h)+0.5rem)] z-10 flex items-center gap-2 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3 lg:bottom-4">
@@ -294,7 +316,7 @@ function PageHeader({
         <Link
           href="/practice"
           aria-label="返回練習中心"
-          className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
+          className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>

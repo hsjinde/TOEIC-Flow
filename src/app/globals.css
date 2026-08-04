@@ -58,6 +58,9 @@
    */
   :root {
     --nav-h: calc(3.8125rem + env(safe-area-inset-bottom, 0px));
+    /* 可讀行長上限：672px，中文約 40 字/行。桌機主欄有 1180px，長說明段落
+       若跟著撐滿，眼睛在行末找不回行首。 */
+    --measure: 42rem;
   }
 
   @media (min-width: 1024px) {

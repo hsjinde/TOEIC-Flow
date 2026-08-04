@@ -1,16 +1,6 @@
 import { verifyPassword, signJwt } from '../../../src/lib/crypto'
 import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
-
-function getCorsHeaders(request: any) {
-  const origin = request?.headers?.get('origin') || request?.headers?.get('Origin') || 'http://localhost:3000'
-  return {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': origin,
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
-}
+import { getCorsHeaders, buildSessionCookie } from '../../_lib/corsAndCookie'
 
 export async function onRequestOptions(context: any) {
   return new Response(null, {
@@ -20,7 +10,6 @@ export async function onRequestOptions(context: any) {
 }
 
 export async function onRequestPost(context: any) {
-  const origin = context.request?.headers?.get('origin') || '*'
   const corsHeaders = getCorsHeaders(context.request)
 
   try {
@@ -68,14 +57,8 @@ export async function onRequestPost(context: any) {
     }
     const token = await signJwt({ userId: user.id, email: user.email, nickname: user.nickname }, secret)
 
-    const headers = new Headers()
-    headers.append('Content-Type', 'application/json')
-    headers.append('Access-Control-Allow-Origin', origin)
-    headers.append('Access-Control-Allow-Credentials', 'true')
-    headers.append(
-      'Set-Cookie',
-      `toeic_session=${token}; HttpOnly; Secure; Path=/; SameSite=None; Max-Age=2592000`
-    )
+    const headers = new Headers(corsHeaders)
+    headers.append('Set-Cookie', buildSessionCookie(token, context.request, 2592000))
 
     return new Response(
       JSON.stringify({ success: true, user: { id: user.id, email: user.email, nickname: user.nickname } }),

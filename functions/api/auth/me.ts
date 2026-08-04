@@ -1,16 +1,6 @@
 import { verifyJwt } from '../../../src/lib/crypto'
 import { getJwtSecret, JWT_SECRET_ERROR_MESSAGE } from '../../_lib/jwtSecret'
-
-function getCorsHeaders(request: any) {
-  const origin = request?.headers?.get('origin') || '*'
-  return {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': origin,
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
-}
+import { getCorsHeaders } from '../../_lib/corsAndCookie'
 
 export async function onRequestOptions(context: any) {
   return new Response(null, {

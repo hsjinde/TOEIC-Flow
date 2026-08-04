@@ -1,7 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Flag, Grid3x3, X } from 'lucide-react'
 import type { MockExam, Question } from '../../../../scripts/build-content/types'
 import { getMockExams, getQuestionPassage, getQuestionStem } from '../../../lib/content'
@@ -13,6 +14,7 @@ import {
   type MockResult,
 } from '../../../lib/storage'
 import { estimateToeicScore } from '../../../lib/toeicScore'
+import { resolveOrigin } from '../../../lib/origin'
 import { Button } from '../../../components/ui/Button'
 import { MarkdownRenderer } from '../../../components/MarkdownRenderer'
 import { MockReportModal, type MockAnswerRow } from '../../../components/MockReportModal'
@@ -47,7 +49,21 @@ function formatClock(totalSeconds: number): string {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
 }
 
-export default function MockExamPage() {
+export default function MockExamPageWrapper() {
+  return (
+    <Suspense fallback={<MockSkeleton />}>
+      <MockExamPage />
+    </Suspense>
+  )
+}
+
+function MockExamPage() {
+  const searchParams = useSearchParams()
+  // 首頁沒有連到模擬考，唯一入口是練習中心與桌機 TopNav，所以預設出口就是練習中心。
+  const origin = resolveOrigin(
+    new URLSearchParams(searchParams.toString()),
+    { backHref: '/practice', backLabel: '練習中心' }
+  )
   const [exam, setExam] = useState<MockExam | null>(null)
   const [loaded, setLoaded] = useState(false)
   const [inflight, setInflight] = useState<InflightExam | null>(null)
@@ -315,8 +331,8 @@ export default function MockExamPage() {
       <div className="mx-auto flex max-w-md flex-col items-center gap-3 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] px-6 py-14 text-center">
         <h2 className="text-base font-bold text-[var(--tx)]">目前沒有可用的模擬考</h2>
         <p className="text-xs text-[var(--mu)]">模擬考題庫是空的，重新建置題庫後再回來。</p>
-        <Link href="/" className="w-full max-w-[240px] pt-1">
-          <Button variant="primary">回到今日任務</Button>
+        <Link href={origin.backHref} className="w-full max-w-[240px] pt-1">
+          <Button variant="primary">回到{origin.backLabel}</Button>
         </Link>
       </div>
     )
@@ -332,6 +348,8 @@ export default function MockExamPage() {
         previousCorrect={report.previousCorrect}
         onFileWrongQuestions={handleFileWrong}
         wrongFiled={wrongFiled}
+        backHref={origin.backHref}
+        backLabel={origin.backLabel}
       />
     )
   }
@@ -374,8 +392,8 @@ export default function MockExamPage() {
           </>
         )}
 
-        <Link href="/" className="text-xs text-[var(--mu)] hover:text-[var(--tx)]">
-          先回今日任務
+        <Link href={origin.backHref} className="text-xs text-[var(--mu)] hover:text-[var(--tx)]">
+          先回{origin.backLabel}
         </Link>
       </div>
     )
@@ -394,7 +412,7 @@ export default function MockExamPage() {
       <div className="flex items-center gap-2">
         {/* 導航在考試中被收起來了，離開的出口必須自己提供，而且要帶確認。 */}
         <Link
-          href="/"
+          href={origin.backHref}
           aria-label="離開模擬考"
           onClick={(e) => {
             if (!window.confirm('離開模擬考？作答會暫存，可以稍後接續。')) e.preventDefault()

@@ -66,6 +66,7 @@ describe('單字複習本', () => {
   it('shows how many times each word was missed', () => {
     seed()
     render(<VocabReviewPage />)
+    fireEvent.click(screen.getByRole('button', { name: /全部 4/ }))
     expect(screen.getAllByText('錯 2 次').length).toBeGreaterThan(0)
   })
 
@@ -81,6 +82,7 @@ describe('單字複習本', () => {
   it('sends only the checked words to the practice session', () => {
     seed()
     render(<VocabReviewPage />)
+    fireEvent.click(screen.getByRole('button', { name: /全部 4/ }))
 
     fireEvent.click(screen.getByLabelText(`選取 ${LEECH.word}`))
     const link = screen.getByRole('link', { name: /複習選取的字/ })
@@ -92,6 +94,7 @@ describe('單字複習本', () => {
   it('defaults to reviewing the whole visible list, weakest first', () => {
     seed()
     render(<VocabReviewPage />)
+    fireEvent.click(screen.getByRole('button', { name: /全部 4/ }))
 
     const link = screen.getByRole('link', { name: /開始複習 4 個/ })
     const ids = decodeURIComponent(link.getAttribute('href')!.split('ids=')[1]!).split(',')

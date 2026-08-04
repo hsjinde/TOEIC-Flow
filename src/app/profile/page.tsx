@@ -140,7 +140,7 @@ export default function ProfilePage() {
           <ThemeToggle />
         </nav>
 
-        <div className="space-y-5">
+        <div className="space-y-5 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 lg:items-start">
           {/* 身分 */}
           <section
             id="identity"
@@ -381,7 +381,7 @@ function ToggleRow({
   onChange: (value: boolean) => void
 }) {
   return (
-    <div className="flex items-center justify-between gap-4">
+    <label className="flex min-h-11 items-center justify-between gap-4 cursor-pointer">
       <span className="min-w-0">
         <span className="block text-sm text-[var(--tx)]">{label}</span>
         <span className="block text-xs text-[var(--mu)]">{description}</span>
@@ -405,7 +405,7 @@ function ToggleRow({
           style={{ height: 18, width: 18 }}
         />
       </button>
-    </div>
+    </label>
   )
 }
 

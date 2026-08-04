@@ -26,6 +26,7 @@ import { ExplanationCard } from '../../components/ExplanationCard'
 import { MarkdownRenderer } from '../../components/MarkdownRenderer'
 import { useIsDesktop } from '../../lib/useIsDesktop'
 import { cn } from '../../lib/utils'
+import { PAGE_SIZE, takePage } from '../../lib/paging'
 
 interface WrongItem {
   record: WrongQuestionRecord
@@ -59,6 +60,11 @@ export default function WrongQuestionsPage() {
   const [filter, setFilter] = useState<string>(ALL)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [checked, setChecked] = useState<Set<string>>(new Set())
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    setPage(1)
+  }, [filter])
 
   const reload = useCallback(() => {
     const next = toItems(getWrongQuestionList())
@@ -157,77 +163,89 @@ export default function WrongQuestionsPage() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-start">
         {/* 清單 */}
         <div className="space-y-2.5">
-          {visible.map((item) => {
-            const questionId = item.record.questionId
-            const graduated = item.record.consecutiveCorrect >= 2
-            const isSelected = selected?.record.questionId === questionId
-            const isOpen = openItem?.record.questionId === questionId
-            const panelId = `wrong-detail-${encodeURIComponent(questionId)}`
-            return (
-              <div
-                key={questionId}
-                className={cn(
-                  'overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
-                  isSelected ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
-                )}
-              >
-                <div className="flex items-start gap-1 p-4">
-                  {/* 16px 的原生 checkbox 在拇指下根本點不到，靠外層的 44px 熱區補上。 */}
-                  <label className="-m-1.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center">
-                    <input
-                      type="checkbox"
-                      aria-label={`選取 ${item.question ? getQuestionStem(item.question) : questionId}`}
-                      checked={checked.has(questionId)}
-                      onChange={() => toggleCheck(questionId)}
-                      className="h-4 w-4 accent-[var(--pr)]"
-                    />
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedId(isOpen && !isDesktop ? null : questionId)}
-                    aria-expanded={isDesktop ? undefined : isOpen}
-                    aria-controls={isDesktop ? undefined : panelId}
-                    className="min-w-0 flex-1 py-0.5 text-left"
-                  >
-                    <p className="line-clamp-2 text-sm leading-relaxed text-[var(--tx)]">
-                      {/* 段落題的 stem 是「題目 5」，清單上印它等於沒印。 */}
-                      {item.question ? getQuestionStem(item.question) : '（題目已不在題庫中）'}
-                    </p>
-                    <p className="mt-1.5 text-[11px] text-[var(--mu)]">
-                      {getCategoryShortLabel(item.record.categoryId)}
-                      {item.chapterId && ` · ${getChapterLabel(item.chapterId)}`}
-                      {' · '}
-                      {graduated ? '已畢業' : `最後答錯 ${relativeDay(item.record.lastFailedAt)}`}
-                    </p>
-                  </button>
-                  <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
-                    <span className="text-[11px] text-[var(--mu)]">錯 {item.record.failCount} 次</span>
-                    <GraduationDots
-                      consecutiveCorrect={item.record.consecutiveCorrect}
-                      className="text-sm"
-                    />
-                    <ChevronDown
-                      aria-hidden
-                      className={cn(
-                        'h-4 w-4 text-[var(--mu)] transition-transform duration-200 lg:hidden',
-                        isOpen && 'rotate-180'
-                      )}
-                    />
+          <div className="space-y-2.5 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
+            {takePage(visible, page).map((item) => {
+              const questionId = item.record.questionId
+              const graduated = item.record.consecutiveCorrect >= 2
+              const isSelected = selected?.record.questionId === questionId
+              const isOpen = openItem?.record.questionId === questionId
+              const panelId = `wrong-detail-${encodeURIComponent(questionId)}`
+              return (
+                <div
+                  key={questionId}
+                  className={cn(
+                    'overflow-hidden rounded-2xl border bg-[var(--sf)] transition-colors',
+                    isSelected ? 'border-[var(--pr-ln)]' : 'border-[var(--ln)]'
+                  )}
+                >
+                  <div className="flex items-start gap-1 p-4">
+                    {/* 16px 的原生 checkbox 在拇指下根本點不到，靠外層的 44px 熱區補上。 */}
+                    <label className="-m-1.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center">
+                      <input
+                        type="checkbox"
+                        aria-label={`選取 ${item.question ? getQuestionStem(item.question) : questionId}`}
+                        checked={checked.has(questionId)}
+                        onChange={() => toggleCheck(questionId)}
+                        className="h-4 w-4 accent-[var(--pr)]"
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(isOpen && !isDesktop ? null : questionId)}
+                      aria-expanded={isDesktop ? undefined : isOpen}
+                      aria-controls={isDesktop ? undefined : panelId}
+                      className="min-w-0 flex-1 py-0.5 text-left"
+                    >
+                      <p className="line-clamp-2 text-sm leading-relaxed text-[var(--tx)]">
+                        {/* 段落題的 stem 是「題目 5」，清單上印它等於沒印。 */}
+                        {item.question ? getQuestionStem(item.question) : '（題目已不在題庫中）'}
+                      </p>
+                      <p className="mt-1.5 text-[11px] text-[var(--mu)]">
+                        {getCategoryShortLabel(item.record.categoryId)}
+                        {item.chapterId && ` · ${getChapterLabel(item.chapterId)}`}
+                        {' · '}
+                        {graduated ? '已畢業' : `最後答錯 ${relativeDay(item.record.lastFailedAt)}`}
+                      </p>
+                    </button>
+                    <div className="flex shrink-0 flex-col items-end gap-1 pl-2">
+                      <span className="text-[11px] text-[var(--mu)]">錯 {item.record.failCount} 次</span>
+                      <GraduationDots
+                        consecutiveCorrect={item.record.consecutiveCorrect}
+                        className="text-sm"
+                      />
+                      <ChevronDown
+                        aria-hidden
+                        className={cn(
+                          'h-4 w-4 text-[var(--mu)] transition-transform duration-200 lg:hidden',
+                          isOpen && 'rotate-180'
+                        )}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/*
-                  設計上最要緊的一條：手機的詳解長在該題底下，不是整份清單的最後面。
-                  題目一多時，捲到頁尾再往回對題號是這一頁最大的摩擦。
-                */}
-                {!isDesktop && isOpen && (
-                  <InlinePanel id={panelId}>
-                    <WrongDetail item={item} />
-                  </InlinePanel>
-                )}
-              </div>
-            )
-          })}
+                  {/*
+                    設計上最要緊的一條：手機的詳解長在該題底下，不是整份清單的最後面。
+                    題目一多時，捲到頁尾再往回對題號是這一頁最大的摩擦。
+                  */}
+                  {!isDesktop && isOpen && (
+                    <InlinePanel id={panelId}>
+                      <WrongDetail item={item} />
+                    </InlinePanel>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+          {takePage(visible, page).length < visible.length && (
+            <button
+              type="button"
+              onClick={() => setPage((p) => p + 1)}
+              className="min-h-11 w-full rounded-2xl border border-[var(--ln)] text-xs font-semibold text-[var(--mu)] hover:bg-[var(--sf2)]"
+            >
+              顯示更多（還有 {visible.length - takePage(visible, page).length} 筆）
+            </button>
+          )}
 
           {/* 批次動作 */}
           <div className="sticky bottom-[calc(var(--nav-h)+0.5rem)] z-10 flex items-center gap-2 rounded-2xl border border-[var(--ln)] bg-[var(--sf)] p-3 lg:bottom-4">
@@ -300,7 +318,7 @@ function PageHeader({ count }: { count: number }) {
         <Link
           href="/practice"
           aria-label="返回練習中心"
-          className="-ml-2 rounded-xl p-2 text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
+          className="-ml-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[var(--mu)] hover:bg-[var(--sf2)] lg:hidden"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>
