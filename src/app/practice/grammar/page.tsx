@@ -9,6 +9,7 @@ import {
   getCategoryLabel,
   getChapterById,
   getChapterLabel,
+  getDailyGrammarQuestions,
   getGrammarQuestionsByCategory,
   getGrammarQuestionsByChapter,
   getQuestionsByIds,
@@ -112,7 +113,7 @@ function buildBaseSession(params: URLSearchParams): Session {
     }
   }
   return {
-    questions: getRandomGrammarQuestions(DEFAULT_COUNT),
+    questions: getDailyGrammarQuestions(DEFAULT_COUNT),
     source: 'grammar',
     countsAsDailyTask: true,
     title: '文法練習',

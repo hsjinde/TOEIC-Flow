@@ -17,6 +17,8 @@ import type {
 } from '../../scripts/build-content/types'
 import { resolveStem } from './stem'
 
+import { getChapterMasteryMap, getWrongQuestionList } from './storage'
+
 const grammar = (grammarData as unknown) as Question[]
 const vocab = (vocabData as unknown) as VocabItem[]
 const reading = (readingData as unknown) as ReadingPassage[]
@@ -46,6 +48,68 @@ export function getRandomFormulaCards(count: number = 10): FormulaCard[] {
 export function getRandomGrammarQuestions(count: number = 5): Question[] {
   const shuffled = [...grammar].sort(() => 0.5 - Math.random())
   return shuffled.slice(0, count)
+}
+
+/**
+ * 每日 5 題文法任務抽題：
+ * 排程原則：到期錯題優先 → 弱章節補位 → 隨機填滿
+ */
+export function getDailyGrammarQuestions(count: number = 5): Question[] {
+  const picked: Question[] = []
+  const pickedIds = new Set<string>()
+
+  // 1. 到期錯題優先（未畢業錯題：consecutiveCorrect < 2 且屬於文法題）
+  const wrongRecords = getWrongQuestionList().filter((w) => w.consecutiveCorrect < 2)
+  for (const record of wrongRecords) {
+    if (picked.length >= count) break
+    const q = getQuestionById(record.questionId)
+    if (q && q.id.startsWith('grammar/') && !pickedIds.has(q.id)) {
+      picked.push(q)
+      pickedIds.add(q.id)
+    }
+  }
+
+  // 2. 弱章節補位
+  if (picked.length < count) {
+    const masteryMap = getChapterMasteryMap()
+    // 找出做過的章節，按正確率由低到高（弱章節）排序
+    const weakChapters = Object.entries(masteryMap)
+      .filter(([_, m]) => (m.uniqueAnsweredCount ?? 0) > 0 || (m.totalAnswered ?? 0) > 0)
+      .sort((a, b) => {
+        const rateA = a[1].accuracyRate ?? 0
+        const rateB = b[1].accuracyRate ?? 0
+        if (rateA !== rateB) return rateA - rateB
+        return (b[1].totalAnswered ?? 0) - (a[1].totalAnswered ?? 0)
+      })
+
+    for (const [chapterId] of weakChapters) {
+      if (picked.length >= count) break
+      const chapterQuestions = getGrammarQuestionsByChapter(chapterId)
+      const candidates = [...chapterQuestions]
+        .filter((q) => !pickedIds.has(q.id))
+        .sort(() => 0.5 - Math.random())
+
+      for (const q of candidates) {
+        if (picked.length >= count) break
+        picked.push(q)
+        pickedIds.add(q.id)
+      }
+    }
+  }
+
+  // 3. 隨機填滿
+  if (picked.length < count) {
+    const filler = getRandomGrammarQuestions(grammar.length)
+      .filter((q) => !pickedIds.has(q.id))
+      .slice(0, count - picked.length)
+
+    for (const q of filler) {
+      picked.push(q)
+      pickedIds.add(q.id)
+    }
+  }
+
+  return picked
 }
 
 export function getRandomVocabItems(count: number = 10): VocabItem[] {
